@@ -1,0 +1,68 @@
+package com.nwl.lanya.rest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.nwl.lanya.common.MsgCode;
+import com.nwl.lanya.common.PageModel;
+import com.nwl.lanya.dto.AccountDto;
+import com.nwl.lanya.service.AccountService;
+
+@RestController
+@RequestMapping("accountRest")
+public class AccountRest extends AbstractBaseRest<AccountDto>{
+	
+	@Autowired
+	private AccountService service;
+
+	@Override
+	@RequestMapping("list")
+	public PageModel list(Integer page, Integer rows, AccountDto dto) {
+		try {
+			PageModel pageModel = new PageModel();
+			pageModel.setPageNo(page);
+			pageModel.setPageSize(rows);
+			pageModel.setStartIndex((page-1)*rows);
+			dto.setPageModel(pageModel);
+			
+			service.list(dto);
+			dto.setMsgCode(MsgCode.REQUEST_SCCESS);
+			dto.setMsg("操作成功");
+		} catch (Exception e) {
+			e.printStackTrace();
+			dto.setMsgCode(MsgCode.REQUEST_FALSE);
+			dto.setMsg("系统异常,请联系维护人员");
+		}
+		return dto.getPageModel();
+	}
+
+	@Override
+	public AccountDto deleteByIds(AccountDto dto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public AccountDto findById(AccountDto dto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@RequestMapping("saveOrUpdate")
+	@Override
+	public AccountDto saveOrUpdate(AccountDto dto) {
+		try {
+			service.saveOrUpdate(dto);
+			
+			dto.setMsgCode(MsgCode.REQUEST_SCCESS);
+			dto.setMsg("操作成功");
+		} catch (Exception e) {
+			e.printStackTrace();
+			dto.setMsgCode(MsgCode.REQUEST_FALSE);
+			dto.setMsg("系统异常,请联系维护人员");
+		}
+		return dto;
+	}
+
+}

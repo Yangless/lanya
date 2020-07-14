@@ -1,0 +1,73 @@
+package com.nwl.lanya.vo;
+
+import com.nwl.lanya.po.Comment;
+
+public class CommentVo extends Comment{
+
+	private String accountCode;
+	private String realName;
+	private String nickName;
+	private String phone;
+	private String photoUrl;
+	
+	private String teacherName;
+	
+	private String videoAudioName;
+
+	public String getPhotoUrl() {
+		return photoUrl;
+	}
+
+	public void setPhotoUrl(String photoUrl) {
+		this.photoUrl = photoUrl;
+	}
+
+	public String getAccountCode() {
+		return accountCode;
+	}
+
+	public void setAccountCode(String accountCode) {
+		this.accountCode = accountCode;
+	}
+
+	public String getRealName() {
+		return realName;
+	}
+
+	public void setRealName(String realName) {
+		this.realName = realName;
+	}
+
+	public String getNickName() {
+		return nickName;
+	}
+
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getTeacherName() {
+		return teacherName;
+	}
+
+	public void setTeacherName(String teacherName) {
+		this.teacherName = teacherName;
+	}
+
+	public String getVideoAudioName() {
+		return videoAudioName;
+	}
+
+	public void setVideoAudioName(String videoAudioName) {
+		this.videoAudioName = videoAudioName;
+	}
+	
+}

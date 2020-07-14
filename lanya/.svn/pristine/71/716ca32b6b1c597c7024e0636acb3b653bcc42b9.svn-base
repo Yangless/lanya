@@ -1,0 +1,33 @@
+package com.nwl.lanya.po;
+
+public class MyTribe {
+    private Integer id;
+
+    private Integer accountId;
+
+    private Integer tribeId;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(Integer accountId) {
+        this.accountId = accountId;
+    }
+
+    public Integer getTribeId() {
+        return tribeId;
+    }
+
+    public void setTribeId(Integer tribeId) {
+        this.tribeId = tribeId;
+    }
+}

@@ -1,0 +1,55 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<body>
+  
+	<!-- start: Header -->
+	<div th:fragment="topNavbar" class="navbar">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a class="btn btn-navbar" data-toggle="collapse"
+					data-target=".top-nav.nav-collapse,.sidebar-nav.nav-collapse">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+				</a> <a class="brand" href="html/index.html"><img src="img/avatar.jpg" /></a>
+				<!-- start: Header Menu -->
+				<div class="nav-no-collapse header-nav">
+					<ul class="nav pull-right">
+						<!-- start: User Dropdown -->
+						<li class="dropdown"><a class="btn dropdown-toggle"
+							data-toggle="dropdown" href="#"> <i
+								class="halflings-icon white user"></i><span th:text="${session.account.accountCode}"></sapn>
+								<span class="caret"></span>
+						</a>
+							<ul class="dropdown-menu">
+								<li class="dropdown-menu-title"><span>账户设置</span></li>
+								<li><a href="/manage/updatePwd"><i class="halflings-icon user"></i>修改密码</a></li>
+								<li><a href="/login"><i class="halflings-icon off"></i>退出登录</a></li>
+							</ul></li>
+						<!-- end: User Dropdown -->
+					</ul>
+				</div>
+				<!-- end: Header Menu -->
+			</div>
+		</div>
+	</div> 
+	<!-- end: Header -->
+
+	<!-- start: Main Menu -->
+	<div th:fragment="leftNavbar" id="sidebar-left" class="span2">
+		<div class="nav-collapse sidebar-nav">
+			<ul class="nav nav-tabs nav-stacked main-menu">
+				<li><a href="/manage/advertisment"><i class="icon-tasks"></i><span class="hidden-tablet">广告管理</span></a></li>
+				<li><a href="/manage/comment"><i class="icon-tasks"></i><span class="hidden-tablet">评论管理</span></a></li>
+				<li><a href="/manage/lable"><i class="icon-tasks"></i><span class="hidden-tablet">标签管理</span></a></li>
+				<li><a href="/manage/resource"><i class="icon-tasks"></i><span class="hidden-tablet">课程资源管理</span></a></li>
+				<li><a href="/manage/account"><i class="icon-tasks"></i><span class="hidden-tablet">账号管理</span></a></li>
+			</ul>
+		</div>
+	</div> 
+	<!-- end: Main Menu -->
+
+</body>
+</html>
+
+

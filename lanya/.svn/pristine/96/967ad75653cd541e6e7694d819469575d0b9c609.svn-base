@@ -1,0 +1,49 @@
+body{
+	padding-top: 190px;
+}
+#learningPathInfo{
+	position: fixed;
+	top: 45px;
+	left: 0px;
+	z-index: 100;
+	text-align: left;
+	width: 100%;
+	background: #FFFFFF;
+}
+.courseListInfoA{
+	padding: 10px 0px;
+	background:#26A0DA;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	position: relative;
+}
+#attention{
+	position: absolute;
+	top:5px;
+	left:5px;
+}
+#attention span{
+	font-size: 14px;
+	color: #FFFFFF;
+}
+.courseListInfoPhoto{
+	text-align: center;
+	width: 100%;
+}
+.courseListInfoPhoto img{
+	width: 50px;
+	height: 50px;
+	border-radius: 50px;
+}
+.courseListInfoPhoto div{
+	font-size: 16px;
+	color: white;
+}
+#courseList{
+	margin-top: 10px;
+}
+.courseInfoShow{
+	text-indent: 20px;
+	padding: 0px 10px;
+	color: white;
+}

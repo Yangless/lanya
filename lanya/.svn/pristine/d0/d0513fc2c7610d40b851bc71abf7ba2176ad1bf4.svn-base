@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="../"/>
+	<meta charset="utf-8" />
+	<title>蓝芽-帮助您职业技能成长</title>
+	<!-- start: Favicon -->
+	<link rel="shortcut icon" href="img/logo.jpg">
+	<!-- end: Favicon -->
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="css/phone/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/phone/icons-extra.css"/>
+    <link rel="stylesheet" href="css/phone/common.css"/>
+    <link rel="stylesheet" type="text/css" href="css/phone/index.css"/>
+    
+    <script type="text/javascript" src="js/phone/jquery-3.3.1.min.js" ></script>
+    <script type="text/javascript" src="js/phone/common.js"></script>
+    <script src="js/phone/mui.min.js"></script>
+	<script type="text/javascript" src="js/phone/me.js"></script>
+</head>
+<body>
+	
+		<div id="contentDiv">
+		    <div id="userInfo">
+				<img src="img/muwu.jpg">
+				<p>张建军</p>		
+			</div>
+			
+			<ul class="mui-table-view">
+			    <li class="mui-table-view-cell">
+			        <a href="phone/personCenter.html" class="mui-navigate-right">
+			           <span class="mui-icon mui-icon-person"></span>
+			           <span class="mui-badge" style="background: none;color:#26A0DA;">已实名认证</span>
+			           <span>个人中心</span>
+			        </a>
+			    </li>
+			    <li class="mui-table-view-cell">
+			        <a href="phone/shareClass.html" class="mui-navigate-right">
+			           <span class="mui-icon mui-icon-videocam"></span>
+			           <span>课程分享</span>
+			        </a>
+			    </li>
+			</ul>
+			
+			<ul class="mui-table-view">
+			    <li class="mui-table-view-cell">
+			        <a href="phone/studentTalk.html" class="mui-navigate-right">
+			           <span class="mui-icon-extra mui-icon-extra-university"></span>
+			           <span>我的学生</span>
+			        </a>
+			    </li>
+			    <li class="mui-table-view-cell">
+			        <a href="phone/tribeList.html" class="mui-navigate-right">
+			           <span class="mui-icon-extra mui-icon-extra-holiday"></span>
+			           <span>创建部落</span>
+			        </a>
+			    </li>
+			    <li class="mui-table-view-cell">
+			        <a href="phone/recruitList.html" class="mui-navigate-right">
+			           <span class="mui-icon-extra mui-icon-extra-peoples"></span>
+			           <span>我要招人</span>
+			        </a>
+			    </li>
+			</ul>
+			
+			<ul class="mui-table-view">
+			    <li class="mui-table-view-cell">
+			        <a href="phone/system.html" class="mui-navigate-right">
+			           <span class="mui-icon mui-icon-gear"></span>
+			           <span>系统相关</span>
+			        </a>
+			    </li>
+			    <li class="mui-table-view-cell">
+		            <span class="mui-icon-extra mui-icon-extra-custom"></span>
+		            <span>关于我们</span>
+			    </li>
+			</ul>
+		</div>
+		
+	    <!--底部菜单-->
+		<table class="bottomMenu">
+			<tr>
+			   <td>
+			        <a href="/phone/recommend" style="color: grey;">
+						<span class="mui-icon mui-icon-eye"></span>
+						<br/>
+						<span class="mui-tab-label">推荐</span>
+					</a>
+			   </td>
+			   <td>
+			        <a href="/phone/collection" style="color: grey;">
+						<span class="mui-icon mui-icon-extra mui-icon-extra-heart-filled"></span>
+						<br/>
+						<span class="mui-tab-label">收藏</span>
+					</a>
+			   </td>
+			   <td>
+			        <a href="/phone/communication" style="color: grey;">
+						<span class="mui-icon mui-icon-weixin"></span>
+						<br/>
+						<span class="mui-tab-label">交流</span>
+					</a>
+			   </td>
+			   <td>
+			        <a href="/phone/me">
+						<span class="mui-icon mui-icon mui-icon-contact"></span>
+						<br/>
+						<span class="mui-tab-label">我</span>
+					</a>
+			   </td>
+			</tr>
+		</table>
+		
+		<div id="share" class="mui-popover mui-popover-action mui-popover-bottom">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a>分享到QQ</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a>分享到微信</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a>朕不喜欢</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a><b>取消</b></a>
+				</li>
+			</ul>
+		</div>
+</body>
+</html>

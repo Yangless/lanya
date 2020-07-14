@@ -1,0 +1,131 @@
+package com.nwl.lanya.rest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.nwl.lanya.common.MsgCode;
+import com.nwl.lanya.common.PageModel;
+import com.nwl.lanya.dto.CommentDto;
+import com.nwl.lanya.service.CommentService;
+
+@RestController
+@RequestMapping("commentRest")
+public class CommentRest extends AbstractBaseRest<CommentDto>{
+	
+	@Autowired
+	private CommentService service;
+
+	@Override
+	@RequestMapping("list")
+	public PageModel list(Integer page, Integer rows, CommentDto dto) {
+		try {
+			PageModel pageModel = new PageModel();
+			pageModel.setPageNo(page);
+			pageModel.setPageSize(rows);
+			pageModel.setStartIndex((page-1)*rows);
+			dto.setPageModel(pageModel);
+			
+			service.list(dto);
+			dto.setMsgCode(MsgCode.REQUEST_SCCESS);
+			dto.setMsg("操作成功");
+		} catch (Exception e) {
+			e.printStackTrace();
+			dto.setMsgCode(MsgCode.REQUEST_FALSE);
+			dto.setMsg("系统异常,请联系维护人员");
+		}
+		return dto.getPageModel();
+	}
+
+	@Override
+	public CommentDto deleteByIds(CommentDto dto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	@RequestMapping("findById")
+	public CommentDto findById(CommentDto dto) {
+		try {
+			service.findById(dto);
+			
+			dto.setMsgCode(MsgCode.REQUEST_SCCESS);
+			dto.setMsg("操作成功");
+		} catch (Exception e) {
+			e.printStackTrace();
+			dto.setMsgCode(MsgCode.REQUEST_FALSE);
+			dto.setMsg("系统异常,请联系维护人员");
+		}
+		return dto;
+	}
+
+	/**
+	 * 
+	* @Title: saveOrUpdate 
+	* @Description: 保存评论信息
+	* @param    
+	* @return AccountDto    
+	* @throws
+	 */
+	@Override
+	@RequestMapping("saveOrUpdate")
+	public CommentDto saveOrUpdate(CommentDto dto) {
+		try {
+			service.saveOrUpdate(dto);
+			
+			dto.setMsgCode(MsgCode.REQUEST_SCCESS);
+			dto.setMsg("操作成功");
+		} catch (Exception e) {
+			e.printStackTrace();
+			dto.setMsgCode(MsgCode.REQUEST_FALSE);
+			dto.setMsg("系统异常,请联系维护人员");
+		}
+		return dto;
+	}
+	
+	/**
+	 * 
+	* @Title: updateUseAble 
+	* @Description: 更新可用状态
+	* @param    
+	* @return AccountDto    
+	* @throws
+	 */
+	@RequestMapping("updateUseAble")
+	public CommentDto updateUseAble(CommentDto dto) {
+		try {
+			service.updateUseAble(dto);
+			
+			dto.setMsgCode(MsgCode.REQUEST_SCCESS);
+			dto.setMsg("操作成功");
+		} catch (Exception e) {
+			e.printStackTrace();
+			dto.setMsgCode(MsgCode.REQUEST_FALSE);
+			dto.setMsg("系统异常,请联系维护人员");
+		}
+		return dto;
+	}
+	
+	/**
+	 * 
+	* @Title: praiseNumber 
+	* @Description: 添加获赞次数
+	* @param    
+	* @return AccountDto    
+	* @throws
+	 */
+	@RequestMapping("praiseNumber")
+	public CommentDto praiseNumber(CommentDto dto) {
+		try {
+			service.praiseNumber(dto);
+			dto.setMsgCode(MsgCode.REQUEST_SCCESS);
+			dto.setMsg("操作成功");
+		} catch (Exception e) {
+			e.printStackTrace();
+			dto.setMsgCode(MsgCode.REQUEST_FALSE);
+			dto.setMsg("系统异常,请联系维护人员");
+		}
+		return dto;
+	} 
+
+}

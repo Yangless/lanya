@@ -1,0 +1,52 @@
+//定义全局变量
+lanya.courseList={
+	
+};
+
+$$(function(){
+	//判断信息是否已经缓存
+	if(isEmpty(window.localStorage.getItem("courseList-courseId"))){
+		//如果不是根据完整课程的id来查询，就是通过老师id和课程名称来查询
+		if(isEmpty(window.localStorage.getItem("courseList-teacherId"))||isEmpty(window.localStorage.getItem("courseList-courseName"))){
+			
+		}else{
+			lanya.courseList.teacherId = window.localStorage.getItem("courseList-teacherId");
+			lanya.courseList.courseName = window.localStorage.getItem("courseList-courseName");
+		}
+	}else{
+		lanya.courseList.courseId = window.localStorage.getItem("courseList-courseId");
+	}
+	
+	//通过课程id获取课程详情
+	getCourseInfo();
+});
+
+//获取完整课程详情
+function getCourseInfo(){
+	$$.ajax({
+		url:"courseFullRest/getCourseInfo",
+		type:"post",
+		data:lanya.courseList,
+		dataType:"json",
+		success:function(dto){
+			//获取完整课程详情
+			var po = dto.pos[0];
+			$$("#coursePhoto").attr("src",po.coursePhoto);
+			$$("#courseName").text(po.courseName);
+			$$("#introduce").text(po.introduce);
+			//获取完整课程下面的视频列表
+			var rows = po.children;
+			for(var i=0;i<rows.length;i++){
+				var row = rows[i];
+				$$("#courseList").append(
+					'<li class="mui-table-view-cell">'+
+				        '<a href="phone/videoInfo.html" class="mui-navigate-right">'+
+				           '<span class="mui-icon mui-icon-videocam"></span>'+
+				           '<span>'+row.courseName+'</span>'+
+				        '</a>'+
+				    '</li>'
+				);
+			}
+		}
+	});
+}

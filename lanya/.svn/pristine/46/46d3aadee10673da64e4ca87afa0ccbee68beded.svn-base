@@ -1,0 +1,73 @@
+package com.nwl.lanya.po;
+
+public class CourseListWithBLOBs extends CourseList {
+    private String fitStudent;
+
+    private String preCourse;
+
+    private String studyType;
+
+    private String resource;
+
+    private String question;
+
+    private String introduce;
+
+    private String teacherInfo;
+
+    public String getFitStudent() {
+        return fitStudent;
+    }
+
+    public void setFitStudent(String fitStudent) {
+        this.fitStudent = fitStudent == null ? null : fitStudent.trim();
+    }
+
+    public String getPreCourse() {
+        return preCourse;
+    }
+
+    public void setPreCourse(String preCourse) {
+        this.preCourse = preCourse == null ? null : preCourse.trim();
+    }
+
+    public String getStudyType() {
+        return studyType;
+    }
+
+    public void setStudyType(String studyType) {
+        this.studyType = studyType == null ? null : studyType.trim();
+    }
+
+    public String getResource() {
+        return resource;
+    }
+
+    public void setResource(String resource) {
+        this.resource = resource == null ? null : resource.trim();
+    }
+
+    public String getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(String question) {
+        this.question = question == null ? null : question.trim();
+    }
+
+    public String getIntroduce() {
+        return introduce;
+    }
+
+    public void setIntroduce(String introduce) {
+        this.introduce = introduce == null ? null : introduce.trim();
+    }
+
+    public String getTeacherInfo() {
+        return teacherInfo;
+    }
+
+    public void setTeacherInfo(String teacherInfo) {
+        this.teacherInfo = teacherInfo == null ? null : teacherInfo.trim();
+    }
+}

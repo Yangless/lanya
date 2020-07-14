@@ -1,0 +1,201 @@
+package com.nwl.lanya.controller;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.nwl.lanya.dto.AccountDto;
+import com.nwl.lanya.po.Account;
+import com.nwl.lanya.service.AccountService;
+
+@Controller
+@RequestMapping("phone")
+public class PhoneController {
+	
+	@Autowired
+	private AccountService accountService;
+	
+	/**
+	 * 
+	* @Title: register 
+	* @Description:注册
+	* @param    
+	* @return String    
+	* @throws
+	 */
+	@RequestMapping("register")
+	public String register(){
+		return "phone/register";
+	} 
+	/**
+	 * 
+	* @Title: login 
+	* @Description: 登录
+	* @param    
+	* @return String    
+	* @throws
+	 */
+	@RequestMapping("login")
+	public String login(Model model){
+		model.addAttribute("flag", false);
+		return "phone/login";
+	}
+	@RequestMapping("loginIndex")
+	public String loginError(Model model){
+		model.addAttribute("flag", true);
+		model.addAttribute("message", "账号或密码错误");
+		return "phone/login";
+	}
+	@RequestMapping("loginOut")
+	public String loginOut(HttpSession session,Model model){
+		session.invalidate();
+		return "redirect:/phone/recommend";
+	}
+	@RequestMapping("index")
+	public String index(AccountDto dto,Model model){
+		accountService.login(dto);
+		Account account = dto.getAccount();
+		if(account!=null){
+			return "redirect:/phone/me";
+		}else{
+			return "redirect:/phone/loginIndex";
+		}
+	}
+	/**
+	 * 
+	* @Title: getPhone 
+	* @Description:获取手机号
+	* @param    
+	* @return String    
+	* @throws
+	 */
+	@RequestMapping("getPhone")
+	public String getPhone(){
+		return "phone/getPhone";
+	} 
+	
+	@RequestMapping("courseList")
+	public String courseList(){
+		return "phone/courseList";
+	} 
+	@RequestMapping("recommend")
+	public String recommend(){
+		return "phone/recommend";
+	} 
+	@RequestMapping("collection")
+	public String collection(){
+		return "phone/collection";
+	} 
+	@RequestMapping("communication")
+	public String communication(){
+		return "phone/communication";
+	} 
+	@RequestMapping("me")
+	public String me(){
+		return "phone/me";
+	} 
+
+	@RequestMapping("learningPath")
+	public String learningPath(){
+		return "phone/learningPath";
+	} 
+	
+	@RequestMapping("moneyList")
+	public String moneyList(){
+		return "phone/moneyList";
+	} 
+	@RequestMapping("myMoney")
+	public String myMoney(){
+		return "phone/myMoney";
+	} 
+	
+	@RequestMapping("personCenter")
+	public String personCenter(){
+		return "phone/personCenter";
+	} 
+	@RequestMapping("realName")
+	public String realName(){
+		return "phone/realName";
+	} 
+	
+	@RequestMapping("recruitAdd")
+	public String recruitAdd(){
+		return "phone/recruitAdd";
+	} 
+	@RequestMapping("recruitList")
+	public String recruitList(){
+		return "phone/recruitList";
+	} 
+	
+	@RequestMapping("recruitTalk")
+	public String recruitTalk(){
+		return "phone/recruitTalk";
+	} 
+	@RequestMapping("school")
+	public String school(){
+		return "phone/school";
+	} 
+	
+	@RequestMapping("search")
+	public String search(){
+		return "phone/search";
+	} 
+	
+	@RequestMapping("shareClass")
+	public String shareClass(){
+		return "phone/shareClass";
+	} 
+	
+	@RequestMapping("studentTalk")
+	public String studentTalk(){
+		return "phone/studentTalk";
+	} 
+	
+	@RequestMapping("system")
+	public String system(){
+		return "phone/system";
+	} 
+	
+	@RequestMapping("teacherInfo")
+	public String teacherInfo(){
+		return "phone/teacherInfo";
+	} 
+	
+	@RequestMapping("tribeAdd")
+	public String tribeAdd(){
+		return "phone/tribeAdd";
+	} 
+	
+	@RequestMapping("tribeList")
+	public String tribeList(){
+		return "phone/tribeList";
+	} 
+	
+	@RequestMapping("tribeTalk")
+	public String tribeTalk(){
+		return "phone/tribeTalk";
+	} 
+	
+	@RequestMapping("videoInfo")
+	public String videoInfo(){
+		return "phone/videoInfo";
+	} 
+	
+	/**
+	 * 
+	* @Title: replyComment 
+	* @Description:回复评论
+	* @param    
+	* @return String    
+	* @throws
+	 */
+	@RequestMapping("replyComment")
+	public String replyComment(){
+		return "phone/replyComment";
+	}
+
+	
+}

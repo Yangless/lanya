@@ -1,0 +1,30 @@
+package com.nwl.lanya.dao;
+
+import com.nwl.lanya.po.MyTeacher;
+import com.nwl.lanya.po.MyTeacherExample;
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
+
+public interface MyTeacherMapper {
+    long countByExample(MyTeacherExample example);
+
+    int deleteByExample(MyTeacherExample example);
+
+    int deleteByPrimaryKey(Integer id);
+
+    int insert(MyTeacher record);
+
+    int insertSelective(MyTeacher record);
+
+    List<MyTeacher> selectByExample(MyTeacherExample example);
+
+    MyTeacher selectByPrimaryKey(Integer id);
+
+    int updateByExampleSelective(@Param("record") MyTeacher record, @Param("example") MyTeacherExample example);
+
+    int updateByExample(@Param("record") MyTeacher record, @Param("example") MyTeacherExample example);
+
+    int updateByPrimaryKeySelective(MyTeacher record);
+
+    int updateByPrimaryKey(MyTeacher record);
+}

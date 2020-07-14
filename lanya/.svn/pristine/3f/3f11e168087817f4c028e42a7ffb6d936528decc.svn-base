@@ -1,0 +1,37 @@
+package com.nwl.lanya.dao;
+
+import com.nwl.lanya.po.CourseList;
+import com.nwl.lanya.po.CourseListExample;
+import com.nwl.lanya.po.CourseListWithBLOBs;
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
+
+public interface CourseListMapper {
+    long countByExample(CourseListExample example);
+
+    int deleteByExample(CourseListExample example);
+
+    int deleteByPrimaryKey(Integer id);
+
+    int insert(CourseListWithBLOBs record);
+
+    int insertSelective(CourseListWithBLOBs record);
+
+    List<CourseListWithBLOBs> selectByExampleWithBLOBs(CourseListExample example);
+
+    List<CourseList> selectByExample(CourseListExample example);
+
+    CourseListWithBLOBs selectByPrimaryKey(Integer id);
+
+    int updateByExampleSelective(@Param("record") CourseListWithBLOBs record, @Param("example") CourseListExample example);
+
+    int updateByExampleWithBLOBs(@Param("record") CourseListWithBLOBs record, @Param("example") CourseListExample example);
+
+    int updateByExample(@Param("record") CourseList record, @Param("example") CourseListExample example);
+
+    int updateByPrimaryKeySelective(CourseListWithBLOBs record);
+
+    int updateByPrimaryKeyWithBLOBs(CourseListWithBLOBs record);
+
+    int updateByPrimaryKey(CourseList record);
+}

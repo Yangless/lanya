@@ -1,0 +1,197 @@
+*{
+	margin: 0px;
+	padding:0px;
+}
+body{
+	min-height: 1000px;
+}
+ul li{
+	display: inline-block;
+}
+
+/*teacherInfo start*/
+#teacherInfo{
+	margin: 5%;
+	width: 90%;
+	min-height: 250px;
+}
+#teacherInfo>.row>div:first-of-type{
+	height: 250px;
+	/*background: #0000FF;*/
+	border: 1px #CDCDCD solid;
+}
+#teacherInfo>.row>div:first-of-type>div{
+	display: inline-block;
+}
+#teacherHead{
+	width: 20%;
+	min-width: 80px;
+	margin: 5%;
+	border: 1px #CDCDCD solid;
+	border-radius:2px;
+}
+#teacherHead>img{
+	margin: 1%;
+	width: 98%;
+	height: 98%;
+}
+#teacherName{
+}
+#courseNum{
+	margin-top: 10px;
+	float: right;
+}
+#courseNum>span{
+	font-size: 2.0rem;
+	color: red;
+}
+#teacherInfo>.row>div:last-of-type{
+	height: 250px;
+	/*background: #FF00FF;*/
+	border: 1px #CDCDCD solid;
+}
+#welcome li{
+	width: 100%;
+	max-height: 80px;
+	display: table;
+	margin: 20px 0;
+}
+#welcome li *{
+	display: inline-block;
+}
+#welcome li>p{
+	width: 50%;
+}
+#welcome li span:first-of-type{
+	min-width: 30%;
+	color: red;
+}
+#welcome li>img{
+	vertical-align: top;
+	width: 40%;
+	min-height: 60px;
+	margin: 0 10px;
+}
+/*teacherInfo start*/
+
+
+/*menuUl end*/
+#menuUl{
+	margin-top: 30px;
+}
+#menuUl >li{
+	margin: 5px 5%;
+}
+/*menuUl end*/
+
+
+/*courseDiv start*/
+#courseDiv{
+	margin: 5%;
+}
+.courseListClass div{
+	min-height: 270px;
+	margin: 5px 0;
+	cursor:pointer
+}
+.courseListClass div:hover{
+	background-color: #DDDDDD;
+}
+.courseListClass div > ul li{
+	width: 96%;
+	margin: 0 2%;
+	display: block;
+}
+.courseListClass div > ul li:first-of-type{
+	margin-top: 10px;
+}
+.courseListClass div > ul li:nth-child(2){
+	min-height: 40px;
+}
+.courseListClass div > ul a{
+	font-size: 1.5rem;
+}
+.courseListClass div > ul li>img{
+	width: 100%;
+	min-height: 170px;
+}
+#money{
+	min-height: 40px;
+}
+#money span {
+	display: inline-block;
+	min-height: 40px;
+}
+#money span:first-of-type {
+	font-size: 1.5rem;
+	color: red;
+}
+#money span:last-of-type{
+	width: 100px;
+	text-align: right;
+	float: right;
+	font-size: 1.2rem;
+	color: #AAAAAA;
+}
+/*courseDiv end*/
+
+/*commentDiv start*/
+#commentDiv{
+	display: none;
+	margin:5%;
+}
+.commentListClass{
+	border-top:1px dashed #ededed;
+	padding: 20px 0px;
+}
+.commentListClass div{
+	min-height: 60px;
+}
+.commentListClass dl{
+	font-size: 1.2rem;
+	color:#777;
+}
+.commentListClass dl dd span{
+	color: cornflowerblue;
+}
+.commentListClass dl dt{
+	margin-top: 10px;
+}
+.commentP{
+	font-size: 1.2rem;
+	color: #777777;
+}
+.timeP{
+	font-size: 1.2rem;
+	color: #777777;
+}
+.commentShow img{
+	border: 1px solid #ededed;
+}
+.commentListClass div:last-of-type{
+	font-size: 1.2rem;
+	color: #777777;
+	line-height: 100%;
+	text-align: center;
+}
+.commentListClass div:last-of-type img{
+	vertical-align: bottom;
+}
+#loadMore{
+	width: 100%;
+	height: 50px;
+	padding: 10px;
+	text-align: center;
+}
+#loadMore button:hover{
+	color: white;
+	background: #26A0DA;
+}
+#loadMore button{
+	border: 1px solid #ededed;
+	width: 120px;
+	height: 30px;
+	background:white;
+	color: #777777;
+}
+/*commentDiv end*/

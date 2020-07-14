@@ -1,0 +1,36 @@
+package com.nwl.lanya.dao;
+
+import com.nwl.lanya.po.MyWorkTalk;
+import com.nwl.lanya.po.MyWorkTalkExample;
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
+
+public interface MyWorkTalkMapper {
+    long countByExample(MyWorkTalkExample example);
+
+    int deleteByExample(MyWorkTalkExample example);
+
+    int deleteByPrimaryKey(Integer id);
+
+    int insert(MyWorkTalk record);
+
+    int insertSelective(MyWorkTalk record);
+
+    List<MyWorkTalk> selectByExampleWithBLOBs(MyWorkTalkExample example);
+
+    List<MyWorkTalk> selectByExample(MyWorkTalkExample example);
+
+    MyWorkTalk selectByPrimaryKey(Integer id);
+
+    int updateByExampleSelective(@Param("record") MyWorkTalk record, @Param("example") MyWorkTalkExample example);
+
+    int updateByExampleWithBLOBs(@Param("record") MyWorkTalk record, @Param("example") MyWorkTalkExample example);
+
+    int updateByExample(@Param("record") MyWorkTalk record, @Param("example") MyWorkTalkExample example);
+
+    int updateByPrimaryKeySelective(MyWorkTalk record);
+
+    int updateByPrimaryKeyWithBLOBs(MyWorkTalk record);
+
+    int updateByPrimaryKey(MyWorkTalk record);
+}

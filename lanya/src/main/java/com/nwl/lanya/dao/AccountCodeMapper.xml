@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nwl.lanya.dao.AccountCodeMapper">
+  <resultMap id="BaseResultMap" type="com.nwl.lanya.po.AccountCode">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="account_code" jdbcType="VARCHAR" property="accountCode" />
+    <result column="real_name" jdbcType="VARCHAR" property="realName" />
+    <result column="login_time" jdbcType="TIMESTAMP" property="loginTime" />
+    <result column="resource_total" jdbcType="INTEGER" property="resourceTotal" />
+    <result column="funs_total" jdbcType="INTEGER" property="funsTotal" />
+    <result column="download_total" jdbcType="INTEGER" property="downloadTotal" />
+  </resultMap>
+  
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.nwl.lanya.po.AccountCodeWithBLOBs">
+    <result column="pwd" jdbcType="LONGVARBINARY" property="pwd" />
+    <result column="user_intro" jdbcType="VARBINARY" property="userIntro" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, account_code, real_name, login_time, resource_total, funs_total, download_total
+  </sql>
+  <sql id="Blob_Column_List">
+    pwd, user_intro
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.nwl.lanya.po.AccountCodeExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from account_code
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.nwl.lanya.po.AccountCodeExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from account_code
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from account_code
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from account_code
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.nwl.lanya.po.AccountCodeExample">
+    delete from account_code
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.nwl.lanya.po.AccountCodeWithBLOBs">
+    insert into account_code (id, account_code, real_name, 
+      login_time, resource_total, funs_total, 
+      download_total, pwd, user_intro
+      )
+    values (#{id,jdbcType=VARCHAR}, #{accountCode,jdbcType=VARCHAR}, #{realName,jdbcType=VARCHAR}, 
+      #{loginTime,jdbcType=TIMESTAMP}, #{resourceTotal,jdbcType=INTEGER}, #{funsTotal,jdbcType=INTEGER}, 
+      #{downloadTotal,jdbcType=INTEGER}, AES_ENCRYPT(#{pwd},#{salt}), #{userIntro,jdbcType=VARBINARY}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.nwl.lanya.po.AccountCodeWithBLOBs">
+    insert into account_code
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="accountCode != null">
+        account_code,
+      </if>
+      <if test="realName != null">
+        real_name,
+      </if>
+      <if test="loginTime != null">
+        login_time,
+      </if>
+      <if test="resourceTotal != null">
+        resource_total,
+      </if>
+      <if test="funsTotal != null">
+        funs_total,
+      </if>
+      <if test="downloadTotal != null">
+        download_total,
+      </if>
+      <if test="pwd != null">
+        pwd,
+      </if>
+      <if test="userIntro != null">
+        user_intro,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="accountCode != null">
+        #{accountCode,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null">
+        #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="loginTime != null">
+        #{loginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="resourceTotal != null">
+        #{resourceTotal,jdbcType=INTEGER},
+      </if>
+      <if test="funsTotal != null">
+        #{funsTotal,jdbcType=INTEGER},
+      </if>
+      <if test="downloadTotal != null">
+        #{downloadTotal,jdbcType=INTEGER},
+      </if>
+      <if test="pwd != null">
+        #{pwd,jdbcType=LONGVARBINARY},
+      </if>
+      <if test="userIntro != null">
+        #{userIntro,jdbcType=VARBINARY},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.nwl.lanya.po.AccountCodeExample" resultType="java.lang.Long">
+    select count(*) from account_code
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update account_code
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accountCode != null">
+        account_code = #{record.accountCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.realName != null">
+        real_name = #{record.realName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loginTime != null">
+        login_time = #{record.loginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.resourceTotal != null">
+        resource_total = #{record.resourceTotal,jdbcType=INTEGER},
+      </if>
+      <if test="record.funsTotal != null">
+        funs_total = #{record.funsTotal,jdbcType=INTEGER},
+      </if>
+      <if test="record.downloadTotal != null">
+        download_total = #{record.downloadTotal,jdbcType=INTEGER},
+      </if>
+      <if test="record.pwd != null">
+        pwd = #{record.pwd,jdbcType=LONGVARBINARY},
+      </if>
+      <if test="record.userIntro != null">
+        user_intro = #{record.userIntro,jdbcType=VARBINARY},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update account_code
+    set id = #{record.id,jdbcType=VARCHAR},
+      account_code = #{record.accountCode,jdbcType=VARCHAR},
+      real_name = #{record.realName,jdbcType=VARCHAR},
+      login_time = #{record.loginTime,jdbcType=TIMESTAMP},
+      resource_total = #{record.resourceTotal,jdbcType=INTEGER},
+      funs_total = #{record.funsTotal,jdbcType=INTEGER},
+      download_total = #{record.downloadTotal,jdbcType=INTEGER},
+      pwd = #{record.pwd,jdbcType=LONGVARBINARY},
+      user_intro = #{record.userIntro,jdbcType=VARBINARY}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update account_code
+    set id = #{record.id,jdbcType=VARCHAR},
+      account_code = #{record.accountCode,jdbcType=VARCHAR},
+      real_name = #{record.realName,jdbcType=VARCHAR},
+      login_time = #{record.loginTime,jdbcType=TIMESTAMP},
+      resource_total = #{record.resourceTotal,jdbcType=INTEGER},
+      funs_total = #{record.funsTotal,jdbcType=INTEGER},
+      download_total = #{record.downloadTotal,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.nwl.lanya.po.AccountCodeWithBLOBs">
+    update account_code
+    <set>
+      <if test="accountCode != null">
+        account_code = #{accountCode,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null">
+        real_name = #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="loginTime != null">
+        login_time = #{loginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="resourceTotal != null">
+        resource_total = #{resourceTotal,jdbcType=INTEGER},
+      </if>
+      <if test="funsTotal != null">
+        funs_total = #{funsTotal,jdbcType=INTEGER},
+      </if>
+      <if test="downloadTotal != null">
+        download_total = #{downloadTotal,jdbcType=INTEGER},
+      </if>
+      <if test="pwd != null">
+        pwd = AES_ENCRYPT(#{pwd},#{salt}),
+      </if>
+      <if test="userIntro != null">
+        user_intro = #{userIntro,jdbcType=VARBINARY},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.nwl.lanya.po.AccountCodeWithBLOBs">
+    update account_code
+    set account_code = #{accountCode,jdbcType=VARCHAR},
+      real_name = #{realName,jdbcType=VARCHAR},
+      login_time = #{loginTime,jdbcType=TIMESTAMP},
+      resource_total = #{resourceTotal,jdbcType=INTEGER},
+      funs_total = #{funsTotal,jdbcType=INTEGER},
+      download_total = #{downloadTotal,jdbcType=INTEGER},
+      pwd = #{pwd,jdbcType=LONGVARBINARY},
+      user_intro = #{userIntro,jdbcType=VARBINARY}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.nwl.lanya.po.AccountCode">
+    update account_code
+    set account_code = #{accountCode,jdbcType=VARCHAR},
+      real_name = #{realName,jdbcType=VARCHAR},
+      login_time = #{loginTime,jdbcType=TIMESTAMP},
+      resource_total = #{resourceTotal,jdbcType=INTEGER},
+      funs_total = #{funsTotal,jdbcType=INTEGER},
+      download_total = #{downloadTotal,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+   <!-- 分页获取账户数据 -->
+  <select id="list" parameterType="com.nwl.lanya.dto.AccountCodeDto" resultMap="ResultMapWithBLOBs">
+      select
+	  <include refid="Base_Column_List" />,
+	  <include refid="Blob_Column_List" />
+	  from account_code  
+	  <where>
+	  		<if test="columnName!=null">
+	  			and ${columnName} like concat(concat('%',#{columnValue}),'%')
+	  		</if>
+	  </where>
+      order by id desc
+      limit #{pageModel.startIndex},#{pageModel.pageSize}
+  </select>
+  
+  <!-- 获取数据总数 -->
+  <select id="countByList" parameterType="com.nwl.lanya.dto.AccountCodeDto" resultType="java.lang.Long">
+      select count(*)
+      from account_code
+       <where>
+	  		<if  test="columnName!=null">
+	  			and ${columnName} like concat(concat('%',#{columnValue}),'%')
+	  		</if>
+	  </where>
+  </select>
+  <!--注册 -->
+  <select id="login" parameterType="com.nwl.lanya.dto.AccountCodeDto" resultMap="ResultMapWithBLOBs">
+      select
+	  <include refid="Base_Column_List" />,
+	  <include refid="Blob_Column_List" />
+	  from account_code  
+	  where account_code = #{po.accountCode} and pwd = AES_ENCRYPT( #{po.pwd} , #{po.salt} )
+  </select>
+</mapper>

@@ -1,0 +1,191 @@
+
+var config = {
+		
+	"videoAudio": {
+		"url": "accountRest/list",
+		"title": "音频视频收藏",
+		"winId": "videoAudioCollectionDialog",
+		"gridId": "videoAudioCollectionGrid",
+		"columns":[[
+			    	{field:'ck',checkbox:true},
+			        {field:'id',title:'id',hidden:true},
+			        {field:'course_name',title:'课程名',width:120},
+			        {field:'teacher_name',title:'授课老师',width:120},
+			        {field:'teacher_name',title:'收藏数',width:120},
+			        {field:'teacher_name',title:'评论数',width:120}
+			    ]]
+	},
+	"course": {
+		"url": "accountRest/list",
+		"title": "课程收藏",
+		"winId": "courseCollectionDialog",
+		"gridId": "courseCollectionDialogGrid",
+		"columns":[[
+			    	{field:'ck',checkbox:true},
+			        {field:'id',title:'id',hidden:true},
+			        {field:'course_name',title:'课程名',width:120},
+			        {field:'teacher_name',title:'授课老师',width:120},
+			        {field:'teacher_name',title:'收藏数',width:120},
+			        {field:'teacher_name',title:'评论数',width:120}
+			    ]]
+	},
+	"courseSystem": {
+		"url": "accountRest/list",
+		"title": "课程体系收藏",
+		"winId": "courseCollectionDialog",
+		"gridId": "courseCollectionDialogGrid",
+		"columns":[[
+			    	{field:'ck',checkbox:true},
+			        {field:'id',title:'id',hidden:true},
+			        {field:'course_name',title:'课程体系名',width:120},
+			        {field:'teacher_name',title:'授课老师',width:120},
+			        {field:'teacher_name',title:'收藏数',width:120},
+			        {field:'teacher_name',title:'评论数',width:120}
+			    ]]
+	}
+		
+}
+
+$(function(){
+	
+	$('#datagrid').datagrid({
+	    url:'accountRest/list',
+	    method:'post',
+	    fit:true,
+	    fitColumns:true,
+	    rownumbers:true,
+	    singleSelect:false,
+	    pagination:true,
+	    pageSize:30,
+	    columns:[[
+	    	{field:'ck',checkbox:true},
+	        {field:'accountCode',title:'账号',width:80},
+	        {field:'realName',title:'姓名',width:80},
+	        {field:'nickName',title:'昵称',width:80},
+	        {field:'sex',title:'性别',width:50},
+	        {field:'age',title:'年龄',width:50},
+	        {field:'phone',title:'手机',width:100},
+	        {field:'photoUrl',title:'头像',width:100,
+	        	formatter:function(value,row,index){
+                     return '';
+                }
+	        }
+	    ]],
+	    rowStyler:function(index,row){
+			if (row.useAble==0){
+				return 'background-color:red;color:black;';
+			}
+		},
+	    toolbar: [{
+			iconCls: 'icon-add',
+			text:"视频音频收藏",
+			handler: function(){
+				openWindow("videoAudio");
+			}
+		},{
+			iconCls: 'icon-add',
+			text:"课程体系收藏",
+			handler: function(){
+				openWindow("courseSystem");
+			}
+		},{
+			iconCls: 'icon-add',
+			text:"课程收藏",
+			handler: function(){
+				openWindow("course");
+			}
+		}]
+	});
+});
+
+/**
+ * 打开window
+ * @param name
+ * @param rd
+ * @returns {Boolean}
+ */
+function openWindow(name,rd){
+	
+	var selectRecord = getSelectedRowInfo("datagrid");
+	if(selectRecord == null){
+		$.messager.alert('提示',"至少选择一条");
+		return false;
+	}
+	var configInfo = config[name];
+	initCollectionDialog(configInfo,selectRecord);
+	initCollectionGrid(configInfo,selectRecord)
+	$('#'+configInfo.winId).dialog('open');
+}
+/**
+ * 初始化window框架
+ * @param configInfo 
+ * @param rd
+ */
+function initCollectionDialog(configInfo,rd) {
+
+	$('#'+configInfo.winId).dialog({
+	    title: 	rd.accountCode+'的'+configInfo.title,
+	    width: 1000,
+	    height: 400,
+	    closed: true,
+	    modal: true,
+	    buttons:[{
+			text:'关闭',
+			handler:function(){
+			}
+		}]
+	});
+	
+}
+/**
+ * 初始化收藏列表
+ * @param configInfo
+ * @param rd
+ */
+function initCollectionGrid(configInfo,rd) {
+	
+	$("#"+configInfo.gridId).datagrid({
+	    url:configInfo.url,
+	    method:'post',
+	    fit:true,
+	    fitColumns:true,
+	    rownumbers:true,
+	    singleSelect:false,
+	    pagination:true,
+	    pageSize:30,
+	    columns:configInfo.columns,
+	    toolbar: [{
+			iconCls: 'icon-remove',
+			text:"删除",
+			handler: function(){
+				
+				var selectRecord = getSelectedRowInfo("videoAudioCollectionGrid");
+				if(selectRecord == null){
+					$.messager.alert('提示',"至少选择一条");
+					return false;
+				}
+				
+			}
+		}],
+	    rowStyler:function(index,row){
+			if (row.useAble==0){
+				return 'background-color:red;color:black;';
+			}
+		}
+	});
+	
+}
+
+/**
+ * 返回第一个选中的行或者 null
+ * @param string id 
+ * @return {} || null
+ */
+function getSelectedRowInfo(id) {
+	if(id==null||id ==''){
+		return false;
+	}
+	return  $('#'+id).datagrid('getSelected');
+}
+
+

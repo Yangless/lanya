@@ -1,0 +1,12 @@
+package com.nwl.lanya.dto;
+
+import com.nwl.lanya.po.CourseSystem;
+
+public class CourseSystemDto extends AbstractBaseDto<CourseSystem>{
+
+	/** 
+	* @Fields serialVersionUID : TODO(用一句话描述这个变量表示什么) 
+	*/ 
+	private static final long serialVersionUID = 5822289990873844988L;
+
+}

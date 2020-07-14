@@ -1,0 +1,47 @@
+package com.nwl.lanya.vo;
+
+import com.nwl.lanya.po.VideoAudio;
+
+public class VideoAudioVo extends VideoAudio{
+
+	private String teacherName;
+	
+	private String courseName;
+	
+	private String isShortStr;
+
+	private String isVideoStr;
+
+	public String getTeacherName() {
+		return teacherName;
+	}
+
+	public void setTeacherName(String teacherName) {
+		this.teacherName = teacherName;
+	}
+
+	public String getCourseName() {
+		return courseName;
+	}
+
+	public void setCourseName(String courseName) {
+		this.courseName = courseName;
+	}
+
+	public String getIsShortStr() {
+		return isShortStr;
+	}
+
+	public void setIsShortStr(String isShortStr) {
+		this.isShortStr = isShortStr;
+	}
+
+	public String getIsVideoStr() {
+		return isVideoStr;
+	}
+
+	public void setIsVideoStr(String isVideoStr) {
+		this.isVideoStr = isVideoStr;
+	}
+	
+}

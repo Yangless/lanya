@@ -1,0 +1,20 @@
+package com.nwl.lanya.common;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component("propertiesUtil")
+public class PropertiesUtil {
+
+	@Value("${lanya.salt}")
+	private String salt;
+
+	public String getSalt() {
+		return salt;
+	}
+
+	public void setSalt(String salt) {
+		this.salt = salt;
+	}
+	
+}

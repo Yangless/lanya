@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<base href="../"/>
+		<meta charset="utf-8" />
+		<title>蓝芽-帮助您职业技能成长</title>
+		<!-- start: Favicon -->
+		<link rel="shortcut icon" href="img/logo.jpg">
+		<!-- end: Favicon -->
+		<!-- fusioncharts start -->
+		<script type="text/javascript" src="js/fusioncharts/js/fusioncharts.js"></script>
+		<!-- fusioncharts end -->
+		<link rel="stylesheet" href="css/occupationList.css" />
+		<script type="text/javascript" src="js/occupationList.js" ></script>
+	</head>
+	<body>
+		<table>
+			<tr>
+				<td>
+					<div id="occupation1"></div>
+				</td>
+				<td>
+					<div id="occupation2"></div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div id="occupation3"></div>
+				</td>
+				<td>
+					<div id="occupation4"></div>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

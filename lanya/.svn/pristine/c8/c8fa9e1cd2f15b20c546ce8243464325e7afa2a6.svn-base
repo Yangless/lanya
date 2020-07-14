@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nwl.lanya.dao.WorkListMapper">
+  <resultMap id="BaseResultMap" type="com.nwl.lanya.po.WorkList">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="hr_id" jdbcType="INTEGER" property="hrId" />
+    <result column="work_name" jdbcType="VARCHAR" property="workName" />
+    <result column="work_require" jdbcType="VARCHAR" property="workRequire" />
+    <result column="work_introduce" jdbcType="VARCHAR" property="workIntroduce" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, hr_id, work_name, work_require, work_introduce
+  </sql>
+  <select id="selectByExample" parameterType="com.nwl.lanya.po.WorkListExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from work_list
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from work_list
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from work_list
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.nwl.lanya.po.WorkListExample">
+    delete from work_list
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.nwl.lanya.po.WorkList">
+    insert into work_list (id, hr_id, work_name, 
+      work_require, work_introduce)
+    values (#{id,jdbcType=INTEGER}, #{hrId,jdbcType=INTEGER}, #{workName,jdbcType=VARCHAR}, 
+      #{workRequire,jdbcType=VARCHAR}, #{workIntroduce,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.nwl.lanya.po.WorkList">
+    insert into work_list
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="hrId != null">
+        hr_id,
+      </if>
+      <if test="workName != null">
+        work_name,
+      </if>
+      <if test="workRequire != null">
+        work_require,
+      </if>
+      <if test="workIntroduce != null">
+        work_introduce,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="hrId != null">
+        #{hrId,jdbcType=INTEGER},
+      </if>
+      <if test="workName != null">
+        #{workName,jdbcType=VARCHAR},
+      </if>
+      <if test="workRequire != null">
+        #{workRequire,jdbcType=VARCHAR},
+      </if>
+      <if test="workIntroduce != null">
+        #{workIntroduce,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.nwl.lanya.po.WorkListExample" resultType="java.lang.Long">
+    select count(*) from work_list
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update work_list
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.hrId != null">
+        hr_id = #{record.hrId,jdbcType=INTEGER},
+      </if>
+      <if test="record.workName != null">
+        work_name = #{record.workName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workRequire != null">
+        work_require = #{record.workRequire,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workIntroduce != null">
+        work_introduce = #{record.workIntroduce,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update work_list
+    set id = #{record.id,jdbcType=INTEGER},
+      hr_id = #{record.hrId,jdbcType=INTEGER},
+      work_name = #{record.workName,jdbcType=VARCHAR},
+      work_require = #{record.workRequire,jdbcType=VARCHAR},
+      work_introduce = #{record.workIntroduce,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.nwl.lanya.po.WorkList">
+    update work_list
+    <set>
+      <if test="hrId != null">
+        hr_id = #{hrId,jdbcType=INTEGER},
+      </if>
+      <if test="workName != null">
+        work_name = #{workName,jdbcType=VARCHAR},
+      </if>
+      <if test="workRequire != null">
+        work_require = #{workRequire,jdbcType=VARCHAR},
+      </if>
+      <if test="workIntroduce != null">
+        work_introduce = #{workIntroduce,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.nwl.lanya.po.WorkList">
+    update work_list
+    set hr_id = #{hrId,jdbcType=INTEGER},
+      work_name = #{workName,jdbcType=VARCHAR},
+      work_require = #{workRequire,jdbcType=VARCHAR},
+      work_introduce = #{workIntroduce,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

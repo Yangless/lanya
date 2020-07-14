@@ -1,0 +1,314 @@
+FusionCharts.ready(function() {
+	var dataSource = {
+	  "chart": {
+	    "caption": "性能测试工程师课程体系",
+	    "theme": "fusion",
+	    "viewmode": "1",
+	    "valuefontcolor": "#26A0DA",
+	    "divlinealpha": "0",
+	    "bgColor": "#FFFFFF",
+        "bgAlpha": "0",
+        "showBorder": "0",
+        "baseFontSize":"18"
+	  },
+	  "dataset": [
+	    {
+	      "data": [
+	        {
+	          "id": "01",
+	          "label": "我要入门",
+	          "x": "50",
+	          "y": "1000",
+	          "shape": "rectangle",
+	          "width": "160",
+	          "height": "60",
+	          "color":"#FFE793",
+	          "link":"http://www.tmqh.tech/"
+	        },
+	        {
+	          "id": "02",
+	          "label": "第一阶段",
+	          "x": "50",
+	          "y": "850",
+	          "shape": "rectangle",
+	          "width": "160",
+	          "height": "60"
+	        },
+	        {
+	          "id": "02.1",
+	          "label": "java编程",
+	          "x": "30",
+	          "y": "950",
+	          "shape": "rectangle",
+	          "width": "160",
+	          "height": "60"
+	        },
+	        {
+	          "id": "02.2",
+	          "label": "python编程",
+	          "x": "30",
+	          "y": "850",
+	          "shape": "rectangle",
+	          "width": "160",
+	          "height": "60"
+	        },{
+	          "id": "02.3",
+	          "label": "mysql",
+	          "x": "70",
+	          "y": "950",
+	          "shape": "rectangle",
+	          "width": "160",
+	          "height": "60",
+	          "color":"#DD5044",
+	          "link":"html/courseList.html"
+	        },{
+	          "id": "02.4",
+	          "label": "mongodb",
+	          "x": "70",
+	          "y": "850",
+	          "shape": "rectangle",
+	          "width": "160",
+	          "height": "60"
+	        },
+	        {
+	          "id": "03",
+	          "label": "第二阶段",
+	          "x": "50",
+	          "y": "700",
+	          "shape": "rectangle",
+	          "width": "160",
+	          "height": "60"
+	        },{
+	          "id": "03.1",
+	          "label": "web自动化",
+	          "x": "30",
+	          "y": "700",
+	          "shape": "rectangle",
+	          "width": "160",
+	          "height": "60"
+	        },{
+	          "id": "03.2",
+	          "label": "接口自动化",
+	          "x": "30",
+	          "y": "550",
+	          "shape": "rectangle",
+	          "width": "160",
+	          "height": "60"
+	        },
+	        {
+	          "id": "04",
+	          "label": "第三阶段",
+	          "x": "50",
+	          "y": "550",
+	          "shape": "rectangle",
+	          "width": "160",
+	          "height": "60"
+	        },
+	        {
+	          "id": "04.1",
+	          "label": "性能测试基础",
+	          "x": "70",
+	          "y": "700",
+	          "shape": "rectangle",
+	          "width": "160",
+	          "height": "60"
+	        },
+	        {
+	          "id": "04.2",
+	          "label": "性能测试工具",
+	          "x": "70",
+	          "y": "550",
+	          "shape": "rectangle",
+	          "width": "160",
+	          "height": "60"
+	        },
+	        {
+	          "id": "05",
+	          "label": "第四阶段",
+	          "x": "50",
+	          "y": "400",
+	          "shape": "rectangle",
+	          "width": "160",
+	          "height": "60"
+	        },{
+	          "id": "05.1",
+	          "label": "性能测试评估",
+	          "x": "30",
+	          "y": "400",
+	          "shape": "rectangle",
+	          "width": "160",
+	          "height": "60"
+	        },{
+	          "id": "05.2",
+	          "label": "性能测试报告",
+	          "x": "70",
+	          "y": "400",
+	          "shape": "rectangle",
+	          "width": "160",
+	          "height": "60"
+	        },
+	        {
+	          "id": "06",
+	          "label": "我要升职加薪",
+	          "x": "50",
+	          "y": "250",
+	          "shape": "rectangle",
+	          "width": "160",
+	          "height": "60",
+	          "color":"#BCD68D",
+	          "link":"https://search.51job.com/list/090200,000000,0000,00,9,99,%25E8%25BD%25AF%25E4%25BB%25B6%25E6%25B5%258B%25E8%25AF%2595%25E5%25B7%25A5%25E7%25A8%258B%25E5%25B8%2588,2,1.html?lang=c&stype=&postchannel=0000&workyear=99&cotype=99&degreefrom=99&jobterm=99&companysize=99&providesalary=99&lonlat=0%2C0&radius=-1&ord_field=0&confirmdate=9&fromType=&dibiaoid=0&address=&line=&specialarea=00&from=&welfare="
+	        }
+	      ]
+	    }
+	  ],
+	  "connectors": [
+	    {
+	      "stdthickness": "1.5",
+	      "connector": [
+	        {
+	          "from": "01",
+	          "to": "03",
+	          "arrowatstart": "0",
+	          "arrowatend": "1",
+	          "alpha": "100"
+	        },
+	        {
+	          "from": "02",
+	          "to": "03",
+	          "arrowatstart": "0",
+	          "arrowatend": "1",
+	          "alpha": "100"
+	        },
+	        {
+	          "from": "03",
+	          "to": "04",
+	          "arrowatstart": "0",
+	          "arrowatend": "1",
+	          "alpha": "100"
+	        },
+	        {
+	          "from": "04",
+	          "to": "05",
+	          "arrowatstart": "0",
+	          "arrowatend": "1",
+	          "alpha": "100"
+	        },
+	        {
+	          "from": "05",
+	          "to": "06",
+	          "arrowatstart": "0",
+	          "arrowatend": "1",
+	          "alpha": "100"
+	        },
+	        {
+	          "from": "02",
+	          "to": "02.1",
+	          "arrowatstart": "0",
+	          "arrowatend": "1",
+	          "alpha": "100"
+	        },
+	        {
+	          "from": "02",
+	          "to": "02.2",
+	          "arrowatstart": "0",
+	          "arrowatend": "1",
+	          "alpha": "100"
+	        },
+	        {
+	          "from": "02",
+	          "to": "02.3",
+	          "arrowatstart": "0",
+	          "arrowatend": "1",
+	          "alpha": "100"
+	        },{
+	          "from": "02",
+	          "to": "02.4",
+	          "arrowatstart": "0",
+	          "arrowatend": "1",
+	          "alpha": "100"
+	        },
+	        {
+	          "from": "03",
+	          "to": "03.1",
+	          "arrowatstart": "0",
+	          "arrowatend": "1",
+	          "alpha": "100"
+	        },
+	        {
+	          "from": "03",
+	          "to": "03.2",
+	          "arrowatstart": "0",
+	          "arrowatend": "1",
+	          "alpha": "100"
+	        },
+	        {
+	          "from": "03",
+	          "to": "03.3",
+	          "arrowatstart": "0",
+	          "arrowatend": "1",
+	          "alpha": "100"
+	        },
+	        {
+	          "from": "03",
+	          "to": "03.4",
+	          "arrowatstart": "0",
+	          "arrowatend": "1",
+	          "alpha": "100"
+	        },
+	        {
+	          "from": "03",
+	          "to": "03.5",
+	          "arrowatstart": "0",
+	          "arrowatend": "1",
+	          "alpha": "100"
+	        },
+	        {
+	          "from": "03",
+	          "to": "03.6",
+	          "arrowatstart": "0",
+	          "arrowatend": "1",
+	          "alpha": "100"
+	        },
+	        {
+	          "from": "04",
+	          "to": "04.1",
+	          "arrowatstart": "0",
+	          "arrowatend": "1",
+	          "alpha": "100"
+	        },
+	        {
+	          "from": "04",
+	          "to": "04.2",
+	          "arrowatstart": "0",
+	          "arrowatend": "1",
+	          "alpha": "100"
+	        },
+	        {
+	          "from": "05",
+	          "to": "05.1",
+	          "arrowatstart": "0",
+	          "arrowatend": "1",
+	          "alpha": "100"
+	        },
+	        {
+	          "from": "05",
+	          "to": "05.2",
+	          "arrowatstart": "0",
+	          "arrowatend": "1",
+	          "alpha": "100"
+	        }
+	      ]
+	    }
+	  ]
+	};	
+		
+	var myChart = new FusionCharts({
+	      type: "dragnode",
+	      renderAt: "chart-container",
+	      width: "100%",
+	      height: "800px",
+	      dataFormat: "json",
+	      dataSource
+	});
+	myChart.render();
+});

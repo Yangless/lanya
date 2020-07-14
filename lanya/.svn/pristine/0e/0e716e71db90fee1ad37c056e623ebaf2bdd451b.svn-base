@@ -1,0 +1,11 @@
+//表单验证
+function validate(id){
+    var validate = $("#"+id).form('validate')
+    return validate;
+}
+
+
+
+
+
+

@@ -1,0 +1,59 @@
+package com.nwl.lanya.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.nwl.lanya.dao.VideoAudioMapper;
+import com.nwl.lanya.dto.VideoAudioDto;
+import com.nwl.lanya.po.VideoAudio;
+import com.nwl.lanya.service.VideoAudioService;
+import com.nwl.lanya.vo.VideoAudioVo;
+
+@Service
+public class VideoAudioServiceImpl implements VideoAudioService{
+	
+	@Autowired
+	private VideoAudioMapper mapper;
+
+	@Override
+	public void list(VideoAudioDto dto) {
+        List<VideoAudioVo> videoAudioVos = mapper.list(dto);
+		Long total = mapper.countByLike(dto);
+		
+		dto.getPageModel().setRows(videoAudioVos);
+		dto.getPageModel().setTotal(total);
+	}
+
+	@Override
+	public void deleteByIds(VideoAudioDto dto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void findById(VideoAudioDto dto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void saveOrUpdate(VideoAudioDto dto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateUseAble(VideoAudioDto dto) {
+		String[] idStr = dto.getIds().split(",");
+		for(int i=0;i<idStr.length;i++){
+			VideoAudio videoAudio = new VideoAudio();
+			videoAudio.setId(Integer.valueOf(idStr[i]));
+			//将使用状态设置为不可用
+			videoAudio.setUseAble(dto.getPo().getUseAble());
+			mapper.updateByPrimaryKeySelective(videoAudio);
+		}
+	}
+
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="../"/>
+	<meta charset="utf-8" />
+	<title>蓝芽-帮助您职业技能成长</title>
+	<!-- start: Favicon -->
+	<link rel="shortcut icon" href="img/logo.jpg">
+	<!-- end: Favicon -->
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="css/phone/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/phone/icons-extra.css"/>
+    <link rel="stylesheet" href="css/phone/common.css"/>
+    <link rel="stylesheet" type="text/css" href="css/phone/studentTalk.css"/>
+</head>
+	<body>
+		
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">我的学生</h1>
+		</header>
+		
+		<div id="talkList">
+			<div id="commentDiv">
+                <div id="commentList">
+				  <div class="container-fluid">
+						<div class="commentListClass row">
+							<div class="col-md-5">
+								<dl>
+									<dt><img class="teacherPhotoImg" src="img/member1.png"/></dt>
+									<dt>昆凌小丸子</dt>
+								</dl>
+							</div>
+							<div class="col-md-10">
+								<p class="commentP">
+									棉麻的手感质量很好，红色小樱桃萌萌哒~还送了本子，很贴心~~ 　总体来说还算满意吧 物流也挺快说的是4.20号发货提前发货了还
+								</p>
+								<p class="timeP">
+									2015-04-13 14:36
+								</p>
+							</div>
+						</div>
+						<div class="commentListClass row">
+							<div class="col-md-5">
+								<dl>
+									<dt><img class="teacherPhotoImg" src="img/member1.png"/></dt>
+									<dt>昆凌小丸子</dt>
+								</dl>
+							</div>
+							<div class="col-md-10">
+								<p class="commentP">
+									棉麻的手感质量很好，红色小樱桃萌萌哒~还送了本子，很贴心~~ 　总体来说还算满意吧 物流也挺快说的是4.20号发货提前发货了还
+								</p>
+								<p class="timeP">
+									2015-04-13 14:36
+								</p>
+							</div>
+						</div>
+						<div class="commentListClass row">
+							<div class="col-md-5">
+								<dl>
+									<dt><img class="teacherPhotoImg" src="img/member1.png"/></dt>
+									<dt>昆凌小丸子</dt>
+								</dl>
+							</div>
+							<div class="col-md-10">
+								<p class="commentP">
+									棉麻的手感质量很好，红色小樱桃萌萌哒~还送了本子，很贴心~~ 　总体来说还算满意吧 物流也挺快说的是4.20号发货提前发货了还
+								</p>
+								<p class="timeP">
+									2015-04-13 14:36
+								</p>
+							</div>
+						</div>
+			      </div>
+                </div>
+            </div>    
+		</div>
+		
+		<div id="talkToolBar">
+			<div class="mui-input-row">
+				<textarea id="textarea" rows="2" placeholder=""></textarea>
+			</div>
+			<button id="submit" type="button" class="mui-btn mui-btn-primary">发送</button>
+		</div>
+			
+		<script type="text/javascript" src="js/phone/jquery-3.3.1.min.js" ></script>
+	    <script type="text/javascript" src="js/phone/common.js"></script>
+	    <script src="js/phone/mui.min.js"></script>
+	    <script type="text/javascript" src="js/phone/studentTalk.js"></script>
+	</body>
+</html>

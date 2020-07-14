@@ -1,0 +1,79 @@
+$(function(){
+	$('#datagrid').datagrid({
+	    url:'accountRest/list',
+	    method:'post',
+	    fit:true,
+	    fitColumns:true,
+	    rownumbers:true,
+	    singleSelect:false,
+	    pagination:true,
+	    pageSize:30,
+	    view:detailview,
+	    columns:[[
+	    	{field:'ck',checkbox:true},
+	        {field:'courseSystemName',title:'课程体系',width:80},
+	        {field:'introduce',title:'体系介绍',width:80},
+	        {field:'courseSystemPhoto',title:'课程体系图片',width:50},
+	        {field:'birthday',title:'生日',width:80},
+	        {field:'phone',title:'手机',width:80}
+	    ]],
+	    detailFormatter: function(rowIndex, rowData){
+			return 	'<table class="detailTable">'+
+			             '<tr>'+
+			                 '<td>账号:</td><td>'+ rowData.accountCode +'</td>'+
+			             '</tr>'+
+			             '<tr>'+
+			                 '<td>昵称:</td><td>'+ rowData.nickName +'</td>'+
+			             '</tr>'+
+			             '<tr>'+
+			                 '<td>手机:</td><td>'+ rowData.phone +'</td>'+
+			             '</tr>'+
+			             '<tr>'+
+			                 '<td>姓名:</td><td>'+ rowData.realName +'</td>'+
+			             '</tr>'+
+			             '<tr>'+
+			                 '<td>身份证号:</td><td>'+ rowData.idcard +'</td>'+
+			             '</tr>'+
+			             '<tr>'+
+			                 '<td>性别:</td><td>'+ rowData.sex +'</td>'+
+			             '</tr>'+
+			             '<tr>'+
+			                 '<td>生日:</td><td>'+ rowData.birthday +'</td>'+
+			             '</tr>'+
+			             '<tr>'+
+			                 '<td>年龄:</td><td>'+ rowData.age +'</td>'+
+			             '</tr>'+
+			              '<tr>'+
+			                 '<td>微信号:</td><td>'+ rowData.weixin +'</td>'+
+			             '</tr>'+
+			             '<tr>'+
+			                 '<td>qq:</td><td>'+ rowData.qq +'</td>'+
+			             '</tr>'+
+			             '<tr>'+
+			                 '<td>邮箱:</td><td>'+ rowData.email +'</td>'+
+			             '</tr>'+
+			             '<tr>'+
+			                 '<td>头像:</td><td><img style="width:30px;height:30px;border-radius:100%;" src="'+rowData.photoUrl+'"/></td>'+
+			             '</tr>'+
+			         '</table>';
+		},
+	    rowStyler:function(index,row){
+			if (row.useAble==0){
+				return 'background-color:pink;color:black;';
+			}
+		},
+	    toolbar: [{
+			iconCls: 'icon-search',
+			text:"查询",
+			handler: function(){
+				$('#searchDialog').dialog('open');
+			}
+		},{
+			iconCls: 'icon-add',
+			text:"添加",
+			handler: function(){
+				$('#addDialog').dialog('open');
+			}
+		}]
+	});
+});

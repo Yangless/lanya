@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="../"/>
+	<meta charset="utf-8" />
+	<title>蓝芽-帮助您职业技能成长</title>
+	<!-- start: Favicon -->
+	<link rel="shortcut icon" href="img/logo.jpg">
+	<!-- end: Favicon -->
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="css/phone/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/phone/icons-extra.css"/>
+    <link rel="stylesheet" href="css/phone/common.css"/>
+    <link rel="stylesheet" type="text/css" href="css/phone/index.css"/>
+</head>
+<body>
+	
+		<div id="contentDiv">
+			<ul class="mui-table-view mui-grid-view">
+				<div class="itemClass">
+				    <div class="titleClass">
+						问道-<span class="showAd">求师问道</span>
+					</div>
+					<div class="contentClass">
+			            <div class="contactClass itemShowClass">
+			            	<a href="phone/studentTalk.html">
+				            	<span class="closeClass mui-icon mui-icon-close"></span>
+			                    <div>
+		                    		<span class="mui-icon mui-icon-person"></span><span>聂文来</span>
+		                    	</div>
+		                    	<div>
+		                    		一个为人民币服务的教师
+		                    	</div>
+			                    <div>
+			                    	地址:<span class="infoSpan">成都市武侯区天益街38号</span><span class="mui-icon mui-icon-location"></span>
+			                    </div>
+		                    </a>
+			            </div>
+			            <div class="contactClass itemShowClass">
+			            	<a href="phone/studentTalk.html">
+				            	<span class="closeClass mui-icon mui-icon-close"></span>
+			                    <div>
+		                    		<span class="mui-icon mui-icon-person"></span><span>黄英</span>
+		                    	</div>
+		                    	<div>
+		                    		小逗逼一枚
+		                    	</div>
+			                    <div>
+			                    	地址:<span class="infoSpan">成都市武侯区天益街38号</span><span class="mui-icon mui-icon-location"></span>
+			                    </div>
+			                </a>    
+			            </div>
+					</div>
+		        </div>
+		        <div class="itemClass">
+				    <div class="titleClass">
+						部落-<span class="showAd">推荐志同道合的朋友</span>
+					</div>
+					<div class="contentClass">
+			            <div class="contactClass itemShowClass">
+			            	<a href="phone/tribeTalk.html">
+				            	<span class="closeClass mui-icon mui-icon-close"></span>
+						        <span class="mui-icon-extra mui-icon-extra-holiday"></span>
+			                    <div class="itemShowInfoClass">
+					            	<span>测试工程师交流群</span>
+				                    <div>
+				                    	标签:<span>有趣、有料、好吃、好玩</span>
+				                    </div>
+			                    </div>
+		                    </a>
+			            </div>
+			            <div class="contactClass itemShowClass">
+			            	<a href="phone/tribeTalk.html">
+				            	<span class="closeClass mui-icon mui-icon-close"></span>
+				            	<span class="mui-icon-extra mui-icon-extra-holiday"></span>
+			                    <div class="itemShowInfoClass">
+					            	<span>java大数据交流群</span>
+				                    <div>
+				                    	标签:<span>有趣、有料、好吃、好玩</span>
+				                    </div>
+			                    </div>
+		                    </a>
+			            </div>
+					</div>
+		        </div>
+		        <div class="itemClass">
+				    <div class="titleClass">
+						HR联盟-<span class="showAd">推荐最合适您的工作</span>
+					</div>
+					<div class="contentClass">
+			            <div class="contactClass itemShowClass">
+			            	<a href="phone/recruitTalk.html">
+				            	<span class="closeClass mui-icon mui-icon-close"></span>
+			                    <div>
+		                    		<span class="mui-icon mui-icon-person"></span><span>杨海英</span>
+		                    	</div>
+		                    	<div>
+		                    		常年招聘java、php、c#
+		                    	</div>
+			                    <div>
+			                    	地址:<span class="infoSpan">成都市武侯区天益街38号</span><span class="mui-icon mui-icon-location"></span>
+			                    </div>
+			                </a>    
+			            </div>
+			            <div class="contactClass itemShowClass">
+			            	<a href="phone/recruitTalk.html">
+				            	<span class="closeClass mui-icon mui-icon-close"></span>
+			                    <div>
+		                    		<span class="mui-icon mui-icon-person"></span><span>杨家将</span>
+		                    	</div>
+		                    	<div>
+		                    		急需对日外包，日语2n优先
+		                    	</div>
+			                    <div>
+			                    	地址:<span class="infoSpan">成都市武侯区天益街38号</span><span class="mui-icon mui-icon-location"></span>
+			                    </div>
+			                </a>    
+			            </div>
+					</div>
+		        </div>
+		    </ul>    
+		</div>
+		
+	    <!--底部菜单-->
+		<table class="bottomMenu">
+			<tr>
+			   <td>
+			        <a href="/phone/recommend" style="color: grey;">
+						<span class="mui-icon mui-icon-eye"></span>
+						<br/>
+						<span class="mui-tab-label">推荐</span>
+					</a>
+			   </td>
+			   <td>
+			        <a href="/phone/collection" style="color: grey;">
+						<span class="mui-icon mui-icon-extra mui-icon-extra-heart-filled"></span>
+						<br/>
+						<span class="mui-tab-label">收藏</span>
+					</a>
+			   </td>
+			   <td>
+			        <a href="/phone/communication">
+						<span class="mui-icon mui-icon-weixin"></span>
+						<br/>
+						<span class="mui-tab-label">交流</span>
+					</a>
+			   </td>
+			   <td>
+			        <a href="/phone/me" style="color: grey;">
+						<span class="mui-icon mui-icon mui-icon-contact"></span>
+						<br/>
+						<span class="mui-tab-label">我</span>
+					</a>
+			   </td>
+			</tr>
+		</table>
+		
+		<div id="share" class="mui-popover mui-popover-action mui-popover-bottom">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a>分享到QQ</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a>分享到微信</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a>朕不喜欢</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a><b>取消</b></a>
+				</li>
+			</ul>
+		</div>
+		
+	<script type="text/javascript" src="js/phone/jquery-3.3.1.min.js" ></script>
+    <script type="text/javascript" src="js/phone/common.js"></script>
+    <script src="js/phone/mui.min.js"></script>
+	<script type="text/javascript" src="js/phone/index.js"></script>
+</body>
+</html>

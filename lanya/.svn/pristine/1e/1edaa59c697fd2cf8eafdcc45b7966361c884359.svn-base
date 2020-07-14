@@ -1,0 +1,220 @@
+*{
+	margin: 0px;
+	padding:0px;
+}
+html{
+	background: #FFFFFF;
+}
+body{
+	width: 1250px;
+	margin: auto;
+	background: #f6f6f6;
+}
+li{
+	list-style: none;
+}
+#header{
+	width: 1250px;
+	margin: auto;
+	background: #ffffff;
+}
+#header td{
+	height: 100px;
+	text-align: center;
+}
+.grayDiv{
+	width: 45%;
+	margin-left: 30%;
+	font-size: 12px;
+	font-weight: 600;
+	font-family: "宋体";
+	color: #333333;
+	margin-bottom: 5px;
+}
+.redDiv{
+	width: 45%;
+	margin-left: 30%;
+	font-size: 12px;
+	color: white;
+	background: #a61e24;
+	border-radius: 3px;
+	margin-top: 5px;
+}
+#middleTd{
+	font-size: 30px;
+	color: #737373;
+	font-family: "华文行楷";
+}
+.navbar li{
+	cursor: pointer;
+}
+#menuUl{
+	width: 1250px;
+	margin: auto;
+	height: 45px;
+	background:#333333;
+	margin-bottom: 0px;
+}
+#menuUl li:first-child{
+	margin-left: 50px;
+}
+#menuUl li a{
+	color: white;
+	text-decoration: none;
+}
+#menuUl li{
+	float: left;
+	width: 120px;
+	height: 45px;
+	line-height: 45px;
+	font-size: 12px;
+	font-weight: 600;
+	color: white;
+	text-align: center;
+	cursor: pointer;
+	position: relative;
+}
+#menuUl li dl{
+	width: 120px;
+	background: #333333;
+	position: absolute;
+	top: 100%;
+	left: 0px;
+	z-index: 1000;
+	display: none;
+}
+#menuUl li dl dd{
+	width: 120px;
+	height: 45px;
+	line-height: 45px;
+	font-size: 12px;
+	font-weight: 600;
+	color: white;
+	text-align: center;
+	cursor: pointer;
+	border-top: 1px solid #777;
+}
+#footer{
+	width: 1250px;
+	margin: auto;
+	height: 400px;
+	background: #333333;
+	color: #b5b5b5;
+}
+#addressDiv{
+	width: 90%;
+	height: 250px;
+	margin: auto;
+}
+#addressDiv dl{
+	width: 33.3333%;
+	height: 80px;
+	float: left;
+	margin-top: 20px;
+}
+#addressDiv dl dt{
+	font-size: 20px;
+}
+#addressDiv dl dd{
+	
+}
+#friendDiv{
+	width: 100%;
+	height: 80px;
+	line-height: 80px;
+	border-top: 2px solid #373737;
+	text-indent:50px;
+}
+#friendDiv a{
+	color: #b5b5b5;
+	margin-left: 25px;
+	cursor: pointer;
+}
+#copyRightDiv{
+	width: 100%;
+	height: 70px;
+	line-height: 70px;
+	border-top: 2px solid #373737;
+	text-align: center;
+}
+
+
+body{
+	background: white;
+}
+.itemClass{
+	width: 90%;
+	margin: auto;
+	margin-bottom: 30px;
+}
+.itemClass table{
+	width: 100%;
+	margin-top: 30px;
+	text-align: center;
+}
+.titleClass{
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	font-size: 16px;
+	text-align: center;
+	margin-bottom: 60px;
+}
+.titleClass img{
+	width: 100%;
+}
+.contentClass p{
+	text-indent: 30px;
+	line-height: 30px;
+}
+.contentDiv{
+	width: 100%;
+	height: 400px;
+}
+#courseListLeft{
+	width: 60%;
+	height: 400px;
+	float: left;
+	text-align: center;
+}
+#courseListLeft img{
+	width: 65%;
+	margin-top: 10px;
+}
+#courseListRight{
+	width: 40%;
+	height: 400px;
+	float: left;
+}
+#courseListRight h1{
+	color:#0293dd;
+	font-size: 30px;
+}
+#courseListRight p{
+	font-size: 14px;
+	padding: 5px 0px;
+	color: #777777;
+}
+#courseListRight table td{
+	padding: 5px;
+}
+#courseListRight button{
+	width: 100px;
+	height: 40px;
+	background: #333333;
+	border-radius: 5px;
+	border: none;
+	color: #FFFFFF;
+}
+#intro table{
+	width: 100%;
+}
+#intro table tr td{
+	width: 25%;
+	height: 280px;
+	padding: 10px;
+}
+#intro table tr td img{
+	width: 100%;
+	height: 100%;
+}

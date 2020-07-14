@@ -1,0 +1,18 @@
+#navShowDiv{
+	padding:10px;
+}
+#content{
+	padding:0px !important;
+}
+.navText{
+	margin-left:5px;
+}
+#addDialog table{
+	width:100%;
+	margin: auto;
+}
+#addDialog table tr td{
+	padding: 5px;
+	width:50%; 
+	text-align: center;
+}

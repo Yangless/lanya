@@ -1,0 +1,10 @@
+$$(function(){
+	$$("#loginBtn").click(function(){
+		//判断是否已经输入手机号码
+		if(isEmpty(window.localStorage.getItem("phone"))){
+			window.location.href="/phone/getPhone";
+		}else{
+			window.location.href="/phone/index?accountCode="+window.localStorage.getItem("phone")+"&pwd="+$$("#pwd").val();
+		}
+	});
+});

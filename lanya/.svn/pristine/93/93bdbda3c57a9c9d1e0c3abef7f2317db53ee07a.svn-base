@@ -1,0 +1,85 @@
+package com.nwl.lanya.rest;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.nwl.lanya.common.MsgCode;
+import com.nwl.lanya.common.PageModel;
+import com.nwl.lanya.dto.CourseFullDto;
+import com.nwl.lanya.po.Course;
+import com.nwl.lanya.service.CourseFullService;
+
+@RestController
+@RequestMapping("courseFullRest")
+public class CourseFullRest extends AbstractBaseRest<CourseFullDto>{
+	
+	@Autowired
+	private CourseFullService service;
+
+	@Override
+	public PageModel list(Integer page, Integer rows, CourseFullDto dto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	/**
+	 * 
+	* @Title: getRoots 
+	* @Description: 获取并返回所有根节点 
+	* @param    
+	* @return List<SysRight>    
+	* @throws
+	 */
+	@RequestMapping("getRoots")
+	public List<Course> getRoots(CourseFullDto dto){
+		try {
+			service.getRoots(dto);
+			
+			dto.setMsgCode(MsgCode.REQUEST_SCCESS);
+			dto.setMsg("操作成功");
+		} catch (Exception e) {
+			e.printStackTrace();
+			dto.setMsgCode(MsgCode.REQUEST_FALSE);
+			dto.setMsg("系统异常,请联系维护人员");
+		}
+		return dto.getPos();
+	}
+
+	@Override
+	@RequestMapping("deleteByIds")
+	public CourseFullDto deleteByIds(CourseFullDto dto) {
+		try {
+			service.deleteByIds(dto);
+			
+			dto.setMsgCode(MsgCode.REQUEST_SCCESS);
+			dto.setMsg("操作成功");
+		} catch (Exception e) {
+			e.printStackTrace();
+			dto.setMsgCode(MsgCode.REQUEST_FALSE);
+			dto.setMsg("系统异常,请联系维护人员");
+		}
+		return dto;
+	}
+
+	@Override
+	public CourseFullDto findById(CourseFullDto dto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	@RequestMapping("saveOrUpdate")
+	public CourseFullDto saveOrUpdate(CourseFullDto dto) {
+		try {
+			service.saveOrUpdate(dto);
+		} catch (Exception e) {
+			e.printStackTrace();
+			dto.setMsgCode(MsgCode.REQUEST_FALSE);
+			dto.setMsg("系统异常,请联系维护人员");
+		}
+		return dto;
+	}
+
+}

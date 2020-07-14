@@ -1,0 +1,103 @@
+package com.nwl.lanya.po;
+
+public class Teacher {
+    private Integer id;
+
+    private Integer accountId;
+
+    private Integer companyId;
+
+    private String title;
+
+    private String location;
+
+    private String introduce;
+
+    private Integer totalShare;
+
+    private Integer attention;
+
+    private Integer totalStudent;
+
+    private Integer praise;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(Integer accountId) {
+        this.accountId = accountId;
+    }
+
+    public Integer getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(Integer companyId) {
+        this.companyId = companyId;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title == null ? null : title.trim();
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location == null ? null : location.trim();
+    }
+
+    public String getIntroduce() {
+        return introduce;
+    }
+
+    public void setIntroduce(String introduce) {
+        this.introduce = introduce == null ? null : introduce.trim();
+    }
+
+    public Integer getTotalShare() {
+        return totalShare;
+    }
+
+    public void setTotalShare(Integer totalShare) {
+        this.totalShare = totalShare;
+    }
+
+    public Integer getAttention() {
+        return attention;
+    }
+
+    public void setAttention(Integer attention) {
+        this.attention = attention;
+    }
+
+    public Integer getTotalStudent() {
+        return totalStudent;
+    }
+
+    public void setTotalStudent(Integer totalStudent) {
+        this.totalStudent = totalStudent;
+    }
+
+    public Integer getPraise() {
+        return praise;
+    }
+
+    public void setPraise(Integer praise) {
+        this.praise = praise;
+    }
+}

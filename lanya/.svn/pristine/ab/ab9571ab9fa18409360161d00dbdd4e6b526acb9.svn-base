@@ -1,0 +1,11 @@
+package com.nwl.lanya.service;
+
+import com.nwl.lanya.dto.CourseSystemDto;
+
+public interface CourseSystemService extends AbstractBaseService<CourseSystemDto>{
+
+	void getRoots(CourseSystemDto dto);
+	
+	void getCourseSystems(CourseSystemDto dto);
+	
+}

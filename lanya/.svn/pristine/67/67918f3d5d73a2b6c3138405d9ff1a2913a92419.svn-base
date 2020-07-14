@@ -1,0 +1,45 @@
+//mui.init({
+//	swipeBack: true
+//});
+//(function($) {
+//	$('.mui-scroll-wrapper').scroll({
+//		indicators: true //是否显示滚动条
+//	});
+//})(mui);
+
+
+//document.getElementById("menuShow").addEventListener('tap', function() {
+//	mui.alert(
+//	    '<table width="100%">'+
+//	      '<tr>'+
+//	          '<td align="center" width="25%">'+
+//	          '<img width="60%" src="img/weixin.png"/>'+
+//	          '</td>'+
+//	          '<td align="center" width="25%">'+
+//	          '<img width="60%" src="img/QQ.png"/>'+
+//	          '</td>'+
+//	          '<td align="center" width="25%">'+
+//	          '<img width="60%" src="img/weibo.png"/>'+
+//	          '</td>'+
+//	          '<td align="center" width="25%">'+
+//	          '<img width="60%" src="img/weixin.png"/>'+
+//	          '</td>'+
+//	      '</tr>'+
+//	    '</table>',
+//	    '菜单',
+//		function(){
+//			
+//		}
+//	);
+//});
+	
+	
+
+
+
+
+
+
+
+
+

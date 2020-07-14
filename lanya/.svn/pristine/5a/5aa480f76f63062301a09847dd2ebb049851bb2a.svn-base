@@ -1,0 +1,9 @@
+#navShowDiv{
+	margin-bottom:5px;
+}
+#content{
+	padding:10px !important;
+}
+.navText{
+	margin-left:5px;
+}

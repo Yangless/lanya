@@ -1,0 +1,63 @@
+package com.nwl.lanya.po;
+
+public class Course {
+    private Integer id;
+
+    private String courseName;
+
+    private String coursePhoto;
+
+    private String introduce;
+
+    private Integer teacherId;
+    
+    private String realName;
+    
+    public String getRealName() {
+		return realName;
+	}
+
+	public void setRealName(String realName) {
+		this.realName = realName;
+	}
+
+	public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getCourseName() {
+        return courseName;
+    }
+
+    public void setCourseName(String courseName) {
+        this.courseName = courseName == null ? null : courseName.trim();
+    }
+
+    public String getCoursePhoto() {
+        return coursePhoto;
+    }
+
+    public void setCoursePhoto(String coursePhoto) {
+        this.coursePhoto = coursePhoto == null ? null : coursePhoto.trim();
+    }
+
+    public String getIntroduce() {
+        return introduce;
+    }
+
+    public void setIntroduce(String introduce) {
+        this.introduce = introduce == null ? null : introduce.trim();
+    }
+
+    public Integer getTeacherId() {
+        return teacherId;
+    }
+
+    public void setTeacherId(Integer teacherId) {
+        this.teacherId = teacherId;
+    }
+}

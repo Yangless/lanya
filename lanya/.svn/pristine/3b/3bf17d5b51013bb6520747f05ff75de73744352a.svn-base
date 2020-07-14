@@ -1,0 +1,81 @@
+package com.nwl.lanya.dto;
+
+import com.nwl.lanya.po.Comment;
+import com.nwl.lanya.vo.CommentVo;
+
+public class CommentDto extends AbstractBaseDto<Comment>{
+
+	/** 
+	* @Fields serialVersionUID : TODO(用一句话描述这个变量表示什么) 
+	*/ 
+	private static final long serialVersionUID = -5463496403275211542L;
+	
+	//条件查询用
+	private CommentVo vo;
+	private String commentTimeStart;
+	private String commentTimeEnd;
+	//获取视频的所有评价
+	private String videoAudioId;
+	//保存评论用
+	private Integer accountId;
+	private String content;
+	//获取回复用
+	private Integer parentId;
+	
+	public Integer getParentId() {
+		return parentId;
+	}
+
+	public void setParentId(Integer parentId) {
+		this.parentId = parentId;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public Integer getAccountId() {
+		return accountId;
+	}
+
+	public void setAccountId(Integer accountId) {
+		this.accountId = accountId;
+	}
+
+	public String getVideoAudioId() {
+		return videoAudioId;
+	}
+
+	public void setVideoAudioId(String videoAudioId) {
+		this.videoAudioId = videoAudioId;
+	}
+
+	public String getCommentTimeStart() {
+		return commentTimeStart;
+	}
+
+	public void setCommentTimeStart(String commentTimeStart) {
+		this.commentTimeStart = commentTimeStart;
+	}
+
+	public String getCommentTimeEnd() {
+		return commentTimeEnd;
+	}
+
+	public void setCommentTimeEnd(String commentTimeEnd) {
+		this.commentTimeEnd = commentTimeEnd;
+	}
+
+	public CommentVo getVo() {
+		return vo;
+	}
+
+	public void setVo(CommentVo vo) {
+		this.vo = vo;
+	}
+
+}

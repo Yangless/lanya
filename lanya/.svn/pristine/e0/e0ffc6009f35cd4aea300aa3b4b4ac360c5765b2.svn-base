@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="../"/>
+	<meta charset="utf-8" />
+	<title>蓝芽-帮助您职业技能成长</title>
+	<!-- start: Favicon -->
+	<link rel="shortcut icon" href="img/logo.jpg">
+	<!-- end: Favicon -->
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="css/phone/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/phone/icons-extra.css"/>
+    <link rel="stylesheet" href="css/phone/common.css"/>
+    <link rel="stylesheet" type="text/css" href="css/phone/recruitList.css"/>
+</head>
+	<body>
+		
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">我发布的职位</h1>
+			<a href="html/recruitAdd.html" class="mui-icon mui-icon-plusempty mui-pull-right"></a>
+		</header>
+		
+		<ul class="mui-table-view">
+		    <li class="mui-table-view-cell">
+		        <a href="html/recruitTalk.html" class="mui-navigate-right">
+		           <span>java全栈工程师</span>
+		        </a>
+		    </li>
+		    <li class="mui-table-view-cell">
+		        <a href="html/recruitTalk.html" class="mui-navigate-right">
+		           <span>python工程师</span>
+		        </a>
+		    </li>
+		    <li class="mui-table-view-cell">
+		        <a href="html/recruitTalk.html" class="mui-navigate-right">
+		           <span>前端工程师</span>
+		        </a>
+		    </li>
+		</ul>
+		
+		<script type="text/javascript" src="js/phone/jquery-3.3.1.min.js" ></script>
+	    <script type="text/javascript" src="js/phone/common.js"></script>
+	    <script src="js/phone/mui.min.js"></script>
+	    <script type="text/javascript" src="js/phone/recruitList.js"></script>
+	</body>
+</html>

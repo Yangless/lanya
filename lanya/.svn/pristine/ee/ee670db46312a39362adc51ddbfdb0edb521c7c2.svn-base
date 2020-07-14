@@ -1,0 +1,77 @@
+package com.nwl.lanya.service.impl;
+
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.nwl.lanya.common.MsgCode;
+import com.nwl.lanya.dao.CourseSystemMapper;
+import com.nwl.lanya.dto.CourseSystemDto;
+import com.nwl.lanya.po.CourseSystem;
+import com.nwl.lanya.po.Teacher;
+import com.nwl.lanya.service.CourseSystemService;
+
+@Service
+public class CourseSystemServiceImpl implements CourseSystemService{
+	
+	@Autowired
+	private CourseSystemMapper mapper;
+	
+	@Autowired
+	private HttpSession session;
+
+	@Override
+	public void list(CourseSystemDto dto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteByIds(CourseSystemDto dto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void findById(CourseSystemDto dto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void saveOrUpdate(CourseSystemDto dto) {
+		Object object = session.getAttribute("teacher");
+		if(object!=null){
+			Teacher teacher = (Teacher)object;
+			dto.getPo().setTeacherId(teacher.getId());
+			mapper.insert(dto.getPo());
+			
+			dto.setMsgCode(MsgCode.REQUEST_SCCESS);
+			dto.setMsg("操作成功");
+		}else{
+			dto.setMsgCode(MsgCode.REQUEST_FALSE);
+			dto.setMsg("您不是老师，无法操作");
+		}
+	}
+
+	@Override
+	public void getRoots(CourseSystemDto dto) {
+		List<CourseSystem> courseSystems = mapper.getRoots(dto);
+		for(CourseSystem courseSystem:courseSystems){
+			dto.setPo(courseSystem);
+			List<CourseSystem> stages = mapper.getStages(dto);
+			courseSystem.setChildren(stages);
+		}
+		dto.setPos(courseSystems);
+	}
+
+	@Override
+	public void getCourseSystems(CourseSystemDto dto) {
+		List<CourseSystem> courseSystems = mapper.getRoots(dto);
+		dto.setPos(courseSystems);
+	}
+	
+}

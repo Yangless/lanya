@@ -1,0 +1,123 @@
+package com.nwl.lanya.po;
+
+public class Company {
+    private Integer id;
+
+    private Integer accountId;
+
+    private String companyNick;
+
+    private String companyName;
+
+    private String logo;
+
+    private String aptitude;
+
+    private String location;
+
+    private String introduce;
+
+    private String phone;
+
+    private String qq;
+
+    private String weixin;
+
+    private String email;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(Integer accountId) {
+        this.accountId = accountId;
+    }
+
+    public String getCompanyNick() {
+        return companyNick;
+    }
+
+    public void setCompanyNick(String companyNick) {
+        this.companyNick = companyNick == null ? null : companyNick.trim();
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName == null ? null : companyName.trim();
+    }
+
+    public String getLogo() {
+        return logo;
+    }
+
+    public void setLogo(String logo) {
+        this.logo = logo == null ? null : logo.trim();
+    }
+
+    public String getAptitude() {
+        return aptitude;
+    }
+
+    public void setAptitude(String aptitude) {
+        this.aptitude = aptitude == null ? null : aptitude.trim();
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location == null ? null : location.trim();
+    }
+
+    public String getIntroduce() {
+        return introduce;
+    }
+
+    public void setIntroduce(String introduce) {
+        this.introduce = introduce == null ? null : introduce.trim();
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone == null ? null : phone.trim();
+    }
+
+    public String getQq() {
+        return qq;
+    }
+
+    public void setQq(String qq) {
+        this.qq = qq == null ? null : qq.trim();
+    }
+
+    public String getWeixin() {
+        return weixin;
+    }
+
+    public void setWeixin(String weixin) {
+        this.weixin = weixin == null ? null : weixin.trim();
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email == null ? null : email.trim();
+    }
+}

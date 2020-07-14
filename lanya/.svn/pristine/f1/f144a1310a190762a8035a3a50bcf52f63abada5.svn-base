@@ -1,0 +1,85 @@
+package com.nwl.lanya.po;
+
+import java.util.Date;
+
+public class WalletDetail {
+    private Integer id;
+
+    private Date recordingTime;
+
+    private Double money;
+
+    private Integer isAdd;
+
+    private String payType;
+
+    private String payAccount;
+
+    private Integer walletId;
+
+    private String memo;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Date getRecordingTime() {
+        return recordingTime;
+    }
+
+    public void setRecordingTime(Date recordingTime) {
+        this.recordingTime = recordingTime;
+    }
+
+    public Double getMoney() {
+        return money;
+    }
+
+    public void setMoney(Double money) {
+        this.money = money;
+    }
+
+    public Integer getIsAdd() {
+        return isAdd;
+    }
+
+    public void setIsAdd(Integer isAdd) {
+        this.isAdd = isAdd;
+    }
+
+    public String getPayType() {
+        return payType;
+    }
+
+    public void setPayType(String payType) {
+        this.payType = payType == null ? null : payType.trim();
+    }
+
+    public String getPayAccount() {
+        return payAccount;
+    }
+
+    public void setPayAccount(String payAccount) {
+        this.payAccount = payAccount == null ? null : payAccount.trim();
+    }
+
+    public Integer getWalletId() {
+        return walletId;
+    }
+
+    public void setWalletId(Integer walletId) {
+        this.walletId = walletId;
+    }
+
+    public String getMemo() {
+        return memo;
+    }
+
+    public void setMemo(String memo) {
+        this.memo = memo == null ? null : memo.trim();
+    }
+}

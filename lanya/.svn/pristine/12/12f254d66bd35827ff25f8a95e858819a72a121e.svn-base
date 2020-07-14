@@ -1,0 +1,19 @@
+#addStageDialog table{
+	width:100%;
+	margin: auto;
+}
+#addStageDialog table tr td{
+	padding: 5px;
+	width:50%; 
+	text-align: center;
+}
+#addCourseTypeDialog table{
+	width:100%;
+	margin: auto;
+}
+#addCourseTypeDialog table tr td{
+	padding: 5px;
+	width:50%; 
+	text-align: center;
+}
+

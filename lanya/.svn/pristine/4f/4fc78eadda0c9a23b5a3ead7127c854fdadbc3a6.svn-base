@@ -1,0 +1,107 @@
+package com.nwl.lanya.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("phone")
+public class PhoneController {
+	
+	@RequestMapping("courseList")
+	public String courseList(){
+		return "phone/courseList";
+	} 
+	
+	@RequestMapping("index")
+	public String index(){
+		return "phone/index";
+	} 
+
+	@RequestMapping("learningPath")
+	public String learningPath(){
+		return "phone/learningPath";
+	} 
+	
+	@RequestMapping("moneyList")
+	public String moneyList(){
+		return "phone/moneyList";
+	} 
+	@RequestMapping("myMoney")
+	public String myMoney(){
+		return "phone/myMoney";
+	} 
+	
+	@RequestMapping("personCenter")
+	public String personCenter(){
+		return "phone/personCenter";
+	} 
+	@RequestMapping("realName")
+	public String realName(){
+		return "phone/realName";
+	} 
+	
+	@RequestMapping("recruitAdd")
+	public String recruitAdd(){
+		return "phone/recruitAdd";
+	} 
+	@RequestMapping("recruitList")
+	public String recruitList(){
+		return "phone/recruitList";
+	} 
+	
+	@RequestMapping("recruitTalk")
+	public String recruitTalk(){
+		return "phone/recruitTalk";
+	} 
+	@RequestMapping("school")
+	public String school(){
+		return "phone/school";
+	} 
+	
+	@RequestMapping("search")
+	public String search(){
+		return "phone/search";
+	} 
+	
+	@RequestMapping("shareClass")
+	public String shareClass(){
+		return "phone/shareClass";
+	} 
+	
+	@RequestMapping("studentTalk")
+	public String studentTalk(){
+		return "phone/studentTalk";
+	} 
+	
+	@RequestMapping("system")
+	public String system(){
+		return "phone/system";
+	} 
+	
+	@RequestMapping("teacherInfo")
+	public String teacherInfo(){
+		return "phone/teacherInfo";
+	} 
+	
+	@RequestMapping("tribeAdd")
+	public String tribeAdd(){
+		return "phone/tribeAdd";
+	} 
+	
+	@RequestMapping("tribeList")
+	public String tribeList(){
+		return "phone/tribeList";
+	} 
+	
+	@RequestMapping("tribeTalk")
+	public String tribeTalk(){
+		return "phone/tribeTalk";
+	} 
+	
+	@RequestMapping("videoInfo")
+	public String videoInfo(){
+		return "phone/videoInfo";
+	} 
+
+	
+}

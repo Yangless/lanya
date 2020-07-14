@@ -1,0 +1,53 @@
+package com.nwl.lanya.po;
+
+public class Tribes {
+    private Integer id;
+
+    private Integer accountId;
+
+    private String tribeName;
+
+    private String tribeLabel;
+
+    private String tribeIntroduce;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(Integer accountId) {
+        this.accountId = accountId;
+    }
+
+    public String getTribeName() {
+        return tribeName;
+    }
+
+    public void setTribeName(String tribeName) {
+        this.tribeName = tribeName == null ? null : tribeName.trim();
+    }
+
+    public String getTribeLabel() {
+        return tribeLabel;
+    }
+
+    public void setTribeLabel(String tribeLabel) {
+        this.tribeLabel = tribeLabel == null ? null : tribeLabel.trim();
+    }
+
+    public String getTribeIntroduce() {
+        return tribeIntroduce;
+    }
+
+    public void setTribeIntroduce(String tribeIntroduce) {
+        this.tribeIntroduce = tribeIntroduce == null ? null : tribeIntroduce.trim();
+    }
+}

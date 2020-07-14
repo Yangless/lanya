@@ -1,0 +1,120 @@
+//定义全局变量
+lanya.recommend={
+	"page":1,
+	"rows":2,
+	"isVideo":1
+};
+
+$$(function(){
+	//默认加载第一页数据
+	getList();
+	//滚动条到底部时加载新数据
+	$$(window).scroll(function(){
+        if ($$(window).scrollTop() + $$(window).height() == $$(document).height()) {
+        	lanya.recommend.page++;
+        	getList();
+        }
+    });
+});
+
+//分页获取视频列表
+function getList(){
+	$$.ajax({
+		url:"videoAudioRest/list",
+		type:"post",
+		data:lanya.recommend,
+		dataType:"json",
+		success:function(pageModel){
+			var rows = pageModel.rows;
+			for(var i=0;i<rows.length;i++){
+				var row = rows[i];
+				//判断是否是视频
+				if(row.isVideo==lanya.recommend.isVideo){
+				    $$("#introDiv").append(
+						'<div class="mui-card">'+
+						    '<input type="hidden" name="id" value="'+row.id+'"/>'+
+						    '<input type="hidden" name="teacherId" value="'+row.teacherId+'"/>'+
+							'<video poster="'+row.coursePhoto+'" width="100%" class="mui-card-header mui-card-media" controls="controls">'+
+								'<source src="'+row.videoUrl+'"></source>'+
+							'</video>'+
+							'<div class="mui-card-content">'+
+								'<div class="mui-card-content-inner">'+
+								    '<h4>'+row.videoAudioName+'</h4>'+
+									'<p style="color: #333;">'+row.introduce+'</p>'+
+								'</div>'+
+							'</div>'+
+							'<div class="mui-card-footer">'+
+								'<a onclick="teacherInfo(this);" class="mui-card-link"><span class="mui-icon mui-icon-contact-filled"></span></a>'+
+								'<a class="mui-card-link"><span class="mui-icon mui-icon-extra mui-icon-extra-heart-filled"></span></a>'+
+								'<a onclick="praiseNumber(this);" class="mui-card-link"><span class="mui-icon-extra mui-icon-extra-like"></span><span class="numberSpan">'+row.praiseNumber+'</span></a>'+
+								'<a onclick="videoInfo(this);" class="mui-card-link"><span class="mui-icon mui-icon-chatbubble-filled"></span><span class="numberSpan">'+row.commentNumber+'</span></a>'+
+								'<a href="#share" class="mui-card-link" id="menuShow"><span class="mui-icon mui-icon-bars"></span></a>'+
+							'</div>'+
+						'</div>'
+					);
+				}else{
+					$$("#introDiv").append(
+							'<div class="mui-card">'+
+							    '<input type="hidden" name="id" value="'+row.id+'"/>'+
+							    '<input type="hidden" name="teacherId" value="'+row.teacherId+'"/>'+
+								'<audio class="mui-card-header mui-card-media" controls="controls">'+
+									'<source src="'+row.audioUrl+'"></source>'+
+								'</audio>'+
+								'<div class="mui-card-content">'+
+									'<div class="mui-card-content-inner">'+
+									    '<h4>'+row.videoAudioName+'</h4>'+
+										'<p style="color: #333;">'+row.introduce+'</p>'+
+									'</div>'+
+								'</div>'+
+								'<div class="mui-card-footer">'+
+									'<a onclick="teacherInfo(this);" class="mui-card-link"><span class="mui-icon mui-icon-contact-filled"></span></a>'+
+									'<a class="mui-card-link"><span class="mui-icon mui-icon-extra mui-icon-extra-heart-filled"></span></a>'+
+									'<a onclick="praiseNumber(this);" class="mui-card-link"><span class="mui-icon-extra mui-icon-extra-like"></span><span class="numberSpan">'+row.praiseNumber+'</span></a>'+
+									'<a onclick="videoInfo(this);" class="mui-card-link"><span class="mui-icon mui-icon-chatbubble-filled"></span><span class="numberSpan">'+row.commentNumber+'</span></a>'+
+									'<a href="#share" class="mui-card-link" id="menuShow"><span class="mui-icon mui-icon-bars"></span></a>'+
+								'</div>'+
+							'</div>'
+						);
+				}
+			}
+		}
+	});
+}
+//查看老师信息
+function teacherInfo(obj){
+	window.localStorage.setItem("teacherInfo-teacherId",$$(obj).closest(".mui-card").find("[name=teacherId]").val());
+	window.location.href="/phone/teacherInfo.html";
+}
+//获赞功能
+function praiseNumber(obj){
+	$$.ajax({
+		url:"videoAudioRest/praiseNumber",
+		type:"post",
+		data:{
+			"po.id":$$(obj).closest(".mui-card").find("[name=id]").val()
+		},
+		dataType:"json",
+		success:function(dto){
+			if(dto.msgCode==lanya.common.msgCode.REQUEST_SCCESS){
+				$$(obj).find(".numberSpan").text(dto.po.praiseNumber);
+			}else{
+				mui.alert(dto.msg, '', function() {
+					
+				});
+			}
+		}
+	});
+}
+//评价功能
+function videoInfo(obj){
+	window.localStorage.setItem("videoInfo-videoAudioId",$$(obj).closest(".mui-card").find("[name=id]").val());
+	window.location.href="/phone/videoInfo.html";
+}
+
+
+
+
+
+
+
+

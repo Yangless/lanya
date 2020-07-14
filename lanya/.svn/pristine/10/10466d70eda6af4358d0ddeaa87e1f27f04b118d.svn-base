@@ -1,0 +1,53 @@
+package com.nwl.lanya.po;
+
+public class CourseSystem {
+    private Integer id;
+
+    private String courseSystemName;
+
+    private String courseSystemPhoto;
+
+    private String introduce;
+
+    private Integer teacherId;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getCourseSystemName() {
+        return courseSystemName;
+    }
+
+    public void setCourseSystemName(String courseSystemName) {
+        this.courseSystemName = courseSystemName == null ? null : courseSystemName.trim();
+    }
+
+    public String getCourseSystemPhoto() {
+        return courseSystemPhoto;
+    }
+
+    public void setCourseSystemPhoto(String courseSystemPhoto) {
+        this.courseSystemPhoto = courseSystemPhoto == null ? null : courseSystemPhoto.trim();
+    }
+
+    public String getIntroduce() {
+        return introduce;
+    }
+
+    public void setIntroduce(String introduce) {
+        this.introduce = introduce == null ? null : introduce.trim();
+    }
+
+    public Integer getTeacherId() {
+        return teacherId;
+    }
+
+    public void setTeacherId(Integer teacherId) {
+        this.teacherId = teacherId;
+    }
+}

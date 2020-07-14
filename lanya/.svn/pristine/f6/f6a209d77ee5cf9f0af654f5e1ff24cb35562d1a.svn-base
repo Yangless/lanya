@@ -1,0 +1,33 @@
+package com.nwl.lanya.po;
+
+public class CourseType {
+    private String id;
+
+    private String stageId;
+
+    private String courseName;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
+    }
+
+    public String getStageId() {
+        return stageId;
+    }
+
+    public void setStageId(String stageId) {
+        this.stageId = stageId == null ? null : stageId.trim();
+    }
+
+    public String getCourseName() {
+        return courseName;
+    }
+
+    public void setCourseName(String courseName) {
+        this.courseName = courseName == null ? null : courseName.trim();
+    }
+}

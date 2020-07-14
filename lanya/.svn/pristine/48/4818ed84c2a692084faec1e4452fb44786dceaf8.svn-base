@@ -1,0 +1,7 @@
+$$(function(){
+	$$("#contact").click(function(){
+		mui.alert('15108359685', '机构电话', function() {
+			
+		});
+	});
+});

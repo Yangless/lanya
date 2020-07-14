@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="../"/>
+	<meta charset="utf-8" />
+	<title>蓝芽-帮助您职业技能成长</title>
+	<!-- start: Favicon -->
+	<link rel="shortcut icon" href="img/logo.jpg">
+	<!-- end: Favicon -->
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="css/phone/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/phone/icons-extra.css"/>
+    <link rel="stylesheet" type="text/css" href="css/phone/mui.picker.min.css" />
+    <link rel="stylesheet" href="css/phone/common.css"/>
+    <link rel="stylesheet" type="text/css" href="css/phone/moneyList.css"/>
+</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">交易明细</h1>
+			<a id="btn" data-options='{"type":"month"}' class="mui-btn mui-btn-blue mui-btn-link mui-pull-right">查询</a>
+		</header>
+		
+		<ul class="mui-table-view">
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<p class="moneyItem">￥-14.6</p>
+						<p class="timeItem">2018-10-10 19:22:11</p>
+						<div class="mui-media-body">
+							<p class='mui-ellipsis'>静静的看这个世界，最后终于疯了</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<p class="moneyItem">￥-16.6</p>
+						<p class="timeItem">2018-10-10 19:22:11</p>
+						<div class="mui-media-body">
+							<p class='mui-ellipsis'>能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<p class="moneyItem">￥+18.8</p>
+						<p class="timeItem">2018-10-10 19:22:11</p>
+						<div class="mui-media-body">
+							<p class='mui-ellipsis'>想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<p class="moneyItem">￥+18.8</p>
+						<p class="timeItem">2018-10-10 19:22:11</p>
+						<div class="mui-media-body">
+							<p class='mui-ellipsis'>想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<p class="moneyItem">￥+18.8</p>
+						<p class="timeItem">2018-10-10 19:22:11</p>
+						<div class="mui-media-body">
+							<p class='mui-ellipsis'>想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<p class="moneyItem">￥+18.8</p>
+						<p class="timeItem">2018-10-10 19:22:11</p>
+						<div class="mui-media-body">
+							<p class='mui-ellipsis'>想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<p class="moneyItem">￥+18.8</p>
+						<p class="timeItem">2018-10-10 19:22:11</p>
+						<div class="mui-media-body">
+							<p class='mui-ellipsis'>想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
+						</div>
+					</a>
+				</li>
+			</ul>
+		
+		<script type="text/javascript" src="js/phone/jquery-3.3.1.min.js" ></script>
+	    <script type="text/javascript" src="js/phone/common.js"></script>
+	    <script src="js/phone/mui.min.js"></script>
+	    <script src="js/phone/mui.picker.min.js"></script>
+	    <script type="text/javascript" src="js/phone/moneyList.js"></script>
+	</body>
+</html>

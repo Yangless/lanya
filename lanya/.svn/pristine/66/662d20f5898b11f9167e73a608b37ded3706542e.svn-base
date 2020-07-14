@@ -1,0 +1,111 @@
+$(function(){
+	$('#datagrid').treegrid({
+	    url:'sysRightRest/getRoots',
+	    method: 'get',
+		idField: 'id',
+		treeField:'rightName',
+	    fit:true,
+	    fitColumns:true,
+	    checkbox: true,
+	    rownumbers:true,
+	    singleSelect:false,
+	    columns:[[
+	    	{field:'id',title:'id',hidden:true},
+	        {field:'rightName',title:'权限名称',width:100},
+	        {field:'rightCode',title:'权限编号',width:100},
+	        {field:'rightUrl',title:'权限路径',width:100}
+	    ]],
+	    toolbar: [{
+			iconCls: 'icon-add',
+			text:"添加",
+			handler: function(){
+				$('#addDialog').dialog('open');
+			}
+		},{
+			iconCls: 'icon-cancel',
+			text:"删除",
+			handler: function(){
+				deleteData();
+			}
+		}]
+	});
+	
+	//删除数据
+	function deleteData(){
+		var rows = $('#datagrid').treegrid("getCheckedNodes");
+		if(rows!=null&&rows.length>0){
+			$.messager.confirm({
+				title: '提示',
+				msg: '是否删除',
+				fn: function(flag){
+					if(flag){
+						var ids = [];
+						//循环放入选中行的id
+						for(var i=0;i<rows.length;i++){
+							var row = rows[i];
+							ids.push(row.id);
+						}
+						
+						$.ajax({
+				    		url:"sysRightRest/deleteByIds",
+				    		type:"post",
+				    		data:{
+				    			"ids":ids.join()
+				    		},
+				    		async:true,
+				    		dataType:"json",
+				    		success:function(dto){
+				    			$.messager.alert('提示',dto.msg);
+				    			$("#datagrid").treegrid("reload");
+				    		}
+				    	});
+					}
+				}
+			});
+		}else{
+			$.messager.alert('提示',"至少选择一条");
+		}
+    } 
+});
+
+//添加信息
+$(function(){
+	$('#parentId').combotree({
+	    url:'sysRightRest/getRoots'
+	});
+	
+	$('#addDialog').dialog({
+	    title: '添加',
+	    width: 1000,
+	    height: 400,
+	    closed: true,
+	    modal: true,
+	    buttons:[{
+			text:'提交',
+			handler:function(){
+				if(validate("addDialog form")){
+					$.ajax({
+						url:"sysRightRest/saveOrUpdate",
+						type:"post",
+						data:$("#addDialog form").serialize(),
+						async:true,
+						dataType:"json",
+						success:function(dto){
+							$.messager.alert('提示',dto.msg);
+							$('#addDialog').dialog("close");
+							$('#addDialog form').form('reset');
+							$("#datagrid").treegrid("reload");
+							//重新加载树结构
+							$('#parentId').combotree("reload");
+						}
+					});
+				}
+			}
+		},{
+			text:'重置',
+			handler:function(){
+				$('#addDialog form').form('reset');
+			}
+		}]
+	});
+});

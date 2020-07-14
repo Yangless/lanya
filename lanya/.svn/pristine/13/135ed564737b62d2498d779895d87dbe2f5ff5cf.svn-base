@@ -1,0 +1,57 @@
+$(function(){
+	$('#datagrid').datagrid({
+	    url:'accountRest/list',
+	    method:'post',
+	    fit:true,
+	    fitColumns:true,
+	    rownumbers:true,
+	    singleSelect:false,
+	    pagination:true,
+	    pageSize:30,
+	    columns:[[
+	    	{field:'ck',checkbox:true},
+	        {field:'accountCode',title:'账号',width:100},
+	        {field:'realName',title:'姓名',width:100},
+	        {field:'nickName',title:'昵称',width:100},
+	        {field:'sex',title:'性别',width:50},
+	        {field:'age',title:'年龄',width:50},
+	        {field:'phone',title:'手机',width:100},
+	        {field:'photoUrl',title:'头像',width:100,
+	        	formatter:function(value,row,index){
+                     return '';
+                }
+	        },
+	        {field:'roleName',title:'所属角色',width:100}
+	    ]],
+	    rowStyler:function(index,row){
+			if (row.useAble==0){
+				return 'background-color:red;color:black;';
+			}
+		},
+	    toolbar: [{
+			iconCls: 'icon-search',
+			text:"查询",
+			handler: function(){
+				$('#searchDialog').dialog('open');
+			}
+		},{
+			iconCls: 'icon-add',
+			text:"添加",
+			handler: function(){
+				
+			}
+		},{
+			iconCls: 'icon-cancel',
+			text:"禁用",
+			handler: function(){
+				updateData();
+			}
+		},{
+			iconCls: 'icon-add',
+			text:"角色分配",
+			handler: function(){
+				
+			}
+		}]
+	});
+});

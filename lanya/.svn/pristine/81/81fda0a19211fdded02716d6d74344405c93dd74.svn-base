@@ -1,0 +1,30 @@
+package com.nwl.lanya.dao;
+
+import com.nwl.lanya.po.SysRight;
+import com.nwl.lanya.po.SysRightExample;
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
+
+public interface SysRightMapper {
+    long countByExample(SysRightExample example);
+
+    int deleteByExample(SysRightExample example);
+
+    int deleteByPrimaryKey(Integer id);
+
+    int insert(SysRight record);
+
+    int insertSelective(SysRight record);
+
+    List<SysRight> selectByExample(SysRightExample example);
+
+    SysRight selectByPrimaryKey(Integer id);
+
+    int updateByExampleSelective(@Param("record") SysRight record, @Param("example") SysRightExample example);
+
+    int updateByExample(@Param("record") SysRight record, @Param("example") SysRightExample example);
+
+    int updateByPrimaryKeySelective(SysRight record);
+
+    int updateByPrimaryKey(SysRight record);
+}

@@ -1,0 +1,78 @@
+//定义全局变量
+lanya.learningPath={
+	
+};
+
+$$(function(){
+	//判断信息是否已经缓存
+	if(isEmpty(window.localStorage.getItem("learningPath-courseSystemId"))){
+		window.location.href="/phone/teacherInfo.html";
+	}else{
+		lanya.learningPath.courseSystemId = window.localStorage.getItem("learningPath-courseSystemId");
+		//通过课程体系id获取课程体系详情
+		getCourseSystemByCourseSystemId();
+	}
+});
+
+//通过课程体系id获取课程体系详情
+function getCourseSystemByCourseSystemId(){
+	$$.ajax({
+		url:"courseSystemRest/getRoots",
+		type:"post",
+		data:lanya.learningPath,
+		dataType:"json",
+		success:function(pos){
+			//获取课程体系详情
+			var po = pos[0];
+			$$("#courseSystemPhoto").attr("src",po.courseSystemPhoto);
+			$$("#courseSystemName").text(po.courseSystemName);
+			$$("#introduce").text(po.introduce);
+			$$("#teacherId").val(po.teacherId);
+			
+			//显示课程体系阶段
+			var stages = po.children;
+			for(var i=0;i<stages.length;i++){
+				var stage = stages[i];
+				var $$stageLi = $$(
+					'<li class="mui-table-view-cell mui-collapse"><a class="mui-navigate-right" href="#">'+stage.courseSystemName+'-'+stage.introduce+'</a>'+
+						'<ul class="mui-table-view mui-table-view-chevron">'+
+							
+						'</ul>'+
+					'</li>'
+				);
+				$$("#courseSystemList").append($$stageLi);
+				
+				//显示阶段下面的具体课程
+				var courseTypes = stage.children;
+				for(var j=0;j<courseTypes.length;j++){
+					var courseType = courseTypes[j];
+					
+					$$stageLi.find("ul").append(
+						'<li class="mui-table-view-cell">'+
+							'<a class="mui-navigate-right" onclick="courseList(this)">'+courseType.courseSystemName+'</a>'+
+						'</li>'
+					);
+				}
+			}
+			
+		}
+	});
+}
+function courseList(obj){
+	//不根据完整课程的id来查询，就是通过老师id和课程名称来查询
+	window.localStorage.setItem("courseList-courseName",$$(obj).text());
+	window.localStorage.setItem("courseList-teacherId",$$("#teacherId").val());
+	//不根据完整课程的id来查询，清空完整课程的id
+	window.localStorage.removeItem("courseList-courseId");
+	
+	window.location.href="/phone/courseList.html";
+}
+
+
+
+
+
+
+
+
+

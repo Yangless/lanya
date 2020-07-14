@@ -1,0 +1,240 @@
+//定义全局变量
+lanya.videoInfo={
+	"page":1,
+	"rows":5,
+	"isVideo":1
+};
+
+$$(function(){
+	
+	//判断信息是否已经缓存
+	if(isEmpty(window.localStorage.getItem("videoInfo-videoAudioId"))){
+
+	}else{
+		lanya.videoInfo.videoAudioId = window.localStorage.getItem("videoInfo-videoAudioId");
+	}
+	
+	//学生发表评论
+	document.getElementById("commentLi").addEventListener('tap', function(e) {
+		e.detail.gesture.preventDefault(); //修复iOS 8.x平台存在的bug，使用plus.nativeUI.prompt会造成输入法闪一下又没了
+		var btnArray = ['取消', '发表'];
+		mui.prompt('', '', '学生评论', btnArray, function(e) {
+			if (e.index == 1) {
+				lanya.videoInfo.content = e.value;
+				
+				//获取当前用户的accountId
+				if(!isEmpty(window.localStorage.getItem("account"))){
+					var acccount = JSON.parse(window.localStorage.getItem("account"));
+					lanya.videoInfo.accountId = acccount.id;
+				}
+				
+				$$.ajax({
+					url:"commentRest/saveOrUpdate",
+					type:"post",
+					data:lanya.videoInfo,
+					dataType:"json",
+					success:function(dto){
+						var vo = dto.vo;
+						//根据评论数据显示评论信息
+						showCommentList(vo);
+					}
+				});
+			} else {
+				
+			}
+		});
+	});
+	
+	//获取视频详情
+	getVideoAudio();
+	
+});
+
+//获取视频详情
+function getVideoAudio(){
+	$$.ajax({
+		url:"videoAudioRest/getVideoAudio",
+		type:"post",
+		data:lanya.videoInfo,
+		dataType:"json",
+		success:function(dto){
+			var vo = dto.vos[0];
+			$$("#title").text(vo.videoAudioName);
+			//设置获取相似知识的视频列表的查询条件
+			lanya.videoInfo.videoAudioName = vo.videoAudioName;
+			//获取相似知识的视频列表
+			getVideoAudioList();
+			//设置获取当前视频的评价的查询条件
+			lanya.videoInfo.videoAudioId = vo.id;
+			//获取当前视频的评价
+			getCommentList();
+			
+			//判断是否是视频
+			if(vo.isVideo==lanya.videoInfo.isVideo){
+				$$("#videoFixDiv").append(
+						'<video id="currentVideo" class="mui-card-header mui-card-media" poster="'+vo.coursePhoto+'" controls="controls">'+
+							'<source src="'+vo.videoUrl+'"></source>'+
+						'</video>'+
+						'<div id="videoInfo">'+
+							'<div id="attention">'+
+								'<span class="mui-icon mui-icon-extra mui-icon-extra-heart-filled">收藏视频</span>'+
+							'</div>'+
+							'<div class="teacherPhoto">'+
+								'<a href="phone/teacherInfo.html">'+
+									'<img src="'+vo.accountPhotoUrl+'"/>&nbsp;&nbsp;'+
+									'<span>'+
+									   vo.teacherName+
+									'</span>'+
+								'</a>'+
+							'</div>'+
+							'<p class="videoInfoShow">'+vo.introduce+'</p>'+
+						'</div>'
+				);
+			}else{
+				$$("#videoFixDiv").append(
+						'<audio class="mui-card-header mui-card-media" controls="controls">'+
+							'<source src="'+vo.audioUrl+'"></source>'+
+						'</audio>'+
+						'<div id="videoInfo">'+
+							'<div id="attention">'+
+								'<span class="mui-icon mui-icon-extra mui-icon-extra-heart-filled">收藏视频</span>'+
+							'</div>'+
+							'<div class="teacherPhoto">'+
+								'<a href="phone/teacherInfo.html">'+
+									'<img src="'+vo.accountPhotoUrl+'"/>&nbsp;&nbsp;'+
+									'<span>'+
+									   vo.teacherName+
+									'</span>'+
+								'</a>'+
+							'</div>'+
+							'<p class="videoInfoShow">'+vo.introduce+'</p>'+
+						'</div>'
+				);
+			}
+		}
+	});
+}
+
+//点击加载更多评论
+$$(function(){
+	$$("#loadMore").click(function(){
+		lanya.videoInfo.page++;
+		getCommentList();
+	});
+});
+//获取当前视频的评价
+function getCommentList(){
+	$$.ajax({
+		url:"commentRest/list",
+		type:"post",
+		data:lanya.videoInfo,
+		dataType:"json",
+		success:function(pageModel){
+			var rows = pageModel.rows;
+			if(rows.length<=0){
+				$$("#loadMore").find("button").text("没有更多了");
+			}
+			for(var i=0;i<rows.length;i++){
+				var row = rows[i];
+				//根据评论数据显示评论信息
+				showCommentList(row);
+			}	
+		}
+	});
+}
+//根据评论数据显示评论信息
+function showCommentList(row){
+	$$("#commentListDetail").prepend(
+		'<div class="commentListClass row">'+
+		    '<input id="id" name="id" type="hidden" value="'+row.id+'"/>'+
+			'<div class="col-md-2">'+
+				'<dl>'+
+					'<dt><img class="teacherPhotoImg" src="'+row.photoUrl+'"/></dt>'+
+					'<dt>'+row.nickName+'</dt>'+
+				'</dl>'+
+				'<a onclick="commentPraiseNumber(this);" class="mui-card-link"><span class="mui-icon-extra mui-icon-extra-like"></span><span class="numberSpan">'+row.commentPraiseNumber+'</span></a>'+
+			'</div>'+
+			'<div class="col-md-7">'+
+				'<p class="commentP">'+
+				    row.content+
+				'</p>'+
+				'<p class="timeP">'+
+				    row.commentTime+
+				'</p>'+
+			'</div>'+
+			'<div class="col-md-3">'+
+				'<a onclick="replyNumber(this);" class="mui-card-link"><span class="mui-icon mui-icon-chatbubble-filled"></span><span class="numberSpan">'+row.replyNumber+'</span>回复</a>'+
+			'</div>'+
+		'</div>'
+	);
+}
+//评论点赞
+function commentPraiseNumber(obj){
+	$$.ajax({
+		url:"commentRest/praiseNumber",
+		type:"post",
+		data:{
+			"po.id":$$(obj).closest(".commentListClass").find("[name=id]").val()
+		},
+		dataType:"json",
+		success:function(dto){
+			if(dto.msgCode==lanya.common.msgCode.REQUEST_SCCESS){
+				$$(obj).find(".numberSpan").text(dto.po.commentPraiseNumber);
+			}else{
+				mui.alert(dto.msg, '', function() {
+					
+				});
+			}
+		}
+	});
+}
+//评论回复
+function replyNumber(obj){
+	window.localStorage.setItem("replyComment-parentId",$$(obj).closest(".commentListClass").find("[name=id]").val());
+	window.location.href="/phone/replyComment.html";
+}
+
+//获取相似知识的视频列表
+function getVideoAudioList(){
+	$$.ajax({
+		url:"videoAudioRest/getVideoAudio",
+		type:"post",
+		data:{
+			"videoAudioName":lanya.videoInfo.videoAudioName
+		},
+		dataType:"json",
+		success:function(dto){
+			var rows = dto.vos;
+			for(var i=0;i<rows.length;i++){
+				var row = rows[i];
+				$$("#item2mobile ul").append(
+					'<li class="mui-table-view-cell mui-media">'+
+					    '<input id="id" name="id" type="hidden" value="'+row.id+'"/>'+
+						'<a onclick="videoInfo(this);" class="mui-navigate-right">'+
+							'<img class="mui-media-object mui-pull-left" src="'+row.coursePhoto+'">'+
+							'<div class="mui-media-body">'+
+							    row.videoAudioName+
+								'<p class="mui-ellipsis">'+row.introduce+'</p>'+
+							'</div>'+
+						'</a>'+
+					'</li>'
+				);
+			}
+		}
+	});
+}
+function videoInfo(obj){
+	window.localStorage.setItem("videoInfo-videoAudioId",$$(obj).closest("li").find("[name=id]").val());
+	window.location.href="/phone/videoInfo.html";
+}
+
+
+
+
+
+
+
+
+
+
+

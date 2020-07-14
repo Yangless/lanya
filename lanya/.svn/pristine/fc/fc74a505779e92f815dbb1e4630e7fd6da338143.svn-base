@@ -1,0 +1,30 @@
+package com.nwl.lanya.dao;
+
+import com.nwl.lanya.po.CourseSystemCollection;
+import com.nwl.lanya.po.CourseSystemCollectionExample;
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
+
+public interface CourseSystemCollectionMapper {
+    long countByExample(CourseSystemCollectionExample example);
+
+    int deleteByExample(CourseSystemCollectionExample example);
+
+    int deleteByPrimaryKey(Integer id);
+
+    int insert(CourseSystemCollection record);
+
+    int insertSelective(CourseSystemCollection record);
+
+    List<CourseSystemCollection> selectByExample(CourseSystemCollectionExample example);
+
+    CourseSystemCollection selectByPrimaryKey(Integer id);
+
+    int updateByExampleSelective(@Param("record") CourseSystemCollection record, @Param("example") CourseSystemCollectionExample example);
+
+    int updateByExample(@Param("record") CourseSystemCollection record, @Param("example") CourseSystemCollectionExample example);
+
+    int updateByPrimaryKeySelective(CourseSystemCollection record);
+
+    int updateByPrimaryKey(CourseSystemCollection record);
+}

@@ -1,0 +1,23 @@
+package com.nwl.lanya.po;
+
+public class CourseType {
+    private Integer id;
+
+    private String courseTypeName;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getCourseTypeName() {
+        return courseTypeName;
+    }
+
+    public void setCourseTypeName(String courseTypeName) {
+        this.courseTypeName = courseTypeName == null ? null : courseTypeName.trim();
+    }
+}

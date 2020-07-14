@@ -1,0 +1,64 @@
+package com.nwl.lanya.dao;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
+import com.nwl.lanya.dto.CourseFullDto;
+import com.nwl.lanya.po.Course;
+import com.nwl.lanya.po.CourseExample;
+
+public interface CourseMapper {
+	
+	/**
+	 * 
+	* @Title: getRoots 
+	* @Description: 获取并返回所有根节点 
+	* @param    
+	* @return List<Course>    
+	* @throws
+	 */
+	List<Course> getRoots(CourseFullDto dto);
+	
+	/**
+	 * 
+	* @Title: getVideoAudio 
+	* @Description: 获取完整课程下面的视频
+	* @param    
+	* @return List<Course>    
+	* @throws
+	 */
+	List<Course> getVideoAudio(CourseFullDto dto);
+	
+	/**
+	 * 
+	* @Title: getCourseByTeacherId 
+	* @Description: 根据教师id获取完整课程
+	* @param    
+	* @return List<Course>    
+	* @throws
+	 */
+	List<Course> getCourseByTeacherId(CourseFullDto dto);
+	
+    long countByExample(CourseExample example);
+
+    int deleteByExample(CourseExample example);
+
+    int deleteByPrimaryKey(String id);
+
+    int insert(Course record);
+
+    int insertSelective(Course record);
+
+    List<Course> selectByExample(CourseExample example);
+
+    Course selectByPrimaryKey(String id);
+
+    int updateByExampleSelective(@Param("record") Course record, @Param("example") CourseExample example);
+
+    int updateByExample(@Param("record") Course record, @Param("example") CourseExample example);
+
+    int updateByPrimaryKeySelective(Course record);
+
+    int updateByPrimaryKey(Course record);
+}

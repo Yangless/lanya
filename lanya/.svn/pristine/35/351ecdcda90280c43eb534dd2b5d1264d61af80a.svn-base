@@ -1,0 +1,25 @@
+package com.nwl.lanya.dto;
+
+import java.io.Serializable;
+import java.util.List;
+
+public class TalkDto implements Serializable {
+	private static final long serialVersionUID = -7724528404824437594L;
+	//用户消息
+	private String message;
+	//消息队列
+	private List<String> messageList;
+	public String getMessage() {
+		return message;
+	}
+	public void setMessage(String message) {
+		this.message = message;
+	}
+	public List<String> getMessageList() {
+		return messageList;
+	}
+	public void setMessageList(List<String> messageList) {
+		this.messageList = messageList;
+	}
+	
+}

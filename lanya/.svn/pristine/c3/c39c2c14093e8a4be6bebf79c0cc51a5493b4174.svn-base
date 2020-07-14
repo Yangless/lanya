@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nwl.lanya.dao.CourseListMapper">
+  <resultMap id="BaseResultMap" type="com.nwl.lanya.po.CourseList">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="course_list_name" jdbcType="VARCHAR" property="courseListName" />
+    <result column="total_count" jdbcType="INTEGER" property="totalCount" />
+    <result column="account_id" jdbcType="INTEGER" property="accountId" />
+    <result column="company_id" jdbcType="INTEGER" property="companyId" />
+    <result column="price" jdbcType="DOUBLE" property="price" />
+    <result column="comment_percent" jdbcType="DOUBLE" property="commentPercent" />
+    <result column="course_type_id" jdbcType="INTEGER" property="courseTypeId" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.nwl.lanya.po.CourseListWithBLOBs">
+    <result column="fit_student" jdbcType="LONGVARCHAR" property="fitStudent" />
+    <result column="pre_course" jdbcType="LONGVARCHAR" property="preCourse" />
+    <result column="study_type" jdbcType="LONGVARCHAR" property="studyType" />
+    <result column="resource" jdbcType="LONGVARCHAR" property="resource" />
+    <result column="question" jdbcType="LONGVARCHAR" property="question" />
+    <result column="introduce" jdbcType="LONGVARCHAR" property="introduce" />
+    <result column="teacher_info" jdbcType="LONGVARCHAR" property="teacherInfo" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, course_list_name, total_count, account_id, company_id, price, comment_percent, 
+    course_type_id
+  </sql>
+  <sql id="Blob_Column_List">
+    fit_student, pre_course, study_type, resource, question, introduce, teacher_info
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.nwl.lanya.po.CourseListExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from course_list
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.nwl.lanya.po.CourseListExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from course_list
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from course_list
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from course_list
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.nwl.lanya.po.CourseListExample">
+    delete from course_list
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.nwl.lanya.po.CourseListWithBLOBs">
+    insert into course_list (id, course_list_name, total_count, 
+      account_id, company_id, price, 
+      comment_percent, course_type_id, fit_student, 
+      pre_course, study_type, resource, 
+      question, introduce, teacher_info
+      )
+    values (#{id,jdbcType=INTEGER}, #{courseListName,jdbcType=VARCHAR}, #{totalCount,jdbcType=INTEGER}, 
+      #{accountId,jdbcType=INTEGER}, #{companyId,jdbcType=INTEGER}, #{price,jdbcType=DOUBLE}, 
+      #{commentPercent,jdbcType=DOUBLE}, #{courseTypeId,jdbcType=INTEGER}, #{fitStudent,jdbcType=LONGVARCHAR}, 
+      #{preCourse,jdbcType=LONGVARCHAR}, #{studyType,jdbcType=LONGVARCHAR}, #{resource,jdbcType=LONGVARCHAR}, 
+      #{question,jdbcType=LONGVARCHAR}, #{introduce,jdbcType=LONGVARCHAR}, #{teacherInfo,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.nwl.lanya.po.CourseListWithBLOBs">
+    insert into course_list
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="courseListName != null">
+        course_list_name,
+      </if>
+      <if test="totalCount != null">
+        total_count,
+      </if>
+      <if test="accountId != null">
+        account_id,
+      </if>
+      <if test="companyId != null">
+        company_id,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="commentPercent != null">
+        comment_percent,
+      </if>
+      <if test="courseTypeId != null">
+        course_type_id,
+      </if>
+      <if test="fitStudent != null">
+        fit_student,
+      </if>
+      <if test="preCourse != null">
+        pre_course,
+      </if>
+      <if test="studyType != null">
+        study_type,
+      </if>
+      <if test="resource != null">
+        resource,
+      </if>
+      <if test="question != null">
+        question,
+      </if>
+      <if test="introduce != null">
+        introduce,
+      </if>
+      <if test="teacherInfo != null">
+        teacher_info,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="courseListName != null">
+        #{courseListName,jdbcType=VARCHAR},
+      </if>
+      <if test="totalCount != null">
+        #{totalCount,jdbcType=INTEGER},
+      </if>
+      <if test="accountId != null">
+        #{accountId,jdbcType=INTEGER},
+      </if>
+      <if test="companyId != null">
+        #{companyId,jdbcType=INTEGER},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="commentPercent != null">
+        #{commentPercent,jdbcType=DOUBLE},
+      </if>
+      <if test="courseTypeId != null">
+        #{courseTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="fitStudent != null">
+        #{fitStudent,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="preCourse != null">
+        #{preCourse,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="studyType != null">
+        #{studyType,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="resource != null">
+        #{resource,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="question != null">
+        #{question,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="introduce != null">
+        #{introduce,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="teacherInfo != null">
+        #{teacherInfo,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.nwl.lanya.po.CourseListExample" resultType="java.lang.Long">
+    select count(*) from course_list
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update course_list
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.courseListName != null">
+        course_list_name = #{record.courseListName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.totalCount != null">
+        total_count = #{record.totalCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.accountId != null">
+        account_id = #{record.accountId,jdbcType=INTEGER},
+      </if>
+      <if test="record.companyId != null">
+        company_id = #{record.companyId,jdbcType=INTEGER},
+      </if>
+      <if test="record.price != null">
+        price = #{record.price,jdbcType=DOUBLE},
+      </if>
+      <if test="record.commentPercent != null">
+        comment_percent = #{record.commentPercent,jdbcType=DOUBLE},
+      </if>
+      <if test="record.courseTypeId != null">
+        course_type_id = #{record.courseTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.fitStudent != null">
+        fit_student = #{record.fitStudent,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.preCourse != null">
+        pre_course = #{record.preCourse,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.studyType != null">
+        study_type = #{record.studyType,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.resource != null">
+        resource = #{record.resource,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.question != null">
+        question = #{record.question,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.introduce != null">
+        introduce = #{record.introduce,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.teacherInfo != null">
+        teacher_info = #{record.teacherInfo,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update course_list
+    set id = #{record.id,jdbcType=INTEGER},
+      course_list_name = #{record.courseListName,jdbcType=VARCHAR},
+      total_count = #{record.totalCount,jdbcType=INTEGER},
+      account_id = #{record.accountId,jdbcType=INTEGER},
+      company_id = #{record.companyId,jdbcType=INTEGER},
+      price = #{record.price,jdbcType=DOUBLE},
+      comment_percent = #{record.commentPercent,jdbcType=DOUBLE},
+      course_type_id = #{record.courseTypeId,jdbcType=INTEGER},
+      fit_student = #{record.fitStudent,jdbcType=LONGVARCHAR},
+      pre_course = #{record.preCourse,jdbcType=LONGVARCHAR},
+      study_type = #{record.studyType,jdbcType=LONGVARCHAR},
+      resource = #{record.resource,jdbcType=LONGVARCHAR},
+      question = #{record.question,jdbcType=LONGVARCHAR},
+      introduce = #{record.introduce,jdbcType=LONGVARCHAR},
+      teacher_info = #{record.teacherInfo,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update course_list
+    set id = #{record.id,jdbcType=INTEGER},
+      course_list_name = #{record.courseListName,jdbcType=VARCHAR},
+      total_count = #{record.totalCount,jdbcType=INTEGER},
+      account_id = #{record.accountId,jdbcType=INTEGER},
+      company_id = #{record.companyId,jdbcType=INTEGER},
+      price = #{record.price,jdbcType=DOUBLE},
+      comment_percent = #{record.commentPercent,jdbcType=DOUBLE},
+      course_type_id = #{record.courseTypeId,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.nwl.lanya.po.CourseListWithBLOBs">
+    update course_list
+    <set>
+      <if test="courseListName != null">
+        course_list_name = #{courseListName,jdbcType=VARCHAR},
+      </if>
+      <if test="totalCount != null">
+        total_count = #{totalCount,jdbcType=INTEGER},
+      </if>
+      <if test="accountId != null">
+        account_id = #{accountId,jdbcType=INTEGER},
+      </if>
+      <if test="companyId != null">
+        company_id = #{companyId,jdbcType=INTEGER},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="commentPercent != null">
+        comment_percent = #{commentPercent,jdbcType=DOUBLE},
+      </if>
+      <if test="courseTypeId != null">
+        course_type_id = #{courseTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="fitStudent != null">
+        fit_student = #{fitStudent,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="preCourse != null">
+        pre_course = #{preCourse,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="studyType != null">
+        study_type = #{studyType,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="resource != null">
+        resource = #{resource,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="question != null">
+        question = #{question,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="introduce != null">
+        introduce = #{introduce,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="teacherInfo != null">
+        teacher_info = #{teacherInfo,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.nwl.lanya.po.CourseListWithBLOBs">
+    update course_list
+    set course_list_name = #{courseListName,jdbcType=VARCHAR},
+      total_count = #{totalCount,jdbcType=INTEGER},
+      account_id = #{accountId,jdbcType=INTEGER},
+      company_id = #{companyId,jdbcType=INTEGER},
+      price = #{price,jdbcType=DOUBLE},
+      comment_percent = #{commentPercent,jdbcType=DOUBLE},
+      course_type_id = #{courseTypeId,jdbcType=INTEGER},
+      fit_student = #{fitStudent,jdbcType=LONGVARCHAR},
+      pre_course = #{preCourse,jdbcType=LONGVARCHAR},
+      study_type = #{studyType,jdbcType=LONGVARCHAR},
+      resource = #{resource,jdbcType=LONGVARCHAR},
+      question = #{question,jdbcType=LONGVARCHAR},
+      introduce = #{introduce,jdbcType=LONGVARCHAR},
+      teacher_info = #{teacherInfo,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.nwl.lanya.po.CourseList">
+    update course_list
+    set course_list_name = #{courseListName,jdbcType=VARCHAR},
+      total_count = #{totalCount,jdbcType=INTEGER},
+      account_id = #{accountId,jdbcType=INTEGER},
+      company_id = #{companyId,jdbcType=INTEGER},
+      price = #{price,jdbcType=DOUBLE},
+      comment_percent = #{commentPercent,jdbcType=DOUBLE},
+      course_type_id = #{courseTypeId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

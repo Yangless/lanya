@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<base href="../"/>
+		<meta charset="utf-8" />
+		<title>蓝芽-帮助您职业技能成长</title>
+		<!-- start: Favicon -->
+		<link rel="shortcut icon" href="img/logo.jpg">
+		<!-- end: Favicon -->
+		<!-- fusioncharts start -->
+		<script type="text/javascript" src="js/fusioncharts/js/fusioncharts.js"></script>
+		<!-- fusioncharts end -->
+		<script type="text/javascript" src="js/occupation.js" ></script>
+	</head>
+	<body>
+		
+			<div id="chart-container"></div>
+		
+	</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="../"/>
+	<meta charset="utf-8" />
+	<title>蓝芽-帮助您职业技能成长</title>
+	<!-- start: Favicon -->
+	<link rel="shortcut icon" href="img/logo.jpg">
+	<!-- end: Favicon -->
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="css/phone/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/phone/icons-extra.css"/>
+    <link rel="stylesheet" href="css/phone/common.css"/>
+    <link rel="stylesheet" type="text/css" href="css/phone/myMoney.css"/>
+</head>
+	<body>
+		
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">我的钱包</h1>
+			<a href="html/moneyList.html" class="mui-btn mui-btn-blue mui-btn-link mui-pull-right">明细</a>
+		</header>
+		
+		<div id="moneyShow">
+			<span class="mui-icon-extra mui-icon-extra-gold">我的零钱</span>
+			<p>￥0.00</p>
+		</div>
+		
+		<ul class="mui-table-view">
+            <li class="mui-table-view-cell">
+            	<span class="mui-badge" style="background: none;color:#DD524D;">￥0.00</span>
+            	可提现金额
+            </li>
+            <li class="mui-table-view-cell">
+            	<span class="mui-badge" style="background: none;color:#DD524D;">￥0.00</span>
+            	待结算金额
+            </li>
+        </ul>
+        
+        <table class="contentTable">
+		    <tr>
+		    	<td>
+		    		<div id="logoutBtn" class="mui-btn mui-btn-primary">
+						提现
+					</div>
+		    	</td>
+		    </tr>
+		</table>
+		
+		<script type="text/javascript" src="js/phone/jquery-3.3.1.min.js" ></script>
+	    <script type="text/javascript" src="js/phone/common.js"></script>
+	    <script src="js/phone/mui.min.js"></script>
+	    <script type="text/javascript" src="js/phone/myMoney.js"></script>
+	</body>
+</html>

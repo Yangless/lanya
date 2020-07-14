@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <base href="../"/>
+	<meta charset="utf-8" />
+	<title>erp-资源管理平台</title>
+	<!-- start: Favicon -->
+	<link rel="shortcut icon" href="img/logo.png">
+	<!-- end: Favicon -->
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap-theme.min.css"/>
+	<link rel="stylesheet" href="css/common.css"/>
+	<link rel="stylesheet" href="css/sourceDetail.css"/>
+	<link rel="stylesheet" href="css/raty/jquery.raty.css"/>
+	<!--script start-->
+	<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+	<script type="text/javascript" src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/raty/jquery.raty.js"></script>
+	<!--script end-->
+	<style>
+		.test-show-left{
+			min-height:1000px;
+			
+		}
+		.test-show-right{
+			min-height:1000px;
+		}
+		.test-show-right>img{
+			width:100%;
+		}
+		#title-show-right{
+			text-align:right;
+		}
+		#title-show-right button{
+			margin-top:20px;
+		}
+		#title-show-p{
+			padding-top:10px;
+			font-size:12px;
+		}
+		.my-show-ul{
+			text-align: center;
+		}
+		.my-show-ul li{
+			padding-bottom:20px;
+			color: #666;
+			font-size: 14px;
+		}
+		.my-show-ul li:hover{
+			cursor: pointer;
+			color: #29ABE3;
+		}
+		.myDetailTitle{
+			background: #F2F2F2;
+			width: 100%;
+			height: 49px;
+			line-height: 49px;
+			color: #29ABE3;
+			font-size: 16px;
+			text-indent: 15px;
+			border-top: 1px solid #DCDCDC;
+		}
+		.myDetailContent{
+			width: 100%;
+			min-height: 200px;
+			text-indent: 15px;
+			padding: 20px;
+			font-size: 16px;
+			color: #444;
+		}
+		.comment-show-test{
+			border-top: 1px dotted #cdcdcd;
+			padding-top: 15px;
+		}
+		.imgClass img{
+			
+		}
+		#accountDl{
+			text-align: center;
+		}
+		#accountDl dd{
+			color:#29ABE3;
+			font-size:12px;
+			margin-top:15px;
+		}
+		#accountDl img{
+			height:50px;
+			weight:50px;
+			border-radius:100%;
+		}
+		
+		@media screen and (max-width: 1000px) {
+					.test-show-right{
+						display: none;
+					}
+				}
+	</style>
+</head>
+<body>
+	
+	<nav class="navbar navbar-default navbar-fixed-top">
+	  <!-- container-fluid -->
+	  <div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			  </button>
+			  <a class="navbar-brand" href="#">erp-资源管理平台</a>
+			</div>
+	
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<!-- navbar-collapse -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			  <ul class="nav navbar-nav">
+				<li class="active"><a href="html/index.html">首页</a></li>
+				<li><a href="html/boutique.html">精品</a></li>
+				<li><a href="html/platform.html">友情链接</a></li>
+				<li><a href="html/anchorList.html">教师排名</a></li>
+			  </ul>
+			  <form class="navbar-form navbar-left">
+					<div class="form-group">
+					  <input type="text" class="form-control" placeholder="你想找什么资源">
+					  <button class="btn btn-default" type="submit">搜索</button>
+					</div>
+			  </form>
+			  <ul class="nav navbar-nav navbar-right">
+			       <li><a class="nav-intro" href="#">个人中心</a></li>
+			  </ul>
+			</div>
+			<!-- navbar-collapse -->
+	  </div>
+	  <!-- container-fluid -->
+	</nav>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="test-show-left col-xs-12 col-sm-12 col-md-9">
+				<div class="detailContent">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-xs-12 col-sm-6 col-md-6">
+								<h3>华清远见java学习资料</h3>
+								<p>发布时间：2020-06-15</p>
+							</div>
+							<div id="title-show-right" class="col-xs-12 col-sm-6 col-md-6">
+								<button type="button" class="btn btn-info">我要免费</button>
+								<button type="button" class="btn btn-info">立即下载</button>
+								<p id="title-show-p">
+									<span class="glyphicon glyphicon-save"></span><span>1人|</span>
+									<span class="glyphicon glyphicon-eye-open"></span><span>191次|</span>
+									<span class="glyphicon glyphicon-phone-alt"></span><span>举报|</span>
+									<span class="glyphicon glyphicon-share-alt"></span><span>分享</span>
+								</p>	
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="myDetailTitle">
+					<span class="glyphicon glyphicon-edit"></span>资源概述
+				</div>
+				<div class="myDetailContent">
+					今天天气很好很好，耶耶耶耶耶耶耶耶！今天天气很好很好，耶耶耶耶耶耶耶耶！今天天气很好很好，耶耶耶耶耶耶耶耶！
+				</div>
+				<div class="myDetailTitle">
+					<span class="glyphicon glyphicon-edit"></span>资源详细介绍
+				</div>
+				<div class="myDetailContent">
+					今天天气很好很好，耶耶耶耶耶耶耶耶！今天天气很好很好，耶耶耶耶耶耶耶耶！今天天气很好很好，耶耶耶耶耶耶耶耶！
+				</div>
+				<div class="myDetailTitle">
+					<span class="glyphicon glyphicon-volume-up"></span>资源说明
+				</div>
+				<div class="sourceIntro detailContent">
+					<p>支付的费用只是购买资源的费用，如有疑问欢迎在文末留言交流，如需主播在线指导、定制等，可与主播直接联系，请知悉谢谢</p>
+					<p>如果发现资源有盗版、侵权情况，该行为属于主播个人行为与平台无关，请举报并与客服以及主播联系，平台将及时严肃处理</p>
+					<img src="img/weixin.png"/>
+					<p>想手机上随时阅读？请扫上方二维码</p>
+				</div>
+				<div class="myDetailTitle">
+					<span class="glyphicon glyphicon-ok"></span>相似资源推荐
+				</div>
+				<div class="myDetailContent">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-6">
+								<ul class="my-show-ul">
+									<li><span class="glyphicon glyphicon-star"></span><span>基于springboot跟shiro的后台权限管理系统</span></li>
+									<li><span class="glyphicon glyphicon-star"></span><span>基于springboot跟shiro的后台权限管理系统</span></li>
+									<li><span class="glyphicon glyphicon-star"></span><span>基于springboot跟shiro的后台权限管理系统</span></li>
+									<li><span class="glyphicon glyphicon-star"></span><span>基于springboot跟shiro的后台权限管理系统</span></li>
+								</ul>
+							</div>
+							<div class="col-xs-12 col-sm-12 col-md-6">
+								<ul class="my-show-ul">
+									<li><span class="glyphicon glyphicon-star"></span><span>基于springboot跟shiro的后台权限管理系统</span></li>
+									<li><span class="glyphicon glyphicon-star"></span><span>基于springboot跟shiro的后台权限管理系统</span></li>
+									<li><span class="glyphicon glyphicon-star"></span><span>基于springboot跟shiro的后台权限管理系统</span></li>
+									<li><span class="glyphicon glyphicon-star"></span><span>基于springboot跟shiro的后台权限管理系统</span></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="myDetailTitle">
+					<span class="glyphicon glyphicon-comment"></span>五个评论
+				</div>
+				<div class="myDetailContent">
+					<div class="container-fluid">
+						<div class="comment-show-test row">
+							<div class="col-xs-12 col-sm-4 col-md-2">
+								<dl id="accountDl">
+									<dt><img src="img/open1.jpg"></dt>
+									<dd>王二麻子</dd>
+								</dl>
+							</div>
+							<div class="col-xs-12 col-sm-8 col-md-10">
+								<dl class="commentDlClass">
+									<dd><div class="starDiv"></div></dd>	
+									<dd><span>发布时间：<span>2020-06-15</span></span></dd>
+									<dd><p>成都市武侯区航空路6号丰德国际A3-8楼成都市武侯区航空路6号丰德国际A3-8楼成都市武侯区航空路6号丰德国际A3-8楼成都市武侯区航空路6号丰德国际A3-8楼成都市武侯区航空路6号丰德国际A3-8楼</p></dd>
+								</dl>
+							</div>
+						</div>
+						<div class="comment-show-test row">
+							<div class="col-xs-12 col-sm-4 col-md-2">
+								<dl id="accountDl">
+									<dt><img src="img/open1.jpg"></dt>
+									<dd>王二麻子</dd>
+								</dl>
+							</div>
+							<div class="col-xs-12 col-sm-8 col-md-10">
+								<dl class="commentDlClass">
+									<dd><div class="starDiv"></div></dd>	
+									<dd><span>发布时间：<span>2020-06-15</span></span></dd>
+									<dd><p>成都市武侯区航空路6号丰德国际A3-8楼成都市武侯区航空路6号丰德国际A3-8楼成都市武侯区航空路6号丰德国际A3-8楼成都市武侯区航空路6号丰德国际A3-8楼成都市武侯区航空路6号丰德国际A3-8楼</p></dd>
+								</dl>
+							</div>
+						</div>
+						<div class="comment-show-test row">
+							<div class="col-xs-12 col-sm-4 col-md-2">
+								<dl id="accountDl">
+									<dt><img src="img/open1.jpg"></dt>
+									<dd>王二麻子</dd>
+								</dl>
+							</div>
+							<div class="col-xs-12 col-sm-8 col-md-10">
+								<dl class="commentDlClass">
+									<dd><div class="starDiv"></div></dd>	
+									<dd><span>发布时间：<span>2020-06-15</span></span></dd>
+									<dd><p>成都市武侯区航空路6号丰德国际A3-8楼成都市武侯区航空路6号丰德国际A3-8楼成都市武侯区航空路6号丰德国际A3-8楼成都市武侯区航空路6号丰德国际A3-8楼成都市武侯区航空路6号丰德国际A3-8楼</p></dd>
+								</dl>
+							</div>
+						</div>
+						<div class="comment-show-test row">
+							<div class="col-xs-12 col-sm-4 col-md-2">
+								<dl id="accountDl">
+									<dt><img src="img/open1.jpg"></dt>
+									<dd>王二麻子</dd>
+								</dl>
+							</div>
+							<div class="col-xs-12 col-sm-8 col-md-10">
+								<dl class="commentDlClass">
+									<dd><div class="starDiv"></div></dd>	
+									<dd><span>发布时间：<span>2020-06-15</span></span></dd>
+									<dd><p>成都市武侯区航空路6号丰德国际A3-8楼成都市武侯区航空路6号丰德国际A3-8楼成都市武侯区航空路6号丰德国际A3-8楼成都市武侯区航空路6号丰德国际A3-8楼成都市武侯区航空路6号丰德国际A3-8楼</p></dd>
+								</dl>
+							</div>
+						</div>
+						<div class="comment-show-test row">
+							<div class="col-xs-12 col-sm-4 col-md-2">
+								<dl id="accountDl">
+									<dt><img src="img/open1.jpg"></dt>
+									<dd>王二麻子</dd>
+								</dl>
+							</div>
+							<div class="col-xs-12 col-sm-8 col-md-10">
+								<dl class="commentDlClass">
+									<dd><div class="starDiv"></div></dd>	
+									<dd><span>发布时间：<span>2020-06-15</span></span></dd>
+									<dd><p>成都市武侯区航空路6号丰德国际A3-8楼成都市武侯区航空路6号丰德国际A3-8楼成都市武侯区航空路6号丰德国际A3-8楼成都市武侯区航空路6号丰德国际A3-8楼成都市武侯区航空路6号丰德国际A3-8楼</p></dd>
+								</dl>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="test-show-right col-xs-12 col-md-3">
+				<img src="img/add1.png"/>
+			
+				<div id="hotAnchor" class="quickShow">
+					<div class="quickShow-title">
+							<h5>主播</h5>
+					</div>
+					<div class="quickShow-content">
+						<dl class="userDlClass">
+							<dt><img src="img/open1.jpg"/></dt>
+							<dd>爱知</dd>
+						</dl>
+						<table class="hotAnchorTable">
+							<tr>
+								<td>
+									<dl>
+										<dt><span class="glyphicon glyphicon-signal"></span></dt>
+										<dt>1098</dt>
+										<dd>发布资源</dd>
+									</dl>
+								</td>
+								<td>
+									<dl>
+										<dt><span class="glyphicon glyphicon-heart"></span></dt>
+										<dt>58万</dt>
+										<dd>粉丝总数</dd>
+									</dl>
+								</td>
+								<td>
+									<dl>
+										<dt><span class="glyphicon glyphicon-save"></span></dt>
+										<dt>18万</dt>
+										<dd>下载次数</dd>
+									</dl>
+								</td>
+							</tr>
+						</table>
+						<div class="mainClass-rightClass-Title">
+							<span class="glyphicon glyphicon-flag"></span>主播简介
+						</div>
+						<div class="mainClass-rightClass-Content">
+							<p>
+							欢乐的小逗逼。欢乐的小逗逼。爱猫爱狗爱社会。伟大的中国共产党万岁！万岁！万万岁！
+							</p>
+						</div>
+						<div class="mainClass-rightClass-Title">
+							<span class="glyphicon glyphicon-saved"></span>主播推荐资源
+						</div>
+						<div class="mainClass-rightClass-Content">
+							<ul>
+								<li><span class="glyphicon glyphicon-star"></span>Java用freemarker导出word</li>
+								<li><span class="glyphicon glyphicon-star"></span>基于贪心算法求解TSP问题（JAVA）</li>
+								<li><span class="glyphicon glyphicon-star"></span>Java使用RSA加密解密签名及校验</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		  </div>
+		</div>
+	</div>
+	<!-- 底部栅格布局 -->
+	<footer>
+		<div class="footer-top">
+			<div class="container-fluid">
+			  <div class="row">
+				  <div class="col-xs-12 col-sm-12 col-md-4">
+					  <div class="footerDiv leftFooterDiv">
+						  <P>客服QQ:<span>2075114043</span></P>
+						  <P>客服微信:<span>xiaoai521173</span></P>
+						  <P>广告联系:<span>503184054@qq.com</span></P>
+					  </div>
+				  </div>
+				  <div class="col-xs-12 col-sm-12 col-md-4">
+					  <div class="footerDiv">
+						  <img src="img/weixin.png"/>
+					  </div>
+				  </div>
+				  <div class="col-xs-12 col-sm-12 col-md-4">
+					  <div class="footerDiv">
+						  <P>《用户协议》</P>
+						  <P>《创作者协议》</P>
+						  <P>《关于我们》</P>
+					  </div>
+				  </div>
+			  </div>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<span>粤ICP备17055197号-1</span>
+		</div>
+	</footer>
+	<!-- 底部栅格布局 -->
+</body>
+</html>

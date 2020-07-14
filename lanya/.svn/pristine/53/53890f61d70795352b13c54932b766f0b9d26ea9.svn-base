@@ -1,0 +1,123 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+  <body>
+  
+	<!-- start: Header -->
+	<div th:fragment="topNavbar" class="navbar">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".top-nav.nav-collapse,.sidebar-nav.nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<a id="main-menu-toggle" class="hidden-phone open"><i class="icon-reorder"></i></a>		
+				<div class="row-fluid">
+				<a class="brand span2" href="main.html"><span>蓝芽智慧</span></a>
+				</div>		
+				<!-- start: Header Menu -->
+				<div class="nav-no-collapse header-nav">
+					<ul class="nav pull-right">
+						<!-- start: User Dropdown -->
+						<li class="dropdown">
+							<a class="btn account dropdown-toggle" data-toggle="dropdown" href="#">
+								<div class="avatar"><img src="img/avatar.jpg" alt="Avatar" /></div>
+								<div class="user">
+									<span class="hello">欢迎您!</span>
+									<span class="name">聂文来</span>
+								</div>
+							</a>
+							<ul class="dropdown-menu">
+								<li class="dropdown-menu-title">
+									
+								</li>
+								<li><a href="#"><i class="icon-user"></i>&nbsp;个人信息</a></li>
+								<li><a href="#"><i class="icon-cog"></i>&nbsp;修改密码</a></li>
+								<li><a href="manage/index.html"><i class="icon-off"></i>&nbsp;退出登录</a></li>
+							</ul>
+						</li>
+						<!-- end: User Dropdown -->
+					</ul>
+				</div>
+				<!-- end: Header Menu -->
+			</div>
+		</div>
+	</div>
+	<!-- start: Header -->
+    
+    <!-- start: Main Menu -->
+	<div th:fragment="leftNavbar" id="sidebar-left" class="span2">
+		<div style="text-align: center;">
+		    <a href="manage/main.html">
+			<img style="width:15%;" src="img/logo.jpg"/>
+			<img style="width:15%;" src="img/logo.jpg"/>
+			<img style="width:15%;" src="img/logo.jpg"/>
+			<img style="width:15%;" src="img/logo.jpg"/>
+			<img style="width:15%;" src="img/logo.jpg"/>
+			</a>
+		</div>
+		<div class="nav-collapse sidebar-nav">
+			<ul class="nav nav-tabs nav-stacked main-menu">
+				<li id="statisticsManage"><a href="manage/statistics.html"><i class="icon-bar-chart"></i><span class="hidden-tablet">数据统计</span></a></li>	
+				<li id="courseManage">
+					<a class="dropmenu" href="#"><i class="icon-plus-sign-alt"></i><span class="hidden-tablet">课程管理</span><span class="label">3</span></a>
+					<ul>
+						<li id="courseSystemManage"><a class="submenu" href="manage/courseSystem.html"><i class="icon-list-ol"></i><span class="hidden-tablet">课程体系</span></a></li>
+						<li id="courseFullManage"><a class="submenu" href="manage/courseFull.html"><i class="icon-facetime-video"></i><span class="hidden-tablet">完整课程</span></a></li>
+						<li id="videoAudioManage"><a class="submenu" href="manage/videoAudio.html"><i class="icon-film"></i><span class="hidden-tablet">短视频/音频</span></a></li>
+					</ul>	
+				</li>
+				<li id="collectionManage">
+					<a class="dropmenu" href="#"><i class="icon-plus-sign-alt"></i><span class="hidden-tablet">收藏管理</span></a>
+					<ul>
+						<li id="studentManage"><a class="submenu" href="manage/student.html"><i class="icon-user"></i><span class="hidden-tablet">学生列表</span></a></li>
+					</ul>	
+				</li>
+				<li id="myTeacherManage">
+					<a class="dropmenu" href="#"><i class="icon-plus-sign-alt"></i><span class="hidden-tablet">师生关系</span></a>
+					<ul>
+						<li id="teacherManage"><a class="submenu" href="manage/teacher.html"><i class="icon-user"></i><span class="hidden-tablet">教师列表</span></a></li>
+						<li id="myTeacherTalkManage"><a class="submenu" href="manage/myTeacherTalk.html"><i class="icon-comments"></i><span class="hidden-tablet">交流管理</span></a></li>
+					</ul>	
+				</li>
+				<li id="myTribeManage">
+					<a class="dropmenu" href="#"><i class="icon-plus-sign-alt"></i><span class="hidden-tablet">兴趣部落</span></a>
+					<ul>
+						<li id="tribesManage"><a class="submenu" href="manage/tribes.html"><i class="icon-fire"></i><span class="hidden-tablet">部落列表</span></a></li>
+						<li id="myTribeTalkManage"><a class="submenu" href="manage/myTribeTalk.html"><i class="icon-comments"></i><span class="hidden-tablet">交流管理</span></a></li>
+					</ul>	
+				</li>
+				<li id="recruitInfoManage">
+					<a class="dropmenu" href="#"><i class="icon-plus-sign-alt"></i><span class="hidden-tablet">招聘信息</span></a>
+					<ul>
+						<li id="hrManage"><a class="submenu" href="manage/hr.html"><i class="icon-user"></i><span class="hidden-tablet">hr列表</span></a></li>
+						<li id="myWorkTalkManage"><a class="submenu" href="manage/myWorkTalk.html"><i class="icon-comments"></i><span class="hidden-tablet">交流管理</span></a></li>
+					</ul>	
+				</li>
+				<li id="companyInfoManage">
+					<a class="dropmenu" href="#"><i class="icon-plus-sign-alt"></i><span class="hidden-tablet">机构管理</span></a>
+					<ul>
+						<li id="companyManage"><a class="submenu" href="manage/company.html"><i class="icon-home"></i><span class="hidden-tablet">机构列表</span></a></li>
+						<li id="companyTeacherManage"><a class="submenu" href="manage/companyTeacher.html"><i class=" icon-group"></i><span class="hidden-tablet">旗下名师</span></a></li>
+					</ul>	
+				</li>
+				<li id="userManage">
+					<a class="dropmenu" href="#"><i class="icon-plus-sign-alt"></i><span class="hidden-tablet">用户管理</span></a>
+					<ul>
+						<li id="accountManage"><a class="submenu" href="manage/account.html"><i class="icon-user"></i><span class="hidden-tablet">账号管理</span></a></li>
+						<li id="walletManage"><a class="submenu" href="manage/wallet.html"><i class="icon-user"></i><span class="hidden-tablet">钱包管理</span></a></li>
+						<li id="roleManage"><a class="submenu" href="manage/role.html"><i class="icon-ok"></i><span class="hidden-tablet">角色管理</span></a></li>
+						<li id="sysRightManage"><a class="submenu" href="manage/sysRight.html"><i class="icon-eye-open"></i><span class="hidden-tablet">权限管理</span></a></li>
+					</ul>	
+				</li>
+				<li><a href="#"><i class="icon-cog"></i><span class="hidden-tablet">系统管理</span></a></li>	
+				<li><a target="_blank" href="#"><i class="icon-home"></i><span class="hidden-tablet">首页</span></a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- end: Main Menu -->
+		
+  </body>
+</html> 
+
+	

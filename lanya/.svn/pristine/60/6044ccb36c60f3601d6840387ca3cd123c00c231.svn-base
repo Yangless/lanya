@@ -1,0 +1,82 @@
+body{
+	padding-top: 40px;
+}
+
+#currentComment{
+	width:100%;
+	height:auto;
+	min-height:100px;
+	background: white;
+	margin-bottom: 30px;
+}
+
+#commentDiv{
+	padding: 10px;
+	background: #FFFFFF;
+}
+.commentListClass{
+	border-bottom: 1px dashed #26A0DA;
+	padding: 5px 0px;
+}
+.commentListClass div{
+	min-height: 60px;
+}
+.commentListClass dl{
+	font-size: 12px;
+	color:#777;
+}
+.commentListClass dl dd span{
+	color: cornflowerblue;
+}
+.commentListClass dl dt{
+	margin-top: 10px;
+}
+.teacherPhotoImg{
+	width: 50px !important;
+	height: 50px;
+}
+.commentP{
+	font-size: 14px;
+	color: #777777;
+}
+.timeP{
+	font-size: 12px;
+	color: #777777;
+}
+.commentShow img{
+	border: 1px solid #ededed;
+}
+.commentListClass div:first-of-type{
+	position: relative;
+}
+.commentListClass div:first-of-type a{
+	position: absolute;
+	top:5px;
+	right: 5px;
+}
+.commentListClass div:last-of-type{
+	font-size: 12px;
+	color: #777777;
+	line-height: 100%;
+	text-align: center;
+}
+.commentListClass div:last-of-type img{
+	vertical-align: bottom;
+}
+#loadMore{
+	width: 100%;
+	height: 50px;
+	padding: 10px;
+	text-align: center;
+}
+#loadMore button:hover{
+	color: white;
+	background: #26A0DA;
+}
+#loadMore button{
+	border: 1px solid #ededed;
+	width: 120px;
+	height: 30px;
+	background:white;
+	color: #777777;
+}

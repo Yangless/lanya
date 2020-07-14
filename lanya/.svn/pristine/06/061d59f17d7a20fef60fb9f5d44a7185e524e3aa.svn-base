@@ -1,0 +1,293 @@
+package com.nwl.lanya.service.impl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+
+import com.nwl.lanya.common.CommonUtil;
+import com.nwl.lanya.common.MsgCode;
+import com.nwl.lanya.common.PropertiesUtil;
+import com.nwl.lanya.dao.AccountMapper;
+import com.nwl.lanya.dao.AccountRoleMapper;
+import com.nwl.lanya.dao.HrMapper;
+import com.nwl.lanya.dao.RoleMapper;
+import com.nwl.lanya.dao.StudentMapper;
+import com.nwl.lanya.dao.SysRightMapper;
+import com.nwl.lanya.dao.TeacherMapper;
+import com.nwl.lanya.dto.AccountDto;
+import com.nwl.lanya.dto.RoleDto;
+import com.nwl.lanya.po.Account;
+import com.nwl.lanya.po.AccountRole;
+import com.nwl.lanya.po.AccountRoleExample;
+import com.nwl.lanya.po.Hr;
+import com.nwl.lanya.po.HrExample;
+import com.nwl.lanya.po.Role;
+import com.nwl.lanya.po.Student;
+import com.nwl.lanya.po.StudentExample;
+import com.nwl.lanya.po.SysRight;
+import com.nwl.lanya.po.Teacher;
+import com.nwl.lanya.po.TeacherExample;
+import com.nwl.lanya.service.AccountService;
+
+@Service
+public class AccountServiceImpl implements AccountService{
+	
+	@Autowired
+	private AccountMapper mapper;
+	@Autowired
+	private HttpSession session;
+	
+	@Autowired
+	private RoleMapper roleMapper;
+	
+	@Autowired
+	private AccountRoleMapper accountRoleMapper;
+	
+	@Autowired
+	private TeacherMapper teacherMapper;
+	
+	@Autowired
+	private StudentMapper studentMapper;
+	
+	@Autowired
+	private HrMapper hrMapper;
+	@Autowired
+	private SysRightMapper sysRightMapper;
+	
+	@Autowired
+	private CommonUtil commonUtil;
+	
+	@Autowired
+	private PropertiesUtil propertiesUtil;
+
+	@Override
+	public void list(AccountDto dto) {
+        List<Account> accountVos = mapper.list(dto);
+		Long total = mapper.countByLike(dto);
+		
+		dto.getPageModel().setRows(accountVos);
+		dto.getPageModel().setTotal(total);
+	}
+
+	@Override
+	public void deleteByIds(AccountDto dto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void findById(AccountDto dto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void saveOrUpdate(AccountDto dto) {
+		try {
+			//设置默认值
+			if(StringUtils.isEmpty(dto.getPo().getAccountCode())){
+				dto.getPo().setAccountCode(dto.getPo().getPhone());
+			}
+			if(StringUtils.isEmpty(dto.getPo().getNickName())){
+				dto.getPo().setNickName(dto.getPo().getPhone());
+			}
+			if(StringUtils.isEmpty(dto.getPo().getPhotoUrl())){
+				dto.getPo().setPhotoUrl("/source/img/ce1f0cc1-8e05-41f9-bfe4-2f5e611f8871.jpeg");
+			}
+			//设置年龄
+			if(!StringUtils.isEmpty(dto.getPo().getBirthday())){
+				dto.getPo().setAge(commonUtil.getAge(dto.getPo().getBirthday()));
+			}
+			//设置为可使用状态
+			dto.getPo().setUseAble(1);
+			//设置密钥
+			if(StringUtils.isEmpty(dto.getPo().getPwd())){
+				dto.getPo().setPwd("123456");
+			}
+			dto.getPo().setSalt(propertiesUtil.getSalt());
+			
+			mapper.insert(dto.getPo());
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+			dto.setMsgCode(MsgCode.REQUEST_FALSE);
+			dto.setMsg("出生日期有误");
+		}
+	}
+
+	/**
+	 * 
+	* @Title: updateUseAble 
+	* @Description: 更新用户可用状态
+	* @param    
+	* @return AccountDto    
+	* @throws
+	 */
+	@Override
+	public void updateUseAble(AccountDto dto) {
+		String[] idStr = dto.getIds().split(",");
+		for(int i=0;i<idStr.length;i++){
+			Account account = new Account();
+			account.setId(Integer.valueOf(idStr[i]));
+			//将使用状态设置为不可用
+			account.setUseAble(dto.getPo().getUseAble());
+			mapper.updateByPrimaryKeySelective(account);
+		}
+	}
+	
+	@Override
+	public void saveAccountRole(AccountDto dto) {
+		for(int i=0;i<dto.getAccountIds().length;i++){
+			Integer accountId = dto.getAccountIds()[i];
+			Account account = new Account();
+			account.setId(accountId);
+			account.setRoleName(dto.getRoleNames());
+			mapper.updateByPrimaryKeySelective(account);
+			//删除账号原有角色
+			AccountRoleExample accountRoleExample = new AccountRoleExample();
+			accountRoleExample.createCriteria().andAccountIdEqualTo(accountId);
+			accountRoleMapper.deleteByExample(accountRoleExample);
+			
+			
+			for(int j=0;j<dto.getRoleIds().length;j++){
+				Integer roleId = dto.getRoleIds()[j];
+				//根据角色类别产生相应信息
+				Role role = roleMapper.selectByPrimaryKey(roleId);
+				if(role.getRoleCode().equals("teacher")){
+					TeacherExample teacherExample = new TeacherExample();
+					teacherExample.createCriteria().andAccountIdEqualTo(accountId);
+					teacherMapper.deleteByExample(teacherExample);
+					
+					Teacher teacher = new Teacher();
+					teacher.setAccountId(accountId);
+					teacherMapper.insert(teacher);
+				}
+				if(role.getRoleCode().equals("student")){
+					StudentExample studentExample = new StudentExample();
+					studentExample.createCriteria().andAccountIdEqualTo(accountId);
+					studentMapper.deleteByExample(studentExample);
+					
+					Student student = new Student();	
+					student.setAccountId(accountId);
+					studentMapper.insert(student);
+				}
+				if(role.getRoleCode().equals("hr")){
+					HrExample hrExample = new HrExample();
+					hrExample.createCriteria().andAccountIdEqualTo(accountId);
+					hrMapper.deleteByExample(hrExample);
+					
+					Hr hr = new Hr();
+					hr.setAccountId(accountId);
+					hrMapper.insert(hr);
+				}
+				
+				//保存账号角色
+				AccountRole accountRole = new AccountRole();
+				accountRole.setAccountId(dto.getAccountIds()[i]);
+				accountRole.setRoleId(roleId);
+				accountRoleMapper.insert(accountRole);
+			}
+		}
+	}
+
+	@Override
+	public void login(AccountDto dto) {
+		dto.setSalt(propertiesUtil.getSalt());
+		Account account = mapper.login(dto);
+		if(account!=null){
+			dto.setAccount(account);
+			session.setAttribute("account", account);
+			List<SysRight> sysRights = sysRightMapper.getSysRightList(dto);
+			session.setAttribute("sysRights", sysRights);
+			Integer accountId = account.getId();
+			
+			TeacherExample teacherExample = new TeacherExample();
+			teacherExample.createCriteria().andAccountIdEqualTo(accountId);
+			List<Teacher> teachers = teacherMapper.selectByExample(teacherExample);
+			if(teachers!=null&&teachers.size()>0){
+				Teacher teacher = teachers.get(0);
+				session.setAttribute("teacher", teacher);
+			}
+			
+			StudentExample studentExample = new StudentExample();
+			studentExample.createCriteria().andAccountIdEqualTo(accountId);
+			List<Student> students = studentMapper.selectByExample(studentExample);
+			if(students!=null&&students.size()>0){
+				Student student = students.get(0);
+				session.setAttribute("student", student);
+			}
+			
+			HrExample hrExample = new HrExample();
+			hrExample.createCriteria().andAccountIdEqualTo(accountId);
+			List<Hr> hrs = hrMapper.selectByExample(hrExample);
+			if(hrs!=null&&hrs.size()>0){
+				Hr hr = hrs.get(0);
+				session.setAttribute("hr", hr);
+			}
+			
+		}
+	}
+
+	/**
+	 * 
+	* @Title: registerPhone 
+	* @Description: 验证手机唯一性
+	* @param    
+	* @return void    
+	* @throws
+	 */
+	@Override
+	public void registerPhone(AccountDto dto) {
+		List<Account> accounts = mapper.registerPhone(dto);
+		if(accounts!=null&&accounts.size()>0){
+			dto.setMsgCode(MsgCode.REGISTER_ERROR);
+			dto.setMsg("该手机号已经被注册");
+		}else{
+			dto.setMsgCode(MsgCode.REGISTER_SCCESS);
+			dto.setMsg("手机号可以注册");
+		}
+	}
+	/**
+	 * 手机注册流程
+	 */
+	@Override
+	public void register(AccountDto dto){
+		//保存账号信息
+		Account account = new Account();
+		account.setPhone(dto.getPhone());
+		account.setPwd(dto.getPwd());
+		dto.setPo(account);
+		this.saveOrUpdate(dto);
+		//获取teacher、student、hr角色信息
+		List<String> roleCodes = new ArrayList<String>();
+		roleCodes.add("teacher");
+		roleCodes.add("student");
+		roleCodes.add("hr");
+		RoleDto roleDto = new RoleDto();
+		roleDto.setRoleCodes(roleCodes);
+		List<Role> roles = roleMapper.getRolesByRoleCode(roleDto);
+		//给账号默认分配teacher、student、hr权限
+		Integer[] accountIds = new Integer[1];
+		accountIds[0]=account.getId();
+		dto.setAccountIds(accountIds);
+		Integer[] roleIds = new Integer[roles.size()];
+		String roleNames = "";
+		for(int i=0;i<roles.size();i++){
+			Role role = roles.get(i);
+			roleIds[i] = role.getId();
+			if(roleNames.equals("")){
+				roleNames = role.getRoleName();
+			}else{
+				roleNames = roleNames + "," + role.getRoleName();
+			}
+		}
+		dto.setRoleIds(roleIds);
+		dto.setRoleNames(roleNames);
+		this.saveAccountRole(dto);
+	}
+	
+}

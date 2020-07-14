@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <base href="../" />
+    <meta charset="utf-8" />
+    <title>蓝芽-帮助您职业技能成长</title>
+    <!-- start: Favicon -->
+    <link rel="shortcut icon" href="img/logo.jpg">
+    <!-- end: Favicon -->
+    <!--bootstrap-3.3.7-dist start-->
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <link href="js/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <!--bootstrap-3.3.7-dist end-->
+    <link rel="stylesheet" href="css/courseInfo.css" />
+    <script type="text/javascript" src="js/courseInfo.js"></script>
+    <link rel="stylesheet" href="js/raty/jquery.raty.css" />
+    <script type="text/javascript" src="js/raty/jquery.raty.js"></script>
+  </head>
+
+  <body>
+
+    <div id="courseInfo" class="container-fluid">
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
+          <img width="100%" src="img/courseList.jpg" />
+        </div>
+        <div class="col-md-6 col-sm-6">
+          <h2>JAVA架构师黄埔班</h2>
+          <ul class="showUl">
+            <li>338人 购买</li>
+            <li>|</li>
+            <li>好评度 100%</li>
+            <li>|</li>
+            <li><span class="glyphicon glyphicon-star"></span>&nbsp;&nbsp;分享</li>
+            <li>|</li>
+            <li><span class="glyphicon glyphicon-heart"></span>&nbsp;&nbsp;收藏</li>
+          </ul>
+          <p>
+            <span class="titleSpan">课程介绍</span>
+            <span class="contentSpan">
+	                	课程分为微服务架构专题、分布式架构专题、大数据架构、框架源码剖析、性能调优、工程化，适合从事JAVA开发2年以上的开发者进阶学习，旨在培养JAVA架构师人才。
+	                	</span>
+          </p>
+          <p>
+            <span class="titleSpan">讲师介绍</span>
+            <span class="contentSpan">
+	                	Gerry老师毕业于西南大学，曾任职华为、惠普、众域控股等一线互联网公司。10年行业经验，精通Java语言，精通ssm等主流框架，有丰富的分布式、高负载高并发开发和调优经验，授课经验丰富且幽默又有耐心。
+	                	</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <ul id="menuUl" class="nav nav-tabs nav-justified">
+      <li id="detail" role="presentation" class="active">
+        <a>课程详情</a>
+      </li>
+      <li id="list" role="presentation">
+        <a>课程目录</a>
+      </li>
+      <li id="comment" role="presentation">
+        <a>学员评论<span>(179)</span></a>
+      </li>
+    </ul>
+
+    <div id="detailDiv">
+      <div class="detailListClass">
+        <h4>适用人群</h4>
+        <p>希望学习Java的学员，不需要有任何计算机基础</p>
+      </div>
+      <div class="detailListClass">
+        <h4>预备知识</h4>
+        <ol class="propaedeutics">
+          <li>计算机导论（大学计算机基础）</li>
+          <li>计算机导论（大学计算机基础）</li>
+          <li>计算机导论（大学计算机基础）</li>
+          <li>计算机导论（大学计算机基础）</li>
+        </ol>
+      </div>
+      <div id="studyType" class="detailListClass">
+        <h4>学习方式</h4>
+        <img class="img-responsive" src="img/study_type.JPG" />
+      </div>
+      <div class="detailListClass">
+        <h4>课前准备</h4>
+        <p class="prepare">亲爱的同学，试听课程前，请加老师QQ:1124692 要一下相关软件包和基础学习资料。</p>
+      </div>
+      <div class="detailListClass">
+        <h4>提升推荐</h4>
+        <p><a href="#">spring</a></p>
+        <p><a href="#">spring boot</a></p>
+        <p><a href="#">spring mvc</a></p>
+        <p><a href="#">spring could</a></p>
+      </div>
+      <div class="detailListClass readOnly">
+        <h4>参考资料</h4>
+        <p>中文版：《C++程序设计》 (美)Y. Daniel Liang，ISBN: 9787111240174，机械工业出版社，2008。</p>
+        <p>中文版：《C++程序设计》 (美)Y. Daniel Liang，ISBN: 9787111240174，机械工业出版社，2008。</p>
+      </div>
+      <div class="detailListClass readOnly">
+        <h4>常见问题</h4>
+        <p>本课程所用的第三方图形库为EGE开源图形库。该项目的主页请【点这里】，该图形库作者君的主页请【点这里】。但是，注意：本课程所使用的EGE图。</p>
+      </div>
+    </div>
+
+    <div id="listDiv">
+      <div class="courseListClass">
+        <h4><span>01</span>Rabbitmq介绍</h4>
+        <div>
+          <span class="glyphicon glyphicon-facetime-video"></span>
+          <span class="courseName">Rabbitmq介绍<span>（4分钟）</sapn></span>
+        </div>
+        <div>
+          <span class="glyphicon glyphicon-facetime-video"></span>
+          <span class="courseName">Rabbitmq介绍<span>（4分钟）</sapn></span>
+        </div>
+      </div>
+      <div class="courseListClass">
+        <h4><span>02</span>Rabbitmq安装</h4>
+        <div>
+          <span class="glyphicon glyphicon-facetime-video"></span>
+          <span class="courseName">Rabbitmq介绍<span>（4分钟）</sapn></span>
+        </div>
+        <div>
+          <span class="glyphicon glyphicon-facetime-video"></span>
+          <span class="courseName">Rabbitmq介绍<span>（4分钟）</sapn></span>
+        </div>
+        <div>
+          <span class="glyphicon glyphicon-facetime-video"></span>
+          <span class="courseName">Rabbitmq介绍<span>（4分钟）</sapn></span>
+        </div>
+        <div>
+          <span class="glyphicon glyphicon-facetime-video"></span>
+          <span class="courseName">Rabbitmq介绍<span>（4分钟）</sapn></span>
+        </div>
+        <div>
+          <span class="glyphicon glyphicon-facetime-video"></span>
+          <span class="courseName">Rabbitmq介绍<span>（4分钟）</sapn></span>
+        </div>
+      </div>
+      <div class="courseListClass">
+        <h4><span>03</span>Rabbitmq介绍</h4>
+        <div>
+          <span class="glyphicon glyphicon-facetime-video"></span>
+          <span class="courseName">Rabbitmq介绍<span>（4分钟）</sapn></span>
+        </div>
+        <div>
+          <span class="glyphicon glyphicon-facetime-video"></span>
+          <span class="courseName">Rabbitmq介绍<span>（4分钟）</sapn></span>
+        </div>
+      </div>
+    </div>
+
+    <div id="commentDiv">
+      <div id="commentList">
+	<div class="container-fluid">
+		<div class="commentListClass row">
+			<div class="col-md-2">
+				<dl>
+					<dt><img src="img/member1.png"/></dt>
+					<dt>昆凌小丸子</dt>
+				</dl>
+			</div>
+			<div class="col-md-7">
+				<p class="commentP">
+					棉麻的手感质量很好，红色小樱桃萌萌哒~还送了本子，很贴心~~ 　总体来说还算满意吧 物流也挺快说的是4.20号发货提前发货了还
+				</p>
+				<p class="timeP">
+					2015-04-13 14:36
+				</p>
+			</div>
+			<div class="col-md-3">
+				<span>满意度评分：</span>
+				<span class="starDiv">
+		        			
+		        		    </span>
+			</div>
+		</div>
+		<div class="commentListClass row">
+			<div class="col-md-2">
+				<dl>
+					<dt><img src="img/member2.png"/></dt>
+					<dt>杨颖哈哈哈</dt>
+				</dl>
+			</div>
+			<div class="col-md-7">
+				<p class="commentP">
+					棉麻的手感质量很好，红色小樱桃萌萌哒~还送了本子，很贴心~~ 　总体来说还算满意吧 物流也挺快说的是4.20号发货提前发货了还棉麻的手感质量很好，红色小樱桃萌萌哒~还送了本子，很贴心~~ 　总体来说还算满意
+				</p>
+				<p class="timeP">
+					2015-04-13 14:36
+				</p>
+			</div>
+			<div class="col-md-3">
+				<span>满意度评分：</span>
+				<span class="starDiv">
+		        			
+		        		    </span>
+			</div>
+		</div>
+		<div class="commentListClass row">
+			<div class="col-md-2">
+				<dl>
+					<dt><img src="img/member1.png"/></dt>
+					<dt>杨颖哈哈哈</dt>
+				</dl>
+			</div>
+			<div class="col-md-7">
+				<p class="commentP">
+					棉麻的手感质量很好，红色小樱桃萌萌哒~还送了本子，很贴心~~ 　总体来说还算满意吧 物流也挺快说的是4.20号发货提前发货了还
+				</p>
+				<p class="timeP">
+					2015-04-13 14:36
+				</p>
+            </div>
+            <div class="col-md-3">
+              <span>满意度评分：</span>
+              <span class="starDiv">
+		        			
+		        		    </span>
+            </div>
+          </div>
+          <div class="commentListClass row">
+            <div class="col-md-2">
+              <dl>
+                <dt><img src="img/member2.png"/></dt>
+                <dt>杨颖哈哈哈</dt>
+              </dl>
+            </div>
+            <div class="col-md-7">
+              <p class="commentP">
+                棉麻的手感质量很好，红色小樱桃萌萌哒~还送了本子，很贴心~~ 　总体来说还算满意吧 物流也挺快说的是4.20号发货提前发货了还棉麻的手感质量很好，红色小樱桃萌萌哒~还送了本子，很贴心~~ 　总体来说还算满意
+              </p>
+              <p class="timeP">
+                2015-04-13 14:36
+              </p>
+            </div>
+            <div class="col-md-3">
+              <span>满意度评分：</span>
+              <span class="starDiv">
+		        			
+		        		    </span>
+            </div>
+          </div>
+          <div class="commentListClass row">
+            <div class="col-md-2">
+              <dl>
+                <dt><img src="img/member1.png"/></dt>
+                <dt>杨颖哈哈哈</dt>
+              </dl>
+            </div>
+            <div class="col-md-7">
+              <p class="commentP">
+                棉麻的手感质量很好，红色小樱桃萌萌哒~还送了本子，很贴心~~ 　总体来说还算满意吧 物流也挺快说的是4.20号发货提前发货了还
+              </p>
+              <p class="timeP">
+                2015-04-13 14:36
+              </p>
+            </div>
+            <div class="col-md-3">
+              <span>满意度评分：</span>
+              <span class="starDiv">
+		        			
+		        		    </span>
+            </div>
+          </div>
+          <div class="commentListClass row">
+            <div class="col-md-2">
+              <dl>
+                <dt><img src="img/member2.png"/></dt>
+                <dt>杨颖哈哈哈</dt>
+              </dl>
+            </div>
+            <div class="col-md-7">
+              <p class="commentP">
+                棉麻的手感质量很好，红色小樱桃萌萌哒~还送了本子，很贴心~~ 　总体来说还算满意吧 物流也挺快说的是4.20号发货提前发货了还棉麻的手感质量很好，红色小樱桃萌萌哒~还送了本子，很贴心~~ 　总体来说还算满意
+              </p>
+              <p class="timeP">
+                2015-04-13 14:36
+              </p>
+            </div>
+            <div class="col-md-3">
+              <span>满意度评分：</span>
+              <span class="starDiv">
+		        			
+		        		    </span>
+            </div>
+          </div>
+          <div class="commentListClass row">
+            <div class="col-md-2">
+              <dl>
+                <dt><img src="img/member1.png"/></dt>
+                <dt>杨颖哈哈哈</dt>
+              </dl>
+            </div>
+            <div class="col-md-7">
+              <p class="commentP">
+                棉麻的手感质量很好，红色小樱桃萌萌哒~还送了本子，很贴心~~ 　总体来说还算满意吧 物流也挺快说的是4.20号发货提前发货了还
+              </p>
+              <p class="timeP">
+                2015-04-13 14:36
+              </p>
+            </div>
+            <div class="col-md-3">
+              <span>满意度评分：</span>
+              <span class="starDiv">
+		        			
+		        		    </span>
+            </div>
+          </div>
+          <div class="commentListClass row">
+            <div class="col-md-2">
+              <dl>
+                <dt><img src="img/member2.png"/></dt>
+                <dt>杨颖哈哈哈</dt>
+              </dl>
+            </div>
+            <div class="col-md-7">
+              <p class="commentP">
+                棉麻的手感质量很好，红色小樱桃萌萌哒~还送了本子，很贴心~~ 　总体来说还算满意吧 物流也挺快说的是4.20号发货提前发货了还棉麻的手感质量很好，红色小樱桃萌萌哒~还送了本子，很贴心~~ 　总体来说还算满意
+              </p>
+              <p class="timeP">
+                2015-04-13 14:36
+              </p>
+            </div>
+            <div class="col-md-3">
+              <span>满意度评分：</span>
+              <span class="starDiv">
+		        			
+		        		    </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="loadMore">
+        <button>加载更多</button>
+      </div>
+    </div>
+
+  </body>
+
+</html>

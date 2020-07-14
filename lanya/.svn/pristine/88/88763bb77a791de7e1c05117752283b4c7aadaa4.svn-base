@@ -1,0 +1,10 @@
+package com.nwl.lanya.service;
+
+import com.nwl.lanya.dto.RoleDto;
+
+public interface RoleService extends AbstractBaseService<RoleDto>{
+
+	void saveRoleRight(RoleDto dto);
+	
+	void getAll(RoleDto dto);
+}

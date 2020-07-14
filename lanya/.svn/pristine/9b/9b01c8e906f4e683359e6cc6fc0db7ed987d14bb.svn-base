@@ -1,0 +1,33 @@
+//封装全局参数
+lanya={};
+lanya.common={};
+lanya.common.paramter={
+		"changeTelemarketing":"电销员",
+		"changeConsultant":"咨询师"
+};
+lanya.common.msgCode={
+		"REQUEST_SCCESS":1,
+		"REQUEST_FALSE":2,
+		"SESSION_TIME_OUT":3,
+		"REGISTER_SCCESS":4,
+		"REGISTER_ERROR":5
+};
+
+//修改jquery标识符
+var $$=jQuery.noConflict();
+
+//蓝芽logo展开效果
+$$(function(){
+	$$("#logoBtn").click(function(){
+		$$("#navDivInput").slideToggle(100);
+	});
+});
+
+//判断是否为空
+function isEmpty(testValue){
+	if(testValue==null||testValue==""||testValue==undefined){
+		return true;
+	}else{
+		return false;
+	}
+}

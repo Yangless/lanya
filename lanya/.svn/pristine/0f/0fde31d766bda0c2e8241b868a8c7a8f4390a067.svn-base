@@ -1,0 +1,67 @@
+//扩展easyui表单验证规则
+$.extend($.fn.validatebox.defaults.rules, {
+	maxLength:{
+	    validator: function(value, param){
+	        return value.length<=param[0];
+	    },
+	    message: '最大长度为{0}'
+	},
+	Length:{
+	    validator: function(value, param){
+	        return value.length>=param[0]&&value.length<=param[1];
+	    },
+	    message: '长度为{0}-{1}'
+	},
+	phone:{
+	    validator: function(value, param){
+	    	var reg = /^1[34578]\d{9}$/;
+            return reg.test(value);
+	    },
+	    message: '请输入正确的电话号码'
+	},
+	NotEmpty : { // 非空字符串验证。 easyui 原装required 不能验证空格
+		validator : function(value, param) {
+			return $.trim(value).length>0;
+		}, 
+		message : '该输入项为必输项'
+	},
+	integer : {// 验证整数
+		validator : function(value) {
+			return /^[+]?[0-9]+\d*$/i.test(value);
+		},
+		message : '请输入整数'
+	},			
+	english : {// 验证英语
+		validator : function(value) {
+			return /^[A-Za-z]+$/i.test(value);
+		},
+		message : '请输入英文'
+	}
+});
+//验证input加公共属性
+$(function(){
+	$("input").validatebox({
+	    validateOnCreate:false,
+	    validateOnBlur:true,
+	    tipPosition:"right",
+	    missingMessage:'必填项'
+	});
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

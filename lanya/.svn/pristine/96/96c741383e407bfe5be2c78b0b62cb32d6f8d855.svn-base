@@ -1,0 +1,30 @@
+package com.nwl.lanya.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.nwl.lanya.dao.MyTeacherTalkMapper;
+import com.nwl.lanya.dto.TalkDto;
+import com.nwl.lanya.po.MyTeacherTalk;
+import com.nwl.lanya.service.TalkService;
+
+import net.sf.json.JSONObject;
+
+@Service
+public class TalkServiceImpl implements TalkService {
+	
+	@Autowired
+	private MyTeacherTalkMapper myTeacherTalkMapper;
+	
+	//保存消息
+	@Override
+	public void save(TalkDto dto) {
+		String message = dto.getMessage();
+//		JSONUtils.getMorpherRegistry().registerMorpher(new TimestampToDateMorpher());
+		JSONObject jsonObject = null;
+		jsonObject = JSONObject.fromObject(message);
+		MyTeacherTalk myTeacherTalk = (MyTeacherTalk) JSONObject.toBean(jsonObject, MyTeacherTalk.class);
+		myTeacherTalkMapper.insert(myTeacherTalk);
+	}
+
+}

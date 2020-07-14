@@ -1,0 +1,41 @@
+package com.nwl.lanya.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.nwl.lanya.dao.TeacherMapper;
+import com.nwl.lanya.dto.TeacherDto;
+import com.nwl.lanya.service.TeacherService;
+import com.nwl.lanya.vo.TeacherVo;
+
+@Service
+public class TeacherServiceImpl implements TeacherService{
+	
+	@Autowired
+	private TeacherMapper mapper;
+
+	@Override
+	public void list(TeacherDto dto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteByIds(TeacherDto dto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void findById(TeacherDto dto) {
+		TeacherVo teacherVo = mapper.findTeacherVoById(dto);
+		dto.setTeacherVo(teacherVo);
+	}
+
+	@Override
+	public void saveOrUpdate(TeacherDto dto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

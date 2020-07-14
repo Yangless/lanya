@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<base href="../"/>
+		<meta charset="utf-8" />
+		<title>蓝芽-帮助您职业技能成长</title>
+		<!-- start: Favicon -->
+		<link rel="shortcut icon" href="img/logo.jpg">
+		<!-- end: Favicon -->
+		<link rel="stylesheet" href="css/index.css" />
+		<script type="text/javascript" src="js/index.js" ></script>
+	</head>
+	<body>
+		<div id="topNav">
+			<a href="manage/login.html">登录</a>
+			<a href="manage/login.html">注册</a>
+		</div>
+		
+		<div id="middleDiv">
+			<div>
+				<img width="120px" height="120px" src="img/logo.jpg"/>
+			</div>
+			<div>
+				<input type="text" name="keyWords" placeholder="请输入您想学的课程或您的职业发展方向"/><button id="searchBtn">我要学</button>
+			</div>
+			<table id="selectItem">
+				<tr>
+					<td>
+						性能测试工程师
+					</td>
+					<td>
+						自动化测试工程师
+					</td>
+					<td>
+						大数据工程师
+					</td>
+					<td>
+						java全栈工程师
+					</td>
+					<td>
+						前端全栈工程师
+					</td>
+					<td>
+						python开发工程师
+					</td>
+					<td>
+						数据库管理员
+					</td>
+					<td>
+						Oracle工程师
+					</td>
+					<td>
+						架构师
+					</td>
+					<td>
+						技术总监
+					</td>
+				</tr>
+				<tr>
+					<td>
+						VR开发工程师
+					</td>
+					<td>
+						产品经理
+					</td>
+					<td>
+						VueJS
+					</td>
+					<td>
+						ReactJS
+					</td>
+					<td>
+						SpringCloud
+					</td>
+					<td>
+						Pythod
+					</td>
+					<td>
+						PHP
+					</td>
+					<td>
+						PHP开发工程师
+					</td>
+					<td>
+						PHP 
+						<!--
+						金融管理师
+						-->
+					</td>
+					<td>
+						PHP
+						<!--
+						股票操盘手
+						-->
+					</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>

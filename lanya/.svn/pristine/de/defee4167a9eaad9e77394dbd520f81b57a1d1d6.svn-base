@@ -1,0 +1,43 @@
+package com.nwl.lanya.po;
+
+public class Stage {
+    private String id;
+
+    private String courseSystemId;
+
+    private String stageNumber;
+
+    private String stageIntroduce;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
+    }
+
+    public String getCourseSystemId() {
+        return courseSystemId;
+    }
+
+    public void setCourseSystemId(String courseSystemId) {
+        this.courseSystemId = courseSystemId == null ? null : courseSystemId.trim();
+    }
+
+    public String getStageNumber() {
+        return stageNumber;
+    }
+
+    public void setStageNumber(String stageNumber) {
+        this.stageNumber = stageNumber == null ? null : stageNumber.trim();
+    }
+
+    public String getStageIntroduce() {
+        return stageIntroduce;
+    }
+
+    public void setStageIntroduce(String stageIntroduce) {
+        this.stageIntroduce = stageIntroduce == null ? null : stageIntroduce.trim();
+    }
+}

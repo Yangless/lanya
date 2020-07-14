@@ -1,0 +1,11 @@
+package com.nwl.lanya.service;
+
+import com.nwl.lanya.dto.CommentDto;
+
+public interface CommentService extends AbstractBaseService<CommentDto>{
+
+	void updateUseAble(CommentDto dto);
+	
+	void praiseNumber(CommentDto dto);
+	
+}

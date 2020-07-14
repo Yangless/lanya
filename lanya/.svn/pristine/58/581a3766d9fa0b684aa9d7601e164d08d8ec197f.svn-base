@@ -1,0 +1,72 @@
+*{
+	margin: 0px;
+	padding:0px;
+}
+#topNav{
+	height: 40px;
+	line-height: 40px;
+	font-size: 14px;
+	color: #26A0DA;
+	border:1px solid #F1F3F4;
+}
+#topNav a{
+  text-decoration: none;
+  color: #26A0DA;	
+  float: right;
+  margin-right: 30px;	
+}
+#middleDiv{
+	position: fixed;
+	top: 50px;
+	left:50%;
+	margin-left: -500px;
+	width: 1000px;
+	height: 40px;
+	text-align: center;
+}
+#middleDiv div{
+	margin-bottom: 10px;
+}
+#middleDiv input{
+	width: 600px;
+	height: 40px;
+	border: 2px solid #26A0DA;
+	vertical-align: top;
+	padding-left: 10px;
+	font-size: 16px;
+}
+#middleDiv button{
+	width: 100px;
+	height: 44px;
+	border: none;
+	background: #26A0DA;
+	color: white;
+	vertical-align: top;
+	cursor: pointer;
+}
+#selectItem{
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 10px;
+	margin-top: 40px;
+}
+#selectItem tr td{
+	width: 10%;
+	height: 100px;
+	border: 2px solid #26A0DA;
+	background: rgba(38,160,218,0.3);
+	padding: 5px;
+	font-size: 14px;
+	color: #333333;
+	cursor: pointer;
+	border-radius:20px;
+	transition: all 0.3s 0s linear;
+}
+#selectItem tr td:hover{
+	border-radius:0px;
+}
+
+
+
+
+

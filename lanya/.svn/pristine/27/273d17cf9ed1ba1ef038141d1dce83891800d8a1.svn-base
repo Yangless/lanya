@@ -1,0 +1,70 @@
+package com.nwl.lanya.service.impl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.nwl.lanya.dao.SysRightMapper;
+import com.nwl.lanya.dto.SysRightDto;
+import com.nwl.lanya.po.SysRight;
+import com.nwl.lanya.service.SysRightService;
+
+@Service
+public class SysRightServiceImpl implements SysRightService{
+	
+	@Autowired
+	private SysRightMapper mapper;
+
+	@Override
+	public void list(SysRightDto dto) {
+		
+	}
+
+	@Override
+	public void deleteByIds(SysRightDto dto) {
+		String[] idStr = dto.getIds().split(",");
+		for(int i=0;i<idStr.length;i++){
+			Integer id = Integer.valueOf(idStr[i]);
+			//保障根节点无法删除
+			SysRight sysRight = mapper.selectByPrimaryKey(id);
+			if(sysRight.getRightCode().equals("root")){
+				continue;
+			}
+			mapper.deleteByPrimaryKey(id);
+		}
+	}
+
+	@Override
+	public void findById(SysRightDto dto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void saveOrUpdate(SysRightDto dto) {
+		mapper.insert(dto.getPo());
+	}
+
+	@Override
+	public void getRoots(SysRightDto dto) {
+		List<SysRight> sysRights = mapper.getRoots(dto);
+		
+		SysRight root = null;
+		for(SysRight sysRight:sysRights){
+			if(sysRight.getRightCode().equals("root")){
+				root = sysRight;
+			}
+			for(SysRight parent:sysRights){
+				if(sysRight.getParentId()==parent.getId()){
+					parent.getChildren().add(sysRight);
+				}
+			}
+		}
+		
+		dto.setPos(new ArrayList<SysRight>());
+		dto.getPos().add(root);
+	}
+	
+}

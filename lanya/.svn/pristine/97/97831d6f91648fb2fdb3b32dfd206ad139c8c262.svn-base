@@ -1,0 +1,77 @@
+package com.nwl.lanya.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.nwl.lanya.dao.RoleMapper;
+import com.nwl.lanya.dao.RoleRightMapper;
+import com.nwl.lanya.dto.RoleDto;
+import com.nwl.lanya.po.Role;
+import com.nwl.lanya.po.RoleRight;
+import com.nwl.lanya.po.RoleRightExample;
+import com.nwl.lanya.service.RoleService;
+
+@Service
+public class RoleServiceImpl implements RoleService{
+	
+	@Autowired
+	private RoleMapper mapper;
+	
+	@Autowired
+	private RoleRightMapper roleRightMapper;
+
+	@Override
+	public void list(RoleDto dto) {
+        List<Role> roles = mapper.list(dto);
+		Long total = mapper.countByLike(dto);
+		
+		dto.getPageModel().setRows(roles);
+		dto.getPageModel().setTotal(total);
+	}
+
+	@Override
+	public void deleteByIds(RoleDto dto) {
+		String[] idStr = dto.getIds().split(",");
+		for(int i=0;i<idStr.length;i++){
+			mapper.deleteByPrimaryKey(Integer.valueOf(idStr[i]));
+		}
+	}
+
+	@Override
+	public void findById(RoleDto dto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void saveOrUpdate(RoleDto dto) {
+		mapper.insert(dto.getPo());
+	}
+
+	@Override
+	public void saveRoleRight(RoleDto dto) {
+		   for(int i=0;i<dto.getRoleIds().length;i++){
+			   //根据角色id删除角色权限
+			   RoleRightExample roleRightExample = new RoleRightExample();
+			   roleRightExample.createCriteria().andRoleIdEqualTo(dto.getRoleIds()[i]);
+			   roleRightMapper.deleteByExample(roleRightExample);
+			   
+			   for(int j=0;j<dto.getRightIds().length;j++){
+				   //保存角色权限信息
+				   RoleRight roleRight = new RoleRight();
+				   roleRight.setRoleId(dto.getRoleIds()[i]);
+				   roleRight.setRightId(dto.getRightIds()[j]);
+				   roleRightMapper.insert(roleRight);
+			   }
+		   }
+		}
+
+	@Override
+	public void getAll(RoleDto dto) {
+		List<Role> roles = mapper.selectByExample(null);
+		dto.setRoles(roles);
+	}
+
+}

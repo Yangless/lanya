@@ -1,0 +1,106 @@
+package com.nwl.lanya.websocket;
+
+import java.io.IOException;
+import java.util.concurrent.CopyOnWriteArraySet;
+
+import javax.websocket.Session;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.web.socket.CloseStatus;
+import org.springframework.web.socket.TextMessage;
+import org.springframework.web.socket.WebSocketMessage;
+import org.springframework.web.socket.WebSocketSession;
+import org.springframework.web.socket.handler.TextWebSocketHandler;
+
+import com.nwl.lanya.dto.TalkDto;
+import com.nwl.lanya.service.TalkService;
+
+@Component
+public class WsHandler extends TextWebSocketHandler {
+	
+	private static int onlineCount = 0;
+	
+	private static CopyOnWriteArraySet<WsHandler> webSocketSet = new CopyOnWriteArraySet<WsHandler>();
+	
+	private WebSocketSession session;
+	
+	@Autowired
+	private TalkService talkService;
+	
+	/**
+	 * 关闭回调
+	 */
+	@Override
+	public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
+		super.afterConnectionClosed(session, status);
+		webSocketSet.remove(this);
+		subOnlineCount();
+		System.out.println("有一连接关闭！当前在线人数为" + getOnlineCount());
+	}
+	
+	/**
+	 * 连接回调
+	 */
+	@Override
+	public void afterConnectionEstablished(WebSocketSession session) throws Exception {
+		super.afterConnectionEstablished(session);
+		this.session = session;
+		webSocketSet.add(this);
+		addOnlineCount();
+		System.out.println("有新连接加入！当前在线人数为" + webSocketSet.size());
+	}
+
+	/**
+	 * 接收消息
+	 */
+	@Override
+	protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
+		TalkDto dto = new TalkDto();
+		System.out.println("来自客户端的消息:" + message.getPayload());
+		dto.setMessage(message.getPayload());
+		talkService.save(dto);
+	}
+	
+	public void sendMessage(TextMessage message) throws IOException {
+		TextMessage msg = new TextMessage(message.getPayload());
+		this.session.sendMessage(msg);
+	}
+	
+	/**
+	 * 群发消息
+	 */
+	@Override
+	public void handleMessage(WebSocketSession session, WebSocketMessage<?> message) throws Exception {
+		super.handleMessage(session, message);
+		System.out.println("handleMessage");
+		for (WsHandler item : webSocketSet) {
+            try {
+                item.sendMessage((TextMessage) message);
+            } catch (IOException e) {
+                continue;
+            }
+        }
+	}
+
+	/**
+	 * 异常回调
+	 */
+	@Override
+	public void handleTransportError(WebSocketSession session, Throwable exception) throws Exception {
+		super.handleTransportError(session, exception);
+		System.out.println("*************系统错误******************");
+	}
+	
+	public static synchronized int getOnlineCount() {
+        return onlineCount;
+    }
+
+    public static synchronized void addOnlineCount() {
+    	WsHandler.onlineCount++;
+    }
+
+    public static synchronized void subOnlineCount() {
+    	WsHandler.onlineCount--;
+    }
+}

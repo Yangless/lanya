@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="../"/>
+	<meta charset="utf-8" />
+	<title>蓝芽-帮助您职业技能成长</title>
+	<!-- start: Favicon -->
+	<link rel="shortcut icon" href="img/logo.jpg">
+	<!-- end: Favicon -->
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="css/phone/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/phone/icons-extra.css"/>
+    <link rel="stylesheet" href="css/phone/common.css"/>
+    <link rel="stylesheet" type="text/css" href="css/phone/videoInfo.css"/>
+</head>
+	<body>
+		
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">java的jdk安装</h1>
+			<a href="#share" class="mui-btn mui-btn-blue mui-btn-link mui-pull-right"><span class="mui-icon mui-icon-bars"></span></a>
+		</header>
+		
+		<div id="videoFixDiv">
+			<video id="currentVideo" class="mui-card-header mui-card-media" poster="img/muwu.jpg" controls="controls">
+				<source src="img/1.mp4"></source>
+			</video>
+			<div id="videoInfo">
+				<div id="attention">
+					<span class="mui-icon mui-icon-extra mui-icon-extra-heart-filled">收藏视频</span>
+				</div>
+				<div class="teacherPhoto">
+					<a href="html/teacherInfo.html">
+						<img src="img/cbd.jpg"/>
+						<span>
+							我为java狂
+						</span>
+					</a>
+				</div>
+				<p class="videoInfoShow">这里显示文章摘要，让读者对文章内容有个粗略的概念...</p>
+				<table style="display: none;">
+			      <tr>
+			          <td>
+			             <img width="50%" src="img/weixin.png"/>
+			          </td>
+			          <td>
+			             <img width="50%" src="img/QQ.png"/>
+			          </td>
+			          <td>
+			             <img width="50%" src="img/weibo.png"/>
+			          </td>
+			          <td>
+			             <img width="50%" src="img/weixin.png"/>
+			          </td>
+			      </tr>
+			    </table>
+			</div>
+		</div>
+		<div id="tearchContent" id="slider" class="mui-slider">
+			<div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+				<a class="mui-control-item" href="#item1mobile">
+					<span>学生评论</span>
+				</a>
+				<a class="mui-control-item" href="#item2mobile">
+					<span>相似知识</span>
+				</a>
+			</div>
+			<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-6"></div>
+			<div class="mui-slider-group">
+				<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+					<div id="commentDiv">
+                        <div id="commentList">
+						  <div class="container-fluid">
+								<div class="commentListClass row">
+									<div class="col-md-2">
+										<dl>
+											<dt><img class="teacherPhotoImg" src="img/member1.png"/></dt>
+											<dt>昆凌小丸子</dt>
+										</dl>
+										<a class="mui-card-link"><span class="mui-icon-extra mui-icon-extra-like"></span><span class="numberSpan">18</span></a>
+									</div>
+									<div class="col-md-7">
+										<p class="commentP">
+											棉麻的手感质量很好，红色小樱桃萌萌哒~还送了本子，很贴心~~ 　总体来说还算满意吧 物流也挺快说的是4.20号发货提前发货了还
+										</p>
+										<p class="timeP">
+											2015-04-13 14:36
+										</p>
+									</div>
+									<div class="col-md-3">
+										<a class="mui-card-link"><span class="mui-icon mui-icon-chatbubble-filled"></span><span class="numberSpan">199</span>回复</a>
+									</div>
+								</div>
+								<div class="commentListClass row">
+									<div class="col-md-2">
+										<dl>
+											<dt><img class="teacherPhotoImg" src="img/member1.png"/></dt>
+											<dt>昆凌小丸子</dt>
+										</dl>
+										<a class="mui-card-link"><span class="mui-icon-extra mui-icon-extra-like"></span><span class="numberSpan">18</span></a>
+									</div>
+									<div class="col-md-7">
+										<p class="commentP">
+											棉麻的手感质量很好，红色小樱桃萌萌哒~还送了本子，很贴心~~ 　总体来说还算满意吧 物流也挺快说的是4.20号发货提前发货了还
+										</p>
+										<p class="timeP">
+											2015-04-13 14:36
+										</p>
+									</div>
+									<div class="col-md-3">
+										<a class="mui-card-link"><span class="mui-icon mui-icon-chatbubble-filled"></span><span class="numberSpan">199</span>回复</a>
+									</div>
+								</div>
+								<div class="commentListClass row">
+									<div class="col-md-2">
+										<dl>
+											<dt><img class="teacherPhotoImg" src="img/member1.png"/></dt>
+											<dt>昆凌小丸子</dt>
+										</dl>
+										<a class="mui-card-link"><span class="mui-icon-extra mui-icon-extra-like"></span><span class="numberSpan">18</span></a>
+									</div>
+									<div class="col-md-7">
+										<p class="commentP">
+											棉麻的手感质量很好，红色小樱桃萌萌哒~还送了本子，很贴心~~ 　总体来说还算满意吧 物流也挺快说的是4.20号发货提前发货了还
+										</p>
+										<p class="timeP">
+											2015-04-13 14:36
+										</p>
+									</div>
+									<div class="col-md-3">
+										<a class="mui-card-link"><span class="mui-icon mui-icon-chatbubble-filled"></span><span class="numberSpan">199</span>回复</a>
+									</div>
+								</div>
+								<div class="commentListClass row">
+									<div class="col-md-2">
+										<dl>
+											<dt><img class="teacherPhotoImg" src="img/member1.png"/></dt>
+											<dt>昆凌小丸子</dt>
+										</dl>
+										<a class="mui-card-link"><span class="mui-icon-extra mui-icon-extra-like"></span><span class="numberSpan">18</span></a>
+									</div>
+									<div class="col-md-7">
+										<p class="commentP">
+											棉麻的手感质量很好，红色小樱桃萌萌哒~还送了本子，很贴心~~ 　总体来说还算满意吧 物流也挺快说的是4.20号发货提前发货了还
+										</p>
+										<p class="timeP">
+											2015-04-13 14:36
+										</p>
+									</div>
+									<div class="col-md-3">
+										<a class="mui-card-link"><span class="mui-icon mui-icon-chatbubble-filled"></span><span class="numberSpan">199</span>回复</a>
+									</div>
+								</div>
+					      </div>
+					      <div id="loadMore">
+					        <button>加载更多</button>
+					      </div>
+                        </div>
+                    </div>    
+				</div>
+				<div id="item2mobile" class="mui-slider-item mui-control-content">
+					<div class="mui-card">
+						<video width="100%" class="mui-card-header mui-card-media" poster="img/muwu.jpg" controls="controls">
+							<source src="img/1.mp4"></source>
+						</video>
+						<div class="mui-card-content">
+							<div class="mui-card-content-inner">
+								<p style="color: #333;">这里显示文章摘要，让读者对文章内容有个粗略的概念...</p>
+							</div>
+						</div>
+						<div class="mui-card-footer">
+							<a href="html/teacherInfo.html" class="mui-card-link"><span class="mui-icon mui-icon-contact-filled"></span></a>
+							<a class="mui-card-link"><span class="mui-icon mui-icon-extra mui-icon-extra-heart-filled"></span></a>
+							<a class="mui-card-link"><span class="mui-icon-extra mui-icon-extra-like"></span><span class="numberSpan">18</span></a>
+							<a href="html/videoInfo.html" class="mui-card-link"><span class="mui-icon mui-icon-chatbubble-filled"></span><span class="numberSpan">199</span></a>
+							<a class="mui-card-link" id="menuShow"><span class="mui-icon mui-icon-bars"></span></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="share" class="mui-popover mui-popover-action mui-popover-bottom">
+			<ul class="mui-table-view">
+				<li id="commentLi" class="mui-table-view-cell">
+					<a>朕想点评一下</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a>分享到QQ</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a>分享到微信</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a><b>取消</b></a>
+				</li>
+			</ul>
+		</div>
+		
+		
+		<script type="text/javascript" src="js/phone/jquery-3.3.1.min.js" ></script>
+	    <script type="text/javascript" src="js/phone/common.js"></script>
+	    <script src="js/phone/mui.min.js"></script>
+	    <script type="text/javascript" src="js/phone/videoInfo.js"></script>
+	</body>
+</html>

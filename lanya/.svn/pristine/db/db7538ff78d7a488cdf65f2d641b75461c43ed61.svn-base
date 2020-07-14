@@ -1,0 +1,10 @@
+body{
+	padding-top: 50px;
+}
+
+#navDiv{
+	position: fixed;
+	top:40px;
+	left:0px;
+	z-index: 100;
+}

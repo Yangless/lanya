@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<base href="../"/>
+		<meta charset="utf-8" />
+		<title>蓝芽_某某老师</title>
+		<!-- start: Favicon -->
+		<link rel="shortcut icon" href="img/logo.jpg">
+		<!-- end: Favicon -->
+		<!--bootstrap-3.3.7-dist start-->
+		<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+		<link href="js/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+	    <script src="js/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+		<!--bootstrap-3.3.7-dist end-->
+		<link rel="stylesheet" href="css/teacherInfo.css" />
+		<script type="text/javascript" src="js/teacherInfo.js" ></script>
+		<link rel="stylesheet" href="js/raty/jquery.raty.css" />
+    	<script type="text/javascript" src="js/raty/jquery.raty.js"></script>
+	</head>
+	<body>
+		<!--teacherInfo start-->
+		<div id="teacherInfo" class="container-fluid">
+			<div class="row">
+				<div class="col-md-9 col-sm-9">
+					<div id="teacherHead">
+						<img src="img/AI.png" />
+					</div>
+					<div id="teacherName">
+						<h3>某某老师</h3>
+						<p>hi，大家好，我是起点学院的Sara老师，任何问题都可以直接找我哦~</p>
+					</div>
+					<div id="courseNum">
+						<span>21</span>课程
+						<span class="focus glyphicon glyphicon-heart"></span><i id="flag">已关注</i>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-3">
+					<h4>最受欢迎课程</h4>
+					<ul id="welcome">
+						<li>
+							<img src="img/courseList.jpg" />
+							<p>
+								<a href="#">JAVA架构师黄埔班</a>
+								<span>10.00</span>
+								<span>999人购买</span>
+							</p>
+						</li>
+						<li>
+							<img src="img/courseList.jpg" />
+							<p>
+								<a href="#">JAVA架构师黄埔班</a>
+								<span>10.00</span>
+								<span>999人购买</span>
+							</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+	    </div> 
+		<!--teacherInfo end-->
+		
+		<!--menuUl start-->
+		<ul id="menuUl" class="nav nav-tabs nav-justified">
+		  <li id="course" role="presentation" class="active">
+		    <a>课程</a>
+		  </li>
+		  <li id="comment" role="presentation">
+		    <a>学员评论<span>(179)</span></a>
+		  </li>
+		</ul>
+		<!--menuUl end-->
+		
+		<!--course start-->
+		<div id="courseDiv" class="container-fluid">
+			<div class="row courseListClass">
+				<div class="col-md-3 col-sm-3">
+					<ul>
+						<li>
+							<img src="img/courseList.jpg" />
+						</li>
+						<li>
+							<a href="#">JAVA架构师黄埔班</a>
+						</li>
+						<li id="money">
+							<span>￥10.00</span>
+							<span>999人购买</span>
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-3 col-sm-3">
+					<ul>
+						<li>
+							<img src="img/courseList.jpg" />
+						</li>
+						<li>
+							<a href="#">JAVA架构师黄埔班</a>
+						</li>
+						<li id="money">
+							<span>￥10.00</span>
+							<span>999人购买</span>
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-3 col-sm-3">
+					<ul>
+						<li>
+							<img src="img/courseList.jpg" />
+						</li>
+						<li>
+							<a href="#">JAVA架构师黄埔班</a>
+						</li>
+						<li id="money">
+							<span>￥10.00</span>
+							<span>999人购买</span>
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-3 col-sm-3">
+					<ul>
+						<li>
+							<img src="img/courseList.jpg" />
+						</li>
+						<li>
+							<a href="#">JAVA架构师黄埔班</a>
+						</li>
+						<li id="money">
+							<span>￥10.00</span>
+							<span>999人购买</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="row courseListClass">
+				<div class="col-md-3 col-sm-3">
+					<ul>
+						<li>
+							<img src="img/courseList.jpg" />
+						</li>
+						<li>
+							<a href="#">JAVA架构师黄埔班</a>
+						</li>
+						<li id="money">
+							<span>￥10.00</span>
+							<span>999人购买</span>
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-3 col-sm-3">
+					<ul>
+						<li>
+							<img src="img/courseList.jpg" />
+						</li>
+						<li>
+							<a href="#">JAVA架构师黄埔班</a>
+						</li>
+						<li id="money">
+							<span>￥10.00</span>
+							<span>999人购买</span>
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-3 col-sm-3">
+					<ul>
+						<li>
+							<img src="img/courseList.jpg" />
+						</li>
+						<li>
+							<a href="#">JAVA架构师黄埔班</a>
+						</li>
+						<li id="money">
+							<span>￥10.00</span>
+							<span>999人购买</span>
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-3 col-sm-3">
+					<ul>
+						<li>
+							<img src="img/courseList.jpg" />
+						</li>
+						<li>
+							<a href="#">JAVA架构师黄埔班</a>
+						</li>
+						<li id="money">
+							<span>￥10.00</span>
+							<span>999人购买</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<nav aria-label="Page navigation">
+			  <ul class="pagination pagination-lg">
+			    <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+			    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+			    <li><a href="#">2 <span class="sr-only"></span></a></li>
+			    <li><a href="#">3 <span class="sr-only"></span></a></li>
+			    <li><a href="#">4 <span class="sr-only"></span></a></li>
+			    <li><a href="#">5 <span class="sr-only"></span></a></li>
+			    <li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+			  </ul>
+			</nav>
+	    </div>
+	    <!--course end-->
+	    
+	    <!--comment start-->
+	    <div id="commentDiv">
+	    	<div id="commentList">
+        <div class="container-fluid">
+          <div class="commentListClass row">
+            <div class="col-md-2">
+              <dl>
+                <dt><img src="img/member1.png"/></dt>
+                <dt>昆凌小丸子</dt>
+              </dl>
+            </div>
+            <div class="col-md-7">
+              <p class="commentP">
+                棉麻的手感质量很好，红色小樱桃萌萌哒~还送了本子，很贴心~~ 　总体来说还算满意吧 物流也挺快说的是4.20号发货提前发货了还
+              </p>
+              <p class="timeP">
+                2015-04-13 14:36
+              </p>
+            </div>
+            <div class="col-md-3">
+              <span>满意度评分：</span>
+              <span class="starDiv">
+		        			
+		        		    </span>
+            </div>
+          </div>
+          <div class="commentListClass row">
+            <div class="col-md-2">
+              <dl>
+                <dt><img src="img/member2.png"/></dt>
+                <dt>杨颖哈哈哈</dt>
+              </dl>
+            </div>
+            <div class="col-md-7">
+              <p class="commentP">
+                棉麻的手感质量很好，红色小樱桃萌萌哒~还送了本子，很贴心~~ 　总体来说还算满意吧 物流也挺快说的是4.20号发货提前发货了还棉麻的手感质量很好，红色小樱桃萌萌哒~还送了本子，很贴心~~ 　总体来说还算满意
+              </p>
+              <p class="timeP">
+                2015-04-13 14:36
+              </p>
+            </div>
+            <div class="col-md-3">
+              <span>满意度评分：</span>
+              <span class="starDiv">
+		        			
+		        		    </span>
+            </div>
+          </div>
+          <div class="commentListClass row">
+            <div class="col-md-2">
+              <dl>
+                <dt><img src="img/member1.png"/></dt>
+                <dt>杨颖哈哈哈</dt>
+              </dl>
+            </div>
+            <div class="col-md-7">
+              <p class="commentP">
+                棉麻的手感质量很好，红色小樱桃萌萌哒~还送了本子，很贴心~~ 　总体来说还算满意吧 物流也挺快说的是4.20号发货提前发货了还
+              </p>
+              <p class="timeP">
+                2015-04-13 14:36
+              </p>
+            </div>
+            <div class="col-md-3">
+              <span>满意度评分：</span>
+              <span class="starDiv">
+		        			
+		        		    </span>
+            </div>
+          </div>
+          <div class="commentListClass row">
+            <div class="col-md-2">
+              <dl>
+                <dt><img src="img/member2.png"/></dt>
+                <dt>杨颖哈哈哈</dt>
+              </dl>
+            </div>
+            <div class="col-md-7">
+              <p class="commentP">
+                棉麻的手感质量很好，红色小樱桃萌萌哒~还送了本子，很贴心~~ 　总体来说还算满意吧 物流也挺快说的是4.20号发货提前发货了还棉麻的手感质量很好，红色小樱桃萌萌哒~还送了本子，很贴心~~ 　总体来说还算满意
+              </p>
+              <p class="timeP">
+                2015-04-13 14:36
+              </p>
+            </div>
+            <div class="col-md-3">
+              <span>满意度评分：</span>
+              <span class="starDiv">
+		        			
+		        		    </span>
+            </div>
+          </div>
+          <div class="commentListClass row">
+            <div class="col-md-2">
+              <dl>
+                <dt><img src="img/member1.png"/></dt>
+                <dt>杨颖哈哈哈</dt>
+              </dl>
+            </div>
+            <div class="col-md-7">
+              <p class="commentP">
+                棉麻的手感质量很好，红色小樱桃萌萌哒~还送了本子，很贴心~~ 　总体来说还算满意吧 物流也挺快说的是4.20号发货提前发货了还
+              </p>
+              <p class="timeP">
+                2015-04-13 14:36
+              </p>
+            </div>
+            <div class="col-md-3">
+              <span>满意度评分：</span>
+              <span class="starDiv">
+		        			
+		        		    </span>
+            </div>
+          </div>
+          <div class="commentListClass row">
+            <div class="col-md-2">
+              <dl>
+                <dt><img src="img/member2.png"/></dt>
+                <dt>杨颖哈哈哈</dt>
+              </dl>
+            </div>
+            <div class="col-md-7">
+              <p class="commentP">
+                棉麻的手感质量很好，红色小樱桃萌萌哒~还送了本子，很贴心~~ 　总体来说还算满意吧 物流也挺快说的是4.20号发货提前发货了还棉麻的手感质量很好，红色小樱桃萌萌哒~还送了本子，很贴心~~ 　总体来说还算满意
+              </p>
+              <p class="timeP">
+                2015-04-13 14:36
+              </p>
+            </div>
+            <div class="col-md-3">
+              <span>满意度评分：</span>
+              <span class="starDiv">
+		        			
+		        		    </span>
+            </div>
+          </div>
+          <div class="commentListClass row">
+            <div class="col-md-2">
+              <dl>
+                <dt><img src="img/member1.png"/></dt>
+                <dt>杨颖哈哈哈</dt>
+              </dl>
+            </div>
+            <div class="col-md-7">
+              <p class="commentP">
+                棉麻的手感质量很好，红色小樱桃萌萌哒~还送了本子，很贴心~~ 　总体来说还算满意吧 物流也挺快说的是4.20号发货提前发货了还
+              </p>
+              <p class="timeP">
+                2015-04-13 14:36
+              </p>
+            </div>
+            <div class="col-md-3">
+              <span>满意度评分：</span>
+              <span class="starDiv">
+		        			
+		        		    </span>
+            </div>
+          </div>
+          <div class="commentListClass row">
+            <div class="col-md-2">
+              <dl>
+                <dt><img src="img/member2.png"/></dt>
+                <dt>杨颖哈哈哈</dt>
+              </dl>
+            </div>
+            <div class="col-md-7">
+              <p class="commentP">
+                棉麻的手感质量很好，红色小樱桃萌萌哒~还送了本子，很贴心~~ 　总体来说还算满意吧 物流也挺快说的是4.20号发货提前发货了还棉麻的手感质量很好，红色小樱桃萌萌哒~还送了本子，很贴心~~ 　总体来说还算满意
+              </p>
+              <p class="timeP">
+                2015-04-13 14:36
+              </p>
+            </div>
+            <div class="col-md-3">
+              <span>满意度评分：</span>
+              <span class="starDiv">
+		        			
+		        		    </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="loadMore">
+        <button>加载更多</button>
+      </div>
+	    </div>
+		<!--comment end-->
+	</body>
+</html>

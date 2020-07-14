@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="../"/>
+	<meta charset="utf-8" />
+	<title>蓝芽-帮助您职业技能成长</title>
+	<!-- start: Favicon -->
+	<link rel="shortcut icon" href="img/logo.jpg">
+	<!-- end: Favicon -->
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="css/phone/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/phone/icons-extra.css"/>
+    <link rel="stylesheet" href="css/phone/common.css"/>
+    <link rel="stylesheet" type="text/css" href="css/phone/index.css"/>
+</head>
+<body>
+	
+		<div id="contentDiv">
+			<div id="slider" class="mui-slider">
+					<div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+						<a class="mui-control-item mui-active" href="#item1mobile">
+							<span>学习路径</span>
+						</a>
+						<a class="mui-control-item" href="#item2mobile">
+							<span>完整课程</span>
+						</a>
+						<a class="mui-control-item" href="#item3mobile">
+							<span>短视频/音频</span>
+						</a>
+						<a class="mui-control-item" href="#item4mobile">
+							<span>线下学习</span>
+						</a>
+					</div>
+					<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-3"></div>
+					<div class="mui-slider-group">
+						<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+						    <ul class="mui-table-view mui-grid-view">
+								<div class="itemClass">
+								    <div class="titleClass">
+										已收藏的课程体系
+									</div>
+									<div class="contentClass">
+										<li class="mui-table-view-cell mui-media mui-col-xs-6">
+								            <a href="phone/learningPath.html">
+								            	<div class="itemShowClass">
+								            		<span class="closeClass mui-icon mui-icon-close"></span>
+									            	<span class="mui-icon-extra mui-icon-extra-topic"></span>
+									            	<div class="itemShowInfoClass">
+										            	<span>java全栈工程师</span>
+									                    <div>
+									                    	&nbsp;
+									                    </div>
+								                    </div>
+								                </div>
+								            </a>
+								        </li>
+								        <li class="mui-table-view-cell mui-media mui-col-xs-6">
+								            <a href="phone/learningPath.html">
+									            <div class="itemShowClass">
+									            	<span class="closeClass mui-icon mui-icon-close"></span>
+									            	<span class="mui-icon-extra mui-icon-extra-topic"></span>
+									            	<div class="itemShowInfoClass">
+										            	<span>java大数据工程师</span>
+									                    <div>
+									                    	&nbsp;
+									                    </div>
+								                    </div>
+								                </div>
+								            </a>
+								        </li>
+								        <li class="mui-table-view-cell mui-media mui-col-xs-6">
+								            <a href="phone/learningPath.html">
+									            <div class="itemShowClass">
+									            	<span class="closeClass mui-icon mui-icon-close"></span>
+									            	<span class="mui-icon-extra mui-icon-extra-topic"></span>
+									            	<div class="itemShowInfoClass">
+										            	<span>人工智能工程师</span>
+									                    <div>
+									                    	&nbsp;
+									                    </div>
+								                    </div>
+								                </div>
+								            </a>
+								        </li>
+								        <li class="mui-table-view-cell mui-media mui-col-xs-6">
+								            <a href="phone/learningPath.html">
+									            <div class="itemShowClass">
+									            	<span class="closeClass mui-icon mui-icon-close"></span>
+									            	<span class="mui-icon-extra mui-icon-extra-topic"></span>
+									            	<div class="itemShowInfoClass">
+										            	<span>性能测试工程师</span>
+									                    <div>
+									                    	&nbsp;
+									                    </div>
+								                    </div>
+								                </div>
+								            </a>
+								        </li>
+								        <li class="mui-table-view-cell mui-media mui-col-xs-6">
+								            <a href="phone/search.html">
+								                <div class="itemShowClassLast">
+								                	+
+								                </div>
+								            </a>
+								        </li>
+									</div>
+						        </div>
+					        </ul>
+						</div>
+						<div id="item2mobile" class="mui-slider-item mui-control-content">
+							<ul class="mui-table-view mui-grid-view">
+								<div class="itemClass">
+									<div class="titleClass">
+										已收藏的单套课程
+									</div>
+							        <div class="contentClass">
+										<li class="mui-table-view-cell mui-media mui-col-xs-6">
+								            <a href="phone/courseList.html">
+									            <div class="itemShowClass">
+									            	<span class="closeClass mui-icon mui-icon-close"></span>
+									            	<span class="mui-icon-extra mui-icon-extra-university"></span>
+									            	<div class="itemShowInfoClass">
+										            	<span>java</span>
+									                    <div>
+									                    	讲师:<span>聂文来</span>
+									                    </div>
+								                    </div>
+								                </div>
+								            </a>
+								        </li>
+								        <li class="mui-table-view-cell mui-media mui-col-xs-6">
+								            <a href="phone/courseList.html">
+									            <div class="itemShowClass">
+									            	<span class="closeClass mui-icon mui-icon-close"></span>
+									            	<span class="mui-icon-extra mui-icon-extra-university"></span>
+								                    <div class="itemShowInfoClass">
+										            	<span>mysql</span>
+									                    <div>
+									                    	讲师:<span>聂文来</span>
+									                    </div>
+								                    </div>
+									            </div>
+								            </a>
+								        </li>
+								        <li class="mui-table-view-cell mui-media mui-col-xs-6">
+								            <a href="phone/courseList.html">
+									            <div class="itemShowClass">
+									            	<span class="closeClass mui-icon mui-icon-close"></span>
+									            	<span class="mui-icon-extra mui-icon-extra-university"></span>
+								                    <div class="itemShowInfoClass">
+										            	<span>pythod</span>
+									                    <div>
+									                    	讲师:<span>聂文来</span>
+									                    </div>
+								                    </div>
+									            </div>
+								            </a>
+								        </li>
+								        <li class="mui-table-view-cell mui-media mui-col-xs-6">
+								            <a href="phone/search.html">
+								                <div class="itemShowClassLast">
+								                	+
+								                </div>
+								            </a>
+								        </li>
+									</div>
+								</div>	
+							</ul>
+						</div>
+						<div id="item3mobile" class="mui-slider-item mui-control-content">
+							<ul class="mui-table-view mui-grid-view">
+								<div class="itemClass">
+								    <div class="titleClass">
+										已收藏的单个视频/音频
+									</div>
+									<div class="contentClass">
+										<li class="mui-table-view-cell mui-media mui-col-xs-6">
+								            <a href="phone/videoInfo.html">
+									            <div class="itemShowClass">
+									            	<span class="closeClass mui-icon mui-icon-close"></span>
+									            	<span class="mui-icon mui-icon-person"></span>
+								                    <div class="itemShowInfoClass">
+										            	<span>聂文来</span>
+									                    <div>
+									                    	机构:<span>天码启航</span>
+									                    </div>
+								                    </div>
+									            </div>
+								            </a>
+								        </li>
+								        <li class="mui-table-view-cell mui-media mui-col-xs-6">
+								            <a href="phone/videoInfo.html">
+									            <div class="itemShowClass">
+									            	<span class="closeClass mui-icon mui-icon-close"></span>
+									            	<span class="mui-icon mui-icon-person"></span>
+								                    <div class="itemShowInfoClass">
+										            	<span>齐俊杰</span>
+									                    <div>
+									                    	机构:<span>无</span>
+									                    </div>
+								                    </div>
+									            </div>
+								            </a>
+								        </li>
+								        <li class="mui-table-view-cell mui-media mui-col-xs-6">
+								            <a href="phone/search.html">
+								                <div class="itemShowClassLast">
+								                	+
+								                </div>
+								            </a>
+								        </li>
+									</div>
+						        </div>
+							</ul>
+						</div>
+						<div id="item4mobile" class="mui-slider-item mui-control-content">
+							<ul class="mui-table-view mui-grid-view">
+								<div class="itemClass">
+								    <div class="titleClass">
+										推荐的教育机构
+									</div>
+									<div class="contentClass">
+										<li class="mui-table-view-cell mui-media mui-col-xs-6">
+								            <a href="phone/school.html">
+									            <div class="itemShowClass">
+									            	<span class="closeClass mui-icon mui-icon-close"></span>
+									            	<span class="mui-icon-extra mui-icon-extra-hotel"></span>
+								                    <div class="itemShowInfoClass">
+										            	<span>天码启航</span>
+									                    <div>
+									                    	电话:<span>15108359685</span>
+									                    </div>
+								                    </div>
+									            </div>
+								            </a>
+								        </li>
+									</div>
+						        </div>
+							</ul>
+						</div>
+					</div>
+		    </div>
+		</div>
+		
+	    <!--底部菜单-->
+		<table class="bottomMenu">
+			<tr>
+			   <td>
+			        <a href="/phone/recommend" style="color: grey;">
+						<span class="mui-icon mui-icon-eye"></span>
+						<br/>
+						<span class="mui-tab-label">推荐</span>
+					</a>
+			   </td>
+			   <td>
+			        <a href="/phone/collection">
+						<span class="mui-icon mui-icon-extra mui-icon-extra-heart-filled"></span>
+						<br/>
+						<span class="mui-tab-label">收藏</span>
+					</a>
+			   </td>
+			   <td>
+			        <a href="/phone/communication" style="color: grey;">
+						<span class="mui-icon mui-icon-weixin"></span>
+						<br/>
+						<span class="mui-tab-label">交流</span>
+					</a>
+			   </td>
+			   <td>
+			        <a href="/phone/me" style="color: grey;">
+						<span class="mui-icon mui-icon mui-icon-contact"></span>
+						<br/>
+						<span class="mui-tab-label">我</span>
+					</a>
+			   </td>
+			</tr>
+		</table>
+		
+		<div id="share" class="mui-popover mui-popover-action mui-popover-bottom">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a>分享到QQ</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a>分享到微信</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a>朕不喜欢</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a><b>取消</b></a>
+				</li>
+			</ul>
+		</div>
+		
+	<script type="text/javascript" src="js/phone/jquery-3.3.1.min.js" ></script>
+    <script type="text/javascript" src="js/phone/common.js"></script>
+    <script src="js/phone/mui.min.js"></script>
+	<script type="text/javascript" src="js/phone/index.js"></script>
+</body>
+</html>

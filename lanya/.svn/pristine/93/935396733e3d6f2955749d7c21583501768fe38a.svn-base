@@ -1,0 +1,8 @@
+//修改jquery标识符
+var $$=jQuery.noConflict();
+
+$$(function(){
+	$$("#logoBtn").click(function(){
+		$$("#navDivInput").slideToggle(100);
+	});
+});

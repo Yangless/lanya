@@ -1,0 +1,81 @@
+package com.nwl.lanya.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.nwl.lanya.common.CommonUtil;
+import com.nwl.lanya.common.MsgCode;
+import com.nwl.lanya.dao.AccountMapper;
+import com.nwl.lanya.dto.AccountDto;
+import com.nwl.lanya.po.Account;
+import com.nwl.lanya.service.AccountService;
+
+@Service
+public class AccountServiceImpl implements AccountService{
+	
+	@Autowired
+	private AccountMapper mapper;
+	
+	@Autowired
+	private CommonUtil commonUtil;
+
+	@Override
+	public void list(AccountDto dto) {
+        List<Account> accountVos = mapper.list(dto);
+		Long total = mapper.countByLike(dto);
+		
+		dto.getPageModel().setRows(accountVos);
+		dto.getPageModel().setTotal(total);
+	}
+
+	@Override
+	public void deleteByIds(AccountDto dto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void findById(AccountDto dto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void saveOrUpdate(AccountDto dto) {
+		try {
+			//设置年龄
+			dto.getPo().setAge(commonUtil.getAge(dto.getPo().getBirthday()));
+			//设置为可使用状态
+			dto.getPo().setUseAble(1);
+			
+			mapper.insert(dto.getPo());
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+			dto.setMsgCode(MsgCode.REQUEST_FALSE);
+			dto.setMsg("出生日期有误");
+		}
+	}
+
+	/**
+	 * 
+	* @Title: updateUseAble 
+	* @Description: 更新用户可用状态
+	* @param    
+	* @return AccountDto    
+	* @throws
+	 */
+	@Override
+	public void updateUseAble(AccountDto dto) {
+		String[] idStr = dto.getIds().split(",");
+		for(int i=0;i<idStr.length;i++){
+			Account account = new Account();
+			account.setId(Integer.valueOf(idStr[i]));
+			//将使用状态设置为不可用
+			account.setUseAble(dto.getPo().getUseAble());
+			mapper.updateByPrimaryKeySelective(account);
+		}
+	}
+	
+}

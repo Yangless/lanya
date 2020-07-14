@@ -1,0 +1,35 @@
+package com.nwl.lanya.dto;
+
+import com.nwl.lanya.po.CourseSystem;
+import com.nwl.lanya.po.CourseType;
+import com.nwl.lanya.po.Stage;
+
+public class CourseSystemDto extends AbstractBaseDto<CourseSystem>{
+
+	/** 
+	* @Fields serialVersionUID : TODO(用一句话描述这个变量表示什么) 
+	*/ 
+	private static final long serialVersionUID = 5822289990873844988L;
+	
+	//保存阶段用
+	private Stage stage;
+	//保存课程用
+	private CourseType courseType;
+
+	public Stage getStage() {
+		return stage;
+	}
+
+	public void setStage(Stage stage) {
+		this.stage = stage;
+	}
+
+	public CourseType getCourseType() {
+		return courseType;
+	}
+
+	public void setCourseType(CourseType courseType) {
+		this.courseType = courseType;
+	}
+	
+}

@@ -1,0 +1,50 @@
+package com.nwl.lanya.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.nwl.lanya.common.PropertiesUtil;
+import com.nwl.lanya.dao.AccountMapper;
+import com.nwl.lanya.dto.AccountDto;
+import com.nwl.lanya.po.Account;
+import com.nwl.lanya.service.AccountService;
+
+@Service
+public class AccountServiceImpl implements AccountService{
+	
+	@Autowired
+	private AccountMapper mapper;
+	
+	@Autowired
+	private PropertiesUtil propertiesUtil;
+
+	@Override
+	public void list(AccountDto dto) {
+        List<Account> accountVos = mapper.list(dto);
+		Long total = mapper.countByLike(dto);
+		
+		dto.getPageModel().setRows(accountVos);
+		dto.getPageModel().setTotal(total);
+	}
+
+	@Override
+	public void deleteByIds(AccountDto dto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void findById(AccountDto dto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void saveOrUpdate(AccountDto dto) {
+		//设置为可使用状态
+		mapper.insert(dto.getPo());
+	}
+	
+}

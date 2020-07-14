@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="../"/>
+	<meta charset="utf-8" />
+	<title>蓝芽-帮助您职业技能成长</title>
+	<!-- start: Favicon -->
+	<link rel="shortcut icon" href="img/logo.jpg">
+	<!-- end: Favicon -->
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="css/phone/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/phone/icons-extra.css"/>
+    <link rel="stylesheet" href="css/phone/common.css"/>
+    <link rel="stylesheet" type="text/css" href="css/phone/index.css"/>
+</head>
+<body>
+	
+		<div id="contentDiv">
+		   <div id="navDiv" class="logDiv">
+				<div>
+					<img id="logoBtn" src="img/logo.jpg"/>
+				</div>
+				<div id="navDivInput">
+					<span>蓝芽智慧</span>
+					<div class="mui-input-row mui-search">
+						<input type="search" class="mui-input-clear" placeholder="视频、完整课程、课程体系、老师、工作"/>
+					</div>
+					<button type="button" id="soundSearch"><span class="mui-icon mui-icon-mic"></span></button>
+				</div>
+			</div>
+		   <div id="introDiv">
+				<div class="mui-card">
+					<video width="100%" class="mui-card-header mui-card-media" poster="img/muwu.jpg" controls="controls">
+						<source src="img/1.mp4"></source>
+					</video>
+					<div class="mui-card-content">
+						<div class="mui-card-content-inner">
+							<p style="color: #333;">这里显示文章摘要，让读者对文章内容有个粗略的概念...</p>
+						</div>
+					</div>
+					<div class="mui-card-footer">
+						<a href="phone/teacherInfo.html" class="mui-card-link"><span class="mui-icon mui-icon-contact-filled"></span></a>
+						<a class="mui-card-link"><span class="mui-icon mui-icon-extra mui-icon-extra-heart-filled"></span></a>
+						<a class="mui-card-link"><span class="mui-icon-extra mui-icon-extra-like"></span><span class="numberSpan">18</span></a>
+						<a href="phone/videoInfo.html" class="mui-card-link"><span class="mui-icon mui-icon-chatbubble-filled"></span><span class="numberSpan">199</span></a>
+						<a href="#share" class="mui-card-link" id="menuShow"><span class="mui-icon mui-icon-bars"></span></a>
+					</div>
+				</div>
+				<div class="mui-card">
+					<video width="100%" class="mui-card-header mui-card-media" poster="img/muwu.jpg" controls="controls">
+						<source src="img/1.mp4"></source>
+					</video>
+					<div class="mui-card-content">
+						<div class="mui-card-content-inner">
+							<p style="color: #333;">这里显示文章摘要，让读者对文章内容有个粗略的概念...</p>
+						</div>
+					</div>
+					<div class="mui-card-footer">
+						<a href="phone/teacherInfo.html" class="mui-card-link"><span class="mui-icon mui-icon-contact-filled"></span></a>
+						<a class="mui-card-link"><span class="mui-icon mui-icon-extra mui-icon-extra-heart-filled"></span></a>
+						<a class="mui-card-link"><span class="mui-icon-extra mui-icon-extra-like"></span><span class="numberSpan">18</span></a>
+						<a href="phone/videoInfo.html" class="mui-card-link"><span class="mui-icon mui-icon-chatbubble-filled"></span><span class="numberSpan">199</span></a>
+						<a href="#share" class="mui-card-link" id="menuShow"><span class="mui-icon mui-icon-bars"></span></a>
+					</div>
+				</div>
+				<div class="mui-card">
+					<video width="100%" class="mui-card-header mui-card-media" poster="img/muwu.jpg" controls="controls">
+						<source src="img/1.mp4"></source>
+					</video>
+					<div class="mui-card-content">
+						<div class="mui-card-content-inner">
+							<p style="color: #333;">这里显示文章摘要，让读者对文章内容有个粗略的概念...</p>
+						</div>
+					</div>
+					<div class="mui-card-footer">
+						<a href="phone/teacherInfo.html" class="mui-card-link"><span class="mui-icon mui-icon-contact-filled"></span></a>
+						<a class="mui-card-link"><span class="mui-icon mui-icon-extra mui-icon-extra-heart-filled"></span></a>
+						<a class="mui-card-link"><span class="mui-icon-extra mui-icon-extra-like"></span><span class="numberSpan">18</span></a>
+						<a href="phone/videoInfo.html" class="mui-card-link"><span class="mui-icon mui-icon-chatbubble-filled"></span><span class="numberSpan">199</span></a>
+						<a href="#share" class="mui-card-link" id="menuShow"><span class="mui-icon mui-icon-bars"></span></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	    <!--底部菜单-->
+		<table class="bottomMenu">
+			<tr>
+			   <td>
+			        <a href="/phone/recommend">
+						<span class="mui-icon mui-icon-eye"></span>
+						<br/>
+						<span class="mui-tab-label">推荐</span>
+					</a>
+			   </td>
+			   <td>
+			        <a href="/phone/collection" style="color: grey;">
+						<span class="mui-icon mui-icon-extra mui-icon-extra-heart-filled"></span>
+						<br/>
+						<span class="mui-tab-label">收藏</span>
+					</a>
+			   </td>
+			   <td>
+			        <a href="/phone/communication" style="color: grey;">
+						<span class="mui-icon mui-icon-weixin"></span>
+						<br/>
+						<span class="mui-tab-label">交流</span>
+					</a>
+			   </td>
+			   <td>
+			        <a href="/phone/me" style="color: grey;">
+						<span class="mui-icon mui-icon mui-icon-contact"></span>
+						<br/>
+						<span class="mui-tab-label">我</span>
+					</a>
+			   </td>
+			</tr>
+		</table>
+		
+		<div id="share" class="mui-popover mui-popover-action mui-popover-bottom">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a>分享到QQ</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a>分享到微信</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a>朕不喜欢</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a><b>取消</b></a>
+				</li>
+			</ul>
+		</div>
+		
+	<script type="text/javascript" src="js/phone/jquery-3.3.1.min.js" ></script>
+    <script type="text/javascript" src="js/phone/common.js"></script>
+    <script src="js/phone/mui.min.js"></script>
+	<script type="text/javascript" src="js/phone/index.js"></script>
+</body>
+</html>

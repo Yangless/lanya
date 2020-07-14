@@ -1,0 +1,21 @@
+$(function(){
+	$(".row>div").click(function(){
+		window.location.href="html/courseInfo.html";
+	});
+	
+	$("#menuUl li:not(#AILi)").click(function(){
+		$(this).addClass("active").siblings().removeClass("active");
+		$("#courseList").show();
+		$("#AIDiv").hide();
+	});
+	
+	$("#AILi").click(function(){
+		$(this).addClass("active").siblings().removeClass("active");
+		$("#courseList").hide();
+		$("#AIDiv").show();
+	});
+	
+	$(".courseListClass div").click(function(){
+		window.open("html/courseVideo.html");
+	});
+})

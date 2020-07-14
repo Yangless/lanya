@@ -1,0 +1,7 @@
+package com.nwl.lanya.service;
+
+public interface TalkService {
+
+	void save(String content);
+
+}

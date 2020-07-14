@@ -1,0 +1,30 @@
+package com.nwl.lanya.dao;
+
+import com.nwl.lanya.po.CompanyStudent;
+import com.nwl.lanya.po.CompanyStudentExample;
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
+
+public interface CompanyStudentMapper {
+    long countByExample(CompanyStudentExample example);
+
+    int deleteByExample(CompanyStudentExample example);
+
+    int deleteByPrimaryKey(Integer id);
+
+    int insert(CompanyStudent record);
+
+    int insertSelective(CompanyStudent record);
+
+    List<CompanyStudent> selectByExample(CompanyStudentExample example);
+
+    CompanyStudent selectByPrimaryKey(Integer id);
+
+    int updateByExampleSelective(@Param("record") CompanyStudent record, @Param("example") CompanyStudentExample example);
+
+    int updateByExample(@Param("record") CompanyStudent record, @Param("example") CompanyStudentExample example);
+
+    int updateByPrimaryKeySelective(CompanyStudent record);
+
+    int updateByPrimaryKey(CompanyStudent record);
+}

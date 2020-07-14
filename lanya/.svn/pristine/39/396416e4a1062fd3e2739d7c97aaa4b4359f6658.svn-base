@@ -1,0 +1,106 @@
+package com.nwl.lanya.service.impl;
+
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.nwl.lanya.dao.AccountMapper;
+import com.nwl.lanya.dao.CommentMapper;
+import com.nwl.lanya.dao.VideoAudioMapper;
+import com.nwl.lanya.dto.CommentDto;
+import com.nwl.lanya.po.Account;
+import com.nwl.lanya.po.Comment;
+import com.nwl.lanya.po.VideoAudio;
+import com.nwl.lanya.service.CommentService;
+import com.nwl.lanya.vo.CommentVo;
+
+@Service
+public class CommentServiceImpl implements CommentService{
+	
+	@Autowired
+	private CommentMapper mapper;
+	@Autowired
+	private VideoAudioMapper videoAudioMapper;
+	@Autowired
+	private AccountMapper accountMapper;
+
+	@Override
+	public void list(CommentDto dto) {
+        List<CommentVo> commentVos = mapper.list(dto);
+		Long total = mapper.countByLike(dto);
+		
+		dto.getPageModel().setRows(commentVos);
+		dto.getPageModel().setTotal(total);
+	}
+
+	@Override
+	public void deleteByIds(CommentDto dto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void findById(CommentDto dto) {
+        Comment po = new Comment();
+        po.setId(dto.getParentId());
+        dto.setPo(po);
+		CommentVo vo = mapper.findById(dto);
+		dto.setVo(vo);
+	}
+
+	@Override
+	public void saveOrUpdate(CommentDto dto) {
+		CommentVo comment = new CommentVo();
+		Account account = accountMapper.selectByPrimaryKey(dto.getAccountId());
+		comment.setAccountId(account.getId());
+		comment.setNickName(account.getNickName());
+		comment.setPhotoUrl(account.getPhotoUrl());
+		//获取视频详细信息
+		VideoAudio videoAudio = videoAudioMapper.selectByPrimaryKey(dto.getVideoAudioId());
+		comment.setTeacherId(videoAudio.getTeacherId());
+		comment.setVideoAudioId(videoAudio.getId());
+		//设置默认值
+		comment.setCommentPraiseNumber(0);
+		comment.setReplyNumber(0);
+		comment.setUseAble(1);
+		comment.setCommentTime(new Date());
+		//设置评论内容
+		comment.setContent(dto.getContent());
+		
+		//如果传了parentId
+		if(dto.getParentId()!=null){
+			comment.setParentId(dto.getParentId());
+			//查出父评论,增加回复数量
+			Comment parentComment = mapper.selectByPrimaryKey(dto.getParentId());
+			parentComment.setReplyNumber(parentComment.getReplyNumber().intValue()+1);
+			mapper.updateByPrimaryKeySelective(parentComment);
+		}
+		
+		//保存数据
+		mapper.insert(comment);
+		dto.setVo(comment);
+	}
+
+	@Override
+	public void updateUseAble(CommentDto dto) {
+		String[] idStr = dto.getIds().split(",");
+		for(int i=0;i<idStr.length;i++){
+			Comment comment = new Comment();
+			comment.setId(Integer.valueOf(idStr[i]));
+			//将使用状态设置为不可用
+			comment.setUseAble(dto.getPo().getUseAble());
+			mapper.updateByPrimaryKeySelective(comment);
+		}
+	}
+
+	@Override
+	public void praiseNumber(CommentDto dto) {
+		Comment comment = mapper.selectByPrimaryKey(dto.getPo().getId());
+		comment.setCommentPraiseNumber(comment.getCommentPraiseNumber().intValue()+1);
+		mapper.updateByPrimaryKeySelective(comment);
+		dto.setPo(comment);
+	}
+
+}

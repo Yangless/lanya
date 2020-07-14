@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<base href="../"/>
+		<meta charset="utf-8" />
+		<title>蓝芽-帮助您职业技能成长</title>
+		<!-- start: Favicon -->
+		<link rel="shortcut icon" href="img/logo.jpg">
+		<!-- end: Favicon -->
+		<!--bootstrap-3.3.7-dist start-->
+		<link href="js/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+		<script src="js/jquery-3.3.1.min.js"></script>
+	    <script src="js/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+		<!--bootstrap-3.3.7-dist end-->
+		<link rel="stylesheet" href="css/courseList.css" />
+		<script type="text/javascript" src="js/jquery-3.3.1.min.js" ></script>
+		<script type="text/javascript" src="js/courseList.js" ></script>
+	</head>
+	<body>
+		
+		<ul id="menuUl" class="nav nav-tabs">
+		  <li class="active"><a>综合排序&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-resize-vertical"></span></a></li>
+		  <li><a>好评率&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-resize-vertical"></span></a></li>
+		  <li><a>人气&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-resize-vertical"></span></a></li>
+		  <li><a>价格&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-resize-vertical"></span></a></li>
+		  <li style="display: none;" id="AILi"><a>小蓝人工智能语言助手</a></li>
+		</ul>
+		<div  id="courseList">
+		<div class="container-fluid">
+			<div class="row">
+	            <div style="margin-bottom: 20px;" class="col-md-3 col-sm-3">
+	                <div class="latest-post waves-effect">
+	                    <img src="img/courseList.jpg" class="img-responsive" alt="">
+	                    <h4><a target="_blank" href="html/courseInfo.html">Java基础入门阶段（javase教程，零基础java入门教程）</a></h4>
+	                    <table class="tableInfo">
+	                    	<tr>
+	                    		<td>
+	                    			5803人学过
+	                    		</td>
+	                    		<td>
+	                    			<a href="html/schoolInfo.html">启航教育</a>-<a href="html/teacherInfo.html">聂文来</a>(名师认证)
+	                    		</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td class="nomoneyClass">
+	                    			免费
+	                    		</td>
+	                    		<td>
+	                    			
+	                    		</td>
+	                    	</tr>
+	                    </table>
+	                </div>
+	            </div>
+	            <div style="margin-bottom: 20px;" class="col-md-3 col-sm-3">
+	                <div class="latest-post waves-effect">
+	                    <img src="img/courseList.jpg" class="img-responsive" alt="">
+	                    <h4><a target="_blank" href="html/courseInfo.html">Java基础入门阶段（javase教程，零基础java入门教程）</a></h4>
+	                    <table class="tableInfo">
+	                    	<tr>
+	                    		<td>
+	                    			5803人学过
+	                    		</td>
+	                    		<td>
+	                    			<a href="html/schoolInfo.html">启航教育</a>-<a href="html/teacherInfo.html">聂文来</a>(名师认证)
+	                    		</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td class="nomoneyClass">
+	                    			免费
+	                    		</td>
+	                    		<td>
+	                    			
+	                    		</td>
+	                    	</tr>
+	                    </table>
+	                </div>
+	            </div>
+	            <div style="margin-bottom: 20px;" class="col-md-3 col-sm-3">
+	                <div class="latest-post waves-effect">
+	                    <img src="img/courseList.jpg" class="img-responsive" alt="">
+	                    <h4><a target="_blank" href="html/courseInfo.html">Java基础入门阶段（javase教程，零基础java入门教程）</a></h4>
+				        <table class="tableInfo">
+	                    	<tr>
+	                    		<td>
+	                    			5803人学过
+	                    		</td>
+	                    		<td>
+	                    			<a href="html/schoolInfo.html">启航教育</a>-<a href="html/teacherInfo.html">聂文来</a>(名师认证)
+	                    		</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td class="moneyClass">
+	                    			￥19.9
+	                    		</td>
+	                    		<td>
+	                    			
+	                    		</td>
+	                    	</tr>
+	                    </table>
+	                </div>
+	            </div>
+	            <div style="margin-bottom: 20px;" class="col-md-3 col-sm-3">
+	                <div class="latest-post waves-effect">
+	                    <img src="img/courseList.jpg" class="img-responsive" alt="">
+	                    <h4><a target="_blank" href="html/courseInfo.html">Java基础入门阶段（javase教程，零基础java入门教程）</a></h4>
+				        <table class="tableInfo">
+	                    	<tr>
+	                    		<td>
+	                    			5803人学过
+	                    		</td>
+	                    		<td>
+	                    			<a href="html/schoolInfo.html">启航教育</a>-<a href="html/teacherInfo.html">聂文来</a>(名师认证)
+	                    		</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td class="moneyClass">
+	                    			￥59.9
+	                    		</td>
+	                    		<td>
+	                    			
+	                    		</td>
+	                    	</tr>
+	                    </table>
+	                </div>
+	            </div>
+	            <div style="margin-bottom: 20px;" class="col-md-3 col-sm-3">
+	                <div class="latest-post waves-effect">
+	                    <img src="img/courseList.jpg" class="img-responsive" alt="">
+	                    <h4><a target="_blank" href="html/courseInfo.html">Java基础入门阶段（javase教程，零基础java入门教程）</a></h4>
+	                    <table class="tableInfo">
+	                    	<tr>
+	                    		<td>
+	                    			5803人学过
+	                    		</td>
+	                    		<td>
+	                    			<a href="html/schoolInfo.html">启航教育</a>-<a href="html/teacherInfo.html">聂文来</a>(名师认证)
+	                    		</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td class="nomoneyClass">
+	                    			免费
+	                    		</td>
+	                    		<td>
+	                    			
+	                    		</td>
+	                    	</tr>
+	                    </table>
+	                </div>
+	            </div>
+	            <div style="margin-bottom: 20px;" class="col-md-3 col-sm-3">
+	                <div class="latest-post waves-effect">
+	                    <img src="img/courseList.jpg" class="img-responsive" alt="">
+	                    <h4><a target="_blank" href="html/courseInfo.html">Java基础入门阶段（javase教程，零基础java入门教程）</a></h4>
+	                    <table class="tableInfo">
+	                    	<tr>
+	                    		<td>
+	                    			5803人学过
+	                    		</td>
+	                    		<td>
+	                    			<a href="html/schoolInfo.html">启航教育</a>-<a href="html/teacherInfo.html">聂文来</a>(名师认证)
+	                    		</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td class="nomoneyClass">
+	                    			免费
+	                    		</td>
+	                    		<td>
+	                    			
+	                    		</td>
+	                    	</tr>
+	                    </table>
+	                </div>
+	            </div>
+	            <div style="margin-bottom: 20px;" class="col-md-3 col-sm-3">
+	                <div class="latest-post waves-effect">
+	                    <img src="img/courseList.jpg" class="img-responsive" alt="">
+	                    <h4><a target="_blank" href="html/courseInfo.html">Java基础入门阶段（javase教程，零基础java入门教程）</a></h4>
+				        <table class="tableInfo">
+	                    	<tr>
+	                    		<td>
+	                    			5803人学过
+	                    		</td>
+	                    		<td>
+	                    			<a href="html/schoolInfo.html">启航教育</a>-<a href="html/teacherInfo.html">聂文来</a>(名师认证)
+	                    		</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td class="moneyClass">
+	                    			￥19.9
+	                    		</td>
+	                    		<td>
+	                    			
+	                    		</td>
+	                    	</tr>
+	                    </table>
+	                </div>
+	            </div>
+	            <div style="margin-bottom: 20px;" class="col-md-3 col-sm-3">
+	                <div class="latest-post waves-effect">
+	                    <img src="img/courseList.jpg" class="img-responsive" alt="">
+	                    <h4><a target="_blank" href="html/courseInfo.html">Java基础入门阶段（javase教程，零基础java入门教程）</a></h4>
+				        <table class="tableInfo">
+	                    	<tr>
+	                    		<td>
+	                    			5803人学过
+	                    		</td>
+	                    		<td>
+	                    			<a href="html/schoolInfo.html">启航教育</a>-<a href="html/teacherInfo.html">聂文来</a>(名师认证)
+	                    		</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td class="moneyClass">
+	                    			￥59.9
+	                    		</td>
+	                    		<td>
+	                    			
+	                    		</td>
+	                    	</tr>
+	                    </table>
+	                </div>
+	            </div>
+	            <div style="margin-bottom: 20px;" class="col-md-3 col-sm-3">
+	                <div class="latest-post waves-effect">
+	                    <img src="img/courseList.jpg" class="img-responsive" alt="">
+	                    <h4><a target="_blank" href="html/courseInfo.html">Java基础入门阶段（javase教程，零基础java入门教程）</a></h4>
+	                    <table class="tableInfo">
+	                    	<tr>
+	                    		<td>
+	                    			5803人学过
+	                    		</td>
+	                    		<td>
+	                    			<a href="html/schoolInfo.html">启航教育</a>-<a href="html/teacherInfo.html">聂文来</a>(名师认证)
+	                    		</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td class="nomoneyClass">
+	                    			免费
+	                    		</td>
+	                    		<td>
+	                    			
+	                    		</td>
+	                    	</tr>
+	                    </table>
+	                </div>
+	            </div>
+	            <div style="margin-bottom: 20px;" class="col-md-3 col-sm-3">
+	                <div class="latest-post waves-effect">
+	                    <img src="img/courseList.jpg" class="img-responsive" alt="">
+	                    <h4><a target="_blank" href="html/courseInfo.html">Java基础入门阶段（javase教程，零基础java入门教程）</a></h4>
+	                    <table class="tableInfo">
+	                    	<tr>
+	                    		<td>
+	                    			5803人学过
+	                    		</td>
+	                    		<td>
+	                    			<a href="html/schoolInfo.html">启航教育</a>-<a href="html/teacherInfo.html">聂文来</a>(名师认证)
+	                    		</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td class="nomoneyClass">
+	                    			免费
+	                    		</td>
+	                    		<td>
+	                    			
+	                    		</td>
+	                    	</tr>
+	                    </table>
+	                </div>
+	            </div>
+	            <div style="margin-bottom: 20px;" class="col-md-3 col-sm-3">
+	                <div class="latest-post waves-effect">
+	                    <img src="img/courseList.jpg" class="img-responsive" alt="">
+	                    <h4><a target="_blank" href="html/courseInfo.html">Java基础入门阶段（javase教程，零基础java入门教程）</a></h4>
+				        <table class="tableInfo">
+	                    	<tr>
+	                    		<td>
+	                    			5803人学过
+	                    		</td>
+	                    		<td>
+	                    			<a href="html/schoolInfo.html">启航教育</a>-<a href="html/teacherInfo.html">聂文来</a>(名师认证)
+	                    		</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td class="moneyClass">
+	                    			￥19.9
+	                    		</td>
+	                    		<td>
+	                    			
+	                    		</td>
+	                    	</tr>
+	                    </table>
+	                </div>
+	            </div>
+	            <div style="margin-bottom: 20px;" class="col-md-3 col-sm-3">
+	                <div class="latest-post waves-effect">
+	                    <img src="img/courseList.jpg" class="img-responsive" alt="">
+	                    <h4><a target="_blank" href="html/courseInfo.html">Java基础入门阶段（javase教程，零基础java入门教程）</a></h4>
+				        <table class="tableInfo">
+	                    	<tr>
+	                    		<td>
+	                    			5803人学过
+	                    		</td>
+	                    		<td>
+	                    			<a href="html/schoolInfo.html">启航教育</a>-<a href="html/teacherInfo.html">聂文来</a>(名师认证)
+	                    		</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td class="moneyClass">
+	                    			￥59.9
+	                    		</td>
+	                    		<td>
+	                    			
+	                    		</td>
+	                    	</tr>
+	                    </table>
+	                </div>
+	            </div>
+	            <div style="margin-bottom: 20px;" class="col-md-3 col-sm-3">
+	                <div class="latest-post waves-effect">
+	                    <img src="img/courseList.jpg" class="img-responsive" alt="">
+	                    <h4><a target="_blank" href="html/courseInfo.html">Java基础入门阶段（javase教程，零基础java入门教程）</a></h4>
+	                    <table class="tableInfo">
+	                    	<tr>
+	                    		<td>
+	                    			5803人学过
+	                    		</td>
+	                    		<td>
+	                    			<a href="html/schoolInfo.html">启航教育</a>-<a href="html/teacherInfo.html">聂文来</a>(名师认证)
+	                    		</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td class="nomoneyClass">
+	                    			免费
+	                    		</td>
+	                    		<td>
+	                    			
+	                    		</td>
+	                    	</tr>
+	                    </table>
+	                </div>
+	            </div>
+	            <div style="margin-bottom: 20px;" class="col-md-3 col-sm-3">
+	                <div class="latest-post waves-effect">
+	                    <img src="img/courseList.jpg" class="img-responsive" alt="">
+	                    <h4><a target="_blank" href="html/courseInfo.html">Java基础入门阶段（javase教程，零基础java入门教程）</a></h4>
+	                    <table class="tableInfo">
+	                    	<tr>
+	                    		<td>
+	                    			5803人学过
+	                    		</td>
+	                    		<td>
+	                    			<a href="html/schoolInfo.html">启航教育</a>-<a href="html/teacherInfo.html">聂文来</a>(名师认证)
+	                    		</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td class="nomoneyClass">
+	                    			免费
+	                    		</td>
+	                    		<td>
+	                    			
+	                    		</td>
+	                    	</tr>
+	                    </table>
+	                </div>
+	            </div>
+	            <div style="margin-bottom: 20px;" class="col-md-3 col-sm-3">
+	                <div class="latest-post waves-effect">
+	                    <img src="img/courseList.jpg" class="img-responsive" alt="">
+	                    <h4><a target="_blank" href="html/courseInfo.html">Java基础入门阶段（javase教程，零基础java入门教程）</a></h4>
+				        <table class="tableInfo">
+	                    	<tr>
+	                    		<td>
+	                    			5803人学过
+	                    		</td>
+	                    		<td>
+	                    			<a href="html/schoolInfo.html">启航教育</a>-<a href="html/teacherInfo.html">聂文来</a>(名师认证)
+	                    		</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td class="moneyClass">
+	                    			￥19.9
+	                    		</td>
+	                    		<td>
+	                    			
+	                    		</td>
+	                    	</tr>
+	                    </table>
+	                </div>
+	            </div>
+	            <div style="margin-bottom: 20px;" class="col-md-3 col-sm-3">
+	                <div class="latest-post waves-effect">
+	                    <img src="img/courseList.jpg" class="img-responsive" alt="">
+	                    <h4><a target="_blank" href="html/courseInfo.html">Java基础入门阶段（javase教程，零基础java入门教程）</a></h4>
+				        <table class="tableInfo">
+	                    	<tr>
+	                    		<td>
+	                    			5803人学过
+	                    		</td>
+	                    		<td>
+	                    			<a href="html/schoolInfo.html">启航教育</a>-<a href="html/teacherInfo.html">聂文来</a>(名师认证)
+	                    		</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td class="moneyClass">
+	                    			￥59.9
+	                    		</td>
+	                    		<td>
+	                    			
+	                    		</td>
+	                    	</tr>
+	                    </table>
+	                </div>
+	            </div>
+	            <div style="margin-bottom: 20px;" class="col-md-3 col-sm-3">
+	                <div class="latest-post waves-effect">
+	                    <img src="img/courseList.jpg" class="img-responsive" alt="">
+	                    <h4><a target="_blank" href="html/courseInfo.html">Java基础入门阶段（javase教程，零基础java入门教程）</a></h4>
+	                    <table class="tableInfo">
+	                    	<tr>
+	                    		<td>
+	                    			5803人学过
+	                    		</td>
+	                    		<td>
+	                    			<a href="html/schoolInfo.html">启航教育</a>-<a href="html/teacherInfo.html">聂文来</a>(名师认证)
+	                    		</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td class="nomoneyClass">
+	                    			免费
+	                    		</td>
+	                    		<td>
+	                    			
+	                    		</td>
+	                    	</tr>
+	                    </table>
+	                </div>
+	            </div>
+	            <div style="margin-bottom: 20px;" class="col-md-3 col-sm-3">
+	                <div class="latest-post waves-effect">
+	                    <img src="img/courseList.jpg" class="img-responsive" alt="">
+	                    <h4><a target="_blank" href="html/courseInfo.html">Java基础入门阶段（javase教程，零基础java入门教程）</a></h4>
+	                    <table class="tableInfo">
+	                    	<tr>
+	                    		<td>
+	                    			5803人学过
+	                    		</td>
+	                    		<td>
+	                    			<a href="html/schoolInfo.html">启航教育</a>-<a href="html/teacherInfo.html">聂文来</a>(名师认证)
+	                    		</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td class="nomoneyClass">
+	                    			免费
+	                    		</td>
+	                    		<td>
+	                    			
+	                    		</td>
+	                    	</tr>
+	                    </table>
+	                </div>
+	            </div>
+	            <div style="margin-bottom: 20px;" class="col-md-3 col-sm-3">
+	                <div class="latest-post waves-effect">
+	                    <img src="img/courseList.jpg" class="img-responsive" alt="">
+	                    <h4><a target="_blank" href="html/courseInfo.html">Java基础入门阶段（javase教程，零基础java入门教程）</a></h4>
+				        <table class="tableInfo">
+	                    	<tr>
+	                    		<td>
+	                    			5803人学过
+	                    		</td>
+	                    		<td>
+	                    			<a href="html/schoolInfo.html">启航教育</a>-<a href="html/teacherInfo.html">聂文来</a>(名师认证)
+	                    		</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td class="moneyClass">
+	                    			￥19.9
+	                    		</td>
+	                    		<td>
+	                    			
+	                    		</td>
+	                    	</tr>
+	                    </table>
+	                </div>
+	            </div>
+	            <div style="margin-bottom: 20px;" class="col-md-3 col-sm-3">
+	                <div class="latest-post waves-effect">
+	                    <img src="img/courseList.jpg" class="img-responsive" alt="">
+	                    <h4><a target="_blank" href="html/courseInfo.html">Java基础入门阶段（javase教程，零基础java入门教程）</a></h4>
+				        <table class="tableInfo">
+	                    	<tr>
+	                    		<td>
+	                    			5803人学过
+	                    		</td>
+	                    		<td>
+	                    			<a href="html/schoolInfo.html">启航教育</a>-<a href="html/teacherInfo.html">聂文来</a>(名师认证)
+	                    		</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td class="moneyClass">
+	                    			￥59.9
+	                    		</td>
+	                    		<td>
+	                    			
+	                    		</td>
+	                    	</tr>
+	                    </table>
+	                </div>
+	            </div>
+	            <div style="margin-bottom: 20px;" class="col-md-3 col-sm-3">
+	                <div class="latest-post waves-effect">
+	                    <img src="img/courseList.jpg" class="img-responsive" alt="">
+	                    <h4><a target="_blank" href="html/courseInfo.html">Java基础入门阶段（javase教程，零基础java入门教程）</a></h4>
+	                    <table class="tableInfo">
+	                    	<tr>
+	                    		<td>
+	                    			5803人学过
+	                    		</td>
+	                    		<td>
+	                    			<a href="html/schoolInfo.html">启航教育</a>-<a href="html/teacherInfo.html">聂文来</a>(名师认证)
+	                    		</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td class="nomoneyClass">
+	                    			免费
+	                    		</td>
+	                    		<td>
+	                    			
+	                    		</td>
+	                    	</tr>
+	                    </table>
+	                </div>
+	            </div>
+	            <div style="margin-bottom: 20px;" class="col-md-3 col-sm-3">
+	                <div class="latest-post waves-effect">
+	                    <img src="img/courseList.jpg" class="img-responsive" alt="">
+	                    <h4><a target="_blank" href="html/courseInfo.html">Java基础入门阶段（javase教程，零基础java入门教程）</a></h4>
+	                    <table class="tableInfo">
+	                    	<tr>
+	                    		<td>
+	                    			5803人学过
+	                    		</td>
+	                    		<td>
+	                    			<a href="html/schoolInfo.html">启航教育</a>-<a href="html/teacherInfo.html">聂文来</a>(名师认证)
+	                    		</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td class="nomoneyClass">
+	                    			免费
+	                    		</td>
+	                    		<td>
+	                    			
+	                    		</td>
+	                    	</tr>
+	                    </table>
+	                </div>
+	            </div>
+	            <div style="margin-bottom: 20px;" class="col-md-3 col-sm-3">
+	                <div class="latest-post waves-effect">
+	                    <img src="img/courseList.jpg" class="img-responsive" alt="">
+	                    <h4><a target="_blank" href="html/courseInfo.html">Java基础入门阶段（javase教程，零基础java入门教程）</a></h4>
+				        <table class="tableInfo">
+	                    	<tr>
+	                    		<td>
+	                    			5803人学过
+	                    		</td>
+	                    		<td>
+	                    			<a href="html/schoolInfo.html">启航教育</a>-<a href="html/teacherInfo.html">聂文来</a>(名师认证)
+	                    		</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td class="moneyClass">
+	                    			￥19.9
+	                    		</td>
+	                    		<td>
+	                    			
+	                    		</td>
+	                    	</tr>
+	                    </table>
+	                </div>
+	            </div>
+	            <div style="margin-bottom: 20px;" class="col-md-3 col-sm-3">
+	                <div class="latest-post waves-effect">
+	                    <img src="img/courseList.jpg" class="img-responsive" alt="">
+	                    <h4><a target="_blank" href="html/courseInfo.html">Java基础入门阶段（javase教程，零基础java入门教程）</a></h4>
+				        <table class="tableInfo">
+	                    	<tr>
+	                    		<td>
+	                    			5803人学过
+	                    		</td>
+	                    		<td>
+	                    			<a href="html/schoolInfo.html">启航教育</a>-<a href="html/teacherInfo.html">聂文来</a>(名师认证)
+	                    		</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td class="moneyClass">
+	                    			￥59.9
+	                    		</td>
+	                    		<td>
+	                    			
+	                    		</td>
+	                    	</tr>
+	                    </table>
+	                </div>
+	            </div>
+	            <div style="margin-bottom: 20px;" class="col-md-3 col-sm-3">
+	                <div class="latest-post waves-effect">
+	                    <img src="img/courseList.jpg" class="img-responsive" alt="">
+	                    <h4><a target="_blank" href="html/courseInfo.html">Java基础入门阶段（javase教程，零基础java入门教程）</a></h4>
+	                    <table class="tableInfo">
+	                    	<tr>
+	                    		<td>
+	                    			5803人学过
+	                    		</td>
+	                    		<td>
+	                    			<a href="html/schoolInfo.html">启航教育</a>-<a href="html/teacherInfo.html">聂文来</a>(名师认证)
+	                    		</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td class="nomoneyClass">
+	                    			免费
+	                    		</td>
+	                    		<td>
+	                    			
+	                    		</td>
+	                    	</tr>
+	                    </table>
+	                </div>
+	            </div>
+	            <div style="margin-bottom: 20px;" class="col-md-3 col-sm-3">
+	                <div class="latest-post waves-effect">
+	                    <img src="img/courseList.jpg" class="img-responsive" alt="">
+	                    <h4><a target="_blank" href="html/courseInfo.html">Java基础入门阶段（javase教程，零基础java入门教程）</a></h4>
+	                    <table class="tableInfo">
+	                    	<tr>
+	                    		<td>
+	                    			5803人学过
+	                    		</td>
+	                    		<td>
+	                    			<a href="html/schoolInfo.html">启航教育</a>-<a href="html/teacherInfo.html">聂文来</a>(名师认证)
+	                    		</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td class="nomoneyClass">
+	                    			免费
+	                    		</td>
+	                    		<td>
+	                    			
+	                    		</td>
+	                    	</tr>
+	                    </table>
+	                </div>
+	            </div>
+	            <div style="margin-bottom: 20px;" class="col-md-3 col-sm-3">
+	                <div class="latest-post waves-effect">
+	                    <img src="img/courseList.jpg" class="img-responsive" alt="">
+	                    <h4><a target="_blank" href="html/courseInfo.html">Java基础入门阶段（javase教程，零基础java入门教程）</a></h4>
+				        <table class="tableInfo">
+	                    	<tr>
+	                    		<td>
+	                    			5803人学过
+	                    		</td>
+	                    		<td>
+	                    			<a href="html/schoolInfo.html">启航教育</a>-<a href="html/teacherInfo.html">聂文来</a>(名师认证)
+	                    		</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td class="moneyClass">
+	                    			￥19.9
+	                    		</td>
+	                    		<td>
+	                    			
+	                    		</td>
+	                    	</tr>
+	                    </table>
+	                </div>
+	            </div>
+	            <div style="margin-bottom: 20px;" class="col-md-3 col-sm-3">
+	                <div class="latest-post waves-effect">
+	                    <img src="img/courseList.jpg" class="img-responsive" alt="">
+	                    <h4><a target="_blank" href="html/courseInfo.html">Java基础入门阶段（javase教程，零基础java入门教程）</a></h4>
+				        <table class="tableInfo">
+	                    	<tr>
+	                    		<td>
+	                    			5803人学过
+	                    		</td>
+	                    		<td>
+	                    			<a href="html/schoolInfo.html">启航教育</a>-<a href="html/teacherInfo.html">聂文来</a>(名师认证)
+	                    		</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td class="moneyClass">
+	                    			￥59.9
+	                    		</td>
+	                    		<td>
+	                    			
+	                    		</td>
+	                    	</tr>
+	                    </table>
+	                </div>
+	            </div>
+	        </div>
+        </div>
+        </div>
+		
+		<div id="AIDiv">
+			<img src="img/AI.png"/>
+			<div id="courseDetailList">
+				<div class="courseListClass">
+					<h3><span>01</span>Rabbitmq介绍</h3>
+					<div>
+						<span class="glyphicon glyphicon-facetime-video"></span>
+					    <span class="courseName">Rabbitmq介绍<span>（4分钟）</sapn></span>
+					</div>
+					<div>
+						<span class="glyphicon glyphicon-facetime-video"></span>
+					    <span class="courseName">Rabbitmq介绍<span>（4分钟）</sapn></span>
+					</div>
+				</div>
+				<div class="courseListClass">
+					<h3><span>02</span>Rabbitmq安装</h3>
+					<div>
+						<span class="glyphicon glyphicon-facetime-video"></span>
+					    <span class="courseName">Rabbitmq介绍<span>（4分钟）</sapn></span>
+					</div>
+					<div>
+						<span class="glyphicon glyphicon-facetime-video"></span>
+					    <span class="courseName">Rabbitmq介绍<span>（4分钟）</sapn></span>
+					</div>
+					<div>
+						<span class="glyphicon glyphicon-facetime-video"></span>
+					    <span class="courseName">Rabbitmq介绍<span>（4分钟）</sapn></span>
+					</div>
+					<div>
+						<span class="glyphicon glyphicon-facetime-video"></span>
+					    <span class="courseName">Rabbitmq介绍<span>（4分钟）</sapn></span>
+					</div>
+					<div>
+						<span class="glyphicon glyphicon-facetime-video"></span>
+					    <span class="courseName">Rabbitmq介绍<span>（4分钟）</sapn></span>
+					</div>
+				</div>
+				<div class="courseListClass">
+					<h3><span>03</span>Rabbitmq介绍</h3>
+					<div>
+						<span class="glyphicon glyphicon-facetime-video"></span>
+					    <span class="courseName">Rabbitmq介绍<span>（4分钟）</sapn></span>
+					</div>
+					<div>
+						<span class="glyphicon glyphicon-facetime-video"></span>
+					    <span class="courseName">Rabbitmq介绍<span>（4分钟）</sapn></span>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+</html>

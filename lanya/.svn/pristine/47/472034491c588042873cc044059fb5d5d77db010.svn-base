@@ -1,0 +1,38 @@
+package com.nwl.lanya.dto;
+
+import java.util.List;
+
+import com.nwl.lanya.po.Role;
+
+public class RoleDto extends AbstractBaseDto<Role>{
+
+	/** 
+	* @Fields serialVersionUID : TODO(用一句话描述这个变量表示什么) 
+	*/ 
+	private static final long serialVersionUID = -4525242509741611487L;
+	
+	//保存角色权限
+	private Integer[] roleIds;
+	private Integer[] rightIds;
+	private List<Role> roles;
+	
+	public List<Role> getRoles() {
+		return roles;
+	}
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
+	}
+	public Integer[] getRoleIds() {
+		return roleIds;
+	}
+	public void setRoleIds(Integer[] roleIds) {
+		this.roleIds = roleIds;
+	}
+	public Integer[] getRightIds() {
+		return rightIds;
+	}
+	public void setRightIds(Integer[] rightIds) {
+		this.rightIds = rightIds;
+	}
+
+}

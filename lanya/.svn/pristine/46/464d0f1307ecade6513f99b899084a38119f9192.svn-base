@@ -1,0 +1,290 @@
+$(function(){
+	$('#datagrid').datagrid({
+	    url:'accountRest/list',
+	    method:'post',
+	    fit:true,
+	    fitColumns:true,
+	    rownumbers:true,
+	    singleSelect:false,
+	    pagination:true,
+	    pageSize:30,
+	    view:detailview,
+	    columns:[[
+	    	{field:'ck',checkbox:true},
+	    	{field:'id',title:'id',hidden:true},
+	        {field:'accountCode',title:'账号',width:80},
+	        {field:'nickName',title:'昵称',width:80},
+	        {field:'sex',title:'性别',width:50},
+	        {field:'birthday',title:'生日',width:80},
+	        {field:'phone',title:'手机',width:80},
+	        {field:'roleName',title:'拥有角色',width:80}
+	    ]],
+	    detailFormatter: function(rowIndex, rowData){
+			return 	'<table class="detailTable">'+
+			             '<tr>'+
+			                 '<td>账号:</td><td>'+ rowData.accountCode +'</td>'+
+			             '</tr>'+
+			             '<tr>'+
+			                 '<td>昵称:</td><td>'+ rowData.nickName +'</td>'+
+			             '</tr>'+
+			             '<tr>'+
+			                 '<td>手机:</td><td>'+ rowData.phone +'</td>'+
+			             '</tr>'+
+			             '<tr>'+
+			                 '<td>姓名:</td><td>'+ rowData.realName +'</td>'+
+			             '</tr>'+
+			             '<tr>'+
+			                 '<td>身份证号:</td><td>'+ rowData.idcard +'</td>'+
+			             '</tr>'+
+			             '<tr>'+
+			                 '<td>性别:</td><td>'+ rowData.sex +'</td>'+
+			             '</tr>'+
+			             '<tr>'+
+			                 '<td>生日:</td><td>'+ rowData.birthday +'</td>'+
+			             '</tr>'+
+			             '<tr>'+
+			                 '<td>年龄:</td><td>'+ rowData.age +'</td>'+
+			             '</tr>'+
+			              '<tr>'+
+			                 '<td>微信号:</td><td>'+ rowData.weixin +'</td>'+
+			             '</tr>'+
+			             '<tr>'+
+			                 '<td>qq:</td><td>'+ rowData.qq +'</td>'+
+			             '</tr>'+
+			             '<tr>'+
+			                 '<td>邮箱:</td><td>'+ rowData.email +'</td>'+
+			             '</tr>'+
+			             '<tr>'+
+			                 '<td>头像:</td><td><img style="width:30px;height:30px;border-radius:100%;" src="'+rowData.photoUrl+'"/></td>'+
+			             '</tr>'+
+			         '</table>';
+		},
+	    rowStyler:function(index,row){
+			if (row.useAble==0){
+				return 'background-color:pink;color:black;';
+			}
+		},
+	    toolbar: [{
+			iconCls: 'icon-search',
+			text:"查询",
+			handler: function(){
+				$('#searchDialog').dialog('open');
+			}
+		},{
+			iconCls: 'icon-add',
+			text:"添加",
+			handler: function(){
+				$('#addDialog').dialog('open');
+			}
+		},{
+			iconCls: 'icon-ok',
+			text:"启用",
+			handler: function(){
+				updateData(1);
+			}
+		},{
+			iconCls: 'icon-cancel',
+			text:"禁用",
+			handler: function(){
+				updateData(0);
+			}
+		},{
+			iconCls: 'icon-add',
+			text:"角色分配",
+			handler: function(){
+				var rows = $('#datagrid').datagrid("getSelections");
+				if(rows!=null&&rows.length>0){
+					$('#roleDialog').dialog("open");
+				}else{
+					$.messager.alert('提示',"请先选择一条数据");
+				}
+			}
+		}]
+	});
+	
+	//更新数据
+	function updateData(useAble){
+		var rows = $('#datagrid').datagrid("getSelections");
+		if(rows!=null&&rows.length>0){
+			$.messager.confirm({
+				title: '提示',
+				msg: '是否确定执行',
+				fn: function(flag){
+					if(flag){
+						var ids = [];
+						//循环放入选中行的id
+						for(var i=0;i<rows.length;i++){
+							var row = rows[i];
+							ids.push(row.id);
+						}
+						
+						$.ajax({
+				    		url:"accountRest/updateUseAble",
+				    		type:"post",
+				    		data:{
+				    			"ids":ids.join(),
+				    			"po.useAble":useAble
+				    		},
+				    		async:true,
+				    		dataType:"json",
+				    		success:function(dto){
+				    			$.messager.alert('提示',dto.msg);
+				    			$("#datagrid").datagrid("reload");
+				    		}
+				    	});
+					}
+				}
+			});
+		}else{
+			$.messager.alert('提示',"至少选择一条");
+		}
+    } 
+});
+
+$(function(){
+	$('#searchDialog').dialog({
+	    title: '条件查询',
+	    width: 1000,
+	    height: 400,
+	    closed: true,
+	    modal: true,
+	    buttons:[{
+			text:'提交',
+			handler:function(){
+				$('#datagrid').datagrid('load',$("#searchDialog form").serializeJson());
+				$('#searchDialog form').form('reset');
+				$('#searchDialog').dialog('close');
+			}
+		},{
+			text:'重置',
+			handler:function(){
+				$('#searchDialog form').form('reset');
+			}
+		}]
+	});
+});
+
+//添加信息
+$(function(){
+	$('#addDialog').dialog({
+	    title: '添加',
+	    width: 1000,
+	    height: 400,
+	    closed: true,
+	    modal: true,
+	    buttons:[{
+			text:'提交',
+			handler:function(){
+				if(validate("addDialog form")){
+					$.ajax({
+						url:"accountRest/saveOrUpdate",
+						type:"post",
+						data:$("#addDialog form").serialize(),
+						async:true,
+						dataType:"json",
+						success:function(dto){
+							$.messager.alert('提示',dto.msg);
+							$('#addDialog').dialog("close");
+							$('#addDialog form').form('reset');
+							$("#datagrid").datagrid("reload");
+						}
+					});
+				}
+			}
+		},{
+			text:'重置',
+			handler:function(){
+				$('#addDialog form').form('reset');
+			}
+		}]
+	});
+	
+	//图片上传
+	$('#uploadImg').dialog({
+	    title: '上传图片',
+	    width: 300,
+	    height: 150,
+	    closed: true,
+	    cache: false,
+	    modal: true,
+	    buttons:[{
+			text:'上传',
+			iconCls:'icon-ok',
+			handler:function(){
+				uploadFile();
+			}
+		}]
+	});
+});
+
+//在账户列表里面显示角色
+$(function(){
+	$('#roleDg').datagrid({
+	    url:'roleRest/getAll',
+	    method:'get',
+	    fit:true,
+	    fitColumns:true,
+	    rownumbers:true,
+	    singleSelect:false,
+	    columns:[[
+	    	{field:'ck',checkbox:true},
+	    	{field:'id',title:'id',hidden:true},
+	    	{field:'roleName',title:'角色名称',width:100}
+	    ]]
+	});	
+	
+	$('#roleDialog').dialog({
+	    title: '角色列表',
+	    width: 1000,
+	    height: 400,
+	    closed: true,
+	    modal: true,
+	    buttons:[{
+			text:'提交',
+			handler:function(){
+				var accountRows = $('#datagrid').datagrid("getSelections");
+				var roleRows = $('#roleDg').datagrid("getSelections");
+				
+				var accountIds = [];
+				var roleIds = [];
+				var roleNames = [];
+				//循环放入选中行的id
+				for(var i=0;i<accountRows.length;i++){
+					var row = accountRows[i];
+					accountIds.push(row.id);
+				}
+				for(var i=0;i<roleRows.length;i++){
+					var row = roleRows[i];
+					roleIds.push(row.id);
+					roleNames.push(row.roleName);
+				}
+				$.ajax({
+		    		url:"accountRest/saveAccountRole",
+		    		type:"post",
+		    		data:{
+		    			"accountIds":accountIds.join(),
+		    			"roleIds":roleIds.join(),
+		    			"roleNames":roleNames.join()
+		    		},
+		    		async:true,
+		    		dataType:"json",
+		    		success:function(dto){
+		    			$.messager.alert('提示',dto.msg);
+		    			$('#roleDg').datagrid('clearChecked');
+		    			$('#roleDialog').dialog("close");
+		    			$("#datagrid").datagrid("reload");
+		    		}
+		    	});
+			}
+		},{
+			text:'重置',
+			handler:function(){
+				$('#roleDg').datagrid('clearChecked');
+			}
+		}]
+	});
+});
+
+
+
+

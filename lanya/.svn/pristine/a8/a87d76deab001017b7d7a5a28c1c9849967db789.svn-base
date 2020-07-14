@@ -1,0 +1,53 @@
+package com.nwl.lanya.po;
+
+public class Wallet {
+    private Integer id;
+
+    private Integer accountId;
+
+    private Double totalMoney;
+
+    private Double freeMoney;
+
+    private Double lockMoney;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(Integer accountId) {
+        this.accountId = accountId;
+    }
+
+    public Double getTotalMoney() {
+        return totalMoney;
+    }
+
+    public void setTotalMoney(Double totalMoney) {
+        this.totalMoney = totalMoney;
+    }
+
+    public Double getFreeMoney() {
+        return freeMoney;
+    }
+
+    public void setFreeMoney(Double freeMoney) {
+        this.freeMoney = freeMoney;
+    }
+
+    public Double getLockMoney() {
+        return lockMoney;
+    }
+
+    public void setLockMoney(Double lockMoney) {
+        this.lockMoney = lockMoney;
+    }
+}

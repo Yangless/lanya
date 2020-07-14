@@ -1,0 +1,36 @@
+package com.nwl.lanya.dao;
+
+import com.nwl.lanya.po.MyTribeTalk;
+import com.nwl.lanya.po.MyTribeTalkExample;
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
+
+public interface MyTribeTalkMapper {
+    long countByExample(MyTribeTalkExample example);
+
+    int deleteByExample(MyTribeTalkExample example);
+
+    int deleteByPrimaryKey(Integer id);
+
+    int insert(MyTribeTalk record);
+
+    int insertSelective(MyTribeTalk record);
+
+    List<MyTribeTalk> selectByExampleWithBLOBs(MyTribeTalkExample example);
+
+    List<MyTribeTalk> selectByExample(MyTribeTalkExample example);
+
+    MyTribeTalk selectByPrimaryKey(Integer id);
+
+    int updateByExampleSelective(@Param("record") MyTribeTalk record, @Param("example") MyTribeTalkExample example);
+
+    int updateByExampleWithBLOBs(@Param("record") MyTribeTalk record, @Param("example") MyTribeTalkExample example);
+
+    int updateByExample(@Param("record") MyTribeTalk record, @Param("example") MyTribeTalkExample example);
+
+    int updateByPrimaryKeySelective(MyTribeTalk record);
+
+    int updateByPrimaryKeyWithBLOBs(MyTribeTalk record);
+
+    int updateByPrimaryKey(MyTribeTalk record);
+}

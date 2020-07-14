@@ -1,0 +1,89 @@
+package com.nwl.lanya.rest;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.nwl.lanya.common.MsgCode;
+import com.nwl.lanya.common.PageModel;
+import com.nwl.lanya.dto.SysRightDto;
+import com.nwl.lanya.po.SysRight;
+import com.nwl.lanya.service.SysRightService;
+
+@RestController
+@RequestMapping("sysRightRest")
+public class SysRightRest extends AbstractBaseRest<SysRightDto>{
+	
+	@Autowired
+	private SysRightService service;
+	
+	/**
+	 * 
+	* @Title: getRoots 
+	* @Description: 获取并返回所有根节点 
+	* @param    
+	* @return List<SysRight>    
+	* @throws
+	 */
+	@RequestMapping("getRoots")
+	public List<SysRight> getRoots(SysRightDto dto){
+		try {
+			service.getRoots(dto);
+			
+			dto.setMsgCode(MsgCode.REQUEST_SCCESS);
+			dto.setMsg("操作成功");
+		} catch (Exception e) {
+			e.printStackTrace();
+			dto.setMsgCode(MsgCode.REQUEST_FALSE);
+			dto.setMsg("系统异常,请联系维护人员");
+		}
+		return dto.getPos();
+	}
+
+	@Override
+	public PageModel list(Integer page, Integer rows, SysRightDto dto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	@RequestMapping("deleteByIds")
+	public SysRightDto deleteByIds(SysRightDto dto) {
+		try {
+			service.deleteByIds(dto);
+			
+			dto.setMsgCode(MsgCode.REQUEST_SCCESS);
+			dto.setMsg("操作成功");
+		} catch (Exception e) {
+			e.printStackTrace();
+			dto.setMsgCode(MsgCode.REQUEST_FALSE);
+			dto.setMsg("系统异常,请联系维护人员");
+		}
+		return dto;
+	}
+
+	@Override
+	public SysRightDto findById(SysRightDto dto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	@RequestMapping("saveOrUpdate")
+	public SysRightDto saveOrUpdate(SysRightDto dto) {
+		try {
+			service.saveOrUpdate(dto);
+			
+			dto.setMsgCode(MsgCode.REQUEST_SCCESS);
+			dto.setMsg("操作成功");
+		} catch (Exception e) {
+			e.printStackTrace();
+			dto.setMsgCode(MsgCode.REQUEST_FALSE);
+			dto.setMsg("系统异常,请联系维护人员");
+		}
+		return dto;
+	}
+	
+}

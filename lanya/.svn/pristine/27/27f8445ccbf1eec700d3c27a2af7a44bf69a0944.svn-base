@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nwl.lanya.dao.StageMapper">
+  <resultMap id="BaseResultMap" type="com.nwl.lanya.po.Stage">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="course_system_id" jdbcType="VARCHAR" property="courseSystemId" />
+    <result column="stage_number" jdbcType="VARCHAR" property="stageNumber" />
+    <result column="stage_introduce" jdbcType="VARCHAR" property="stageIntroduce" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, course_system_id, stage_number, stage_introduce
+  </sql>
+  <select id="selectByExample" parameterType="com.nwl.lanya.po.StageExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from stage
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from stage
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from stage
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.nwl.lanya.po.StageExample">
+    delete from stage
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.nwl.lanya.po.Stage">
+    insert into stage (id, course_system_id, stage_number, 
+      stage_introduce)
+    values (uuid(), #{courseSystemId,jdbcType=VARCHAR}, #{stageNumber,jdbcType=VARCHAR}, 
+      #{stageIntroduce,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.nwl.lanya.po.Stage">
+    insert into stage
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="courseSystemId != null">
+        course_system_id,
+      </if>
+      <if test="stageNumber != null">
+        stage_number,
+      </if>
+      <if test="stageIntroduce != null">
+        stage_introduce,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="courseSystemId != null">
+        #{courseSystemId,jdbcType=VARCHAR},
+      </if>
+      <if test="stageNumber != null">
+        #{stageNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="stageIntroduce != null">
+        #{stageIntroduce,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.nwl.lanya.po.StageExample" resultType="java.lang.Long">
+    select count(*) from stage
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update stage
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.courseSystemId != null">
+        course_system_id = #{record.courseSystemId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stageNumber != null">
+        stage_number = #{record.stageNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stageIntroduce != null">
+        stage_introduce = #{record.stageIntroduce,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update stage
+    set id = #{record.id,jdbcType=VARCHAR},
+      course_system_id = #{record.courseSystemId,jdbcType=VARCHAR},
+      stage_number = #{record.stageNumber,jdbcType=VARCHAR},
+      stage_introduce = #{record.stageIntroduce,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.nwl.lanya.po.Stage">
+    update stage
+    <set>
+      <if test="courseSystemId != null">
+        course_system_id = #{courseSystemId,jdbcType=VARCHAR},
+      </if>
+      <if test="stageNumber != null">
+        stage_number = #{stageNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="stageIntroduce != null">
+        stage_introduce = #{stageIntroduce,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.nwl.lanya.po.Stage">
+    update stage
+    set course_system_id = #{courseSystemId,jdbcType=VARCHAR},
+      stage_number = #{stageNumber,jdbcType=VARCHAR},
+      stage_introduce = #{stageIntroduce,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,83 @@
+package com.nwl.lanya.po;
+
+public class CourseList {
+    private Integer id;
+
+    private String courseListName;
+
+    private Integer totalCount;
+
+    private Integer accountId;
+
+    private Integer companyId;
+
+    private Double price;
+
+    private Double commentPercent;
+
+    private Integer courseTypeId;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getCourseListName() {
+        return courseListName;
+    }
+
+    public void setCourseListName(String courseListName) {
+        this.courseListName = courseListName == null ? null : courseListName.trim();
+    }
+
+    public Integer getTotalCount() {
+        return totalCount;
+    }
+
+    public void setTotalCount(Integer totalCount) {
+        this.totalCount = totalCount;
+    }
+
+    public Integer getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(Integer accountId) {
+        this.accountId = accountId;
+    }
+
+    public Integer getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(Integer companyId) {
+        this.companyId = companyId;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public Double getCommentPercent() {
+        return commentPercent;
+    }
+
+    public void setCommentPercent(Double commentPercent) {
+        this.commentPercent = commentPercent;
+    }
+
+    public Integer getCourseTypeId() {
+        return courseTypeId;
+    }
+
+    public void setCourseTypeId(Integer courseTypeId) {
+        this.courseTypeId = courseTypeId;
+    }
+}

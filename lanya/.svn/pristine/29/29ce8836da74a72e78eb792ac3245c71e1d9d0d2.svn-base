@@ -1,0 +1,48 @@
+$$(function(){
+	//判断信息是否已经缓存
+	if(isEmpty(window.localStorage.getItem("account"))){
+		$$.ajax({
+			url:"accountRest/getAccountInfo",
+			type:"post",
+			data:{},
+			dataType:"json",
+			success:function(dto){
+				//判断是否已经登录
+				if(isEmpty(dto.account)){
+					window.location.href="/phone/getPhone";
+				}else{
+					window.localStorage.setItem("account",JSON.stringify(dto.account));
+					window.localStorage.setItem("sysRights",JSON.stringify(dto.sysRights));
+					window.localStorage.setItem("teacher",JSON.stringify(dto.teacher));
+					window.localStorage.setItem("student",JSON.stringify(dto.student));
+					window.localStorage.setItem("hr",JSON.stringify(dto.hr));
+					
+					showAccount();
+				}
+			}
+		});
+	}else{
+		showAccount();
+	}
+});
+
+//显示基本信息
+function showAccount(){
+	var acccount = JSON.parse(window.localStorage.getItem("account"));
+	$$("#userInfo img").attr("src",acccount.photoUrl);
+	$$("#userInfo p").text(acccount.nickName);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

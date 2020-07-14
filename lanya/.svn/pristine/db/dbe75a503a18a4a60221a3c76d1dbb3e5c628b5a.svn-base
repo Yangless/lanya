@@ -1,0 +1,182 @@
+$(function(){
+	$('#datagrid').datagrid({
+	    url:'roleRest/list',
+	    method:'post',
+	    fit:true,
+	    fitColumns:true,
+	    rownumbers:true,
+	    singleSelect:false,
+	    pagination:true,
+	    pageSize:30,
+	    columns:[[
+	    	{field:'ck',checkbox:true},
+	    	{field:'id',title:'id',hidden:true},
+	        {field:'roleName',title:'角色',width:100},
+	        {field:'roleCode',title:'编号',width:100}
+	    ]],
+	    toolbar: [{
+			iconCls: 'icon-add',
+			text:"添加",
+			handler: function(){
+				$('#addDialog').dialog('open');
+			}
+		},{
+			iconCls: 'icon-cancel',
+			text:"删除",
+			handler: function(){
+				deleteData();
+			}
+		},{
+			iconCls: 'icon-add',
+			text:"权限分配",
+			handler: function(){
+				var rows = $('#datagrid').datagrid("getSelections");
+				if(rows!=null&&rows.length>0){
+					$('#rightDialog').dialog("open");
+				}else{
+					$.messager.alert('提示',"请先选择一条数据");
+				}
+			}
+		}]
+	});
+	
+	//删除数据
+	function deleteData(){
+		var rows = $('#datagrid').datagrid("getSelections");
+		if(rows!=null&&rows.length>0){
+			$.messager.confirm({
+				title: '提示',
+				msg: '是否删除',
+				fn: function(flag){
+					if(flag){
+						var ids = [];
+						//循环放入选中行的id
+						for(var i=0;i<rows.length;i++){
+							var row = rows[i];
+							ids.push(row.id);
+						}
+						
+						$.ajax({
+				    		url:"roleRest/deleteByIds",
+				    		type:"post",
+				    		data:{
+				    			"ids":ids.join()
+				    		},
+				    		async:true,
+				    		dataType:"json",
+				    		success:function(dto){
+				    			$.messager.alert('提示',dto.msg);
+				    			$("#datagrid").datagrid("reload");
+				    		}
+				    	});
+					}
+				}
+			});
+		}else{
+			$.messager.alert('提示',"至少选择一条");
+		}
+    } 
+});
+
+//添加信息
+$(function(){
+	$('#addDialog').dialog({
+	    title: '添加',
+	    width: 1000,
+	    height: 400,
+	    closed: true,
+	    modal: true,
+	    buttons:[{
+			text:'提交',
+			handler:function(){
+				if(validate("addDialog form")){
+					$.ajax({
+						url:"roleRest/saveOrUpdate",
+						type:"post",
+						data:$("#addDialog form").serialize(),
+						async:true,
+						dataType:"json",
+						success:function(dto){
+							$.messager.alert('提示',dto.msg);
+							$('#addDialog').dialog("close");
+							$('#addDialog form').form('reset');
+							$("#datagrid").datagrid("reload");
+						}
+					});
+				}
+			}
+		},{
+			text:'重置',
+			handler:function(){
+				$('#addDialog form').form('reset');
+			}
+		}]
+	});
+});
+
+//在角色列表里面显示权限
+$(function(){
+	$('#rightDg').treegrid({
+	    url:'sysRightRest/getRoots',
+	    method: 'get',
+		idField: 'id',
+		treeField:'rightName',
+	    fit:true,
+	    fitColumns:true,
+	    checkbox: true,
+	    rownumbers:true,
+	    singleSelect:false,
+	    columns:[[
+	    	{field:'id',title:'id',hidden:true},
+	        {field:'rightName',title:'权限名称',width:100}
+	    ]]
+	});	
+	
+	$('#rightDialog').dialog({
+	    title: '权限分配',
+	    width: 1000,
+	    height: 400,
+	    closed: true,
+	    modal: true,
+	    buttons:[{
+			text:'提交',
+			handler:function(){
+				var roleRows = $('#datagrid').datagrid("getSelections");
+				var rightRows = $('#rightDg').treegrid("getCheckedNodes");
+				
+				var roleIds = [];
+				var rightIds = [];
+				//循环放入选中行的id
+				for(var i=0;i<roleRows.length;i++){
+					var row = roleRows[i];
+					roleIds.push(row.id);
+				}
+				for(var i=0;i<rightRows.length;i++){
+					var row = rightRows[i];
+					rightIds.push(row.id);
+				}
+				$.ajax({
+		    		url:"roleRest/saveRoleRight",
+		    		type:"post",
+		    		data:{
+		    			"roleIds":roleIds.join(),
+		    			"rightIds":rightIds.join()
+		    		},
+		    		async:true,
+		    		dataType:"json",
+		    		success:function(dto){
+		    			$.messager.alert('提示',dto.msg);
+		    			$('#rightDg').treegrid('clearChecked');
+		    			$('#rightDialog').dialog("close");
+		    		}
+		    	});
+			}
+		},{
+			text:'重置',
+			handler:function(){
+				$('#rightDg').treegrid('clearChecked');
+			}
+		}]
+	});
+});
+

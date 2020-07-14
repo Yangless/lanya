@@ -1,0 +1,92 @@
+package com.nwl.lanya.dto;
+
+import java.util.List;
+
+import com.nwl.lanya.po.VideoAudio;
+import com.nwl.lanya.vo.VideoAudioVo;
+
+public class VideoAudioDto extends AbstractBaseDto<VideoAudio>{
+
+	/** 
+	* @Fields serialVersionUID : TODO(用一句话描述这个变量表示什么) 
+	*/ 
+	private static final long serialVersionUID = -8930537976457306458L;
+	
+	//条件查询用
+	private VideoAudioVo vo;
+	private List<VideoAudioVo> vos;
+	private Integer teacherId;
+	//上传视频音频用
+	private String httpUrl;
+	private Integer type;
+	//根据视频id获取视频详情 
+	private String videoAudioId;
+	//获取相似知识的视频列表条件
+	private String videoAudioName;
+	private String introduce;
+	
+	public String getVideoAudioName() {
+		return videoAudioName;
+	}
+
+	public void setVideoAudioName(String videoAudioName) {
+		this.videoAudioName = videoAudioName;
+	}
+
+	public String getIntroduce() {
+		return introduce;
+	}
+
+	public void setIntroduce(String introduce) {
+		this.introduce = introduce;
+	}
+
+	public List<VideoAudioVo> getVos() {
+		return vos;
+	}
+
+	public void setVos(List<VideoAudioVo> vos) {
+		this.vos = vos;
+	}
+
+	public String getVideoAudioId() {
+		return videoAudioId;
+	}
+
+	public void setVideoAudioId(String videoAudioId) {
+		this.videoAudioId = videoAudioId;
+	}
+
+	public Integer getTeacherId() {
+		return teacherId;
+	}
+
+	public void setTeacherId(Integer teacherId) {
+		this.teacherId = teacherId;
+	}
+
+	public Integer getType() {
+		return type;
+	}
+
+	public void setType(Integer type) {
+		this.type = type;
+	}
+
+	public String getHttpUrl() {
+		return httpUrl;
+	}
+
+	public void setHttpUrl(String httpUrl) {
+		this.httpUrl = httpUrl;
+	}
+
+	public VideoAudioVo getVo() {
+		return vo;
+	}
+
+	public void setVo(VideoAudioVo vo) {
+		this.vo = vo;
+	}
+	
+}

@@ -1,0 +1,137 @@
+//定义全局变量
+lanya.teacherInfo={
+	"page":1,
+	"rows":10000,
+	"isVideo":1
+};
+
+$$(function(){
+	//判断信息是否已经缓存
+	if(isEmpty(window.localStorage.getItem("teacherInfo-teacherId"))){
+		window.location.href="/phone/recommend.html";
+	}else{
+		lanya.teacherInfo.teacherId = window.localStorage.getItem("teacherInfo-teacherId");
+	}
+	
+	//获取教师基本信息
+	findTeacherVoById();
+	//获取视频列表
+	getVideoAudioList();
+	//获取完整课程
+	getCourseByTeacherId();
+	//获取课程体系
+	getCourseSystemByTeacherId();
+});
+
+//获取教师基本信息
+function findTeacherVoById(){
+	$$.ajax({
+		url:"teacherRest/findById",
+		type:"post",
+		data:{
+			"po.id":lanya.teacherInfo.teacherId
+		},
+		dataType:"json",
+		success:function(dto){
+			var teacherVo = dto.teacherVo;
+			for(var name in teacherVo){
+				$$("#"+name).text(teacherVo[name]);
+			}
+			$$("#photoUrl").attr("src",teacherVo.photoUrl);
+		}
+	});
+}
+
+//获取视频列表,用的分页接口
+function getVideoAudioList(){
+	$$.ajax({
+		url:"videoAudioRest/list",
+		type:"post",
+		data:lanya.teacherInfo,
+		dataType:"json",
+		success:function(pageModel){
+			var rows = pageModel.rows;
+			for(var i=0;i<rows.length;i++){
+				var row = rows[i];
+				$$("#item1mobile ul").append(
+					'<li class="mui-table-view-cell mui-media">'+
+						'<a href="phone/videoInfo.html" class="mui-navigate-right">'+
+							'<img class="mui-media-object mui-pull-left" src="img/logo.jpg">'+
+							'<div class="mui-media-body">'+
+							    row.videoAudioName+
+								'<p class="mui-ellipsis">'+row.introduce+'</p>'+
+							'</div>'+
+						'</a>'+
+					'</li>'
+				);
+			}
+		}
+	});
+}
+
+//获取完整课程列表,这里查询条件是教师id
+function getCourseByTeacherId(){
+	$$.ajax({
+		url:"courseFullRest/getCourseByTeacherId",
+		type:"post",
+		data:lanya.teacherInfo,
+		dataType:"json",
+		success:function(dto){
+			var rows = dto.pos;
+			for(var i=0;i<rows.length;i++){
+				var row = rows[i];
+				$$("#item2mobile ul").append(
+					'<li class="mui-table-view-cell mui-media">'+
+					    '<input id="id" name="id" type="hidden" value="'+row.id+'"/>'+
+						'<a onclick="courseList(this)" class="mui-navigate-right">'+
+							'<img class="mui-media-object mui-pull-left" src="'+row.coursePhoto+'">'+
+							'<div class="mui-media-body">'+
+							    row.courseName+
+								'<p class="mui-ellipsis">'+row.introduce+'</p>'+
+							'</div>'+
+						'</a>'+
+					'</li>'
+				);
+			}
+		}
+	});
+}
+function courseList(obj){
+	window.localStorage.setItem("courseList-courseId",$$(obj).closest("li").find("[name=id]").val());
+	window.location.href="/phone/courseList.html";
+}
+
+//获取课程体系
+function getCourseSystemByTeacherId(){
+	$$.ajax({
+		url:"courseSystemRest/getCourseSystemByTeacherId",
+		type:"post",
+		data:lanya.teacherInfo,
+		dataType:"json",
+		success:function(dto){
+			var rows = dto.pos;
+			for(var i=0;i<rows.length;i++){
+				var row = rows[i];
+				$$("#item3mobile ul").append(
+					'<li class="mui-table-view-cell mui-media">'+
+					    '<input id="id" name="id" type="hidden" value="'+row.id+'"/>'+
+						'<a onclick="learningPath(this)" class="mui-navigate-right">'+
+							'<img class="mui-media-object mui-pull-left" src="'+row.courseSystemPhoto+'">'+
+							'<div class="mui-media-body">'+
+							    row.courseSystemName+
+								'<p class="mui-ellipsis">'+row.introduce+'</p>'+
+							'</div>'+
+						'</a>'+
+					'</li>'
+				);
+			}
+		}
+	});
+}
+function learningPath(obj){
+	window.localStorage.setItem("learningPath-courseSystemId",$$(obj).closest("li").find("[name=id]").val());
+	window.location.href="/phone/learningPath.html";
+}
+
+
+

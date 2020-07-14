@@ -1,0 +1,64 @@
+package com.nwl.lanya.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.nwl.lanya.dto.AccountDto;
+import com.nwl.lanya.po.Account;
+import com.nwl.lanya.service.AccountService;
+
+@Controller
+@RequestMapping("manage")
+public class MainController {
+	
+	@Autowired
+	private AccountService accountService;
+	
+	@RequestMapping("index")
+	public String index(){
+		return "login";
+	}
+	
+	@RequestMapping("login")
+	public String login(AccountDto dto){
+		accountService.login(dto);
+		Account account = dto.getAccount();
+		if(account!=null){
+			return "redirect:main";
+		}else{
+			return "redirect:index";
+		}
+	}
+	
+	@RequestMapping("main")
+	public String main(){
+		return "main";
+	}
+	
+	@RequestMapping("account")
+	public String account(){
+		return "account";
+	}
+	
+	@RequestMapping("role")
+	public String role(){
+		return "role";
+	}
+	
+	@RequestMapping("sysRight")
+	public String sysRight(){
+		return "sysRight";
+	}
+	
+	@RequestMapping("courseSystem")
+	public String courseSystem(){
+		return "courseSystem";
+	}
+	
+	@RequestMapping("student")
+	public String student(){
+		return "student";
+	}
+
+}

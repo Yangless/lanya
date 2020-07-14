@@ -1,0 +1,123 @@
+package com.nwl.lanya.po;
+
+public class VideoAudio {
+    private String id;
+
+    private String videoAudioName;
+
+    private Integer teacherId;
+
+    private String courseId;
+
+    private String videoUrl;
+
+    private String audioUrl;
+
+    private String introduce;
+
+    private Integer praiseNumber;
+
+    private Integer commentNumber;
+
+    private Integer isShort;
+
+    private Integer isVideo;
+
+    private Integer useAble;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
+    }
+
+    public String getVideoAudioName() {
+        return videoAudioName;
+    }
+
+    public void setVideoAudioName(String videoAudioName) {
+        this.videoAudioName = videoAudioName == null ? null : videoAudioName.trim();
+    }
+
+    public Integer getTeacherId() {
+        return teacherId;
+    }
+
+    public void setTeacherId(Integer teacherId) {
+        this.teacherId = teacherId;
+    }
+
+    public String getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(String courseId) {
+        this.courseId = courseId == null ? null : courseId.trim();
+    }
+
+    public String getVideoUrl() {
+        return videoUrl;
+    }
+
+    public void setVideoUrl(String videoUrl) {
+        this.videoUrl = videoUrl == null ? null : videoUrl.trim();
+    }
+
+    public String getAudioUrl() {
+        return audioUrl;
+    }
+
+    public void setAudioUrl(String audioUrl) {
+        this.audioUrl = audioUrl == null ? null : audioUrl.trim();
+    }
+
+    public String getIntroduce() {
+        return introduce;
+    }
+
+    public void setIntroduce(String introduce) {
+        this.introduce = introduce == null ? null : introduce.trim();
+    }
+
+    public Integer getPraiseNumber() {
+        return praiseNumber;
+    }
+
+    public void setPraiseNumber(Integer praiseNumber) {
+        this.praiseNumber = praiseNumber;
+    }
+
+    public Integer getCommentNumber() {
+        return commentNumber;
+    }
+
+    public void setCommentNumber(Integer commentNumber) {
+        this.commentNumber = commentNumber;
+    }
+
+    public Integer getIsShort() {
+        return isShort;
+    }
+
+    public void setIsShort(Integer isShort) {
+        this.isShort = isShort;
+    }
+
+    public Integer getIsVideo() {
+        return isVideo;
+    }
+
+    public void setIsVideo(Integer isVideo) {
+        this.isVideo = isVideo;
+    }
+
+    public Integer getUseAble() {
+        return useAble;
+    }
+
+    public void setUseAble(Integer useAble) {
+        this.useAble = useAble;
+    }
+}

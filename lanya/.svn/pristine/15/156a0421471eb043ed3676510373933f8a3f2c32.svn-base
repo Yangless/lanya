@@ -1,0 +1,12 @@
+package com.nwl.lanya;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class LanyaApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(LanyaApplication.class, args);
+	}
+}

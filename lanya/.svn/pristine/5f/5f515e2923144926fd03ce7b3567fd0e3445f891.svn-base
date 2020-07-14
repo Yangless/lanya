@@ -1,0 +1,27 @@
+$(function(){
+	$('.starDiv').raty({readOnly:false,score:0});
+	
+	$("#commontLi").click(function(){
+		$('#commentDialog').dialog("open");
+	});
+	
+	$('#commentDialog').dialog({
+	    title: '课程评价',
+	    width: 800,
+	    height: 300,
+	    closed: true,
+	    modal: true,
+	    buttons:[{
+			text:'提交',
+			handler:function(){
+				
+			}
+		},{
+			text:'重置',
+			handler:function(){
+				$('.starDiv').raty({score:0});
+				$('#commentDialog form').form("reset");
+			}
+		}]
+	});
+});

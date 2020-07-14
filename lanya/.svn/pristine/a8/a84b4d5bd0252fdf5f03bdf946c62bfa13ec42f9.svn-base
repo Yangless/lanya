@@ -1,0 +1,53 @@
+package com.nwl.lanya.po;
+
+public class SysRight {
+    private Integer id;
+
+    private String rightName;
+
+    private String rightCode;
+
+    private Integer parentId;
+
+    private String rightUrl;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getRightName() {
+        return rightName;
+    }
+
+    public void setRightName(String rightName) {
+        this.rightName = rightName == null ? null : rightName.trim();
+    }
+
+    public String getRightCode() {
+        return rightCode;
+    }
+
+    public void setRightCode(String rightCode) {
+        this.rightCode = rightCode == null ? null : rightCode.trim();
+    }
+
+    public Integer getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(Integer parentId) {
+        this.parentId = parentId;
+    }
+
+    public String getRightUrl() {
+        return rightUrl;
+    }
+
+    public void setRightUrl(String rightUrl) {
+        this.rightUrl = rightUrl == null ? null : rightUrl.trim();
+    }
+}

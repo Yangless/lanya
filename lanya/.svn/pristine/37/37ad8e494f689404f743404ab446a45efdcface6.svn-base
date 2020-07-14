@@ -1,0 +1,128 @@
+//封装插件
+;(function($){
+	$.fn.extend({
+	    serializeObject:function(){
+    	   var o = {};    
+    	   var a = this.serializeArray();    
+    	   $.each(a, function() {    
+    	       if (o[this.name]) {    
+    	           if (!o[this.name].push) {    
+    	               o[this.name] = [o[this.name]];    
+    	           }    
+    	           o[this.name].push(this.value || '');    
+    	       } else {    
+    	           o[this.name] = this.value || '';    
+    	       }    
+    	   });    
+    	   return o;    
+	    },
+	    serializeJson:function(){  
+            var serializeObj={};  
+            var array=this.serializeArray();  
+            var str=this.serialize();  
+            $(array).each(function(){  
+                if(serializeObj[this.name]){  
+                    if($.isArray(serializeObj[this.name])){  
+                        serializeObj[this.name].push(this.value);  
+                    }else{  
+                        serializeObj[this.name]=[serializeObj[this.name],this.value];  
+                    }  
+                }else{  
+                    serializeObj[this.name]=this.value;   
+                }  
+            }); 
+            return serializeObj;  
+        }
+	});
+})(jQuery);
+
+//封装全局函数
+$.extend({
+    beginLoading:function(){
+    	$("body").append('<div class="loadingDiv" style="background:white;background:rgba(255,255,255,0.3);width:100%;height:100%;position:fixed;top:0px;left:0px;z-index:9999;"><img style="width:30px;height:30px;position:absolute;top:50%;left:50%;margin-top:-15px;margin-left:-15px;" src="img/loading.gif"/></div>');
+    },
+    loading:function(options){
+		options = $.extend({
+			"setTimeout":800,
+			"fadeOut":1000
+		},options);
+		
+		$("body").append('<div class="loadingDiv" style="background:white;width:100%;height:100%;position:fixed;top:0px;left:0px;"><img style="width:30px;height:30px;position:absolute;top:50%;left:50%;margin-top:-15px;margin-left:-15px;" src="img/loading.gif"/></div>');
+		window.onload = function(){
+			window.setTimeout(function(){
+				$(".loadingDiv").fadeOut(options.fadeOut,function(){$(".loadingDiv").remove()});
+			},options.setTimeout);
+		}
+	}
+});
+$.loading({
+	"setTimeout":400,
+	"fadeOut":300
+});
+
+//表单验证
+function validate(id){
+    var validate = $("#"+id).form('validate')
+    return validate;
+}
+
+//根据权限显示菜单
+$(function(){
+//	$(document).bind("ajaxSend", function (evt, request, settings) {
+//		request.setRequestHeader("requestType", "ajaxRequest");
+//  });
+	
+	$(".btnLi").hide();
+	$.ajax({
+		url:"accountRest/getSysRightList",
+		type:"get",
+		data:{},
+		dataType:"json",
+		success:function(sysRightList){
+			for(var i=0;i<sysRightList.length;i++){
+				var rightCode = sysRightList[i].rightCode;
+				if(rightCode){
+					$("#"+rightCode).show();
+				}
+			}
+		}
+	});
+});
+
+function uploadFile(){
+	var reader = new FileReader();
+    var AllowImgFileSize = 210000000; //上传图片最大值(单位字节)（ 2 M = 2097152 kB ）超过2M上传失败
+    var file = $("#myFile").next("span").find("[type=file]")[0].files[0];
+    var imgUrlBase64;
+    if (file) {
+        reader.onload = function (e) {
+          if (AllowImgFileSize != 0 && AllowImgFileSize < reader.result.length) {
+                alert( '上传失败，请上传不大于200M的图片！');
+                return;
+            }else{
+                //执行上传操作
+                $.ajax({
+                	url:"accountRest/upLoadImg",//请求路径
+                	type:"post",//请求方式
+                	data:{
+                		imgData:reader.result
+                	},//请求数据
+                	dataType:"text",//返回的数据类型
+                	success:function(data){
+                		$("#photoUrl").textbox("setValue",data);
+                		$('#uploadImg').dialog('close');
+                		$("#uploadImg form").form('reset');
+                	}
+                });
+            }
+        }
+        //将文件以Data URL形式读入页面  
+        reader.readAsDataURL(file);
+     }   
+}
+
+
+
+
+
+

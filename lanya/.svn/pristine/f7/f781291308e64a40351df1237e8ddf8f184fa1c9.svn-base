@@ -1,0 +1,24 @@
+package com.nwl.lanya.dto;
+
+import com.nwl.lanya.po.VideoAudio;
+import com.nwl.lanya.vo.VideoAudioVo;
+
+public class VideoAudioDto extends AbstractBaseDto<VideoAudio>{
+
+	/** 
+	* @Fields serialVersionUID : TODO(用一句话描述这个变量表示什么) 
+	*/ 
+	private static final long serialVersionUID = -8930537976457306458L;
+	
+	//条件查询用
+	private VideoAudioVo vo;
+
+	public VideoAudioVo getVo() {
+		return vo;
+	}
+
+	public void setVo(VideoAudioVo vo) {
+		this.vo = vo;
+	}
+	
+}

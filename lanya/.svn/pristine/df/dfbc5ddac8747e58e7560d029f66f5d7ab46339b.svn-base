@@ -1,0 +1,21 @@
+$$(function(){
+	$$("#nextBtn").click(function(){
+		$$.ajax({
+			url:"accountRest/registerPhone",
+			type:"post",
+			data:{
+				"phone":$$("#phone").val()
+			},
+			dataType:"json",
+			success:function(dto){
+				if(dto.msgCode==lanya.common.msgCode.REGISTER_SCCESS){
+					window.localStorage.setItem("registerPhone",$$("#phone").val());
+					window.location.href="/phone/register";
+				}else{
+					window.localStorage.setItem("phone",$$("#phone").val());
+					window.location.href="/phone/login";
+				}
+			}
+		});
+	});
+});

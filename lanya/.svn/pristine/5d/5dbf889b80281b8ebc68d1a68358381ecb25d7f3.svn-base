@@ -1,0 +1,86 @@
+package com.nwl.lanya.service.impl;
+
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.nwl.lanya.common.MsgCode;
+import com.nwl.lanya.dao.VideoAudioMapper;
+import com.nwl.lanya.dto.VideoAudioDto;
+import com.nwl.lanya.po.Teacher;
+import com.nwl.lanya.po.VideoAudio;
+import com.nwl.lanya.service.VideoAudioService;
+import com.nwl.lanya.vo.VideoAudioVo;
+
+@Service
+public class VideoAudioServiceImpl implements VideoAudioService{
+	
+	@Autowired
+	private VideoAudioMapper mapper;
+	@Autowired
+	private HttpSession session;
+
+	@Override
+	public void list(VideoAudioDto dto) {
+        List<VideoAudioVo> videoAudioVos = mapper.list(dto);
+		Long total = mapper.countByLike(dto);
+		
+		dto.getPageModel().setRows(videoAudioVos);
+		dto.getPageModel().setTotal(total);
+	}
+
+	@Override
+	public void deleteByIds(VideoAudioDto dto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void findById(VideoAudioDto dto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void saveOrUpdate(VideoAudioDto dto) {
+		Object object = session.getAttribute("teacher");
+		if(object!=null){
+			//设置老师id
+			Teacher teacher = (Teacher)object;
+			dto.getPo().setTeacherId(teacher.getId());
+			//设置为可用
+			dto.getPo().setUseAble(1);
+			
+			mapper.insert(dto.getPo());
+			dto.setMsgCode(MsgCode.REQUEST_SCCESS);
+			dto.setMsg("操作成功");
+		}else{
+			dto.setMsgCode(MsgCode.REQUEST_FALSE);
+			dto.setMsg("您不是老师，无法操作");
+		}
+	}
+
+	@Override
+	public void updateUseAble(VideoAudioDto dto) {
+		String[] idStr = dto.getIds().split(",");
+		for(int i=0;i<idStr.length;i++){
+			VideoAudio videoAudio = new VideoAudio();
+			videoAudio.setId(idStr[i]);
+			//将使用状态设置为不可用
+			videoAudio.setUseAble(dto.getPo().getUseAble());
+			mapper.updateByPrimaryKeySelective(videoAudio);
+		}
+	}
+
+	@Override
+	public void praiseNumber(VideoAudioDto dto) {
+		VideoAudio videoAudio = mapper.selectByPrimaryKey(dto.getPo().getId());
+		videoAudio.setPraiseNumber(videoAudio.getPraiseNumber().intValue()+1);
+		mapper.updateByPrimaryKeySelective(videoAudio);
+		dto.setPo(videoAudio);
+	}
+
+}

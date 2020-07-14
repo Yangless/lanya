@@ -1,0 +1,14 @@
+package com.nwl.lanya.dto;
+
+import com.nwl.lanya.po.Account;
+
+public class AccountDto extends AbstractBaseDto<Account>{
+
+	/** 
+	* @Fields serialVersionUID : TODO(用一句话描述这个变量表示什么) 
+	*/ 
+	private static final long serialVersionUID = -6957650836397689095L;
+	
+	
+	
+}

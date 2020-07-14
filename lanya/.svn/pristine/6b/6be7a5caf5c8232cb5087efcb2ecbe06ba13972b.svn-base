@@ -1,0 +1,194 @@
+package com.nwl.lanya.rest;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.nwl.lanya.common.MsgCode;
+import com.nwl.lanya.common.PageModel;
+import com.nwl.lanya.dto.CourseSystemDto;
+import com.nwl.lanya.po.CourseSystem;
+import com.nwl.lanya.service.CourseSystemService;
+
+@RestController
+@RequestMapping("courseSystemRest")
+public class CourseSystemRest extends AbstractBaseRest<CourseSystemDto>{
+	
+	@Autowired
+	private CourseSystemService service;
+	
+	/**
+	 * 
+	* @Title: getRoots 
+	* @Description: 获取并返回所有根节点 
+	* @param    
+	* @return List<SysRight>    
+	* @throws
+	 */
+	@RequestMapping("getRoots")
+	public List<CourseSystem> getRoots(CourseSystemDto dto){
+		try {
+			service.getRoots(dto);
+			
+			dto.setMsgCode(MsgCode.REQUEST_SCCESS);
+			dto.setMsg("操作成功");
+		} catch (Exception e) {
+			e.printStackTrace();
+			dto.setMsgCode(MsgCode.REQUEST_FALSE);
+			dto.setMsg("系统异常,请联系维护人员");
+		}
+		return dto.getPos();
+	}
+	/**
+	 * 
+	* @Title: getCourseSystemByTeacherId 
+	* @Description: 根据教师id获取课程体系
+	* @param    
+	* @return CourseSystemDto    
+	* @throws
+	 */
+	@RequestMapping("getCourseSystemByTeacherId")
+	public CourseSystemDto getCourseSystemByTeacherId(CourseSystemDto dto){
+		try {
+			service.getCourseSystemByTeacherId(dto);
+			
+			dto.setMsgCode(MsgCode.REQUEST_SCCESS);
+			dto.setMsg("操作成功");
+		} catch (Exception e) {
+			e.printStackTrace();
+			dto.setMsgCode(MsgCode.REQUEST_FALSE);
+			dto.setMsg("系统异常,请联系维护人员");
+		}
+		return dto;
+	}
+	
+	/**
+	 * 
+	* @Title: getRoots 
+	* @Description: 获取所有课程体系
+	* @param    
+	* @return List<SysRight>    
+	* @throws
+	 */
+	@RequestMapping("getCourseSystems")
+	public List<CourseSystem> getCourseSystems(CourseSystemDto dto){
+		try {
+			service.getCourseSystems(dto);
+			
+			dto.setMsgCode(MsgCode.REQUEST_SCCESS);
+			dto.setMsg("操作成功");
+		} catch (Exception e) {
+			e.printStackTrace();
+			dto.setMsgCode(MsgCode.REQUEST_FALSE);
+			dto.setMsg("系统异常,请联系维护人员");
+		}
+		return dto.getPos();
+	}
+
+	@Override
+	public PageModel list(Integer page, Integer rows, CourseSystemDto dto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	@RequestMapping("deleteByIds")
+	public CourseSystemDto deleteByIds(CourseSystemDto dto) {
+		try {
+			service.deleteByIds(dto);
+			
+			dto.setMsgCode(MsgCode.REQUEST_SCCESS);
+			dto.setMsg("操作成功");
+		} catch (Exception e) {
+			e.printStackTrace();
+			dto.setMsgCode(MsgCode.REQUEST_FALSE);
+			dto.setMsg("系统异常,请联系维护人员");
+		}
+		return dto;
+	}
+
+	@Override
+	public CourseSystemDto findById(CourseSystemDto dto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	@RequestMapping("saveOrUpdate")
+	public CourseSystemDto saveOrUpdate(CourseSystemDto dto) {
+		try {
+			service.saveOrUpdate(dto);
+		} catch (Exception e) {
+			e.printStackTrace();
+			dto.setMsgCode(MsgCode.REQUEST_FALSE);
+			dto.setMsg("系统异常,请联系维护人员");
+		}
+		return dto;
+	}
+	
+	/**
+	 * 
+	* @Title: saveStage 
+	* @Description: 保存课程体系阶段
+	* @param    
+	* @return CourseSystemDto    
+	* @throws
+	 */
+	@RequestMapping("saveStage")
+	public CourseSystemDto saveStage(CourseSystemDto dto){
+		try {
+			service.saveStage(dto);
+		} catch (Exception e) {
+			e.printStackTrace();
+			dto.setMsgCode(MsgCode.REQUEST_FALSE);
+			dto.setMsg("系统异常,请联系维护人员");
+		}
+		return dto;
+	}
+	
+	/**
+	 * 
+	* @Title: getStage 
+	* @Description: 根据课程体系id获取阶段名称
+	* @param    
+	* @return List<CourseSystem>    
+	* @throws
+	 */
+	@RequestMapping("getStage")
+	public List<CourseSystem> getStage(CourseSystemDto dto){
+		try {
+			service.getStage(dto);
+			
+			dto.setMsgCode(MsgCode.REQUEST_SCCESS);
+			dto.setMsg("操作成功");
+		} catch (Exception e) {
+			e.printStackTrace();
+			dto.setMsgCode(MsgCode.REQUEST_FALSE);
+			dto.setMsg("系统异常,请联系维护人员");
+		}
+		return dto.getPos();
+	} 
+	
+	/**
+	 * 
+	* @Title: saveStage 
+	* @Description: 保存课程
+	* @param    
+	* @return CourseSystemDto    
+	* @throws
+	 */
+	@RequestMapping("saveCourseType")
+	public CourseSystemDto saveCourseType(CourseSystemDto dto){
+		try {
+			service.saveCourseType(dto);
+		} catch (Exception e) {
+			e.printStackTrace();
+			dto.setMsgCode(MsgCode.REQUEST_FALSE);
+			dto.setMsg("系统异常,请联系维护人员");
+		}
+		return dto;
+	}
+
+}

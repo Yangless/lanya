@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="../"/>
+	<meta charset="utf-8" />
+	<title>蓝芽-帮助您职业技能成长</title>
+	<!-- start: Favicon -->
+	<link rel="shortcut icon" href="img/logo.jpg">
+	<!-- end: Favicon -->
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="css/phone/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/phone/icons-extra.css"/>
+    <link rel="stylesheet" type="text/css" href="css/phone/mui.picker.min.css" />
+    <link rel="stylesheet" href="css/phone/common.css"/>
+    <link rel="stylesheet" type="text/css" href="css/phone/personCenter.css"/>
+    
+    <script type="text/javascript" src="js/phone/jquery-3.3.1.min.js" ></script>
+    <script type="text/javascript" src="js/phone/common.js"></script>
+    <script src="js/phone/mui.min.js"></script>
+    <script src="js/phone/mui.picker.min.js"></script>
+    <script type="text/javascript" src="js/phone/personCenter.js"></script>
+</head>
+	<body>
+		
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">个人中心</h1>
+			<a href="phone/realName.html" class="mui-btn mui-btn-blue mui-btn-link mui-pull-right">实名</a>
+		</header>
+		
+		<ul class="mui-table-view">
+			<li class="mui-table-view-cell">
+		        <a href="#picture" class="mui-navigate-right">
+		           <span class="mui-badge" style="background: none;color:grey;"><img class="myPhoto" src="img/cbd.jpg"/></span>
+		           <span>头像</span>
+		        </a>
+		    </li>
+		    <li class="mui-table-view-cell">
+		        <a id="nickName" class="mui-navigate-right">
+		           <span class="mui-badge" style="background: none;color:grey;"><span>爱知</span></span>
+		           <span>昵称</span>
+		        </a>
+		    </li>
+		    <li class="mui-table-view-cell">
+		        <a class="mui-navigate-right">
+		           <span class="mui-badge" style="background: none;color:grey;"><span>男</span></span>
+		           <span>性别</span>
+		        </a>
+		    </li>
+		    <li class="mui-table-view-cell">
+		        <a id="btn" data-options='{"type":"date"}' class="mui-navigate-right">
+		           <span class="mui-badge" style="background: none;color:grey;"><span>1990-09-08</span></span>
+		           <span>生日</span>
+		        </a>
+		    </li>
+		    <li class="mui-table-view-cell">
+	            <span class="mui-badge" style="background: none;color:grey;">28</span>
+	            <span>年龄</span>
+		    </li>
+		</ul>
+		
+		<ul class="mui-table-view">
+		    <li class="mui-table-view-cell">
+	            <span class="mui-badge" style="background: none;color:grey;">聂文来</span>
+	            <span>真实姓名</span>
+		    </li>
+		    <li class="mui-table-view-cell">
+	            <span class="mui-badge" style="background: none;color:grey;">身份证</span>
+	            <span>证件类型</span>
+		    </li>
+		    <li class="mui-table-view-cell">
+	            <span class="mui-badge" style="background: none;color:grey;">4****************0</span>
+	            <span>证件号码</span>
+		    </li>
+		</ul>
+		
+		<ul class="mui-table-view">
+		    <li class="mui-table-view-cell">
+		        <a href="phone/myMoney.html" class="mui-navigate-right">
+		           <span class="mui-badge" style="background: none;color:#DD524D;">￥<span>998.00</span></span>
+		           <span>我的钱包</span>
+		        </a>
+		    </li>
+		</ul>
+		
+		<table class="contentTable">
+		    <tr>
+		    	<td>
+		    		<div id="logoutBtn" class="mui-btn mui-btn-danger myBtn">
+						退出登录
+					</div>
+		    	</td>
+		    </tr>
+		</table>
+		
+		<div id="picture" class="mui-popover mui-popover-action mui-popover-bottom">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a href="#">拍照</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a href="#">从相册选取</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a href="#picture"><b>取消</b></a>
+				</li>
+			</ul>
+		</div>
+		
+	</body>
+</html>

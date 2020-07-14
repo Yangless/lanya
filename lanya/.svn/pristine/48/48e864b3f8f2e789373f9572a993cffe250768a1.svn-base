@@ -1,0 +1,37 @@
+body{
+	padding-top: 50px;
+}
+#moneyShow{
+	text-align: center;
+	margin-top: 30px;
+}
+#moneyShow span{
+	font-size: 16px;
+	font-weight: 500;
+	color: #26A0DA;
+}
+#moneyShow p{
+	margin-top: 20px;
+	font-size: 16px;
+	font-weight: 500;
+	color: #DD524D;
+}
+.contentTable{
+	width: 100%;
+	margin-bottom: 10px;
+}
+.contentTable tr{
+	border-bottom: 1px dashed #ededed;
+}
+.contentTable tr td{
+	width: 100%;
+	height: 45px;
+	padding: 8px;
+	font-size:0.825rem !important;
+	text-align: center;
+}
+#logoutBtn{
+	width: 90%;
+	margin:auto;
+}
+

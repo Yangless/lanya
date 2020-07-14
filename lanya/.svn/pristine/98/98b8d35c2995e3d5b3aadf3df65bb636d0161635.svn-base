@@ -1,0 +1,45 @@
+package com.nwl.lanya.dao;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
+import com.nwl.lanya.dto.TeacherDto;
+import com.nwl.lanya.po.Teacher;
+import com.nwl.lanya.po.TeacherExample;
+import com.nwl.lanya.vo.TeacherVo;
+
+public interface TeacherMapper {
+	
+	/**
+	 * 
+	* @Title: findTeacherVoById 
+	* @Description: 通过老师id获取老师信息
+	* @param    
+	* @return TeacherVo    
+	* @throws
+	 */
+	TeacherVo findTeacherVoById(TeacherDto dto);
+	
+    long countByExample(TeacherExample example);
+
+    int deleteByExample(TeacherExample example);
+
+    int deleteByPrimaryKey(Integer id);
+
+    int insert(Teacher record);
+
+    int insertSelective(Teacher record);
+
+    List<Teacher> selectByExample(TeacherExample example);
+
+    Teacher selectByPrimaryKey(Integer id);
+
+    int updateByExampleSelective(@Param("record") Teacher record, @Param("example") TeacherExample example);
+
+    int updateByExample(@Param("record") Teacher record, @Param("example") TeacherExample example);
+
+    int updateByPrimaryKeySelective(Teacher record);
+
+    int updateByPrimaryKey(Teacher record);
+}

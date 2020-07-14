@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nwl.lanya.dao.ResoucesMapper">
+  <resultMap id="BaseResultMap" type="com.nwl.lanya.po.Resouces">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="resource_title" jdbcType="VARCHAR" property="resourceTitle" />
+    <result column="resource_date" jdbcType="DATE" property="resourceDate" />
+    <result column="resource_intro" jdbcType="VARCHAR" property="resourceIntro" />
+    <result column="picture_url" jdbcType="VARCHAR" property="pictureUrl" />
+    <result column="account_id" jdbcType="VARCHAR" property="accountId" />
+    <result column="download_count" jdbcType="INTEGER" property="downloadCount" />
+    <result column="view_count" jdbcType="INTEGER" property="viewCount" />
+    <result column="score" jdbcType="DOUBLE" property="score" />
+    <result column="is_boutique" jdbcType="INTEGER" property="isBoutique" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.nwl.lanya.po.Resouces">
+    <result column="resource_detail" jdbcType="LONGVARCHAR" property="resourceDetail" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, resource_title, resource_date, resource_intro, picture_url, account_id, download_count, 
+    view_count, score, is_boutique
+  </sql>
+  <sql id="Blob_Column_List">
+    resource_detail
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.nwl.lanya.po.ResoucesExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from resouces
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.nwl.lanya.po.ResoucesExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from resouces
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from resouces
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from resouces
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.nwl.lanya.po.ResoucesExample">
+    delete from resouces
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.nwl.lanya.po.Resouces">
+    insert into resouces (id, resource_title, resource_date, 
+      resource_intro, picture_url, account_id, 
+      download_count, view_count, score, 
+      is_boutique, resource_detail)
+    values (#{id,jdbcType=VARCHAR}, #{resourceTitle,jdbcType=VARCHAR}, #{resourceDate,jdbcType=DATE}, 
+      #{resourceIntro,jdbcType=VARCHAR}, #{pictureUrl,jdbcType=VARCHAR}, #{accountId,jdbcType=VARCHAR}, 
+      #{downloadCount,jdbcType=INTEGER}, #{viewCount,jdbcType=INTEGER}, #{score,jdbcType=DOUBLE}, 
+      #{isBoutique,jdbcType=INTEGER}, #{resourceDetail,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.nwl.lanya.po.Resouces">
+    insert into resouces
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="resourceTitle != null">
+        resource_title,
+      </if>
+      <if test="resourceDate != null">
+        resource_date,
+      </if>
+      <if test="resourceIntro != null">
+        resource_intro,
+      </if>
+      <if test="pictureUrl != null">
+        picture_url,
+      </if>
+      <if test="accountId != null">
+        account_id,
+      </if>
+      <if test="downloadCount != null">
+        download_count,
+      </if>
+      <if test="viewCount != null">
+        view_count,
+      </if>
+      <if test="score != null">
+        score,
+      </if>
+      <if test="isBoutique != null">
+        is_boutique,
+      </if>
+      <if test="resourceDetail != null">
+        resource_detail,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceTitle != null">
+        #{resourceTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceDate != null">
+        #{resourceDate,jdbcType=DATE},
+      </if>
+      <if test="resourceIntro != null">
+        #{resourceIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="pictureUrl != null">
+        #{pictureUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="accountId != null">
+        #{accountId,jdbcType=VARCHAR},
+      </if>
+      <if test="downloadCount != null">
+        #{downloadCount,jdbcType=INTEGER},
+      </if>
+      <if test="viewCount != null">
+        #{viewCount,jdbcType=INTEGER},
+      </if>
+      <if test="score != null">
+        #{score,jdbcType=DOUBLE},
+      </if>
+      <if test="isBoutique != null">
+        #{isBoutique,jdbcType=INTEGER},
+      </if>
+      <if test="resourceDetail != null">
+        #{resourceDetail,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.nwl.lanya.po.ResoucesExample" resultType="java.lang.Long">
+    select count(*) from resouces
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update resouces
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.resourceTitle != null">
+        resource_title = #{record.resourceTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.resourceDate != null">
+        resource_date = #{record.resourceDate,jdbcType=DATE},
+      </if>
+      <if test="record.resourceIntro != null">
+        resource_intro = #{record.resourceIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pictureUrl != null">
+        picture_url = #{record.pictureUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accountId != null">
+        account_id = #{record.accountId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.downloadCount != null">
+        download_count = #{record.downloadCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.viewCount != null">
+        view_count = #{record.viewCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.score != null">
+        score = #{record.score,jdbcType=DOUBLE},
+      </if>
+      <if test="record.isBoutique != null">
+        is_boutique = #{record.isBoutique,jdbcType=INTEGER},
+      </if>
+      <if test="record.resourceDetail != null">
+        resource_detail = #{record.resourceDetail,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update resouces
+    set id = #{record.id,jdbcType=VARCHAR},
+      resource_title = #{record.resourceTitle,jdbcType=VARCHAR},
+      resource_date = #{record.resourceDate,jdbcType=DATE},
+      resource_intro = #{record.resourceIntro,jdbcType=VARCHAR},
+      picture_url = #{record.pictureUrl,jdbcType=VARCHAR},
+      account_id = #{record.accountId,jdbcType=VARCHAR},
+      download_count = #{record.downloadCount,jdbcType=INTEGER},
+      view_count = #{record.viewCount,jdbcType=INTEGER},
+      score = #{record.score,jdbcType=DOUBLE},
+      is_boutique = #{record.isBoutique,jdbcType=INTEGER},
+      resource_detail = #{record.resourceDetail,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update resouces
+    set id = #{record.id,jdbcType=VARCHAR},
+      resource_title = #{record.resourceTitle,jdbcType=VARCHAR},
+      resource_date = #{record.resourceDate,jdbcType=DATE},
+      resource_intro = #{record.resourceIntro,jdbcType=VARCHAR},
+      picture_url = #{record.pictureUrl,jdbcType=VARCHAR},
+      account_id = #{record.accountId,jdbcType=VARCHAR},
+      download_count = #{record.downloadCount,jdbcType=INTEGER},
+      view_count = #{record.viewCount,jdbcType=INTEGER},
+      score = #{record.score,jdbcType=DOUBLE},
+      is_boutique = #{record.isBoutique,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.nwl.lanya.po.Resouces">
+    update resouces
+    <set>
+      <if test="resourceTitle != null">
+        resource_title = #{resourceTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceDate != null">
+        resource_date = #{resourceDate,jdbcType=DATE},
+      </if>
+      <if test="resourceIntro != null">
+        resource_intro = #{resourceIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="pictureUrl != null">
+        picture_url = #{pictureUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="accountId != null">
+        account_id = #{accountId,jdbcType=VARCHAR},
+      </if>
+      <if test="downloadCount != null">
+        download_count = #{downloadCount,jdbcType=INTEGER},
+      </if>
+      <if test="viewCount != null">
+        view_count = #{viewCount,jdbcType=INTEGER},
+      </if>
+      <if test="score != null">
+        score = #{score,jdbcType=DOUBLE},
+      </if>
+      <if test="isBoutique != null">
+        is_boutique = #{isBoutique,jdbcType=INTEGER},
+      </if>
+      <if test="resourceDetail != null">
+        resource_detail = #{resourceDetail,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.nwl.lanya.po.Resouces">
+    update resouces
+    set resource_title = #{resourceTitle,jdbcType=VARCHAR},
+      resource_date = #{resourceDate,jdbcType=DATE},
+      resource_intro = #{resourceIntro,jdbcType=VARCHAR},
+      picture_url = #{pictureUrl,jdbcType=VARCHAR},
+      account_id = #{accountId,jdbcType=VARCHAR},
+      download_count = #{downloadCount,jdbcType=INTEGER},
+      view_count = #{viewCount,jdbcType=INTEGER},
+      score = #{score,jdbcType=DOUBLE},
+      is_boutique = #{isBoutique,jdbcType=INTEGER},
+      resource_detail = #{resourceDetail,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.nwl.lanya.po.Resouces">
+    update resouces
+    set resource_title = #{resourceTitle,jdbcType=VARCHAR},
+      resource_date = #{resourceDate,jdbcType=DATE},
+      resource_intro = #{resourceIntro,jdbcType=VARCHAR},
+      picture_url = #{pictureUrl,jdbcType=VARCHAR},
+      account_id = #{accountId,jdbcType=VARCHAR},
+      download_count = #{downloadCount,jdbcType=INTEGER},
+      view_count = #{viewCount,jdbcType=INTEGER},
+      score = #{score,jdbcType=DOUBLE},
+      is_boutique = #{isBoutique,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+   <!-- 分页获取账户数据 -->
+  <select id="list" parameterType="com.nwl.lanya.dto.LableInfoDto" resultMap="BaseResultMap">
+      select
+	  <include refid="Base_Column_List" />
+	  from resouces  
+	  <where>
+	  		<if test="columnName!=null">
+	  			and ${columnName} like concat(concat('%',#{columnValue}),'%')
+	  		</if>
+	  </where>
+      order by id desc
+      limit #{pageModel.startIndex},#{pageModel.pageSize}
+  </select>
+  
+  <!-- 获取数据总数 -->
+  <select id="countByList" parameterType="com.nwl.lanya.dto.LableInfoDto" resultType="java.lang.Long">
+      select count(*)
+      from resouces
+       <where>
+	  		<if  test="columnName!=null">
+	  			and ${columnName} like concat(concat('%',#{columnValue}),'%')
+	  		</if>
+	  </where>
+  </select>
+</mapper>

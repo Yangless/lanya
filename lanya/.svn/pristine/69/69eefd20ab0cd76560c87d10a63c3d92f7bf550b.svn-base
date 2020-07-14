@@ -1,0 +1,289 @@
+$(function(){
+	$('#datagrid').treegrid({
+	    url:'courseSystemRest/getRoots',
+	    method: 'post',
+		idField: 'id',
+		treeField:'courseSystemName',
+	    fit:true,
+	    fitColumns:true,
+	    checkbox: true,
+	    rownumbers:true,
+	    singleSelect:false,
+	    columns:[[
+	    	{field:'id',title:'id',hidden:true},
+	        {field:'courseSystemName',title:'课程体系',width:100},
+	        {field:'introduce',title:'简介',width:300},
+	        {field:'realName',title:'教师',width:100},
+	        {field:'courseSystemPhoto',title:'图片',width:50,align:'center',
+	        	formatter: function(value,row,index){
+	        		if(value){
+	        			return '<img style="width:50px;height:30px;" src="'+value+'"/>';
+	        		}else{
+	        			return "";
+	        		}
+					
+	        	}
+	        }
+	    ]],
+	    toolbar: [{
+			iconCls: 'icon-search',
+			text:"查询",
+			handler: function(){
+				$('#searchDialog').dialog('open');
+			}
+		},{
+			iconCls: 'icon-add',
+			text:"创建课程体系",
+			handler: function(){
+				$('#addDialog').dialog('open');
+			}
+		},{
+			iconCls: 'icon-add',
+			text:"创建体系阶段",
+			handler: function(){
+				$('#addStageDialog').dialog('open');
+			}
+		},{
+			iconCls: 'icon-add',
+			text:"创建阶段课程",
+			handler: function(){
+				$('#addCourseTypeDialog').dialog('open');
+			}
+		},{
+			iconCls: 'icon-cancel',
+			text:"删除",
+			handler: function(){
+				deleteData();
+			}
+		}]
+	});
+	
+	//删除数据
+	function deleteData(){
+		var rows = $('#datagrid').treegrid("getCheckedNodes");
+		if(rows!=null&&rows.length>0){
+			$.messager.confirm({
+				title: '提示',
+				msg: '是否删除',
+				fn: function(flag){
+					if(flag){
+						var ids = [];
+						//循环放入选中行的id
+						for(var i=0;i<rows.length;i++){
+							var row = rows[i];
+							ids.push(row.id);
+						}
+						
+						$.ajax({
+				    		url:"courseSystemRest/deleteByIds",
+				    		type:"post",
+				    		data:{
+				    			"ids":ids.join()
+				    		},
+				    		async:true,
+				    		dataType:"json",
+				    		success:function(dto){
+				    			$.messager.alert('提示',dto.msg);
+				    			$("#datagrid").treegrid("reload");
+				    		}
+				    	});
+					}
+				}
+			});
+		}else{
+			$.messager.alert('提示',"至少选择一条");
+		}
+    } 
+});
+
+$(function(){
+	//选择课程体系后显示课程体系阶段
+	$('#addCourseTypeDialog .courseSystemId').combobox({
+		onChange: function(newValue,oldValue){
+			$('.stageId').combobox({
+			    url:'courseSystemRest/getStage?po.id='+newValue,
+			    valueField:'id',
+			    textField:'courseSystemName',
+			    panelHeight:"auto",
+			    panelMaxHeight:"200"
+			});
+		}
+	});
+	
+	//创建阶段课程
+	$('#addCourseTypeDialog').dialog({
+	    title: '创建阶段课程',
+	    width: 1000,
+	    height: 400,
+	    closed: true,
+	    modal: true,
+	    buttons:[{
+			text:'提交',
+			handler:function(){
+				if(validate("addCourseTypeDialog form")){
+					$.ajax({
+						url:"courseSystemRest/saveCourseType",
+						type:"post",
+						data:$("#addCourseTypeDialog form").serialize(),
+						async:true,
+						dataType:"json",
+						success:function(dto){
+							$.messager.alert('提示',dto.msg);
+							$('#addCourseTypeDialog').dialog("close");
+							$('#addCourseTypeDialog form').form('reset');
+							$("#datagrid").treegrid("reload");
+						}
+					});
+				}
+			}
+		},{
+			text:'重置',
+			handler:function(){
+				$('#addCourseTypeDialog form').form('reset');
+			}
+		}]
+	});
+});
+
+$(function(){
+	//获取课程体系
+	$('.courseSystemId').combobox({
+	    url:'courseSystemRest/getCourseSystems',
+	    valueField:'id',
+	    textField:'courseSystemName',
+	    panelHeight:"auto",
+	    panelMaxHeight:"200"
+	});
+	
+	$('.stageNumber').combobox({
+	    valueField:'value',
+	    textField:'label',
+	    panelHeight:"auto",
+	    panelMaxHeight:"200",
+	    data: [{
+			label: '第一阶段',
+			value: '第一阶段'
+		},{
+			label: '第二阶段',
+			value: '第二阶段'
+		},{
+			label: '第三阶段',
+			value: '第三阶段'
+		},{
+			label: '第四阶段',
+			value: '第四阶段'
+		},{
+			label: '第五阶段',
+			value: '第五阶段'
+		},{
+			label: '第六阶段',
+			value: '第六阶段'
+		},{
+			label: '第七阶段',
+			value: '第七阶段'
+		},{
+			label: '第八阶段',
+			value: '第八阶段'
+		},{
+			label: '第九阶段',
+			value: '第九阶段'
+		},{
+			label: '第十阶段',
+			value: '第十阶段'
+		},{
+			label: '第十一阶段',
+			value: '第十一阶段'
+		},{
+			label: '第十二阶段',
+			value: '第十二阶段'
+		}]
+	});
+	
+	//创建体系阶段
+	$('#addStageDialog').dialog({
+	    title: '创建体系阶段',
+	    width: 1000,
+	    height: 400,
+	    closed: true,
+	    modal: true,
+	    buttons:[{
+			text:'提交',
+			handler:function(){
+				if(validate("addStageDialog form")){
+					$.ajax({
+						url:"courseSystemRest/saveStage",
+						type:"post",
+						data:$("#addStageDialog form").serialize(),
+						async:true,
+						dataType:"json",
+						success:function(dto){
+							$.messager.alert('提示',dto.msg);
+							$('#addStageDialog').dialog("close");
+							$('#addStageDialog form').form('reset');
+							$("#datagrid").treegrid("reload");
+						}
+					});
+				}
+			}
+		},{
+			text:'重置',
+			handler:function(){
+				$('#addStageDialog form').form('reset');
+			}
+		}]
+	});
+});
+
+//创建课程体系
+$(function(){
+	$('#addDialog').dialog({
+	    title: '创建课程体系',
+	    width: 1000,
+	    height: 400,
+	    closed: true,
+	    modal: true,
+	    buttons:[{
+			text:'提交',
+			handler:function(){
+				if(validate("addDialog form")){
+					$.ajax({
+						url:"courseSystemRest/saveOrUpdate",
+						type:"post",
+						data:$("#addDialog form").serialize(),
+						async:true,
+						dataType:"json",
+						success:function(dto){
+							$.messager.alert('提示',dto.msg);
+							$('#addDialog').dialog("close");
+							$('#addDialog form').form('reset');
+							$("#datagrid").treegrid("reload");
+						}
+					});
+				}
+			}
+		},{
+			text:'重置',
+			handler:function(){
+				$('#addDialog form').form('reset');
+			}
+		}]
+	});
+	
+	//图片上传
+	$('#uploadImg').dialog({
+	    title: '上传图片',
+	    width: 300,
+	    height: 150,
+	    closed: true,
+	    cache: false,
+	    modal: true,
+	    buttons:[{
+			text:'上传',
+			iconCls:'icon-ok',
+			handler:function(){
+				uploadFile();
+			}
+		}]
+	});
+});
+

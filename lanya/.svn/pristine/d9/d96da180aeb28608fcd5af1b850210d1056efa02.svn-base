@@ -1,0 +1,7 @@
+document.getElementById("nickName").addEventListener('tap', function(e) {
+	e.detail.gesture.preventDefault(); //修复iOS 8.x平台存在的bug，使用plus.nativeUI.prompt会造成输入法闪一下又没了
+	var btnArray = ['取消', '保存'];
+	mui.prompt('', '爱知', '修改昵称', btnArray, function(e) {
+		
+	})
+});

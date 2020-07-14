@@ -1,0 +1,118 @@
+package com.nwl.lanya.dto;
+
+import java.util.List;
+
+import com.nwl.lanya.po.Account;
+import com.nwl.lanya.po.Hr;
+import com.nwl.lanya.po.Student;
+import com.nwl.lanya.po.SysRight;
+import com.nwl.lanya.po.Teacher;
+
+public class AccountDto extends AbstractBaseDto<Account>{
+
+	/** 
+	* @Fields serialVersionUID : TODO(用一句话描述这个变量表示什么) 
+	*/ 
+	private static final long serialVersionUID = -6957650836397689095L;
+	
+	//注册用
+	private String phone;
+	private String confirmPwd;
+	
+	//登录用
+	private String accountCode;
+	private String pwd;
+	private String salt;
+	private Account account;
+	
+	//账号分配角色
+	private Integer[] accountIds;
+	private Integer[] roleIds;
+	private String roleNames;
+	
+	//获取账户信息用
+	private List<SysRight> sysRights;
+	private Teacher teacher;
+	private Student student;
+	private Hr hr;
+	
+	public List<SysRight> getSysRights() {
+		return sysRights;
+	}
+	public void setSysRights(List<SysRight> sysRights) {
+		this.sysRights = sysRights;
+	}
+	public Teacher getTeacher() {
+		return teacher;
+	}
+	public void setTeacher(Teacher teacher) {
+		this.teacher = teacher;
+	}
+	public Student getStudent() {
+		return student;
+	}
+	public void setStudent(Student student) {
+		this.student = student;
+	}
+	public Hr getHr() {
+		return hr;
+	}
+	public void setHr(Hr hr) {
+		this.hr = hr;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public String getConfirmPwd() {
+		return confirmPwd;
+	}
+	public void setConfirmPwd(String confirmPwd) {
+		this.confirmPwd = confirmPwd;
+	}
+	public String getSalt() {
+		return salt;
+	}
+	public void setSalt(String salt) {
+		this.salt = salt;
+	}
+	public Account getAccount() {
+		return account;
+	}
+	public void setAccount(Account account) {
+		this.account = account;
+	}
+	public String getAccountCode() {
+		return accountCode;
+	}
+	public void setAccountCode(String accountCode) {
+		this.accountCode = accountCode;
+	}
+	public String getPwd() {
+		return pwd;
+	}
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+	public Integer[] getAccountIds() {
+		return accountIds;
+	}
+	public void setAccountIds(Integer[] accountIds) {
+		this.accountIds = accountIds;
+	}
+	public Integer[] getRoleIds() {
+		return roleIds;
+	}
+	public void setRoleIds(Integer[] roleIds) {
+		this.roleIds = roleIds;
+	}
+	public String getRoleNames() {
+		return roleNames;
+	}
+	public void setRoleNames(String roleNames) {
+		this.roleNames = roleNames;
+	}
+	
+}

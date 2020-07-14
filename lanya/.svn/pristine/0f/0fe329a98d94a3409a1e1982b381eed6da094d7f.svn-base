@@ -1,0 +1,30 @@
+package com.nwl.lanya.dao;
+
+import com.nwl.lanya.po.VideoAudio;
+import com.nwl.lanya.po.VideoAudioExample;
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
+
+public interface VideoAudioMapper {
+    long countByExample(VideoAudioExample example);
+
+    int deleteByExample(VideoAudioExample example);
+
+    int deleteByPrimaryKey(Integer id);
+
+    int insert(VideoAudio record);
+
+    int insertSelective(VideoAudio record);
+
+    List<VideoAudio> selectByExample(VideoAudioExample example);
+
+    VideoAudio selectByPrimaryKey(Integer id);
+
+    int updateByExampleSelective(@Param("record") VideoAudio record, @Param("example") VideoAudioExample example);
+
+    int updateByExample(@Param("record") VideoAudio record, @Param("example") VideoAudioExample example);
+
+    int updateByPrimaryKeySelective(VideoAudio record);
+
+    int updateByPrimaryKey(VideoAudio record);
+}

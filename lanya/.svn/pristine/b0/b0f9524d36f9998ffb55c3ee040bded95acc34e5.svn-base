@@ -1,0 +1,76 @@
+package com.nwl.lanya.po;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class SysRight {
+    private Integer id;
+    
+    private String text;
+
+    private String rightName;
+
+    private String rightCode;
+
+    private Integer parentId;
+
+    private String rightUrl;
+    
+    private List<SysRight> children = new ArrayList<SysRight>();
+    
+    public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
+	}
+
+	public List<SysRight> getChildren() {
+		return children;
+	}
+
+	public void setChildren(List<SysRight> children) {
+		this.children = children;
+	}
+
+	public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getRightName() {
+        return rightName;
+    }
+
+    public void setRightName(String rightName) {
+        this.rightName = rightName == null ? null : rightName.trim();
+    }
+
+    public String getRightCode() {
+        return rightCode;
+    }
+
+    public void setRightCode(String rightCode) {
+        this.rightCode = rightCode == null ? null : rightCode.trim();
+    }
+
+    public Integer getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(Integer parentId) {
+        this.parentId = parentId;
+    }
+
+    public String getRightUrl() {
+        return rightUrl;
+    }
+
+    public void setRightUrl(String rightUrl) {
+        this.rightUrl = rightUrl == null ? null : rightUrl.trim();
+    }
+}

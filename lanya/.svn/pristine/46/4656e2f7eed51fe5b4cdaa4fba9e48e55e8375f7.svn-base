@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="../"/>
+	<meta charset="utf-8" />
+	<title>蓝芽-帮助您职业技能成长</title>
+	<!-- start: Favicon -->
+	<link rel="shortcut icon" href="img/logo.jpg">
+	<!-- end: Favicon -->
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="css/phone/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/phone/icons-extra.css"/>
+    <link rel="stylesheet" href="css/phone/common.css"/>
+    <link rel="stylesheet" type="text/css" href="css/phone/learningPath.css"/>
+</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">课程体系</h1>
+		</header>
+		
+		<div id="learningPathInfo">
+			<div class="courseListInfoA">
+				<div id="attention">
+					<span class="mui-icon mui-icon-extra mui-icon-extra-heart-filled">收藏</span>
+				</div>
+				<div class="courseListInfoPhoto">
+					<img src="img/cbd.jpg"/>
+					<div>
+						java大数据工程师
+					</div>
+				</div>
+				<p class="courseInfoShow">这里显示文章摘要，让读者对文章内容有个粗略的概念...</p>
+			</div>
+		</div>
+		
+		<ul class="mui-table-view mui-table-view-chevron">
+			<li class="mui-table-view-cell mui-collapse"><a class="mui-navigate-right" href="#">第一阶段-入门</a>
+				<ul class="mui-table-view mui-table-view-chevron">
+					<li class="mui-table-view-cell"><a class="mui-navigate-right" href="phone/courseList.html">iOS</a>
+					</li>
+					<li class="mui-table-view-cell"><a class="mui-navigate-right" href="phone/courseList.html">Android</a>
+					</li>
+					<li class="mui-table-view-cell"><a class="mui-navigate-right" href="phone/courseList.html">HTML5</a>
+					</li>
+				</ul>
+			</li>
+			<li class="mui-table-view-cell mui-collapse"><a class="mui-navigate-right" href="#">第二阶段-javase</a>
+				<ul class="mui-table-view mui-table-view-chevron">
+					<li class="mui-table-view-cell"><a class="mui-navigate-right" href="#">PC方案</a>
+					</li>
+					<li class="mui-table-view-cell"><a class="mui-navigate-right" href="#">手机方案</a>
+					</li>
+					<li class="mui-table-view-cell"><a class="mui-navigate-right" href="#">TV方案</a>
+					</li>
+				</ul>
+			</li>
+			<li class="mui-table-view-cell mui-collapse"><a class="mui-navigate-right" href="#">第三阶段-javaee</a>
+				<ul class="mui-table-view mui-table-view-chevron">
+					<li class="mui-table-view-cell"><a class="mui-navigate-right" href="#">公司新闻</a>
+					</li>
+					<li class="mui-table-view-cell"><a class="mui-navigate-right" href="#">行业新闻</a>
+					</li>
+				</ul>
+			</li>
+			<li class="mui-table-view-cell mui-collapse"><a class="mui-navigate-right" href="#">第三阶段-javaee</a>
+				<ul class="mui-table-view mui-table-view-chevron">
+					<li class="mui-table-view-cell"><a class="mui-navigate-right" href="#">公司新闻</a>
+					</li>
+					<li class="mui-table-view-cell"><a class="mui-navigate-right" href="#">行业新闻</a>
+					</li>
+				</ul>
+			</li>
+			<li class="mui-table-view-cell mui-collapse"><a class="mui-navigate-right" href="#">第三阶段-javaee</a>
+				<ul class="mui-table-view mui-table-view-chevron">
+					<li class="mui-table-view-cell"><a class="mui-navigate-right" href="#">公司新闻</a>
+					</li>
+					<li class="mui-table-view-cell"><a class="mui-navigate-right" href="#">行业新闻</a>
+					</li>
+				</ul>
+			</li>
+			<li class="mui-table-view-cell mui-collapse"><a class="mui-navigate-right" href="#">第三阶段-javaee</a>
+				<ul class="mui-table-view mui-table-view-chevron">
+					<li class="mui-table-view-cell"><a class="mui-navigate-right" href="#">公司新闻</a>
+					</li>
+					<li class="mui-table-view-cell"><a class="mui-navigate-right" href="#">行业新闻</a>
+					</li>
+				</ul>
+			</li>
+			<li class="mui-table-view-cell mui-collapse"><a class="mui-navigate-right" href="#">第三阶段-javaee</a>
+				<ul class="mui-table-view mui-table-view-chevron">
+					<li class="mui-table-view-cell"><a class="mui-navigate-right" href="#">公司新闻</a>
+					</li>
+					<li class="mui-table-view-cell"><a class="mui-navigate-right" href="#">行业新闻</a>
+					</li>
+				</ul>
+			</li>
+			<li class="mui-table-view-cell mui-collapse"><a class="mui-navigate-right" href="#">第三阶段-javaee</a>
+				<ul class="mui-table-view mui-table-view-chevron">
+					<li class="mui-table-view-cell"><a class="mui-navigate-right" href="#">公司新闻</a>
+					</li>
+					<li class="mui-table-view-cell"><a class="mui-navigate-right" href="#">行业新闻</a>
+					</li>
+				</ul>
+			</li>
+			<li class="mui-table-view-cell mui-collapse"><a class="mui-navigate-right" href="#">第三阶段-javaee</a>
+				<ul class="mui-table-view mui-table-view-chevron">
+					<li class="mui-table-view-cell"><a class="mui-navigate-right" href="#">公司新闻</a>
+					</li>
+					<li class="mui-table-view-cell"><a class="mui-navigate-right" href="#">行业新闻</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		
+		
+		<script type="text/javascript" src="js/phone/jquery-3.3.1.min.js" ></script>
+	    <script type="text/javascript" src="js/phone/common.js"></script>
+	    <script src="js/phone/mui.min.js"></script>
+	    <script type="text/javascript" src="js/phone/learningPath.js"></script>
+	</body>
+</html>

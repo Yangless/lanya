@@ -1,0 +1,62 @@
+package com.nwl.lanya.dao;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
+import com.nwl.lanya.dto.CommentDto;
+import com.nwl.lanya.po.Comment;
+import com.nwl.lanya.po.CommentExample;
+import com.nwl.lanya.vo.CommentVo;
+
+public interface CommentMapper {
+	
+	/**
+	 * 
+	* @Title: list 
+	* @Description: 分页获取数据
+	* @param    
+	* @return List<Account>    
+	* @throws
+	 */
+	List<CommentVo> list(CommentDto dto);
+	Long countByLike(CommentDto dto);
+	
+	/**
+	 * 
+	* @Title: findById 
+	* @Description: 根据id获取评价详情
+	* @param    
+	* @return CommentVo    
+	* @throws
+	 */
+	CommentVo findById(CommentDto dto);
+	
+    long countByExample(CommentExample example);
+
+    int deleteByExample(CommentExample example);
+
+    int deleteByPrimaryKey(Integer id);
+
+    int insert(Comment record);
+
+    int insertSelective(Comment record);
+
+    List<Comment> selectByExampleWithBLOBs(CommentExample example);
+
+    List<Comment> selectByExample(CommentExample example);
+
+    Comment selectByPrimaryKey(Integer id);
+
+    int updateByExampleSelective(@Param("record") Comment record, @Param("example") CommentExample example);
+
+    int updateByExampleWithBLOBs(@Param("record") Comment record, @Param("example") CommentExample example);
+
+    int updateByExample(@Param("record") Comment record, @Param("example") CommentExample example);
+
+    int updateByPrimaryKeySelective(Comment record);
+
+    int updateByPrimaryKeyWithBLOBs(Comment record);
+
+    int updateByPrimaryKey(Comment record);
+}

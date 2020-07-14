@@ -1,0 +1,14 @@
+$(function(){
+	$('.starDiv').raty({readOnly:true,score:4});
+	
+	$("#menuUl li").click(function(){
+		$(this).addClass("active").siblings().removeClass("active");
+		$(this).parent().nextAll().hide();
+		var idName = $(this).attr("id");
+		$("#"+idName+"Div").show();
+	});
+	
+	$(".courseListClass div").click(function(){
+		window.open("html/courseVideo.html");
+	});
+});

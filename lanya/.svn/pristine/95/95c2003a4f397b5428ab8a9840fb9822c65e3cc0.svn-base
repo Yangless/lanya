@@ -1,0 +1,30 @@
+package com.nwl.lanya.dao;
+
+import com.nwl.lanya.po.MyWork;
+import com.nwl.lanya.po.MyWorkExample;
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
+
+public interface MyWorkMapper {
+    long countByExample(MyWorkExample example);
+
+    int deleteByExample(MyWorkExample example);
+
+    int deleteByPrimaryKey(Integer id);
+
+    int insert(MyWork record);
+
+    int insertSelective(MyWork record);
+
+    List<MyWork> selectByExample(MyWorkExample example);
+
+    MyWork selectByPrimaryKey(Integer id);
+
+    int updateByExampleSelective(@Param("record") MyWork record, @Param("example") MyWorkExample example);
+
+    int updateByExample(@Param("record") MyWork record, @Param("example") MyWorkExample example);
+
+    int updateByPrimaryKeySelective(MyWork record);
+
+    int updateByPrimaryKey(MyWork record);
+}

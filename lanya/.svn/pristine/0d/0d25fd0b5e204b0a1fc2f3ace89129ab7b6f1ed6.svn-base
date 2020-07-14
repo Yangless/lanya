@@ -1,0 +1,12 @@
+package com.nwl.lanya.service;
+
+import com.nwl.lanya.dto.VideoAudioDto;
+
+public interface VideoAudioService extends AbstractBaseService<VideoAudioDto>{
+
+	void updateUseAble(VideoAudioDto dto);
+	
+	void praiseNumber(VideoAudioDto dto);
+	
+	void getVideoAudio(VideoAudioDto dto);
+}

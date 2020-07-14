@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="../"/>
+	<meta charset="utf-8" />
+	<title>蓝芽-帮助您职业技能成长</title>
+	<!-- start: Favicon -->
+	<link rel="shortcut icon" href="img/logo.jpg">
+	<!-- end: Favicon -->
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="css/phone/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/phone/icons-extra.css"/>
+    <link rel="stylesheet" href="css/phone/common.css"/>
+    <link rel="stylesheet" type="text/css" href="css/phone/index.css"/>
+</head>
+<body>
+	
+		<div id="contentDiv" class="mui-content">
+			<div id="tabbar" class="mui-control-content mui-active">
+				<div id="navDiv" class="logDiv">
+					<div>
+						<img id="logoBtn" src="img/logo.jpg"/>
+					</div>
+					<div id="navDivInput">
+						<span>蓝芽智慧</span>
+						<div class="mui-input-row mui-search">
+							<input type="search" class="mui-input-clear" placeholder="视频、完整课程、课程体系、老师、工作"/>
+						</div>
+						<button type="button" id="soundSearch"><span class="mui-icon mui-icon-mic"></span></button>
+					</div>
+				</div>
+				<div id="introDiv">
+					<div class="mui-card">
+						<video width="100%" class="mui-card-header mui-card-media" poster="img/muwu.jpg" controls="controls">
+							<source src="img/1.mp4"></source>
+						</video>
+						<div class="mui-card-content">
+							<div class="mui-card-content-inner">
+								<p style="color: #333;">这里显示文章摘要，让读者对文章内容有个粗略的概念...</p>
+							</div>
+						</div>
+						<div class="mui-card-footer">
+							<a href="html/teacherInfo.html" class="mui-card-link"><span class="mui-icon mui-icon-contact-filled"></span></a>
+							<a class="mui-card-link"><span class="mui-icon mui-icon-extra mui-icon-extra-heart-filled"></span></a>
+							<a class="mui-card-link"><span class="mui-icon-extra mui-icon-extra-like"></span><span class="numberSpan">18</span></a>
+							<a href="html/videoInfo.html" class="mui-card-link"><span class="mui-icon mui-icon-chatbubble-filled"></span><span class="numberSpan">199</span></a>
+							<a href="#share" class="mui-card-link" id="menuShow"><span class="mui-icon mui-icon-bars"></span></a>
+						</div>
+					</div>
+					<div class="mui-card">
+						<video width="100%" class="mui-card-header mui-card-media" poster="img/muwu.jpg" controls="controls">
+							<source src="img/1.mp4"></source>
+						</video>
+						<div class="mui-card-content">
+							<div class="mui-card-content-inner">
+								<p style="color: #333;">这里显示文章摘要，让读者对文章内容有个粗略的概念...</p>
+							</div>
+						</div>
+						<div class="mui-card-footer">
+							<a href="html/teacherInfo.html" class="mui-card-link"><span class="mui-icon mui-icon-contact-filled"></span></a>
+							<a class="mui-card-link"><span class="mui-icon mui-icon-extra mui-icon-extra-heart-filled"></span></a>
+							<a class="mui-card-link"><span class="mui-icon-extra mui-icon-extra-like"></span><span class="numberSpan">18</span></a>
+							<a href="html/videoInfo.html" class="mui-card-link"><span class="mui-icon mui-icon-chatbubble-filled"></span><span class="numberSpan">199</span></a>
+							<a href="#share" class="mui-card-link" id="menuShow"><span class="mui-icon mui-icon-bars"></span></a>
+						</div>
+					</div>
+					<div class="mui-card">
+						<video width="100%" class="mui-card-header mui-card-media" poster="img/muwu.jpg" controls="controls">
+							<source src="img/1.mp4"></source>
+						</video>
+						<div class="mui-card-content">
+							<div class="mui-card-content-inner">
+								<p style="color: #333;">这里显示文章摘要，让读者对文章内容有个粗略的概念...</p>
+							</div>
+						</div>
+						<div class="mui-card-footer">
+							<a href="html/teacherInfo.html" class="mui-card-link"><span class="mui-icon mui-icon-contact-filled"></span></a>
+							<a class="mui-card-link"><span class="mui-icon mui-icon-extra mui-icon-extra-heart-filled"></span></a>
+							<a class="mui-card-link"><span class="mui-icon-extra mui-icon-extra-like"></span><span class="numberSpan">18</span></a>
+							<a href="html/videoInfo.html" class="mui-card-link"><span class="mui-icon mui-icon-chatbubble-filled"></span><span class="numberSpan">199</span></a>
+							<a href="#share" class="mui-card-link" id="menuShow"><span class="mui-icon mui-icon-bars"></span></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="tabbar-with-chat" class="mui-control-content">
+				<div id="slider" class="mui-slider">
+					<div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+						<a class="mui-control-item" href="#item1mobile">
+							<span>学习路径</span>
+						</a>
+						<a class="mui-control-item" href="#item2mobile">
+							<span>完整课程</span>
+						</a>
+						<a class="mui-control-item" href="#item3mobile">
+							<span>短视频/音频</span>
+						</a>
+						<a class="mui-control-item" href="#item4mobile">
+							<span>线下学习</span>
+						</a>
+					</div>
+					<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-3"></div>
+					<div class="mui-slider-group">
+						<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+						    <ul class="mui-table-view mui-grid-view">
+								<div class="itemClass">
+								    <div class="titleClass">
+										已收藏的课程体系
+									</div>
+									<div class="contentClass">
+										<li class="mui-table-view-cell mui-media mui-col-xs-6">
+								            <a href="html/learningPath.html">
+								            	<div class="itemShowClass">
+								            		<span class="closeClass mui-icon mui-icon-close"></span>
+									            	<span class="mui-icon-extra mui-icon-extra-topic"></span>
+									            	<div class="itemShowInfoClass">
+										            	<span>java全栈工程师</span>
+									                    <div>
+									                    	&nbsp;
+									                    </div>
+								                    </div>
+								                </div>
+								            </a>
+								        </li>
+								        <li class="mui-table-view-cell mui-media mui-col-xs-6">
+								            <a href="html/learningPath.html">
+									            <div class="itemShowClass">
+									            	<span class="closeClass mui-icon mui-icon-close"></span>
+									            	<span class="mui-icon-extra mui-icon-extra-topic"></span>
+									            	<div class="itemShowInfoClass">
+										            	<span>java大数据工程师</span>
+									                    <div>
+									                    	&nbsp;
+									                    </div>
+								                    </div>
+								                </div>
+								            </a>
+								        </li>
+								        <li class="mui-table-view-cell mui-media mui-col-xs-6">
+								            <a href="html/learningPath.html">
+									            <div class="itemShowClass">
+									            	<span class="closeClass mui-icon mui-icon-close"></span>
+									            	<span class="mui-icon-extra mui-icon-extra-topic"></span>
+									            	<div class="itemShowInfoClass">
+										            	<span>人工智能工程师</span>
+									                    <div>
+									                    	&nbsp;
+									                    </div>
+								                    </div>
+								                </div>
+								            </a>
+								        </li>
+								        <li class="mui-table-view-cell mui-media mui-col-xs-6">
+								            <a href="html/learningPath.html">
+									            <div class="itemShowClass">
+									            	<span class="closeClass mui-icon mui-icon-close"></span>
+									            	<span class="mui-icon-extra mui-icon-extra-topic"></span>
+									            	<div class="itemShowInfoClass">
+										            	<span>性能测试工程师</span>
+									                    <div>
+									                    	&nbsp;
+									                    </div>
+								                    </div>
+								                </div>
+								            </a>
+								        </li>
+								        <li class="mui-table-view-cell mui-media mui-col-xs-6">
+								            <a href="html/search.html">
+								                <div class="itemShowClassLast">
+								                	+
+								                </div>
+								            </a>
+								        </li>
+									</div>
+						        </div>
+					        </ul>
+						</div>
+						<div id="item2mobile" class="mui-slider-item mui-control-content">
+							<ul class="mui-table-view mui-grid-view">
+								<div class="itemClass">
+									<div class="titleClass">
+										已收藏的单套课程
+									</div>
+							        <div class="contentClass">
+										<li class="mui-table-view-cell mui-media mui-col-xs-6">
+								            <a href="html/courseList.html">
+									            <div class="itemShowClass">
+									            	<span class="closeClass mui-icon mui-icon-close"></span>
+									            	<span class="mui-icon-extra mui-icon-extra-university"></span>
+									            	<div class="itemShowInfoClass">
+										            	<span>java</span>
+									                    <div>
+									                    	讲师:<span>聂文来</span>
+									                    </div>
+								                    </div>
+								                </div>
+								            </a>
+								        </li>
+								        <li class="mui-table-view-cell mui-media mui-col-xs-6">
+								            <a href="html/courseList.html">
+									            <div class="itemShowClass">
+									            	<span class="closeClass mui-icon mui-icon-close"></span>
+									            	<span class="mui-icon-extra mui-icon-extra-university"></span>
+								                    <div class="itemShowInfoClass">
+										            	<span>mysql</span>
+									                    <div>
+									                    	讲师:<span>聂文来</span>
+									                    </div>
+								                    </div>
+									            </div>
+								            </a>
+								        </li>
+								        <li class="mui-table-view-cell mui-media mui-col-xs-6">
+								            <a href="html/courseList.html">
+									            <div class="itemShowClass">
+									            	<span class="closeClass mui-icon mui-icon-close"></span>
+									            	<span class="mui-icon-extra mui-icon-extra-university"></span>
+								                    <div class="itemShowInfoClass">
+										            	<span>pythod</span>
+									                    <div>
+									                    	讲师:<span>聂文来</span>
+									                    </div>
+								                    </div>
+									            </div>
+								            </a>
+								        </li>
+								        <li class="mui-table-view-cell mui-media mui-col-xs-6">
+								            <a href="html/search.html">
+								                <div class="itemShowClassLast">
+								                	+
+								                </div>
+								            </a>
+								        </li>
+									</div>
+								</div>	
+							</ul>
+						</div>
+						<div id="item3mobile" class="mui-slider-item mui-control-content">
+							<ul class="mui-table-view mui-grid-view">
+								<div class="itemClass">
+								    <div class="titleClass">
+										已收藏的单个视频/音频
+									</div>
+									<div class="contentClass">
+										<li class="mui-table-view-cell mui-media mui-col-xs-6">
+								            <a href="html/videoInfo.html">
+									            <div class="itemShowClass">
+									            	<span class="closeClass mui-icon mui-icon-close"></span>
+									            	<span class="mui-icon mui-icon-person"></span>
+								                    <div class="itemShowInfoClass">
+										            	<span>聂文来</span>
+									                    <div>
+									                    	机构:<span>天码启航</span>
+									                    </div>
+								                    </div>
+									            </div>
+								            </a>
+								        </li>
+								        <li class="mui-table-view-cell mui-media mui-col-xs-6">
+								            <a href="html/videoInfo.html">
+									            <div class="itemShowClass">
+									            	<span class="closeClass mui-icon mui-icon-close"></span>
+									            	<span class="mui-icon mui-icon-person"></span>
+								                    <div class="itemShowInfoClass">
+										            	<span>齐俊杰</span>
+									                    <div>
+									                    	机构:<span>无</span>
+									                    </div>
+								                    </div>
+									            </div>
+								            </a>
+								        </li>
+								        <li class="mui-table-view-cell mui-media mui-col-xs-6">
+								            <a href="html/search.html">
+								                <div class="itemShowClassLast">
+								                	+
+								                </div>
+								            </a>
+								        </li>
+									</div>
+						        </div>
+							</ul>
+						</div>
+						<div id="item4mobile" class="mui-slider-item mui-control-content">
+							<ul class="mui-table-view mui-grid-view">
+								<div class="itemClass">
+								    <div class="titleClass">
+										推荐的教育机构
+									</div>
+									<div class="contentClass">
+										<li class="mui-table-view-cell mui-media mui-col-xs-6">
+								            <a href="html/school.html">
+									            <div class="itemShowClass">
+									            	<span class="closeClass mui-icon mui-icon-close"></span>
+									            	<span class="mui-icon-extra mui-icon-extra-hotel"></span>
+								                    <div class="itemShowInfoClass">
+										            	<span>天码启航</span>
+									                    <div>
+									                    	电话:<span>15108359685</span>
+									                    </div>
+								                    </div>
+									            </div>
+								            </a>
+								        </li>
+									</div>
+						        </div>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="tabbar-with-contact" class="mui-control-content">
+				<ul class="mui-table-view mui-grid-view">
+					<div class="itemClass">
+					    <div class="titleClass">
+							问道-<span class="showAd">求师问道</span>
+						</div>
+						<div class="contentClass">
+				            <div class="contactClass itemShowClass">
+				            	<a href="html/studentTalk.html">
+					            	<span class="closeClass mui-icon mui-icon-close"></span>
+				                    <div>
+			                    		<span class="mui-icon mui-icon-person"></span><span>聂文来</span>
+			                    	</div>
+			                    	<div>
+			                    		一个为人民币服务的教师
+			                    	</div>
+				                    <div>
+				                    	地址:<span class="infoSpan">成都市武侯区天益街38号</span><span class="mui-icon mui-icon-location"></span>
+				                    </div>
+			                    </a>
+				            </div>
+				            <div class="contactClass itemShowClass">
+				            	<a href="html/studentTalk.html">
+					            	<span class="closeClass mui-icon mui-icon-close"></span>
+				                    <div>
+			                    		<span class="mui-icon mui-icon-person"></span><span>黄英</span>
+			                    	</div>
+			                    	<div>
+			                    		小逗逼一枚
+			                    	</div>
+				                    <div>
+				                    	地址:<span class="infoSpan">成都市武侯区天益街38号</span><span class="mui-icon mui-icon-location"></span>
+				                    </div>
+				                </a>    
+				            </div>
+						</div>
+			        </div>
+			        <div class="itemClass">
+					    <div class="titleClass">
+							部落-<span class="showAd">推荐志同道合的朋友</span>
+						</div>
+						<div class="contentClass">
+				            <div class="contactClass itemShowClass">
+				            	<a href="html/tribeTalk.html">
+					            	<span class="closeClass mui-icon mui-icon-close"></span>
+							        <span class="mui-icon-extra mui-icon-extra-holiday"></span>
+				                    <div class="itemShowInfoClass">
+						            	<span>测试工程师交流群</span>
+					                    <div>
+					                    	标签:<span>有趣、有料、好吃、好玩</span>
+					                    </div>
+				                    </div>
+			                    </a>
+				            </div>
+				            <div class="contactClass itemShowClass">
+				            	<a href="html/tribeTalk.html">
+					            	<span class="closeClass mui-icon mui-icon-close"></span>
+					            	<span class="mui-icon-extra mui-icon-extra-holiday"></span>
+				                    <div class="itemShowInfoClass">
+						            	<span>java大数据交流群</span>
+					                    <div>
+					                    	标签:<span>有趣、有料、好吃、好玩</span>
+					                    </div>
+				                    </div>
+			                    </a>
+				            </div>
+						</div>
+			        </div>
+			        <div class="itemClass">
+					    <div class="titleClass">
+							HR联盟-<span class="showAd">推荐最合适您的工作</span>
+						</div>
+						<div class="contentClass">
+				            <div class="contactClass itemShowClass">
+				            	<a href="html/recruitTalk.html">
+					            	<span class="closeClass mui-icon mui-icon-close"></span>
+				                    <div>
+			                    		<span class="mui-icon mui-icon-person"></span><span>杨海英</span>
+			                    	</div>
+			                    	<div>
+			                    		常年招聘java、php、c#
+			                    	</div>
+				                    <div>
+				                    	地址:<span class="infoSpan">成都市武侯区天益街38号</span><span class="mui-icon mui-icon-location"></span>
+				                    </div>
+				                </a>    
+				            </div>
+				            <div class="contactClass itemShowClass">
+				            	<a href="html/recruitTalk.html">
+					            	<span class="closeClass mui-icon mui-icon-close"></span>
+				                    <div>
+			                    		<span class="mui-icon mui-icon-person"></span><span>杨家将</span>
+			                    	</div>
+			                    	<div>
+			                    		急需对日外包，日语2n优先
+			                    	</div>
+				                    <div>
+				                    	地址:<span class="infoSpan">成都市武侯区天益街38号</span><span class="mui-icon mui-icon-location"></span>
+				                    </div>
+				                </a>    
+				            </div>
+						</div>
+			        </div>
+			    </ul>    
+			</div>
+			<div id="tabbar-with-map" class="mui-control-content">
+			    <div id="userInfo">
+					<img src="img/muwu.jpg">
+					<p>张建军</p>		
+				</div>
+				
+				<ul class="mui-table-view">
+				    <li class="mui-table-view-cell">
+				        <a href="html/personCenter.html" class="mui-navigate-right">
+				           <span class="mui-icon mui-icon-person"></span>
+				           <span class="mui-badge" style="background: none;color:#26A0DA;">已实名认证</span>
+				           <span>个人中心</span>
+				        </a>
+				    </li>
+				    <li class="mui-table-view-cell">
+				        <a href="html/shareClass.html" class="mui-navigate-right">
+				           <span class="mui-icon mui-icon-videocam"></span>
+				           <span>课程分享</span>
+				        </a>
+				    </li>
+				</ul>
+				
+				<ul class="mui-table-view">
+				    <li class="mui-table-view-cell">
+				        <a href="html/studentTalk.html" class="mui-navigate-right">
+				           <span class="mui-icon-extra mui-icon-extra-university"></span>
+				           <span>我的学生</span>
+				        </a>
+				    </li>
+				    <li class="mui-table-view-cell">
+				        <a href="html/tribeList.html" class="mui-navigate-right">
+				           <span class="mui-icon-extra mui-icon-extra-holiday"></span>
+				           <span>创建部落</span>
+				        </a>
+				    </li>
+				    <li class="mui-table-view-cell">
+				        <a href="html/recruitList.html" class="mui-navigate-right">
+				           <span class="mui-icon-extra mui-icon-extra-peoples"></span>
+				           <span>我要招人</span>
+				        </a>
+				    </li>
+				    <li class="mui-table-view-cell">
+				        <a href="html/system.html" class="mui-navigate-right">
+				           <span class="mui-icon mui-icon-gear"></span>
+				           <span>系统相关</span>
+				        </a>
+				    </li>
+				</ul>
+				
+				<ul class="mui-table-view">
+				    <li class="mui-table-view-cell">
+			            <span class="mui-icon-extra mui-icon-extra-custom"></span>
+			            <span>关于我们</span>
+				    </li>
+				</ul>
+			</div>
+		</div>
+		
+	    <!--底部菜单-->
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item mui-active" href="#tabbar">
+				<span class="mui-icon mui-icon-eye"></span>
+				<span class="mui-tab-label">推荐</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-chat">
+				<span class="mui-icon mui-icon-extra mui-icon-extra-heart-filled"></span>
+				<span class="mui-tab-label">收藏</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-contact">
+				<span class="mui-icon mui-icon-weixin"></span>
+				<span class="mui-tab-label">交流</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-map">
+				<span class="mui-icon mui-icon mui-icon-contact"></span>
+				<span class="mui-tab-label">我</span>
+			</a>
+		</nav>
+		
+		<div id="share" class="mui-popover mui-popover-action mui-popover-bottom">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a>分享到QQ</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a>分享到微信</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a>朕不喜欢</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a><b>取消</b></a>
+				</li>
+			</ul>
+		</div>
+		
+	<script type="text/javascript" src="js/phone/jquery-3.3.1.min.js" ></script>
+    <script type="text/javascript" src="js/phone/common.js"></script>
+    <script src="js/phone/mui.min.js"></script>
+	<script type="text/javascript" src="js/phone/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+package com.nwl.lanya.po;
+
+import java.util.Date;
+
+public class Comment {
+    private Integer id;
+
+    private Integer accountId;
+
+    private Integer teacherId;
+
+    private String videoAudioId;
+
+    private Integer commentPraiseNumber;
+
+    private Integer replyNumber;
+
+    private Date commentTime;
+
+    private Integer parentId;
+
+    private Integer useAble;
+
+    private String content;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(Integer accountId) {
+        this.accountId = accountId;
+    }
+
+    public Integer getTeacherId() {
+        return teacherId;
+    }
+
+    public void setTeacherId(Integer teacherId) {
+        this.teacherId = teacherId;
+    }
+
+    public String getVideoAudioId() {
+        return videoAudioId;
+    }
+
+    public void setVideoAudioId(String videoAudioId) {
+        this.videoAudioId = videoAudioId == null ? null : videoAudioId.trim();
+    }
+
+    public Integer getCommentPraiseNumber() {
+        return commentPraiseNumber;
+    }
+
+    public void setCommentPraiseNumber(Integer commentPraiseNumber) {
+        this.commentPraiseNumber = commentPraiseNumber;
+    }
+
+    public Integer getReplyNumber() {
+        return replyNumber;
+    }
+
+    public void setReplyNumber(Integer replyNumber) {
+        this.replyNumber = replyNumber;
+    }
+
+    public Date getCommentTime() {
+        return commentTime;
+    }
+
+    public void setCommentTime(Date commentTime) {
+        this.commentTime = commentTime;
+    }
+
+    public Integer getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(Integer parentId) {
+        this.parentId = parentId;
+    }
+
+    public Integer getUseAble() {
+        return useAble;
+    }
+
+    public void setUseAble(Integer useAble) {
+        this.useAble = useAble;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content == null ? null : content.trim();
+    }
+}

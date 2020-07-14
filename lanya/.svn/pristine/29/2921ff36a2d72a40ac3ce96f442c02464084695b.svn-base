@@ -1,0 +1,135 @@
+//定义全局变量
+lanya.replyComment={
+	"page":1,
+	"rows":5
+};
+
+$$(function(){
+	
+	//判断信息是否已经缓存
+	if(isEmpty(window.localStorage.getItem("replyComment-parentId"))){
+
+	}else{
+		lanya.replyComment.parentId = window.localStorage.getItem("replyComment-parentId");
+	}
+	
+	//学生回复评论
+	document.getElementById("commentReply").addEventListener('tap', function(e) {
+		e.detail.gesture.preventDefault(); //修复iOS 8.x平台存在的bug，使用plus.nativeUI.prompt会造成输入法闪一下又没了
+		var btnArray = ['取消', '发表'];
+		mui.prompt('', '', '回复评论', btnArray, function(e) {
+			if (e.index == 1) {
+				lanya.replyComment.content = e.value;
+				//获取当前视频的videoAudioId
+				lanya.replyComment.videoAudioId = $$("#videoAudioId").val();
+				//获取当前用户的accountId
+				if(!isEmpty(window.localStorage.getItem("account"))){
+					var acccount = JSON.parse(window.localStorage.getItem("account"));
+					lanya.replyComment.accountId = acccount.id;
+				}
+				
+				$$.ajax({
+					url:"commentRest/saveOrUpdate",
+					type:"post",
+					data:lanya.replyComment,
+					dataType:"json",
+					success:function(dto){
+						var vo = dto.vo;
+						//根据评论数据显示评论信息
+						showCommentList(vo);
+					}
+				});
+			} else {
+				
+			}
+		});
+	});
+	
+	//获取当前评论
+	$$.ajax({
+		url:"commentRest/findById",
+		type:"post",
+		data:lanya.replyComment,
+		dataType:"json",
+		success:function(dto){
+			var row = dto.vo;
+			$$("#currentComment").prepend(
+					'<input id="videoAudioId" name="videoAudioId" type="hidden" value="'+row.videoAudioId+'"/>'+
+					'<div class="commentListClass row">'+
+					    '<input id="id" name="id" type="hidden" value="'+row.id+'"/>'+
+						'<div class="col-md-2">'+
+							'<dl>'+
+								'<dt><img class="teacherPhotoImg" src="'+row.photoUrl+'"/></dt>'+
+								'<dt>'+row.nickName+'</dt>'+
+							'</dl>'+
+							'<a onclick="commentPraiseNumber(this);" class="mui-card-link"><span class="mui-icon-extra mui-icon-extra-like"></span><span class="numberSpan">'+row.commentPraiseNumber+'</span></a>'+
+						'</div>'+
+						'<div class="col-md-7">'+
+							'<p class="commentP">'+
+							    row.content+
+							'</p>'+
+							'<p class="timeP">'+
+							    row.commentTime+
+							'</p>'+
+						'</div>'+
+						'<div class="col-md-3">'+
+						'</div>'+
+					'</div>'
+			);
+		}
+	});
+	
+	//获取当前视频评论的回复
+	getCommentList();
+	//点击加载更多
+	$$("#loadMore").click(function(){
+		lanya.replyComment.page++;
+		getCommentList();
+	});
+});
+
+//获取当前视频的评价
+function getCommentList(){
+	$$.ajax({
+		url:"commentRest/list",
+		type:"post",
+		data:lanya.replyComment,
+		dataType:"json",
+		success:function(pageModel){
+			var rows = pageModel.rows;
+			if(rows.length<=0){
+				$$("#loadMore").find("button").text("没有更多了");
+			}
+			for(var i=0;i<rows.length;i++){
+				var row = rows[i];
+				//根据评论数据显示评论信息
+				showCommentList(row);
+			}	
+		}
+	});
+}
+//根据评论数据显示评论信息
+function showCommentList(row){
+	$$("#commentListDetail").prepend(
+		'<div class="commentListClass row">'+
+		    '<input id="id" name="id" type="hidden" value="'+row.id+'"/>'+
+			'<div class="col-md-2">'+
+				'<dl>'+
+					'<dt><img class="teacherPhotoImg" src="'+row.photoUrl+'"/></dt>'+
+					'<dt>'+row.nickName+'</dt>'+
+				'</dl>'+
+				'<a onclick="commentPraiseNumber(this);" class="mui-card-link"><span class="mui-icon-extra mui-icon-extra-like"></span><span class="numberSpan">'+row.commentPraiseNumber+'</span></a>'+
+			'</div>'+
+			'<div class="col-md-7">'+
+				'<p class="commentP">'+
+				    row.content+
+				'</p>'+
+				'<p class="timeP">'+
+				    row.commentTime+
+				'</p>'+
+			'</div>'+
+			'<div class="col-md-3">'+
+			'</div>'+
+		'</div>'
+	);
+}

@@ -1,0 +1,55 @@
+package com.nwl.lanya.dao;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
+import com.nwl.lanya.dto.AccountDto;
+import com.nwl.lanya.dto.SysRightDto;
+import com.nwl.lanya.po.SysRight;
+import com.nwl.lanya.po.SysRightExample;
+
+public interface SysRightMapper {
+	
+	/**
+	 * 
+	* @Title: getRoots 
+	* @Description: 获取并返回所有根节点 
+	* @param    
+	* @return List<SysRight>    
+	* @throws
+	 */
+	List<SysRight> getRoots(SysRightDto dto);
+	
+	/**
+	 * 
+	* @Title: getSysRightList 
+	* @Description: 根据账号id获取权限
+	* @param    
+	* @return List<SysRight>    
+	* @throws
+	 */
+	List<SysRight> getSysRightList(AccountDto dto);
+	
+    long countByExample(SysRightExample example);
+
+    int deleteByExample(SysRightExample example);
+
+    int deleteByPrimaryKey(Integer id);
+
+    int insert(SysRight record);
+
+    int insertSelective(SysRight record);
+
+    List<SysRight> selectByExample(SysRightExample example);
+
+    SysRight selectByPrimaryKey(Integer id);
+
+    int updateByExampleSelective(@Param("record") SysRight record, @Param("example") SysRightExample example);
+
+    int updateByExample(@Param("record") SysRight record, @Param("example") SysRightExample example);
+
+    int updateByPrimaryKeySelective(SysRight record);
+
+    int updateByPrimaryKey(SysRight record);
+}

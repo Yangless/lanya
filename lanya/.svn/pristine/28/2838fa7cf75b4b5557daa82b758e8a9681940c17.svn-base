@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="../"/>
+	<meta charset="utf-8" />
+	<title>蓝芽-帮助您职业技能成长</title>
+	<!-- start: Favicon -->
+	<link rel="shortcut icon" href="img/logo.jpg">
+	<!-- end: Favicon -->
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="css/phone/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/phone/icons-extra.css"/>
+    <link rel="stylesheet" href="css/phone/common.css"/>
+    <link rel="stylesheet" type="text/css" href="css/phone/login.css"/>
+    
+    <script type="text/javascript" src="js/phone/jquery-3.3.1.min.js" ></script>
+    <script type="text/javascript" src="js/phone/common.js"></script>
+    <script src="js/phone/mui.min.js"></script>
+    <script type="text/javascript" src="js/phone/login.js"></script>
+</head>
+	<body>
+		
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">登录</h1>
+		</header>
+		
+		<div th:if="${flag}" id="logMessage">
+	         <span th:text="${message}"></span>   
+	    </div>
+		
+		<table class="contentTable">
+		    <tr>
+		        <td>
+		    		<p>
+					<img style="vertical-align: middle;margin-right: 10px;" width="30px" src="img/logo.jpg"/>蓝芽-帮助您职业技能成长
+				    </p>
+		    	</td>  
+		    </tr>
+		    <tr>
+		        <td>
+		    		<input id="pwd" name="pwd" type="password" class="mui-input-password" placeholder="请输入密码">
+		    	</td>  
+		    </tr>
+		    <tr>
+		    	<td>
+		    		<div id="loginBtn" class="mui-btn mui-btn-primary myBtn">
+						登录
+					</div>
+		    	</td>
+		    </tr>
+		</table>
+		
+	</body>
+</html>

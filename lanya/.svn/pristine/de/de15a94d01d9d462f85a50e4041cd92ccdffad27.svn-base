@@ -1,0 +1,37 @@
+$$(function(){
+	$$("#registerBtn").click(function(){
+		//判断是否已经输入手机号码
+		if(isEmpty(window.localStorage.getItem("registerPhone"))){
+			window.location.href="/phone/getPhone";
+		}
+		
+		if($$("#pwd").val()===$$("#confirmPwd").val()){
+			$$.ajax({
+				url:"accountRest/register",
+				type:"post",
+				data:{
+					"phone":window.localStorage.getItem("registerPhone"),
+					"pwd":$$("#pwd").val()
+				},
+				dataType:"json",
+				success:function(dto){
+					if(dto.msgCode==lanya.common.msgCode.REQUEST_SCCESS){
+						mui.alert(dto.msg, '', function() {
+							window.localStorage.setItem("phone",window.localStorage.getItem("registerPhone"));
+							localStorage.removeItem("registerPhone");
+							window.location.href="/phone/login";
+						});
+					}else{
+						mui.alert(dto.msg, '', function() {
+							
+						});
+					}
+				}
+			});
+		}else{
+			mui.alert("两次输入密码不一致", '', function() {
+				
+			});
+		}
+	});
+});

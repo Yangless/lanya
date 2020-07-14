@@ -1,0 +1,8 @@
+package com.nwl.lanya.service;
+
+import com.nwl.lanya.dto.SysRightDto;
+
+public interface SysRightService extends AbstractBaseService<SysRightDto>{
+
+	void getRoots(SysRightDto dto);
+}

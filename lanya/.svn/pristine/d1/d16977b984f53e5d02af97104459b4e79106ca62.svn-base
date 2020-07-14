@@ -1,0 +1,29 @@
+package com.nwl.lanya.service;
+
+import com.nwl.lanya.dto.AccountDto;
+
+public interface AccountService extends AbstractBaseService<AccountDto>{
+
+	void updateUseAble(AccountDto dto);
+	
+	/**
+	 * 
+	* @Title: saveAccountRole 
+	* @Description: 保存账号角色
+	* @param    
+	* @return AccountDto    
+	* @throws
+	 */
+	void saveAccountRole(AccountDto dto);
+	
+	/**
+	 * 
+	* @Title: login 
+	* @Description: 登录接口
+	* @param    
+	* @return void    
+	* @throws
+	 */
+	void login(AccountDto dto);
+	
+}

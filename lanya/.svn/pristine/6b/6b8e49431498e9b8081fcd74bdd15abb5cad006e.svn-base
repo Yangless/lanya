@@ -1,0 +1,93 @@
+$(function(){
+	$('#datagrid').datagrid({
+	    url:'accountRest/list',
+	    method:'post',
+	    fit:true,
+	    fitColumns:true,
+	    rownumbers:true,
+	    singleSelect:false,
+	    pagination:true,
+	    pageSize:30,
+	    columns:[[
+	    	{field:'ck',checkbox:true},
+	        {field:'accountCode',title:'账号',width:80},
+	        {field:'realName',title:'姓名',width:80},
+	        {field:'nickName',title:'昵称',width:80},
+	        {field:'sex',title:'性别',width:50},
+	        {field:'age',title:'年龄',width:50},
+	        {field:'phone',title:'手机',width:100},
+	        {field:'photoUrl',title:'头像',width:100,
+	        	formatter:function(value,row,index){
+                     return '';
+                }
+	        }
+	    ]],
+	    rowStyler:function(index,row){
+			if (row.useAble==0){
+				return 'background-color:red;color:black;';
+			}
+		},
+	    toolbar: [{
+			iconCls: 'icon-search',
+			text:"查询",
+			handler: function(){
+				$('#searchDialog').dialog('open');
+			}
+		},{
+			iconCls: 'icon-add',
+			text:"添加",
+			handler: function(){
+				$('#addDialog').dialog('open');
+			}
+		},{
+			iconCls: 'icon-cancel',
+			text:"禁用",
+			handler: function(){
+				updateData();
+			}
+		},{
+			iconCls: 'icon-add',
+			text:"角色分配",
+			handler: function(){
+				
+			}
+		}]
+	});
+});
+
+//添加信息
+$(function(){
+	$('#addDialog').dialog({
+	    title: '添加',
+	    width: 1000,
+	    height: 400,
+	    closed: true,
+	    modal: true,
+	    buttons:[{
+			text:'提交',
+			handler:function(){
+				if(validate("addDialog form")){
+					$.ajax({
+						url:"accountRest/saveOrUpdate",
+						type:"post",
+						data:$("#addDialog form").serialize(),
+						async:true,
+						dataType:"json",
+						success:function(dto){
+							$.messager.alert('提示',dto.msg);
+							$('#addDialog').dialog("close");
+							$('#addDialog form').form('reset');
+							$("#datagrid").datagrid("reload");
+						}
+					});
+				}
+			}
+		},{
+			text:'重置',
+			handler:function(){
+				$('#addDialog form').form('reset');
+			}
+		}]
+	});
+});
+

@@ -1,0 +1,51 @@
+package com.nwl.lanya.dao;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
+import com.nwl.lanya.dto.AccountDto;
+import com.nwl.lanya.po.Account;
+import com.nwl.lanya.po.AccountExample;
+
+public interface AccountMapper {
+	
+	/**
+	 * 
+	* @Title: list 
+	* @Description: 分页获取数据
+	* @param    
+	* @return List<Account>    
+	* @throws
+	 */
+	List<Account> list(AccountDto dto);
+	Long countByLike(AccountDto dto);
+	
+    long countByExample(AccountExample example);
+
+    int deleteByExample(AccountExample example);
+
+    int deleteByPrimaryKey(Integer id);
+
+    int insert(Account record);
+
+    int insertSelective(Account record);
+
+    List<Account> selectByExampleWithBLOBs(AccountExample example);
+
+    List<Account> selectByExample(AccountExample example);
+
+    Account selectByPrimaryKey(Integer id);
+
+    int updateByExampleSelective(@Param("record") Account record, @Param("example") AccountExample example);
+
+    int updateByExampleWithBLOBs(@Param("record") Account record, @Param("example") AccountExample example);
+
+    int updateByExample(@Param("record") Account record, @Param("example") AccountExample example);
+
+    int updateByPrimaryKeySelective(Account record);
+
+    int updateByPrimaryKeyWithBLOBs(Account record);
+
+    int updateByPrimaryKey(Account record);
+}

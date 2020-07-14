@@ -1,0 +1,55 @@
+package com.nwl.lanya.po;
+
+import java.util.Date;
+
+public class MyTeacherTalk {
+    private Integer id;
+
+    private Integer myTeacherId;
+
+    private Integer senderId;
+
+    private Date sendTime;
+
+    private String content;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getMyTeacherId() {
+        return myTeacherId;
+    }
+
+    public void setMyTeacherId(Integer myTeacherId) {
+        this.myTeacherId = myTeacherId;
+    }
+
+    public Integer getSenderId() {
+        return senderId;
+    }
+
+    public void setSenderId(Integer senderId) {
+        this.senderId = senderId;
+    }
+
+    public Date getSendTime() {
+        return sendTime;
+    }
+
+    public void setSendTime(Date sendTime) {
+        this.sendTime = sendTime;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content == null ? null : content.trim();
+    }
+}

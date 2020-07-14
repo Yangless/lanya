@@ -1,0 +1,121 @@
+package com.nwl.lanya.rest;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.nwl.lanya.common.MsgCode;
+import com.nwl.lanya.common.PageModel;
+import com.nwl.lanya.dto.RoleDto;
+import com.nwl.lanya.po.Role;
+import com.nwl.lanya.service.RoleService;
+
+@RestController
+@RequestMapping("roleRest")
+public class RoleRest extends AbstractBaseRest<RoleDto>{
+	
+	@Autowired
+	private RoleService service;
+
+	@Override
+	@RequestMapping("list")
+	public PageModel list(Integer page, Integer rows, RoleDto dto) {
+		try {
+			PageModel pageModel = new PageModel();
+			pageModel.setPageNo(page);
+			pageModel.setPageSize(rows);
+			pageModel.setStartIndex((page-1)*rows);
+			dto.setPageModel(pageModel);
+			
+			service.list(dto);
+			dto.setMsgCode(MsgCode.REQUEST_SCCESS);
+			dto.setMsg("操作成功");
+		} catch (Exception e) {
+			e.printStackTrace();
+			dto.setMsgCode(MsgCode.REQUEST_FALSE);
+			dto.setMsg("系统异常,请联系维护人员");
+		}
+		return dto.getPageModel();
+	}
+	/**
+	 * 
+	* @Title: getAll 
+	* @Description:获取角色信息
+	* @param    
+	* @return List<Role>    
+	* @throws
+	 */
+	@RequestMapping("getAll")
+	public List<Role> getAll(RoleDto dto){
+		try {
+			service.getAll(dto);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return dto.getRoles();
+	}
+
+	@Override
+	@RequestMapping("deleteByIds")
+	public RoleDto deleteByIds(RoleDto dto) {
+		try {
+			service.deleteByIds(dto);
+			
+			dto.setMsgCode(MsgCode.REQUEST_SCCESS);
+			dto.setMsg("操作成功");
+		} catch (Exception e) {
+			e.printStackTrace();
+			dto.setMsgCode(MsgCode.REQUEST_FALSE);
+			dto.setMsg("系统异常,请联系维护人员");
+		}
+		return dto;
+	}
+
+	@Override
+	public RoleDto findById(RoleDto dto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	@RequestMapping("saveOrUpdate")
+	public RoleDto saveOrUpdate(RoleDto dto) {
+		try {
+			service.saveOrUpdate(dto);
+			
+			dto.setMsgCode(MsgCode.REQUEST_SCCESS);
+			dto.setMsg("操作成功");
+		} catch (Exception e) {
+			e.printStackTrace();
+			dto.setMsgCode(MsgCode.REQUEST_FALSE);
+			dto.setMsg("系统异常,请联系维护人员");
+		}
+		return dto;
+	}
+	
+	/**
+	 * 
+	* @Title: saveRoleRight 
+	* @Description: 保存角色权限
+	* @param    
+	* @return RoleDto    
+	* @throws
+	 */
+	@RequestMapping("saveRoleRight")
+	public RoleDto saveRoleRight(RoleDto dto) {
+		try {
+			service.saveRoleRight(dto);
+			
+			dto.setMsgCode(MsgCode.REQUEST_SCCESS);
+			dto.setMsg("权限已分配");
+		} catch (Exception e) {
+			e.printStackTrace();
+			dto.setMsgCode(MsgCode.REQUEST_FALSE);
+			dto.setMsg("系统异常,请联系维护人员");
+		}
+		return dto;
+	}
+
+}

@@ -1,0 +1,103 @@
+package com.nwl.lanya.po;
+
+public class VideoAudio {
+    private Integer id;
+
+    private Integer teacherId;
+
+    private Integer courseId;
+
+    private String videoUrl;
+
+    private String audioUrl;
+
+    private String introduce;
+
+    private Integer praiseNumber;
+
+    private Integer commentNumber;
+
+    private Integer isShort;
+
+    private Integer isVideo;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getTeacherId() {
+        return teacherId;
+    }
+
+    public void setTeacherId(Integer teacherId) {
+        this.teacherId = teacherId;
+    }
+
+    public Integer getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(Integer courseId) {
+        this.courseId = courseId;
+    }
+
+    public String getVideoUrl() {
+        return videoUrl;
+    }
+
+    public void setVideoUrl(String videoUrl) {
+        this.videoUrl = videoUrl == null ? null : videoUrl.trim();
+    }
+
+    public String getAudioUrl() {
+        return audioUrl;
+    }
+
+    public void setAudioUrl(String audioUrl) {
+        this.audioUrl = audioUrl == null ? null : audioUrl.trim();
+    }
+
+    public String getIntroduce() {
+        return introduce;
+    }
+
+    public void setIntroduce(String introduce) {
+        this.introduce = introduce == null ? null : introduce.trim();
+    }
+
+    public Integer getPraiseNumber() {
+        return praiseNumber;
+    }
+
+    public void setPraiseNumber(Integer praiseNumber) {
+        this.praiseNumber = praiseNumber;
+    }
+
+    public Integer getCommentNumber() {
+        return commentNumber;
+    }
+
+    public void setCommentNumber(Integer commentNumber) {
+        this.commentNumber = commentNumber;
+    }
+
+    public Integer getIsShort() {
+        return isShort;
+    }
+
+    public void setIsShort(Integer isShort) {
+        this.isShort = isShort;
+    }
+
+    public Integer getIsVideo() {
+        return isVideo;
+    }
+
+    public void setIsVideo(Integer isVideo) {
+        this.isVideo = isVideo;
+    }
+}

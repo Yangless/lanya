@@ -1,0 +1,33 @@
+package com.nwl.lanya.po;
+
+public class CourseSystemCollection {
+    private Integer id;
+
+    private Integer studentId;
+
+    private Integer courseSystemId;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(Integer studentId) {
+        this.studentId = studentId;
+    }
+
+    public Integer getCourseSystemId() {
+        return courseSystemId;
+    }
+
+    public void setCourseSystemId(Integer courseSystemId) {
+        this.courseSystemId = courseSystemId;
+    }
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="../"/>
+	<meta charset="utf-8" />
+	<title>蓝芽-帮助您职业技能成长</title>
+	<!-- start: Favicon -->
+	<link rel="shortcut icon" href="img/logo.jpg">
+	<!-- end: Favicon -->
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="css/phone/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/phone/icons-extra.css"/>
+    <link rel="stylesheet" href="css/phone/common.css"/>
+    <link rel="stylesheet" type="text/css" href="css/phone/search.css"/>
+</head>
+	<body>
+		
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">搜索</h1>
+		</header>
+		
+		<div id="navDiv" class="logDiv">
+			<div>
+				<img id="logoBtn" src="img/logo.jpg"/>
+			</div>
+			<div id="navDivInput">
+				<span>蓝芽智慧</span>
+				<div class="mui-input-row mui-search">
+					<input type="search" class="mui-input-clear" placeholder="视频、完整课程、课程体系、老师、工作"/>
+				</div>
+				<button type="button" id="soundSearch"><span class="mui-icon mui-icon-mic"></span></button>
+			</div>
+		</div>
+		
+		
+		<script src="js/phone/mui.min.js"></script>
+		<script type="text/javascript" src="js/phone/jquery-3.3.1.min.js" ></script>
+	    <script type="text/javascript" src="js/phone/common.js"></script>
+	    <script type="text/javascript" src="js/phone/search.js"></script>
+	</body>
+</html>

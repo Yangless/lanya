@@ -1,0 +1,53 @@
+package com.nwl.lanya.po;
+
+public class WorkList {
+    private Integer id;
+
+    private Integer hrId;
+
+    private String workName;
+
+    private String workRequire;
+
+    private String workIntroduce;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getHrId() {
+        return hrId;
+    }
+
+    public void setHrId(Integer hrId) {
+        this.hrId = hrId;
+    }
+
+    public String getWorkName() {
+        return workName;
+    }
+
+    public void setWorkName(String workName) {
+        this.workName = workName == null ? null : workName.trim();
+    }
+
+    public String getWorkRequire() {
+        return workRequire;
+    }
+
+    public void setWorkRequire(String workRequire) {
+        this.workRequire = workRequire == null ? null : workRequire.trim();
+    }
+
+    public String getWorkIntroduce() {
+        return workIntroduce;
+    }
+
+    public void setWorkIntroduce(String workIntroduce) {
+        this.workIntroduce = workIntroduce == null ? null : workIntroduce.trim();
+    }
+}

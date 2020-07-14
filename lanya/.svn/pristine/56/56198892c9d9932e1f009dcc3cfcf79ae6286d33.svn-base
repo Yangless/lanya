@@ -1,0 +1,66 @@
+package com.nwl.lanya.dto;
+
+import com.nwl.lanya.po.Account;
+
+public class AccountDto extends AbstractBaseDto<Account>{
+
+	/** 
+	* @Fields serialVersionUID : TODO(用一句话描述这个变量表示什么) 
+	*/ 
+	private static final long serialVersionUID = -6957650836397689095L;
+	
+	//登录用
+	private String accountCode;
+	private String pwd;
+	private String salt;
+	private Account account;
+	
+	//账号分配角色
+	private Integer[] accountIds;
+	private Integer[] roleIds;
+	private String roleNames;
+	
+	public String getSalt() {
+		return salt;
+	}
+	public void setSalt(String salt) {
+		this.salt = salt;
+	}
+	public Account getAccount() {
+		return account;
+	}
+	public void setAccount(Account account) {
+		this.account = account;
+	}
+	public String getAccountCode() {
+		return accountCode;
+	}
+	public void setAccountCode(String accountCode) {
+		this.accountCode = accountCode;
+	}
+	public String getPwd() {
+		return pwd;
+	}
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+	public Integer[] getAccountIds() {
+		return accountIds;
+	}
+	public void setAccountIds(Integer[] accountIds) {
+		this.accountIds = accountIds;
+	}
+	public Integer[] getRoleIds() {
+		return roleIds;
+	}
+	public void setRoleIds(Integer[] roleIds) {
+		this.roleIds = roleIds;
+	}
+	public String getRoleNames() {
+		return roleNames;
+	}
+	public void setRoleNames(String roleNames) {
+		this.roleNames = roleNames;
+	}
+	
+}

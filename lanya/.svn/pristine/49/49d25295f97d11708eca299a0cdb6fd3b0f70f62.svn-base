@@ -1,0 +1,87 @@
+package com.nwl.lanya.vo;
+
+import com.nwl.lanya.po.Teacher;
+
+public class TeacherVo extends Teacher{
+
+	private String companyName;
+	
+	private String companyNick;
+	
+	private String accountCode;
+	
+	private String phone;
+
+	private String email;
+
+    private String realName;
+
+    private String nickName;
+    
+    private String photoUrl;
+
+	public String getCompanyName() {
+		return companyName;
+	}
+
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
+
+	public String getCompanyNick() {
+		return companyNick;
+	}
+
+	public void setCompanyNick(String companyNick) {
+		this.companyNick = companyNick;
+	}
+
+	public String getAccountCode() {
+		return accountCode;
+	}
+
+	public void setAccountCode(String accountCode) {
+		this.accountCode = accountCode;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getRealName() {
+		return realName;
+	}
+
+	public void setRealName(String realName) {
+		this.realName = realName;
+	}
+
+	public String getNickName() {
+		return nickName;
+	}
+
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
+
+	public String getPhotoUrl() {
+		return photoUrl;
+	}
+
+	public void setPhotoUrl(String photoUrl) {
+		this.photoUrl = photoUrl;
+	}
+	
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<base href="../"/>
+		<meta charset="utf-8" />
+		<title>蓝芽-帮助您职业技能成长</title>
+		<!-- start: Favicon -->
+		<link rel="shortcut icon" href="img/logo.jpg">
+		<!-- end: Favicon -->
+		<link rel="stylesheet" href="js/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="js/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" />
+		<script type="text/javascript" src="js/bootstrap-3.3.7-dist/js/bootstrap.min.js" ></script>
+		
+		<link rel="stylesheet" href="css/schoolInfo.css" />
+		<script type="text/javascript" src="js/schoolInfo.js" ></script>
+	</head>
+	<body>
+		<div id="mainDiv">
+			<div>
+				<img width="100%" src="img/aboutUs1.jpg"/>
+			</div>
+			
+			<div id="process" class="itemClass">
+				<h1 class="titleClass"><img src="img/aboutUs7.gif"/></h1>
+				<div class="contentDiv">
+					<div id="courseListLeft">
+						<a><img src="img/aboutUs8.gif"/></a>
+					</div>
+					<div id="courseListRight">
+						<h1 style="color: #333333;font-size: 20px;">天码启航信息技术有限公司</h1>
+					    <p>汇智动力信息技术有限公司（简称汇智动力），寓意汇聚智慧，动力无限，汇聚IT行业众家智慧，为客户提供无限发展动力，是一家专业的软件服务整体供应商。</p>
+					    <p>汇智动力于2014年创立，目前在北京、成都、重庆、深圳、南京、西安设立全资公司。</p>
+					    <p>汇智动力作为专业的软件研发、测试服务提供商，公司业务主要包含以下内容：<br/>
+					   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;自有软件平台产品研发。公司主要产品ITPCMP，该平台提供对研发人才能力评估模型，通过4大体系，6个纬度评估软件研发人才能力，提供人才提升建议及配套学习资源，通过平台评估、指导下达到企业用人标准。<br/>
+					   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;产品研发、项目测试外包服务、人力外包服务。<br/>
+					   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;高校专业建设、资源库建设。<br/>
+					   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;提供企业行业解决方案，企业内训。<br/>
+					   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;人才委托培养，就业培训。</p>
+					</div>
+				</div>
+			</div>
+			
+			<div id="intro" class="itemClass">
+				<h1 class="titleClass"><img src="img/aboutUs2.gif"/></h1>
+				<div class="contentClass">
+					<p>公司使命：汇聚智慧，成就客户</p>
+					<p>公司愿景：成为受客户、社会尊敬的一家知名互联网公司</p>
+					<p>公司核心价值观：用心服务好每一个客户</p>
+				</div>
+				<table>
+					<tr>
+						<td>
+							<img src="img/aboutUs3.jpg"/>
+						</td>
+						<td>
+							<img src="img/aboutUs4.jpg"/>
+						</td>
+						<td>
+							<img src="img/aboutUs5.jpg"/>
+						</td>
+						<td>
+							<img src="img/aboutUs6.jpg"/>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<!--
+			<div id="paper" class="itemClass">
+				<h1 class="titleClass">三、荣誉证书</h1>
+				<div class="contentClass">
+					<p>公司服务于移动智能终端消费类显示市场和专业类显示市场，产品广泛应用于智能手机、平板电脑、智能穿戴、车载显示、医疗显示、工业控制、航空显示和智能家居等众多领域，为客户提供最佳的产品体验。2016年，公司中小尺寸模组出货量继续保持全球领先，并在高端医疗、航空娱乐、航海、VOIP等领域市场份额排名全球第一①，多款产品支持客户实现全球首发，产品质量在多个品牌客户排名第一。公司致力于不断创新，更好地服务客户与应用领域的差异化需求。</p>
+				    <p>公司服务于移动智能终端消费类显示市场和专业类显示市场，产品广泛应用于智能手机、平板电脑、智能穿戴、车载显示、医疗显示、工业控制、航空显示和智能家居等众多领域，为客户提供最佳的产品体验。2016年，公司中小尺寸模组出货量继续保持全球领先，并在高端医疗、航空娱乐、航海、VOIP等领域市场份额排名全球第一①，多款产品支持客户实现全球首发，产品质量在多个品牌客户排名第一。公司致力于不断创新，更好地服务客户与应用领域的差异化需求。</p>
+				    <p>公司服务于移动智能终端消费类显示市场和专业类显示市场，产品广泛应用于智能手机、平板电脑、智能穿戴、车载显示、医疗显示、工业控制、航空显示和智能家居等众多领域，为客户提供最佳的产品体验。2016年，公司中小尺寸模组出货量继续保持全球领先，并在高端医疗、航空娱乐、航海、VOIP等领域市场份额排名全球第一①，多款产品支持客户实现全球首发，产品质量在多个品牌客户排名第一。公司致力于不断创新，更好地服务客户与应用领域的差异化需求。</p>
+				</div>
+			</div>
+			<div id="contact" class="itemClass">
+				<h1 class="titleClass">四、企业文化</h1>
+				<div class="contentClass">
+					<p>公司服务于移动智能终端消费类显示市场和专业类显示市场，产品广泛应用于智能手机、平板电脑、智能穿戴、车载显示、医疗显示、工业控制、航空显示和智能家居等众多领域，为客户提供最佳的产品体验。2016年，公司中小尺寸模组出货量继续保持全球领先，并在高端医疗、航空娱乐、航海、VOIP等领域市场份额排名全球第一①，多款产品支持客户实现全球首发，产品质量在多个品牌客户排名第一。公司致力于不断创新，更好地服务客户与应用领域的差异化需求。</p>
+				    <p>公司服务于移动智能终端消费类显示市场和专业类显示市场，产品广泛应用于智能手机、平板电脑、智能穿戴、车载显示、医疗显示、工业控制、航空显示和智能家居等众多领域，为客户提供最佳的产品体验。2016年，公司中小尺寸模组出货量继续保持全球领先，并在高端医疗、航空娱乐、航海、VOIP等领域市场份额排名全球第一①，多款产品支持客户实现全球首发，产品质量在多个品牌客户排名第一。公司致力于不断创新，更好地服务客户与应用领域的差异化需求。</p>
+				    <p>公司服务于移动智能终端消费类显示市场和专业类显示市场，产品广泛应用于智能手机、平板电脑、智能穿戴、车载显示、医疗显示、工业控制、航空显示和智能家居等众多领域，为客户提供最佳的产品体验。2016年，公司中小尺寸模组出货量继续保持全球领先，并在高端医疗、航空娱乐、航海、VOIP等领域市场份额排名全球第一①，多款产品支持客户实现全球首发，产品质量在多个品牌客户排名第一。公司致力于不断创新，更好地服务客户与应用领域的差异化需求。</p>
+				</div>
+			</div>
+			<div id="contact" class="itemClass">
+				<h1 class="titleClass">五、联系我们</h1>
+				<div class="contentClass">
+					<p>公司服务于移动智能终端消费类显示市场和专业类显示市场，产品广泛应用于智能手机、平板电脑、智能穿戴、车载显示、医疗显示、工业控制、航空显示和智能家居等众多领域，为客户提供最佳的产品体验。2016年，公司中小尺寸模组出货量继续保持全球领先，并在高端医疗、航空娱乐、航海、VOIP等领域市场份额排名全球第一①，多款产品支持客户实现全球首发，产品质量在多个品牌客户排名第一。公司致力于不断创新，更好地服务客户与应用领域的差异化需求。</p>
+				    <p>公司服务于移动智能终端消费类显示市场和专业类显示市场，产品广泛应用于智能手机、平板电脑、智能穿戴、车载显示、医疗显示、工业控制、航空显示和智能家居等众多领域，为客户提供最佳的产品体验。2016年，公司中小尺寸模组出货量继续保持全球领先，并在高端医疗、航空娱乐、航海、VOIP等领域市场份额排名全球第一①，多款产品支持客户实现全球首发，产品质量在多个品牌客户排名第一。公司致力于不断创新，更好地服务客户与应用领域的差异化需求。</p>
+				    <p>公司服务于移动智能终端消费类显示市场和专业类显示市场，产品广泛应用于智能手机、平板电脑、智能穿戴、车载显示、医疗显示、工业控制、航空显示和智能家居等众多领域，为客户提供最佳的产品体验。2016年，公司中小尺寸模组出货量继续保持全球领先，并在高端医疗、航空娱乐、航海、VOIP等领域市场份额排名全球第一①，多款产品支持客户实现全球首发，产品质量在多个品牌客户排名第一。公司致力于不断创新，更好地服务客户与应用领域的差异化需求。</p>
+				</div>
+			</div>
+			-->
+		</div>
+		<!--
+		<div id="footer">
+			<div id="addressDiv">
+				<dl>
+					<dt>成都</dt>
+					<dd>18602810234</dd>
+					<dd>成都市武侯区航空路6号丰德国际A3-8楼</dd>
+				</dl>
+				<dl>
+					<dt>重庆</dt>
+					<dd>023-63789605</dd>
+					<dd>重庆市渝中区新华路388号创汇首座521/522</dd>
+				</dl>
+				<dl>
+					<dt>西安</dt>
+					<dd>029-88455177</dd>
+					<dd>西安市雁塔区科技路50号金桥国际广场C座909</dd>
+				</dl>
+				<dl>
+					<dt>南京</dt>
+					<dd>025-51877282</dd>
+					<dd>江苏省南京市秦淮区王府大街8号测绘大厦13楼</dd>
+				</dl>
+				<dl>
+					<dt>深圳</dt>
+					<dd>0755-33365361</dd>
+					<dd>深圳市福田区深南中路2010号东风大厦0511</dd>
+				</dl>
+				<dl>
+					<dt>广州</dt>
+					<dd>18602810234</dd>
+					<dd>广州市天河区龙洞河陂大街一巷2号101A</dd>
+				</dl>
+			</div>
+			<div id="friendDiv">
+				友情链接：
+				<a href="http://www.qq.com/" target="_blank">腾讯科技</a>
+				<a href="http://www.isoftstone.com/" target="_blank">软通动力</a>
+				<a href="http://www.ylink.com.cn/" target="_blank">雁联科技</a>
+				<a href="http://www.cdrcb.com/index/" target="_blank">成都农信</a>
+				<a href="http://www.pingan.com/licai.shtml" target="_blank">中国平安</a>
+				<a href="http://www.21cn.com/" target="_blank">21cn</a>
+				<a href="http://tuobao.solarbe.com/" target="_blank">拓宝科技</a>
+				<a href="http://www.teslayun.com/" target="_blank">特斯拉云</a>
+			    <a href="http://jetstor.uoojoo.com/" target="_blank">捷科</a>
+			    <a href="http://campus.jd.com/home" target="_blank">京东成都研究院</a>
+			    <a href="http://www.ubisoft.com.cn/" target="_blank">育碧中国</a>
+			    <a href="http://www.tap4fun.com/" target="_blank">尼比鲁</a>
+			</div>
+			<div id="copyRightDiv">蜀ICP备09018548号 | 蜀公网安备 11010802010213号     汇智动力信息技术有限公司</div>
+		</div>
+		-->
+	</body>
+</html>

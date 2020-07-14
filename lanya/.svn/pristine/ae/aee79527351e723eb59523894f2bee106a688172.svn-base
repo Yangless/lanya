@@ -1,0 +1,36 @@
+package com.nwl.lanya.dao;
+
+import com.nwl.lanya.po.WalletDetail;
+import com.nwl.lanya.po.WalletDetailExample;
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
+
+public interface WalletDetailMapper {
+    long countByExample(WalletDetailExample example);
+
+    int deleteByExample(WalletDetailExample example);
+
+    int deleteByPrimaryKey(Integer id);
+
+    int insert(WalletDetail record);
+
+    int insertSelective(WalletDetail record);
+
+    List<WalletDetail> selectByExampleWithBLOBs(WalletDetailExample example);
+
+    List<WalletDetail> selectByExample(WalletDetailExample example);
+
+    WalletDetail selectByPrimaryKey(Integer id);
+
+    int updateByExampleSelective(@Param("record") WalletDetail record, @Param("example") WalletDetailExample example);
+
+    int updateByExampleWithBLOBs(@Param("record") WalletDetail record, @Param("example") WalletDetailExample example);
+
+    int updateByExample(@Param("record") WalletDetail record, @Param("example") WalletDetailExample example);
+
+    int updateByPrimaryKeySelective(WalletDetail record);
+
+    int updateByPrimaryKeyWithBLOBs(WalletDetail record);
+
+    int updateByPrimaryKey(WalletDetail record);
+}

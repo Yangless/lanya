@@ -1,0 +1,165 @@
+package com.nwl.lanya.po;
+
+import java.util.Date;
+
+public class Account {
+    private Integer id;
+
+    private String accountCode;
+
+    private String realName;
+
+    private String idcard;
+
+    private String nickName;
+
+    private String sex;
+
+    private Date birthday;
+
+    private Integer age;
+
+    private String weixin;
+
+    private String qq;
+
+    private String phone;
+
+    private String email;
+
+    private String photoUrl;
+
+    private Integer isAuthen;
+
+    private Integer useAble;
+
+    private byte[] pwd;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getAccountCode() {
+        return accountCode;
+    }
+
+    public void setAccountCode(String accountCode) {
+        this.accountCode = accountCode == null ? null : accountCode.trim();
+    }
+
+    public String getRealName() {
+        return realName;
+    }
+
+    public void setRealName(String realName) {
+        this.realName = realName == null ? null : realName.trim();
+    }
+
+    public String getIdcard() {
+        return idcard;
+    }
+
+    public void setIdcard(String idcard) {
+        this.idcard = idcard == null ? null : idcard.trim();
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName == null ? null : nickName.trim();
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex == null ? null : sex.trim();
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public String getWeixin() {
+        return weixin;
+    }
+
+    public void setWeixin(String weixin) {
+        this.weixin = weixin == null ? null : weixin.trim();
+    }
+
+    public String getQq() {
+        return qq;
+    }
+
+    public void setQq(String qq) {
+        this.qq = qq == null ? null : qq.trim();
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone == null ? null : phone.trim();
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email == null ? null : email.trim();
+    }
+
+    public String getPhotoUrl() {
+        return photoUrl;
+    }
+
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl == null ? null : photoUrl.trim();
+    }
+
+    public Integer getIsAuthen() {
+        return isAuthen;
+    }
+
+    public void setIsAuthen(Integer isAuthen) {
+        this.isAuthen = isAuthen;
+    }
+
+    public Integer getUseAble() {
+        return useAble;
+    }
+
+    public void setUseAble(Integer useAble) {
+        this.useAble = useAble;
+    }
+
+    public byte[] getPwd() {
+        return pwd;
+    }
+
+    public void setPwd(byte[] pwd) {
+        this.pwd = pwd;
+    }
+}

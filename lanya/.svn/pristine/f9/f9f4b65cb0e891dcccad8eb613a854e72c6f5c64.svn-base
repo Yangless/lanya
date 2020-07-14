@@ -1,0 +1,75 @@
+package com.nwl.lanya.po;
+
+import java.util.List;
+
+public class CourseSystem {
+    private String id;
+
+    private String courseSystemName;
+
+    private String courseSystemPhoto;
+
+    private String introduce;
+
+    private Integer teacherId;
+    
+    private String realName;
+    
+    private List<CourseSystem> children;
+    
+    public String getRealName() {
+		return realName;
+	}
+
+	public void setRealName(String realName) {
+		this.realName = realName;
+	}
+
+	public List<CourseSystem> getChildren() {
+		return children;
+	}
+
+	public void setChildren(List<CourseSystem> children) {
+		this.children = children;
+	}
+
+	public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
+    }
+
+    public String getCourseSystemName() {
+        return courseSystemName;
+    }
+
+    public void setCourseSystemName(String courseSystemName) {
+        this.courseSystemName = courseSystemName == null ? null : courseSystemName.trim();
+    }
+
+    public String getCourseSystemPhoto() {
+        return courseSystemPhoto;
+    }
+
+    public void setCourseSystemPhoto(String courseSystemPhoto) {
+        this.courseSystemPhoto = courseSystemPhoto == null ? null : courseSystemPhoto.trim();
+    }
+
+    public String getIntroduce() {
+        return introduce;
+    }
+
+    public void setIntroduce(String introduce) {
+        this.introduce = introduce == null ? null : introduce.trim();
+    }
+
+    public Integer getTeacherId() {
+        return teacherId;
+    }
+
+    public void setTeacherId(Integer teacherId) {
+        this.teacherId = teacherId;
+    }
+}

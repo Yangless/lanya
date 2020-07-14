@@ -1,0 +1,145 @@
+package com.nwl.lanya.service.impl;
+
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.nwl.lanya.common.MsgCode;
+import com.nwl.lanya.dao.CourseSystemMapper;
+import com.nwl.lanya.dao.CourseTypeMapper;
+import com.nwl.lanya.dao.StageMapper;
+import com.nwl.lanya.dto.CourseSystemDto;
+import com.nwl.lanya.po.CourseSystem;
+import com.nwl.lanya.po.Stage;
+import com.nwl.lanya.po.Teacher;
+import com.nwl.lanya.service.CourseSystemService;
+
+@Service
+public class CourseSystemServiceImpl implements CourseSystemService{
+	
+	@Autowired
+	private CourseSystemMapper mapper;
+	
+	@Autowired
+	private StageMapper stageMapper;
+	
+	@Autowired
+	private CourseTypeMapper courseTypeMapper;
+	
+	@Autowired
+	private HttpSession session;
+
+	@Override
+	public void list(CourseSystemDto dto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteByIds(CourseSystemDto dto) {
+		String[] idStr = dto.getIds().split(",");
+		for(int i=0;i<idStr.length;i++){
+			String id = idStr[i];
+			mapper.deleteByPrimaryKey(id);
+			stageMapper.deleteByPrimaryKey(id);
+			courseTypeMapper.deleteByPrimaryKey(id);
+		}
+	}
+
+	@Override
+	public void findById(CourseSystemDto dto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void saveOrUpdate(CourseSystemDto dto) {
+		Object object = session.getAttribute("teacher");
+		if(object!=null){
+			Teacher teacher = (Teacher)object;
+			dto.getPo().setTeacherId(teacher.getId());
+			mapper.insert(dto.getPo());
+			
+			dto.setMsgCode(MsgCode.REQUEST_SCCESS);
+			dto.setMsg("操作成功");
+		}else{
+			dto.setMsgCode(MsgCode.REQUEST_FALSE);
+			dto.setMsg("您不是老师，无法操作");
+		}
+	}
+
+	@Override
+	public void getRoots(CourseSystemDto dto) {
+		List<CourseSystem> courseSystems = mapper.getRoots(dto);
+		for(CourseSystem courseSystem:courseSystems){
+			dto.setPo(courseSystem);
+			List<CourseSystem> stages = mapper.getStages(dto);
+			courseSystem.setChildren(stages);
+			for(CourseSystem stage:stages){
+				Stage stageTemp = new Stage();
+				stageTemp.setId(stage.getId());
+				dto.setStage(stageTemp);
+				List<CourseSystem> courseTypes = mapper.getCourseType(dto);
+				stage.setChildren(courseTypes);
+			}
+		}
+		dto.setPos(courseSystems);
+	}
+
+	@Override
+	public void getCourseSystems(CourseSystemDto dto) {
+		List<CourseSystem> courseSystems = mapper.getRoots(dto);
+		dto.setPos(courseSystems);
+	}
+
+	@Override
+	public void saveStage(CourseSystemDto dto) {
+		Object object = session.getAttribute("teacher");
+		if(object!=null){
+			stageMapper.insert(dto.getStage());
+			
+			dto.setMsgCode(MsgCode.REQUEST_SCCESS);
+			dto.setMsg("操作成功");
+		}else{
+			dto.setMsgCode(MsgCode.REQUEST_FALSE);
+			dto.setMsg("您不是老师，无法操作");
+		}
+	}
+	
+	/**
+	 * 
+	* @Title: getStage 
+	* @Description: 根据课程体系id获取阶段名称
+	* @param    
+	* @return void    
+	* @throws
+	 */
+	public void getStage(CourseSystemDto dto) {
+		List<CourseSystem> stages = mapper.getStages(dto);
+		dto.setPos(stages);
+	}
+
+	@Override
+	public void saveCourseType(CourseSystemDto dto) {
+		Object object = session.getAttribute("teacher");
+		if(object!=null){
+			courseTypeMapper.insert(dto.getCourseType());
+			
+			dto.setMsgCode(MsgCode.REQUEST_SCCESS);
+			dto.setMsg("操作成功");
+		}else{
+			dto.setMsgCode(MsgCode.REQUEST_FALSE);
+			dto.setMsg("您不是老师，无法操作");
+		}
+	}
+
+	@Override
+	public void getCourseSystemByTeacherId(CourseSystemDto dto) {
+		List<CourseSystem> courseSystems =  mapper.getCourseSystemByTeacherId(dto);
+		dto.setPos(courseSystems);
+	}
+	
+}

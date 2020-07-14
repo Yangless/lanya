@@ -1,0 +1,41 @@
+package com.nwl.lanya.common;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+
+/**
+ * 
+* @ClassName: MyWebAppConfigurer 
+* @Description: 拦截器配置类
+* @author 聂文来
+* @date 2017年10月12日 下午3:36:00 
+*
+ */
+@Configuration
+public class MyWebAppConfigurer extends WebMvcConfigurerAdapter {
+
+	@Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new SessionHandlerInterceptor())
+        //拦截所有manage路径
+        .addPathPatterns("/manage/**")
+        //除开的路径
+        .excludePathPatterns("/manage/register")
+        .excludePathPatterns("/manage/register.html")
+        .excludePathPatterns("/manage/login")
+        .excludePathPatterns("/manage/login.html")
+        .excludePathPatterns("/manage/loginIndex")
+        .excludePathPatterns("/manage/loginIndex.html")
+        .excludePathPatterns("/manage/loginOut")
+        .excludePathPatterns("/manage/loginOut.html")
+        .excludePathPatterns("/manage/index")
+        .excludePathPatterns("/manage/index.html")
+        .excludePathPatterns("/manage/main")
+        .excludePathPatterns("/manage/main.html")
+        .excludePathPatterns("/manage/noRight")
+        .excludePathPatterns("/manage/noRight.html");
+        super.addInterceptors(registry);
+    }
+	
+}

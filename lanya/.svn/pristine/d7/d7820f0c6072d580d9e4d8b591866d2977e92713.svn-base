@@ -1,0 +1,111 @@
+*{
+	margin: 0px;
+	padding:0px;
+}
+body{
+}
+a{
+	font-size: 14px;
+	color: #26A0DA;
+}
+a:hover{
+	text-decoration: none;
+}
+#menuUl li{
+	cursor: pointer;
+}
+#courseList{
+	padding: 0px 10px;
+	margin-top: 50px;
+}
+.row>div{
+	padding: 10px;
+	border: 1px solid #FFFFFF;
+}
+.row>div:hover{
+	border: 1px solid #CDCDCD;
+	cursor: pointer;
+}
+.tableInfo{
+	width: 100%;
+	color: grey;
+}
+.tableInfo tr td{
+	padding-bottom: 10px;
+}
+.tableInfo tr td:first-of-type{
+	width: 30%;
+	font-size: 12px;
+}
+.tableInfo tr td:last-of-type{
+	width: 70%;
+	text-align: right;
+	font-size: 12px;
+}
+.tableInfo tr td:last-of-type a{
+	font-size: 12px !important;
+}
+.moneyClass{
+	font-size: 18px !important;
+	color: #D84C29;
+}
+.nomoneyClass{
+	font-size: 18px !important;
+	color: yellowgreen;
+}
+#AIDiv{
+	display: none;
+	width: 100%;
+	position: relative;
+}
+#AIDiv img{
+	width: 100%;
+	max-height: 500px;
+}
+#courseDetailList{
+	width: 40%;
+	height: 90%;
+	background: rgba(0,0,0,0.8);
+	position: absolute;
+	top: 30px;
+	left: 100px;
+	overflow:auto;
+}
+.courseListClass{
+	width: 95%;
+	margin:30px auto;
+	min-height: 100px;
+}
+.courseListClass h3{
+	font-size: 20px;
+	color: white;
+}
+.courseListClass h3 span{
+	margin-right: 10px;
+}
+.courseListClass div{
+	background: #F4F4F4;
+	padding:15px 0px;
+	margin: 10px 0px;
+}
+.courseListClass div:hover{
+	background: #EEEEEE;
+	cursor: pointer;
+}
+.courseListClass div span{
+	vertical-align: middle;
+	font-size: 16px;
+	color: #666666;
+}
+.glyphicon,.courseName{
+	margin-left:10px;
+}
+
+
+
+
+
+
+
+
+
