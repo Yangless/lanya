@@ -15,12 +15,17 @@ public class MainController {
 	public String login(Model model){
 		return "html/login";
 	}
+
 	@RequestMapping("/boutique")
 	public String boutique(Model model){
 		return "html/boutique";
 	}
+
+	
+	
 	@RequestMapping("/sourceDetail")
 	public String sourceDetail(Model model){
 		return "html/sourceDetail";
 	}
+	
 }

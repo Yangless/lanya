@@ -61,6 +61,7 @@ public class AccountCodeService implements AbstractBaseService<AccountCodeDto>{
 	public void findById(AccountCodeDto dto) {
 		// TODO 自动生成的方法存根
 		String id=dto.getPo().getId();
+		System.out.println("accRest"+id);
 		AccountCodeWithBLOBs accountcode=mapper.selectByPrimaryKey(id);
 		dto.setPo(accountcode);
 	}

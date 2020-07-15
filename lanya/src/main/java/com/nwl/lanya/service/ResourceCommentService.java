@@ -61,4 +61,11 @@ public class ResourceCommentService implements AbstractBaseService<ResourceComme
 		}
 	}
 
+	public void getAll(ResourceCommentDto dto) {
+		// TODO Auto-generated method stub
+		List<ResourceComment> resourcecomment=mapper.selectByExample(null);
+		dto.setPos(resourcecomment);
+		
+	}
+
 }
