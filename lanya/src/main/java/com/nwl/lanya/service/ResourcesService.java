@@ -44,8 +44,11 @@ public class ResourcesService implements AbstractBaseService<ResourcesDto>{
 	public void findById(ResourcesDto dto) {
 		// TODO 自动生成的方法存根
 		String id=dto.getPo().getId();
+		
+		
 		Resouces resouces=mapper.selectByPrimaryKey(id);
 		dto.setPo(resouces);
+		System.out.println("resource:"+dto.getPo().getResourceDetail());
 	}
 
 	@Override

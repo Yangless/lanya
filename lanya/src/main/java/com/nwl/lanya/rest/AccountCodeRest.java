@@ -61,6 +61,7 @@ public class AccountCodeRest extends AbstractBaseRest<AccountCodeDto>{
 	public AccountCodeDto findById(AccountCodeDto dto) {
 		// TODO 自动生成的方法存根
 		try {
+			System.out.println("Rest"+dto.getPo().getId());
 			service.findById(dto);
 			
 			dto.setMsgCode(MsgCode.REQUEST_SCCESS);

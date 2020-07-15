@@ -62,6 +62,7 @@ public class ResourcesRest extends AbstractBaseRest<ResourcesDto>{
 		// TODO 自动生成的方法存根
 		try {
 			service.findById(dto);
+		   System.out.println("!"+dto.getPo().getResourceTitle());
 			
 			dto.setMsgCode(MsgCode.REQUEST_SCCESS);
 			dto.setMsg("操作成功");
