@@ -100,14 +100,11 @@
 					    </div>
 	               </td>
 	            </tr>
-	            <tr>
-	               <td>
-		                <div>
-					        资源日期:
-				        <input class="easyui-validatebox" type="text" name="po.resourceDate"/>
-					    </div>
-	               </td>
-	            </tr>
+	     
+	     
+	     
+	     
+	     
 	            <tr>
 	               <td>
 		                <div>
@@ -121,9 +118,9 @@
 	               <td>
 	               <!-- required="true" --> 
 		                <div>
-				        <input class="photoUrl easyui-textbox" name="po.imgUrl" 
+				        <input class="photoUrl easyui-textbox" name="po.pictureUrl" 
 					    editable="false" style="width:90%" 
-					    data-options="validType:['maxLength[200]'],labelPosition:'left',label:'图片路径:',buttonText:'选择',onClickButton:function(){$('#uploadImg').dialog('open');}"/>
+					     data-options="validType:['maxLength[200]'],labelPosition:'left',label:'图片路径:',buttonText:'选择',onClickButton:function(){$('#uploadImg').dialog('open');}"/>
 					    </div>
 	               </td>
 	            </tr>
@@ -136,19 +133,17 @@
 					    </div>
 	               </td>
 	            </tr>
-	            <tr>
-	               <td>
-		                <div>
-					       资源细节:
-				        <input class="easyui-validatebox" type="text" name="po.resourceDetail"
-				        required="true" />
-					    </div>
-	               </td>
-	            </tr>
+	            
 	        </table>
 		</form>
 	</div>
 	<!-- 添加 -->
+	<!-- 上传图片 -->
+	<div id="uploadImg" style="padding:10px;">
+		<form>
+			<input id="myFile" class="easyui-filebox" style="width:100%;" buttonText="请选择图片" buttonAlign="right"/>
+		</form>
+	</div>	
 	<div id="updateWindow">
 	     <form>
 	        <table class="twoTabe">
@@ -169,14 +164,11 @@
 					    </div>
 	               </td>
 	            </tr>
-	            <tr>
-	               <td>
-		                <div>
-					        资源日期:
-				        <input class="easyui-validatebox" type="text" name="po.resourceDate"/>
-					    </div>
-	               </td>
-	            </tr>
+	            
+	            
+	            
+	            
+	            
 	            <tr>
 	               <td>
 		                <div>
@@ -190,7 +182,7 @@
 	               <td>
 	               <!-- required="true" --> 
 		                <div>
-				        <input class="photoUrl easyui-textbox" name="po.imgUrl" 
+				        <input class="photoUrl easyui-textbox" name="po.pictureUrl" 
 					    editable="false" style="width:90%" 
 					    data-options="validType:['maxLength[200]'],labelPosition:'left',label:'图片路径:',buttonText:'选择',onClickButton:function(){$('#uploadImg').dialog('open');}"/>
 					    </div>
@@ -205,15 +197,7 @@
 					    </div>
 	               </td>
 	            </tr>
-	            <tr>
-	               <td>
-		                <div>
-					       资源细节:
-				        <input class="easyui-validatebox" type="text" name="po.resourceDetail"
-				        required="true" />
-					    </div>
-	               </td>
-	            </tr>
+	           
 	            
 	        </table>
 		</form>

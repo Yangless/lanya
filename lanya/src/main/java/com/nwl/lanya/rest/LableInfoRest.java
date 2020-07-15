@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.nwl.lanya.common.MsgCode;
 import com.nwl.lanya.common.PageModel;
+import com.nwl.lanya.dto.AddvertisementDto;
 import com.nwl.lanya.dto.LableInfoDto;
 import com.nwl.lanya.service.LableInfoService;
 
@@ -87,5 +88,20 @@ public class LableInfoRest extends AbstractBaseRest<LableInfoDto>{
 		}
 		return dto;
 	}
+	@RequestMapping("getAll")
+	public LableInfoDto getAll(LableInfoDto dto) {
+		// TODO 自动生成的方法存根
+		try {
+			service.getAll(dto);
+			
+			dto.setMsgCode(MsgCode.REQUEST_SCCESS);
+			dto.setMsg("操作成功");
+		} catch (Exception e) {
+			e.printStackTrace();
+			dto.setMsgCode(MsgCode.REQUEST_FALSE);
+			dto.setMsg("系统异常,请联系维护人员");
+		}
+		return dto;
 
+	}
 }

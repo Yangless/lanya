@@ -9,8 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.nwl.lanya.dao.ResoucesMapper;
-
+import com.nwl.lanya.dto.AddvertisementDto;
 import com.nwl.lanya.dto.ResourcesDto;
+import com.nwl.lanya.po.Advertisment;
 import com.nwl.lanya.po.Resouces;
 import com.nwl.lanya.po.ResourceComment;
 
@@ -64,4 +65,9 @@ public class ResourcesService implements AbstractBaseService<ResourcesDto>{
 		}
 	}
 
+	public void getAll(ResourcesDto dto) {
+		// TODO 自动生成的方法存根
+		List<Resouces> resouces=mapper.selectByExample(null);
+		dto.setPos(resouces);
+	}
 }

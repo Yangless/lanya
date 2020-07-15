@@ -53,7 +53,98 @@
             		}
             	}
             });
+	    	$.ajax({
+            	url:"/resourcesRest/getAll",//请求路径
+            	type:"get",//请求方式
+            	data:{
+            		
+            	},
+            	dataType:"json",//返回的数据类型
+            	success:function(data){
+            		var pos = data.pos;
+            		for(var i=0;i<pos.length;i++){
+            			var po = pos[i];
+            			$("#resources").append(
+            					'<a href="/sourceDetail?id='+po.accountId+'">'+
+    							'<div class="showResourceList col-xs-12 col-sm-12 col-md-12">'+
+    								'<div class="row">'+
+    									'<div class="showResourceList-img col-xs-12 col-sm-12 col-md-3">'+
+    									    '<img width="100%" src="'+po.pictureUrl+'">'+
+    									'</div>'+
+    									'<div class="showResourceList-intro col-xs-12 col-sm-12 col-md-9">'+
+    										'<h4>'+po.resourceTitle+'<span>'+'评价：'+po.score+'</span>'+'</h4>'+
+											'<p>'+po.resourceIntro+'</p>'+
+    									'</div>'+
+    								'</div>'+
+    							'</div>'+
+    						'</a>'
+                   		);
+            		}
+            	}
+            });
+	    	
+	    	$.ajax({
+            	url:"/lableinfoRest/getAll",//请求路径
+            	type:"get",//请求方式
+            	data:{
+            		
+            	},
+            	dataType:"json",//返回的数据类型
+            	success:function(data){
+            		var pos = data.pos;
+            		for(var i=0;i<pos.length;i++){
+            			var po = pos[i];
+            			$("#lableinfos").append(
+            					'<span class="hotLabelA">'+po.lableName+'</span>'
+                   		);
+            		}
+            	}
+            });
 	    });
+	    /*searchresource  */
+	    $(function(){
+	    	component = {
+	    	searchBtn:$('#searchBtn')
+	    	}
+	    	
+	    	
+	    });
+	    	/* $.ajax({
+	    		component.searchBtn.click(function(){
+	    			component.dataGrid.datagrid('reload',{
+	    				columnName:component.columnName.combobox('getValue'),
+	    				columnValue:component.columnValue.textbox('getValue')	
+	    			});
+	    		});
+            	url:"/resourcesRest/list",//请求路径
+            	type:"get",//请求方式
+            	data:{
+            		
+            	},
+            	dataType:"json",//返回的数据类型
+            	success:function(data){
+            		var pos = data.pos;
+            		for(var i=0;i<pos.length;i++){
+            			var po = pos[i];
+            			$("#resources").append(
+            					'<a href="sourceDetail?id='+po.accountId+'">'+
+    							'<div class="showResourceList col-xs-12 col-sm-12 col-md-12">'+
+    								'<div class="row">'+
+    									'<div class="showResourceList-img col-xs-12 col-sm-12 col-md-3">'+
+    									    '<img width="100%" src="'+po.pictureUrl+'">'+
+    									'</div>'+
+    									'<div class="showResourceList-intro col-xs-12 col-sm-12 col-md-9">'+
+    										'<h4>'+po.resourceTitle+'<span>'+'评价：'+po.score+'</span>'+'</h4>'+
+											'<p>'+po.resourceIntro+'</p>'+
+    									'</div>'+
+    								'</div>'+
+    							'</div>'+
+    						'</a>'
+                   		);
+            		}
+            	}
+            });
+	    } */
 	</script>
     <style>
     	.test-show-left{
@@ -105,9 +196,10 @@
     </style>
 </head>
 	<body>
-		<nav class="navbar navbar-default">
+	<div th:replace="commonComponent::Navbar"></div>
+		<!-- <nav class="navbar navbar-default">
 		  <div class="container-fluid">
-		    <!-- Brand and toggle get grouped for better mobile display -->
+		    Brand and toggle get grouped for better mobile display
 		    <div class="navbar-header">
 		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
 		        <span class="sr-only">Toggle navigation</span>
@@ -118,26 +210,28 @@
 		      <a class="navbar-brand" href="#">erp-教学资源管理平台</a>
 		    </div>
 		
-		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    Collect the nav links, forms, and other content for toggling
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav">
-		        <li class="active"><a href="#">首页 <span class="sr-only">(current)</span></a></li>
-		        <li><a href="html/boutique.html">精品</a></li>
+		        <li class="active"><a href="/">首页 <span class="sr-only">(current)</span></a></li>
+		        <li><a href="/boutique">精品</a></li>
 		        <li><a href="#">友情链接</a></li>
 		        <li><a href="#">老师排名</a></li>
 		      </ul>
 		      <form class="navbar-form navbar-left">
-		        <div class="form-group">
-		          <input type="text" class="form-control" placeholder="你想找什么资源">
+		        <div id="searchresource"> 
+		        	<div class="form-group">
+		        	  <input type="text" class="form-control" placeholder="你想找什么资源">
+		      		</div>
+		        	<button  id="searchBtn"type="submit" class="btn btn-default">搜索</button>
 		        </div>
-		        <button type="submit" class="btn btn-default">搜索</button>
 		      </form>
 		      <ul class="nav navbar-nav navbar-right">
 		        <li><a href="#">登录/注册</a></li>
 		      </ul>
-		    </div><!-- /.navbar-collapse -->
-		  </div><!-- /.container-fluid -->
-		</nav>
+		    </div>/.navbar-collapse
+		  </div>/.container-fluid
+		</nav> -->
 		<div class="container-fluid">
 		    <div class="row">
 		    	 <div class="test-show-left col-xs-12 col-sm-12 col-md-9">
@@ -179,7 +273,8 @@
 					<!-- 资源排列 -->
 					<div class="container-fluid">
 						<div class="row">
-						<a href="html/sourceDetail.html">
+						<div id="resources">
+						<!-- <a href="html/sourceDetail.html">
 							<div class="showResourceList col-xs-12 col-sm-12 col-md-12">
 								<div class="row">
 									<div class="showResourceList-img col-xs-12 col-sm-12 col-md-3">
@@ -191,30 +286,9 @@
 									</div>
 								</div>
 							</div>
-						</a>
-							<div class="showResourceList col-xs-12 col-sm-12 col-md-12">
-								<div class="row">
-									<div class="showResourceList-img col-xs-12 col-sm-12 col-md-3">
-										<img src="img/resource1.png"/>
-									</div>
-									<div class="showResourceList-intro col-xs-12 col-sm-12 col-md-9">
-										<h4>基于Springboot的CURD操作<span>评价：5.0</span></h4>
-										<p>基于Springboot的CURD操作基于Springboot的CURD操作基于Springboot的CURD操作基于Springboot的CURD操作基于Springboot的CURD操作</p>
-									</div>
-								</div>
-							</div>
-							<div class="showResourceList col-xs-12 col-sm-12 col-md-12">
-								<div class="row">
-									<div class="showResourceList-img col-xs-12 col-sm-12 col-md-3">
-										<img src="img/resource1.png"/>
-									</div>
-									<div class="showResourceList-intro col-xs-12 col-sm-12 col-md-9">
-										<h4>基于Springboot的CURD操作<span>评价：5.0</span></h4>
-										<p>基于Springboot的CURD操作基于Springboot的CURD操作基于Springboot的CURD操作基于Springboot的CURD操作基于Springboot的CURD操作</p>
-									</div>
-								</div>
-							</div>
-							<div class="showResourceList col-xs-12 col-sm-12 col-md-12">
+						</a> -->
+						</div>
+				<!-- 			<div class="showResourceList col-xs-12 col-sm-12 col-md-12">
 								<div class="row">
 									<div class="showResourceList-img col-xs-12 col-sm-12 col-md-3">
 										<img src="img/resource1.png"/>
@@ -258,6 +332,28 @@
 									</div>
 								</div>
 							</div>
+							<div class="showResourceList col-xs-12 col-sm-12 col-md-12">
+								<div class="row">
+									<div class="showResourceList-img col-xs-12 col-sm-12 col-md-3">
+										<img src="img/resource1.png"/>
+									</div>
+									<div class="showResourceList-intro col-xs-12 col-sm-12 col-md-9">
+										<h4>基于Springboot的CURD操作<span>评价：5.0</span></h4>
+										<p>基于Springboot的CURD操作基于Springboot的CURD操作基于Springboot的CURD操作基于Springboot的CURD操作基于Springboot的CURD操作</p>
+									</div>
+								</div>
+							</div>
+							<div class="showResourceList col-xs-12 col-sm-12 col-md-12">
+								<div class="row">
+									<div class="showResourceList-img col-xs-12 col-sm-12 col-md-3">
+										<img src="img/resource1.png"/>
+									</div>
+									<div class="showResourceList-intro col-xs-12 col-sm-12 col-md-9">
+										<h4>基于Springboot的CURD操作<span>评价：5.0</span></h4>
+										<p>基于Springboot的CURD操作基于Springboot的CURD操作基于Springboot的CURD操作基于Springboot的CURD操作基于Springboot的CURD操作</p>
+									</div>
+								</div>
+							</div> -->
 							<div style="text-align: center;">
 								<nav aria-label="Page navigation" >
 									<ul class="pagination">
@@ -291,8 +387,8 @@
 						<div class="quickShow-title">
 							<h5>热点标签</h5>
 						</div>
-						<div class="quickShow-content">
-							<span class="hotLabelA">齐军洁</span>
+						<div id="lableinfos" class="quickShow-content">
+							<!-- <span class="hotLabelA">齐军洁</span>
 							<span class="hotLabelA">微信支付</span>
 							<span class="hotLabelA">支付宝支付</span>
 							<span class="hotLabelA">简爱</span>
@@ -301,7 +397,7 @@
 							<span class="hotLabelA">vuejs</span>
 							<span class="hotLabelA">爱知爱智</span>
 							<span class="hotLabelA">小泽玛利亚</span>
-							<span class="hotLabelA">屠龙</span>
+							<span class="hotLabelA">屠龙</span -->
 						</div>
 					</div>
 					

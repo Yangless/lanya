@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.nwl.lanya.dao.AdvertismentMapper;
 import com.nwl.lanya.dao.LableInfoMapper;
+import com.nwl.lanya.dto.AddvertisementDto;
 import com.nwl.lanya.dto.LableInfoDto;
 import com.nwl.lanya.po.Advertisment;
 import com.nwl.lanya.po.LableInfo;
@@ -59,4 +60,10 @@ public class LableInfoService implements AbstractBaseService<LableInfoDto>{
 		}
 	}
 
+	public void getAll(LableInfoDto dto) {
+		// TODO 自动生成的方法存根
+		List<LableInfo> lableInfos=mapper.selectByExample(null);
+		dto.setPos(lableInfos);
+	}
+	
 }

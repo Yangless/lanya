@@ -30,8 +30,7 @@ $(function(){
 	        {field:'downloadCount',title:'下载次数',width:100},
 	        {field:'viewCount',title:'浏览次数',width:100},
 	        {field:'score',title:'评价分数',width:100},
-	        {field:'isBoutique',title:'是否精品',width:100},
-	        {field:'resourceDetail',title:'资源细节',width:100}
+	        {field:'isBoutique',title:'是否精品',width:100}
 	    ]]
 	});
 	

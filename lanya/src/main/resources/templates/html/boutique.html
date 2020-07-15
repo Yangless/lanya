@@ -16,7 +16,45 @@
 		<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
 		<script type="text/javascript" src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" src="js/raty/jquery.raty.js"></script>
 		<!--script end-->
+		<script>
+		$(function(){
+			$.ajax({
+            	url:"/resourcesRest/getAll",//请求路径
+            	type:"get",//请求方式
+            	data:{
+            		
+            	},
+            	dataType:"json",//返回的数据类型
+            	success:function(data){
+            		var pos = data.pos;
+            		
+            		for(var i=0;i<pos.length;i++){
+            			var po = pos[i];
+            			if(po.score>=4.5){ 
+            				$("#resources").append(
+            						'<a href="/sourceDetail?id='+po.accountId+'">'+
+        							'<div class="showResourceList col-xs-12 col-sm-12 col-md-12">'+
+        								'<div class="row">'+
+        									'<div class="showResourceList-img col-xs-12 col-sm-12 col-md-3">'+
+        									    '<img width="100%" src="'+po.pictureUrl+'">'+
+        									'</div>'+
+        									'<div class="showResourceList-intro col-xs-12 col-sm-12 col-md-9">'+
+        										'<h4>'+po.resourceTitle+'<span>'+'评价：'+po.score+'</span>'+'</h4>'+
+    											'<p>'+po.resourceIntro+'</p>'+
+        									'</div>'+
+        								'</div>'+
+        							'</div>'+
+        						'</a>'
+                       		);
+            		 	} 
+            		}
+            	}
+            });
+			
+	    });
+	    </script>
 		<style>
 			.test-show-left{
 				min-height:1000px;
@@ -68,9 +106,10 @@
 		<title></title>
 	</head>
 	<body>
-		<nav class="navbar navbar-default">
+	<div th:replace="commonComponent::Navbar"></div>
+		<!-- <nav class="navbar navbar-default">
 		  <div class="container-fluid">
-		    <!-- Brand and toggle get grouped for better mobile display -->
+		    Brand and toggle get grouped for better mobile display
 		    <div class="navbar-header">
 		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
 		        <span class="sr-only">Toggle navigation</span>
@@ -81,10 +120,10 @@
 		      <a class="navbar-brand" href="#">erp-教学资源管理平台</a>
 		    </div>
 		
-		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    Collect the nav links, forms, and other content for toggling
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav">
-		        <li><a href="html/index1.html">首页 <span class="sr-only">(current)</span></a></li>
+		        <li><a href="/">首页 <span class="sr-only">(current)</span></a></li>
 		        <li class="active"><a href="#">精品</a></li>
 		        <li><a href="#">友情链接</a></li>
 		        <li><a href="#">老师排名</a></li>
@@ -98,16 +137,39 @@
 		      <ul class="nav navbar-nav navbar-right">
 		        <li><a href="#">登录/注册</a></li>
 		      </ul>
-		    </div><!-- /.navbar-collapse -->
-		  </div><!-- /.container-fluid -->
-		</nav>
+		    </div>/.navbar-collapse
+		  </div>/.container-fluid
+		</nav> -->
 		<div class="container-fluid">
 			<div class="row">
-				<a href="html/sourceDetail.html">
 				<div class="test-show-left col-xs-12 col-sm-12 col-md-9">
 					<!-- 资源排列 -->
-					<div class="container-fluid">
+				  <div class="container-fluid">
+					<div class="row">
+					<div id="resources"></div>
+			 		<!-- <div class="showResourceList col-xs-12 col-sm-12 col-md-12">
 						<div class="row">
+							<div class="showResourceList-img col-xs-12 col-sm-12 col-md-3">
+								<img src="img/resource1.png"/>
+							</div>
+							<div class="showResourceList-intro col-xs-12 col-sm-12 col-md-9">
+								<h4>基于Springboot的CURD操作<span>评价：5.0</span></h4>
+								<p>基于Springboot的CURD操作基于Springboot的CURD操作基于Springboot的CURD操作基于Springboot的CURD操作基于Springboot的CURD操作</p>
+							</div>
+						</div>
+					</div>
+					<div class="showResourceList col-xs-12 col-sm-12 col-md-12">
+								<div class="row">
+									<div class="showResourceList-img col-xs-12 col-sm-12 col-md-3">
+										<img src="img/resource1.png"/>
+									</div>
+									<div class="showResourceList-intro col-xs-12 col-sm-12 col-md-9">
+										<h4>基于Springboot的CURD操作<span>评价：5.0</span></h4>
+										<p>基于Springboot的CURD操作基于Springboot的CURD操作基于Springboot的CURD操作基于Springboot的CURD操作基于Springboot的CURD操作</p>
+									</div>
+								</div>
+							</div>
+						
 							<div class="showResourceList col-xs-12 col-sm-12 col-md-12">
 								<div class="row">
 									<div class="showResourceList-img col-xs-12 col-sm-12 col-md-3">
@@ -162,29 +224,9 @@
 										<p>基于Springboot的CURD操作基于Springboot的CURD操作基于Springboot的CURD操作基于Springboot的CURD操作基于Springboot的CURD操作</p>
 									</div>
 								</div>
-							</div>
-							<div class="showResourceList col-xs-12 col-sm-12 col-md-12">
-								<div class="row">
-									<div class="showResourceList-img col-xs-12 col-sm-12 col-md-3">
-										<img src="img/resource1.png"/>
-									</div>
-									<div class="showResourceList-intro col-xs-12 col-sm-12 col-md-9">
-										<h4>基于Springboot的CURD操作<span>评价：5.0</span></h4>
-										<p>基于Springboot的CURD操作基于Springboot的CURD操作基于Springboot的CURD操作基于Springboot的CURD操作基于Springboot的CURD操作</p>
-									</div>
-								</div>
-							</div>
-							<div class="showResourceList col-xs-12 col-sm-12 col-md-12">
-								<div class="row">
-									<div class="showResourceList-img col-xs-12 col-sm-12 col-md-3">
-										<img src="img/resource1.png"/>
-									</div>
-									<div class="showResourceList-intro col-xs-12 col-sm-12 col-md-9">
-										<h4>基于Springboot的CURD操作<span>评价：5.0</span></h4>
-										<p>基于Springboot的CURD操作基于Springboot的CURD操作基于Springboot的CURD操作基于Springboot的CURD操作基于Springboot的CURD操作</p>
-									</div>
-								</div>
-							</div>
+							</div>   -->
+							
+							
 							<div style="text-align: center;">
 								<nav aria-label="Page navigation" >
 									<ul class="pagination">
