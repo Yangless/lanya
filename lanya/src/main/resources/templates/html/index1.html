@@ -65,7 +65,7 @@
             		for(var i=0;i<pos.length;i++){
             			var po = pos[i];
             			$("#resources").append(
-            					'<a href="/sourceDetail?id='+po.accountId+'">'+
+            					'<a href="/sourceDetail?id='+po.id+'">'+
     							'<div class="showResourceList col-xs-12 col-sm-12 col-md-12">'+
     								'<div class="row">'+
     									'<div class="showResourceList-img col-xs-12 col-sm-12 col-md-3">'+
@@ -196,8 +196,8 @@
     </style>
 </head>
 	<body>
-	<div th:replace="commonComponent::Navbar"></div>
-		<!-- <nav class="navbar navbar-default">
+	 <div th:replace="commonComponent::Navbar"></div> 
+		 <!-- <nav class="navbar navbar-default">
 		  <div class="container-fluid">
 		    Brand and toggle get grouped for better mobile display
 		    <div class="navbar-header">
@@ -210,7 +210,7 @@
 		      <a class="navbar-brand" href="#">erp-教学资源管理平台</a>
 		    </div>
 		
-		    Collect the nav links, forms, and other content for toggling
+		   
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav">
 		        <li class="active"><a href="/">首页 <span class="sr-only">(current)</span></a></li>
@@ -231,7 +231,7 @@
 		      </ul>
 		    </div>/.navbar-collapse
 		  </div>/.container-fluid
-		</nav> -->
+		</nav>  -->
 		<div class="container-fluid">
 		    <div class="row">
 		    	 <div class="test-show-left col-xs-12 col-sm-12 col-md-9">

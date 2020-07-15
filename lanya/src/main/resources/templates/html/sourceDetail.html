@@ -13,10 +13,8 @@
     <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap-theme.min.css"/>
 	<link rel="stylesheet" href="css/common.css"/>
 	<link rel="stylesheet" href="css/sourceDetail.css"/>
-<<<<<<< HEAD
-=======
+
 <!-- 	<link rel="stylesheet" href="css/raty/jquery.raty.css"/> -->
->>>>>>> temp
 	<!--script start-->
 	<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
 	<script type="text/javascript" src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
@@ -26,21 +24,22 @@
 
     <script>
     var accountId;
+  
      $(function(){
-    	 
+    	 /* console.log($('#id').val()); */
     	$.ajax({
         	url:"/resourcesRest/findById",//请求路径
         	type:"get",//请求方式
         	data:{
-        		"po.id":"47a64991-a3b2-4378-9ee1-5df95dc0507e"	
+        		"po.id":$('#id').val()
         	},
         	
         	async: false,
         	dataType:"json",//返回的数据类型
         	success:function(data){
-        		/* console.log(data); */
+        		/* console.log(data);  */
         		var po = data.po;
-        		/* console.log(po); */
+        		/* console.log($('#id').val()); */
         		accountId=po.accountId;
         		
         		$("#sourceIntro").append(
@@ -69,7 +68,7 @@
         	}
         });
     	
-    	alert(accountId); 
+    	/* alert(accountId);  */
     	
     	
     	/* setTimeout(5000); */
@@ -83,7 +82,7 @@
         		
         		"po.id":accountId    //3bb939b8-fd93-42d2-9ddc-7e02f26a4846
         	},
-        	/* async: false, */
+        	async: false, 
         	dataType:"json",//返回的数据类型
         	success:function(data){
         		console.log(data);
@@ -91,7 +90,7 @@
         		console.log(po);
         		
         		console.log(accountId);
-        		 alert(accountId); 
+        		/*  alert(accountId);  */
         		
         		
         		$("#hotAnchor").append(
@@ -202,8 +201,9 @@
 
 </head>
 <body>
+    
 	<div th:replace="commonComponent::Navbar"></div>
-	<!-- <nav class="navbar navbar-default navbar-fixed-top">
+	<!-- <!-- <nav class="navbar navbar-default navbar-fixed-top">
 	  container-fluid
 	  <div class="container-fluid">
 			Brand and toggle get grouped for better mobile display
@@ -238,20 +238,19 @@
 			</div>
 			navbar-collapse
 	  </div>
-<<<<<<< HEAD
+
 	  container-fluid
-	</nav> -->
-	<div class="container-fluid">
+	</nav> --> 
+	<!-- <div class="container-fluid">
 		<div class="row">
 			<div class="test-show-left col-xs-12 col-sm-12 col-md-9">
-=======
-	  <!-- container-fluid -->
-	</nav>
+
+	  container-fluid
+	</nav> -->
 	
 	<div class="mainClass">
 		<div class="mainClass-leftClass">
 			<div id="sourceDetialList">
->>>>>>> temp
 				<div class="detailContent">
 					<div class="container-fluid">
 					  <div class="row">
@@ -398,6 +397,7 @@
 			  </div>
 			</div>
 		</div>
+		<input type="hidden" id="id" th:value="${id}"></input>
 		<div class="footer-bottom">
 			<span>粤ICP备17055197号-1</span>
 		</div>

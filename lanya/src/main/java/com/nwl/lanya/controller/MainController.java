@@ -24,7 +24,8 @@ public class MainController {
 	
 	
 	@RequestMapping("/sourceDetail")
-	public String sourceDetail(Model model){
+	public String sourceDetail(String id,Model model){
+		model.addAttribute("id", id);
 		return "html/sourceDetail";
 	}
 	
