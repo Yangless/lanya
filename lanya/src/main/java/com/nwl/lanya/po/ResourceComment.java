@@ -5,7 +5,7 @@ import java.util.Date;
 public class ResourceComment {
     private String id;
 
-    private Integer accountId;
+    private String accountId;
 
     private Date commentDate;
 
@@ -25,11 +25,11 @@ public class ResourceComment {
         this.id = id == null ? null : id.trim();
     }
 
-    public Integer getAccountId() {
+    public String getAccountId() {
         return accountId;
     }
 
-    public void setAccountId(Integer accountId) {
+    public void setAccountId(String accountId) {
         this.accountId = accountId;
     }
 

@@ -3,7 +3,7 @@
 <mapper namespace="com.nwl.lanya.dao.ResourceCommentMapper">
   <resultMap id="BaseResultMap" type="com.nwl.lanya.po.ResourceComment">
     <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="account_id" jdbcType="INTEGER" property="accountId" />
+    <result column="account_id" jdbcType="VARCHAR" property="accountId" />
     <result column="comment_date" jdbcType="DATE" property="commentDate" />
     <result column="comment_score" jdbcType="DOUBLE" property="commentScore" />
     <result column="content" jdbcType="VARCHAR" property="content" />
@@ -105,7 +105,7 @@
     insert into resource_comment (id, account_id, comment_date, 
       comment_score, content, resource_id, 
       parent_id)
-    values (#{id,jdbcType=VARCHAR}, #{accountId,jdbcType=INTEGER}, #{commentDate,jdbcType=DATE}, 
+    values (#{id,jdbcType=VARCHAR}, #{accountId,jdbcType=VARCHAR}, #{commentDate,jdbcType=DATE}, 
       #{commentScore,jdbcType=DOUBLE}, #{content,jdbcType=VARCHAR}, #{resourceId,jdbcType=VARCHAR}, 
       #{parentId,jdbcType=VARCHAR})
   </insert>
@@ -139,7 +139,7 @@
         #{id,jdbcType=VARCHAR},
       </if>
       <if test="accountId != null">
-        #{accountId,jdbcType=INTEGER},
+        #{accountId,jdbcType=VARCHAR},
       </if>
       <if test="commentDate != null">
         #{commentDate,jdbcType=DATE},
@@ -171,7 +171,7 @@
         id = #{record.id,jdbcType=VARCHAR},
       </if>
       <if test="record.accountId != null">
-        account_id = #{record.accountId,jdbcType=INTEGER},
+        account_id = #{record.accountId,jdbcType=VARCHAR},
       </if>
       <if test="record.commentDate != null">
         comment_date = #{record.commentDate,jdbcType=DATE},
@@ -196,7 +196,7 @@
   <update id="updateByExample" parameterType="map">
     update resource_comment
     set id = #{record.id,jdbcType=VARCHAR},
-      account_id = #{record.accountId,jdbcType=INTEGER},
+      account_id = #{record.accountId,jdbcType=VARCHAR},
       comment_date = #{record.commentDate,jdbcType=DATE},
       comment_score = #{record.commentScore,jdbcType=DOUBLE},
       content = #{record.content,jdbcType=VARCHAR},
@@ -210,7 +210,7 @@
     update resource_comment
     <set>
       <if test="accountId != null">
-        account_id = #{accountId,jdbcType=INTEGER},
+        account_id = #{accountId,jdbcType=VARCHAR},
       </if>
       <if test="commentDate != null">
         comment_date = #{commentDate,jdbcType=DATE},
@@ -232,7 +232,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.nwl.lanya.po.ResourceComment">
     update resource_comment
-    set account_id = #{accountId,jdbcType=INTEGER},
+    set account_id = #{accountId,jdbcType=VARCHAR},
       comment_date = #{commentDate,jdbcType=DATE},
       comment_score = #{commentScore,jdbcType=DOUBLE},
       content = #{content,jdbcType=VARCHAR},
