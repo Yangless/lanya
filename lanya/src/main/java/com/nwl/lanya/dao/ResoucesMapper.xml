@@ -356,7 +356,7 @@
     where id = #{id,jdbcType=VARCHAR}
   </update>
    <!-- 分页获取账户数据 -->
-  <select id="list" parameterType="com.nwl.lanya.dto.LableInfoDto" resultMap="BaseResultMap">
+  <select id="list" parameterType="com.nwl.lanya.dto.ResourcesDto" resultMap="BaseResultMap">
       select
 	  <include refid="Base_Column_List" />
 	  from resouces  
@@ -370,7 +370,7 @@
   </select>
   
   <!-- 获取数据总数 -->
-  <select id="countByList" parameterType="com.nwl.lanya.dto.LableInfoDto" resultType="java.lang.Long">
+  <select id="countByList" parameterType="com.nwl.lanya.dto.ResourcesDto" resultType="java.lang.Long">
       select count(*)
       from resouces
        <where>

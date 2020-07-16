@@ -62,6 +62,7 @@ public class ResourcesService implements AbstractBaseService<ResourcesDto>{
 			resouces.setScore(0.0);
 			resouces.setDownloadCount(0);
 			resouces.setViewCount(0);
+			//resouces.setAccountId("3bb939b8-fd93-42d2-9ddc-7e02f26a4846");
 			mapper.insert(resouces);
 		}else{
 			mapper.updateByPrimaryKeySelective(resouces);

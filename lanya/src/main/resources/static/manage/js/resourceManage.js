@@ -38,7 +38,7 @@ $(function(){
 	component.addWindow.baseDialog({
 		title: '添加评论',
         width: 500,
-        height: 480,
+        height: 280,
         url:"/resourcesRest/saveOrUpdate"
 	});
 	component.addBtn.click(function(){

@@ -25,7 +25,7 @@ public interface AccountCodeMapper {
 
     List<AccountCodeWithBLOBs> selectByExampleWithBLOBs(AccountCodeExample example);
 
-    List<AccountCode> selectByExample(AccountCodeExample example);
+    List<AccountCodeWithBLOBs> selectByExample(AccountCodeExample example);
 
     AccountCodeWithBLOBs selectByPrimaryKey(String id);
 

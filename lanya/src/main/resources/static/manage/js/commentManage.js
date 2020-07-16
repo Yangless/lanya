@@ -24,18 +24,18 @@ $(function(){
         	{field:'id',title:'id',hidden:true},
         	{field:'accountId',title:'账号',width:100},
 	        {field:'commentDate',title:'评论日期',width:100},
-	        {field:'commentScore',title:'评论得分',width:100},
+	        {field:'commentScore',title:'评论分数',width:100},
 	        {field:'content',title:'评论内容',width:100},
 	        {field:'resourceId',title:'资源',width:100},
-	        {field:'parentId',title:'评论id',width:100}
+	        {field:'parentId',title:'所属评论',width:100}
 	    ]]
 	});
 	
 	//添加操作
 	component.addWindow.baseDialog({
 		title: '添加评论',
-        width: 500,
-        height: 480,
+        width: 400,
+        height: 300,
         url:"/resourcecommentRest/saveOrUpdate"
 	});
 	component.addBtn.click(function(){

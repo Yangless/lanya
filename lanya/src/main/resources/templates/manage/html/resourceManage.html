@@ -25,7 +25,44 @@
 	
 	<!-- start: Favicon -->
 	<link rel="shortcut icon" href="img/avatar.jpg">
-	<!-- end: Favicon -->
+	<!-- end: Favicon -->  
+	
+	 <!--script start-->
+    <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+    <script type="text/javascript" src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+   
+    <!--script end-->
+	  						
+	<script>
+/* 	$(function(){
+		alert("xxxx");
+	 $.ajax({
+    	url:"/accountcodeRest/getAll",//请求路径
+    	type:"get",//请求方式
+    	data:{
+    		
+    	},
+    	dataType:"json",//返回的数据类型
+    	success:function(data){
+    		var pos = data.pos;
+    		 var po=pos[0]; 
+    		console.log(pos);
+/*     		for(var i=0;i<length;i++){
+    		/* 	var po = pos[i]; */
+    		/* 	alert("xxxx");
+    			$("#sel").append(
+				        '<option value="">请选择</option><option th:each="po:'+pos+'"th:value="po.accountCode"th:text="po.accountCode"th:selected="po.id"></option>'
+    					
+    					
+    					/* '<option name="po.accountId" value="'+po.id+'">'+po.accountCode+'xxxx'+'</option>' 
+           		); 
+    		/* } 
+    	}
+    });
+		
+}); */
+	
+	</script>
 </head>
 
 <body>
@@ -59,6 +96,8 @@
 					<a id="addBtn" class="easyui-linkbutton" iconCls="icon-add">添加</a>
 					<a id="delBtn" class="easyui-linkbutton" iconCls="icon-cancel">删除</a>
 					<a id="updateBtn" class="easyui-linkbutton" iconCls="icon-edit">修改</a>
+					
+					
 				</div>
 	        </div>
 			<!-- end: Content -->
@@ -99,12 +138,7 @@
 				        required="true" data-options="validType:['maxLength[20]']"/>
 					    </div>
 	               </td>
-	            </tr>
-	     
-	     
-	     
-	     
-	     
+	            </tr> 
 	            <tr>
 	               <td>
 		                <div>
@@ -124,12 +158,20 @@
 					    </div>
 	               </td>
 	            </tr>
-	            <tr>
+
+     	        <tr>
 	               <td>
-		                <div>
-					       账户:
-				        <input class="easyui-validatebox" type="text" name="po.accountId"
-				        required="true" />
+		                <div style="width:100%;">
+					       资源拥有者:
+                           <!--  <option name="po.accountId" value="03b5d0fd-e7e0-4397-9e35-0843e74ce803">po.accountCode</option> -->
+                       
+                          <select data-placeholder="请选择资源"  id="resouces" name="po.accountId" required="true" >
+						        <option   value="">请选择</option>	      
+						        <option   th:each="resouce:${session.resouces}" 
+						        th:value="${resouce.id}"  
+						        th:text="${resouce.accountCode}" 
+						        th:selected=${resouce.id}></option>
+					    	</select>
 					    </div>
 	               </td>
 	            </tr>
@@ -144,6 +186,7 @@
 			<input id="myFile" class="easyui-filebox" style="width:100%;" buttonText="请选择图片" buttonAlign="right"/>
 		</form>
 	</div>	
+
 	<div id="updateWindow">
 	     <form>
 	        <table class="twoTabe">
@@ -164,10 +207,6 @@
 					    </div>
 	               </td>
 	            </tr>
-	            
-	            
-	            
-	            
 	            
 	            <tr>
 	               <td>
@@ -190,10 +229,16 @@
 	            </tr>
 	            <tr>
 	               <td>
-		                <div>
-					       账户:
-				        <input class="easyui-validatebox" type="text" name="po.accountId"
-				        required="true" />
+		                <div style="width:100%;">
+					       资源拥有者:
+                           <!--  <option name="po.accountId" value="03b5d0fd-e7e0-4397-9e35-0843e74ce803">po.accountCode</option> -->
+                          <select data-placeholder="请选择资源"  id="resouces" name="po.accountId" required="true" >
+						        <option   value="">请选择</option>	      
+						        <option   th:each="resouce:${session.resouces}" 
+						        th:value="${resouce.id}"  
+						        th:text="${resouce.accountCode}" 
+						        th:selected=${resouce.id}></option>
+					    	</select>
 					    </div>
 	               </td>
 	            </tr>
