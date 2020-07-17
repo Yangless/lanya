@@ -29,8 +29,8 @@ $(function(){
 	//添加操作
 	component.addWindow.baseDialog({
 		title: '添加广告',
-        width: 500,
-        height: 280,
+        width: 350,
+        height: 250,
         url:"/lableinfoRest/saveOrUpdate"
 	});
 	component.addBtn.click(function(){

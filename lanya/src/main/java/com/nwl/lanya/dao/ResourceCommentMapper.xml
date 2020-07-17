@@ -241,7 +241,7 @@
     where id = #{id,jdbcType=VARCHAR}
   </update>
    <!-- 分页获取账户数据 -->
-  <select id="list" parameterType="com.nwl.lanya.dto.LableInfoDto" resultMap="BaseResultMap">
+  <select id="list" parameterType="com.nwl.lanya.dto.ResourceCommentDto" resultMap="BaseResultMap">
       select
 	  <include refid="Base_Column_List" />
 	  from resource_comment  
@@ -255,7 +255,7 @@
   </select>
   
   <!-- 获取数据总数 -->
-  <select id="countByList" parameterType="com.nwl.lanya.dto.LableInfoDto" resultType="java.lang.Long">
+  <select id="countByList" parameterType="com.nwl.lanya.dto.ResourceCommentDto" resultType="java.lang.Long">
       select count(*)
       from resource_comment
        <where>

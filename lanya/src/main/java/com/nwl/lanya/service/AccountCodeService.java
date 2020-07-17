@@ -11,7 +11,9 @@ import org.springframework.stereotype.Service;
 import com.nwl.lanya.common.PropertiesUtil;
 import com.nwl.lanya.dao.AccountCodeMapper;
 import com.nwl.lanya.dto.AccountCodeDto;
+import com.nwl.lanya.po.AccountCode;
 import com.nwl.lanya.po.AccountCodeWithBLOBs;
+import com.nwl.lanya.po.Advertisment;
 
 @Service
 public class AccountCodeService implements AbstractBaseService<AccountCodeDto>{
@@ -85,6 +87,24 @@ public class AccountCodeService implements AbstractBaseService<AccountCodeDto>{
 			accountcode.setSalt(propertiesUtil.getSalt());
 			mapper.updateByPrimaryKeySelective(accountcode);
 		}
+	}
+
+	public void getAll(AccountCodeDto dto) {
+
+		List<AccountCodeWithBLOBs> accountCode=mapper.selectByExample(null);
+		System.out.println("SIZE:"+accountCode.size());
+		
+		dto.setPos(accountCode);
+		
+	}
+	
+	public List<AccountCodeWithBLOBs> getAlls() {
+
+		return mapper.selectByExample(null);
+		
+		
+		
+		
 	}
 	
 

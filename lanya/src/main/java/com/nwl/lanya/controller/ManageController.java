@@ -1,5 +1,7 @@
 package com.nwl.lanya.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.nwl.lanya.common.MsgCode;
 import com.nwl.lanya.dto.AccountCodeDto;
 import com.nwl.lanya.po.AccountCodeWithBLOBs;
+import com.nwl.lanya.rest.AccountCodeRest;
 import com.nwl.lanya.service.AccountCodeService;
 
 
@@ -17,9 +20,7 @@ import com.nwl.lanya.service.AccountCodeService;
 @RequestMapping("manage")
 public class ManageController {
 	
-//	@Autowired
-//	private AccountService accountService;
-//	
+
 //	/**
 //	 * 
 //	* @Title: register 
@@ -206,7 +207,15 @@ public class ManageController {
 	public String login(HttpSession session,AccountCodeDto dto){
 		System.out.println("进入login");
 		AccountCodeWithBLOBs accountCodeWithBLOBs = service.login(dto);
+	   
+		
+	
+		
+		
+		//List<AccountCodeWithBLOBs> blobs =dtt.getPos();
+		//System.out.println("!!!"+service.getAlls().size());
 		session.setAttribute("account",accountCodeWithBLOBs );
+		session.setAttribute("resouces",service.getAlls());
 		if(accountCodeWithBLOBs==null){
 			return "redirect:/login";
 		}else{

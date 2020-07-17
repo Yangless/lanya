@@ -36,7 +36,7 @@ $(function(){
 	component.addWindow.baseDialog({
 		title: '添加用户',
         width: 500,
-        height: 480,
+        height: 380,
         url:"/accountcodeRest/saveOrUpdate"
 	});
 	component.addBtn.click(function(){

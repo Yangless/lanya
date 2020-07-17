@@ -9,7 +9,7 @@ public class MainController {
 
 	@RequestMapping("/")
 	public String index(Model model){
-		return "html/index1";
+		return "html/index";
 	}
 	@RequestMapping("/login")
 	public String login(Model model){
