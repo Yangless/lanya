@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <base href="../"/>
+	<meta charset="utf-8" />
+	<title>erp-资源管理平台</title>
+	<!-- start: Favicon -->
+	<link rel="shortcut icon" href="img/post-1.jpg">
+	<!-- end: Favicon -->
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" type="text/css" href="css/login/body.css"/> 
+	<link rel="stylesheet" type="text/css" href="css/login/login-style.css"/> 
+	<!--script start-->
+	<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+	<script>
+	    $(function(){
+	    	$("#submitBtn").click(function(){
+	    	    var registerAccountCode = $("#registerAccountCode").val().trim();
+	    	    var registerPwd = $("#registerPwd").val().trim();
+	    	    var registerConfirm = $("#registerConfirm").val().trim();
+                if(registerPwd==null||registerPwd==""){
+                	alert("密码不能为空");
+                	return false;
+	    	    }
+				if(registerConfirm==null||registerConfirm==""){
+					alert("确认密码不能为空");
+					return false;
+				}
+	    	
+	    		if(registerPwd===registerConfirm){
+	    			$.ajax({
+		            	url:"/accountcodeRest/saveOrUpdate",//请求路径
+		            	type:"post",//请求方式
+		            	data:{
+		            		"po.id":registerAccountCode,
+		            		
+		            		"po.pwd":registerPwd	
+		            	},
+		            	dataType:"json",//返回的数据类型
+		            	success:function(data){
+		            		alert(data.msg);
+		    	    	    location.href="/login";
+		            	}
+		            });
+	    		}else{
+	    			alert("两次输入不一致");
+	    		}
+	    		
+	    		return false;
+	    	});
+	    });
+	</script>
+	<style>
+	 #midd{
+	    align:center;		    	
+	    font-size: 20px;
+		    	color: #FFFFFF;
+		    	margin-left: 20px;
+ 
+	
+	
+	</style>
+	<!--script end-->
+</head>
+<body>
+
+  <div class="php" >
+ 
+     <div  class="titleClass">erp-资源管理平台</div>
+      <li id="midd">账号：<span th:text="${session.account.accountCode}"></sapn></li>
+     
+		<div class="register w3layouts agileits">
+			<div>
+				<input id="registerAccountCode"  th:value="${session.account.id}" placeholder="ID" style="display:none" > 
+				
+				
+				<input id="registerPwd" type="password" Name="Password" placeholder="密码" required="true">
+				<input id="registerConfirm" type="password" Name="Password" placeholder="确认密码" required="true">
+			</div>
+			<div class="send-button w3layouts agileits">
+				<form>
+					<input id="submitBtn" type="submit" value="修改密码">
+				</form>
+			</div>
+	</div>
+  </div>
+</body>
+</html>
