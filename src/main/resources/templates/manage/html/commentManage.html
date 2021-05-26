@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<base href="../manage/"/>
+	<!-- start: Meta -->
+	<meta charset="utf-8">
+	<title>erp-资源管理系统</title>
+	<meta name="description" content="Bootstrap Metro Dashboard">
+	<meta name="author" content="Dennis Ji">
+	<meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+	<!-- end: Meta -->
+	
+	<!-- start: Mobile Specific -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- end: Mobile Specific -->
+	
+	<!-- start: CSS -->
+	<link id="bootstrap-style" href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+	<link id="base-style" href="css/style.css" rel="stylesheet">
+	<link id="base-style-responsive" href="css/style-responsive.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="js/easyui/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="js/easyui/themes/icon.css">
+	
+	<style type="text/css">
+
+		#starts{
+			width:150px;
+			float:left;
+			padding-left:100px;
+
+		}
+	  
+
+	</style>
+	
+	<!-- end: CSS -->
+	<!-- start: JavaScript-->
+	<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+	<script type="text/javascript" src="js/easyui/jquery.min.js"></script>
+	<script type="text/javascript" src="js/easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="js/easyui/datagrid-detailview.js"></script>
+	<script type="text/javascript" src="js/easyui/locale/easyui-lang-zh_CN.js"></script>
+	
+	<script type="text/javascript" src="js/jquery.common.js"></script>
+	<script type="text/javascript" src="js/jquery.validate.js"></script>
+	<script type="text/javascript" src="js/jquery.raty.js"></script>
+	
+	<script type="text/javascript" src="js/commentManage.js"></script>
+	<!-- end: JavaScript-->
+	
+    <script type="text/javascript">
+	$(function(){
+		/* $("#starts").raty({
+			number : 5,//星星个数
+			path : 'images',//图片路径
+			starOn : 'star-on.png',
+			starOff : 'star-off.png',
+			target : '#title',//
+			hints : ['很差','一般','不错','很好','满意'],
+			click : function(score, evt) {
+				$("#grade").val(score);
+			}	
+		}); */
+
+		
+		    $("#starts").raty({
+		        number: 5, 
+		        target: '#title',
+		        path: 'images',
+		        hints: ['差', '一般', '好', '非常好', '全五星'],
+		        cancelOff: 'cancel-off.png',
+		        cancelOn: 'cancel-on.png',
+		        starHalf: 'star-half.png',
+		        starOff: 'star-off.png',
+		        starOn: 'star-on.png',
+		        cancel: true,
+		        targetKeep: true,
+		        cancelHint: '取消星级',
+		        precision: true,//开启小数
+		        click: function(score, evt) {
+		        	$("#grade").val(score);
+		        	/* var $this = $(this);
+		            var sId = $this.parents('tr[data-id]').attr('data-id');
+		            var star = score.toFixed(1);
+		            $.getJSON(url, data,
+		            function(json) {}); */
+		        }
+		    });
+
+	
+	});
+	</script>
+	
+	<!-- start: Favicon -->
+	<link rel="shortcut icon" href="img/avatar.jpg">
+	<!-- end: Favicon -->
+</head>
+
+<body>
+	
+	<!-- start: Header -->
+ 	<div th:replace="commonComponent::topNavbar"></div> 
+	<!-- end: Header -->
+	
+	<!--start container-->
+	<div class="container-fluid-full">
+		<div class="row-fluid">
+			<!-- start: Main Menu -->
+			<div th:replace="commonComponent::leftNavbar"></div>
+			<!-- end: Main Menu -->
+			<!-- start: Content -->
+			<div id="content" class="span10">
+				<ul class="breadcrumb">
+					<li>
+						<i class="icon-home"></i>
+						<a href="/manage/comment">评论管理</a> 
+					</li>
+				</ul>
+				<table id="mainDataGrid"></table>
+				<div id="toolbar" style="padding:2px 5px;">
+					<select id="columnName" class="easyui-combobox" panelHeight="auto">
+						<option value="account_id">账号</option>
+						
+					</select>
+					<input id="columnValue" class="easyui-textbox" type="text" style="width:200px;"/>
+					<a id="searchBtn" class="easyui-linkbutton" iconCls="icon-search">查询</a>
+					<a id="addBtn" class="easyui-linkbutton" iconCls="icon-add">添加</a>
+					<a id="delBtn" class="easyui-linkbutton" iconCls="icon-cancel">删除</a>
+					<a id="updateBtn" class="easyui-linkbutton" iconCls="icon-edit">修改</a>
+				</div>
+	        </div>
+			<!-- end: Content -->
+		</div>
+	</div>
+	<!--end container-->
+		
+	
+	<div class="clearfix"></div>
+	
+	<footer>
+		<p>
+			<span style="text-align:left;float:left"></span>
+		</p>
+	</footer>
+	
+
+	<!-- 添加 -->
+	<div id="addWindow">
+	     <form>
+	        <table class="twoTabe">
+	            <tr>
+	               <td>
+		                <div>
+		                             账号:
+				        <input class="easyui-validatebox" type="text" name="po.accountId"
+				        required="true" data-options="validType:['maxLength[20]']"/>
+					    </div>
+	               </td>
+	            </tr>
+
+	            <tr>
+	               <td>
+		                <div>
+					       内容:
+				        <input class="easyui-validatebox" type="text" name="po.content"
+				        required="true" data-options="validType:['maxLength[300]']"/>
+					    </div>
+	               </td>
+	            </tr>
+	            <tr>
+	               <td>
+		                <div>
+					       资源:
+				        <input class="easyui-validatebox" type="text" name="po.resourceId"
+				        required="true" />
+					    </div>
+	               </td>
+	            </tr>
+	           <tr>
+	               <td>
+		                <div>
+					        
+					     星级:   
+					    <div class="evaluate">
+								<div id="starts"></div> <div id="title"></div>
+							</div>
+
+							<input type="text" id="grade" name="po.commentScore" style="display:none"/>				
+					    </div>
+					    
+	               </td>
+	            </tr>
+	        </table>
+		</form>
+	</div>
+	<!-- 添加 -->
+	<div id="updateWindow">
+	     <form>
+	        <table class="twoTabe">
+	        	<tr Style="display:none">
+	               <td>
+		                <div>
+		                id:
+				        <input class="easyui-validatebox" type="text" name="po.id"/>
+					    </div>
+	               </td>
+	            </tr>
+	           <tr>
+	               <td>
+		                <div>
+		                             账号:
+				        <input class="easyui-validatebox" type="text" name="po.accountId"
+				        required="true" data-options="validType:['maxLength[20]']"/>
+					    </div>
+	               </td>
+	            </tr>
+
+	            <tr>
+	               <td>
+		                <div>
+					       内容:
+				       <input class="easyui-validatebox" type="text" name="po.content"
+				        required="true" data-options="validType:['maxLength[300]']"/>
+					    </div>
+	               </td>
+	            </tr>
+	            <tr>
+	               <td>
+		                <div>
+					       资源:
+				        <input class="easyui-validatebox" type="text" name="po.resourceId"
+				        required="true" />
+					    </div>
+	               </td>
+	            </tr>
+	           <tr>
+	               <td>
+		                <div>
+					        
+					     星级:   
+					    <div class="evaluate">
+								<div id="starts"></div> <div id="title"></div>
+							</div>
+
+							<input type="text" id="grade" name="po.commentScore" style="display:none"/>				
+					    </div>
+					    
+	               </td>
+	            </tr>
+	            
+	        </table>
+		</form>
+	</div>
+</body>
+</html>

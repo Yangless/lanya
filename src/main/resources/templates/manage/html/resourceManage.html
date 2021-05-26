@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<base href="../manage/"/>
+	<!-- start: Meta -->
+	<meta charset="utf-8">
+	<title>erp-资源管理系统</title>
+	<meta name="description" content="Bootstrap Metro Dashboard">
+	<meta name="author" content="Dennis Ji">
+	<meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+	<!-- end: Meta -->
+	
+	<!-- start: Mobile Specific -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- end: Mobile Specific -->
+	
+	<!-- start: CSS -->
+	<link id="bootstrap-style" href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+	<link id="base-style" href="css/style.css" rel="stylesheet">
+	<link id="base-style-responsive" href="css/style-responsive.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="js/easyui/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="js/easyui/themes/icon.css">
+	<!-- end: CSS -->
+	
+	<!-- start: Favicon -->
+	<link rel="shortcut icon" href="img/avatar.jpg">
+	<!-- end: Favicon -->  
+	
+	 <!--script start-->
+    <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+    <script type="text/javascript" src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+   
+    <!--script end-->
+	  						
+	<script>
+/* 	$(function(){
+		alert("xxxx");
+	 $.ajax({
+    	url:"/accountcodeRest/getAll",//请求路径
+    	type:"get",//请求方式
+    	data:{
+    		
+    	},
+    	dataType:"json",//返回的数据类型
+    	success:function(data){
+    		var pos = data.pos;
+    		 var po=pos[0]; 
+    		console.log(pos);
+/*     		for(var i=0;i<length;i++){
+    		/* 	var po = pos[i]; */
+    		/* 	alert("xxxx");
+    			$("#sel").append(
+				        '<option value="">请选择</option><option th:each="po:'+pos+'"th:value="po.accountCode"th:text="po.accountCode"th:selected="po.id"></option>'
+    					
+    					
+    					/* '<option name="po.accountId" value="'+po.id+'">'+po.accountCode+'xxxx'+'</option>' 
+           		); 
+    		/* } 
+    	}
+    });
+		
+}); */
+	
+	</script>
+</head>
+
+<body>
+	
+	<!-- start: Header -->
+ 	<div th:replace="commonComponent::topNavbar"></div> 
+	<!-- end: Header -->
+	
+	<!--start container-->
+	<div class="container-fluid-full">
+		<div class="row-fluid">
+			<!-- start: Main Menu -->
+			<div th:replace="commonComponent::leftNavbar"></div>
+			<!-- end: Main Menu -->
+			<!-- start: Content -->
+			<div id="content" class="span10">
+				<ul class="breadcrumb">
+					<li>
+						<i class="icon-home"></i>
+						<a href="/manage/resource">课程资源管理</a> 
+					</li>
+				</ul>
+				<table id="mainDataGrid"></table>
+				<div id="toolbar" style="padding:2px 5px;">
+					<select id="columnName" class="easyui-combobox" panelHeight="auto">
+						<option value="resource_title">账号</option>
+						
+					</select>
+					<input id="columnValue" class="easyui-textbox" type="text" style="width:200px;"/>
+					<a id="searchBtn" class="easyui-linkbutton" iconCls="icon-search">查询</a>
+					<a id="addBtn" class="easyui-linkbutton" iconCls="icon-add">添加</a>
+					<a id="delBtn" class="easyui-linkbutton" iconCls="icon-cancel">删除</a>
+					<a id="updateBtn" class="easyui-linkbutton" iconCls="icon-edit">修改</a>
+					
+					
+				</div>
+	        </div>
+			<!-- end: Content -->
+		</div>
+	</div>
+	<!--end container-->
+		
+	
+	<div class="clearfix"></div>
+	
+	<footer>
+		<p>
+			<span style="text-align:left;float:left"></span>
+		</p>
+	</footer>
+	
+	<!-- start: JavaScript-->
+	<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+	<script type="text/javascript" src="js/easyui/jquery.min.js"></script>
+	<script type="text/javascript" src="js/easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="js/easyui/datagrid-detailview.js"></script>
+	<script type="text/javascript" src="js/easyui/locale/easyui-lang-zh_CN.js"></script>
+	
+	<script type="text/javascript" src="js/jquery.common.js"></script>
+	<script type="text/javascript" src="js/jquery.validate.js"></script>
+	
+	<script type="text/javascript" src="js/resourceManage.js"></script>
+	<!-- end: JavaScript-->
+	<!-- 添加 -->
+	<div id="addWindow">
+	     <form>
+	        <table class="twoTabe">
+	            <tr>
+	               <td>
+		                <div>
+		                             资源标题:
+				        <input class="easyui-validatebox" type="text" name="po.resourceTitle"
+				        required="true" data-options="validType:['maxLength[20]']"/>
+					    </div>
+	               </td>
+	            </tr> 
+	            <tr>
+	               <td>
+		                <div>
+					       资源简介:
+				        <input class="easyui-validatebox" type="text" name="po.resourceIntro"
+				        required="true" />
+					    </div>
+	               </td>
+	            </tr>
+	             <tr>
+	               <td>
+	               <!-- required="true" --> 
+		                <div>
+				        <input class="photoUrl easyui-textbox" name="po.pictureUrl" 
+					    editable="false" style="width:90%" 
+					     data-options="validType:['maxLength[200]'],labelPosition:'left',label:'图片路径:',buttonText:'选择',onClickButton:function(){$('#uploadImg').dialog('open');}"/>
+					    </div>
+	               </td>
+	            </tr>
+
+     	        <tr>
+	               <td>
+		                <div style="width:100%;">
+					       资源拥有者:
+                           <!--  <option name="po.accountId" value="03b5d0fd-e7e0-4397-9e35-0843e74ce803">po.accountCode</option> -->
+                       
+                          <select data-placeholder="请选择资源"  id="resouces" name="po.accountId" required="true" >
+						        <option   value="">请选择</option>	      
+						        <option   th:each="resouce:${session.resouces}" 
+						        th:value="${resouce.id}"  
+						        th:text="${resouce.accountCode}" 
+						        th:selected=${resouce.id}></option>
+					    	</select>
+					    </div>
+	               </td>
+	            </tr>
+	            
+	        </table>
+		</form>
+	</div>
+	<!-- 添加 -->
+	<!-- 上传图片 -->
+	<div id="uploadImg" style="padding:10px;">
+		<form>
+			<input id="myFile" class="easyui-filebox" style="width:100%;" buttonText="请选择图片" buttonAlign="right"/>
+		</form>
+	</div>	
+
+	<div id="updateWindow">
+	     <form>
+	        <table class="twoTabe">
+	        	<tr Style="display:none">
+	               <td>
+		                <div>
+		                id:
+				        <input class="easyui-validatebox" type="text" name="po.id"/>
+					    </div>
+	               </td>
+	            </tr>
+	          <tr>
+	               <td>
+		                <div>
+		                             资源标题:
+				        <input class="easyui-validatebox" type="text" name="po.resourceTitle"
+				        required="true" data-options="validType:['maxLength[20]']"/>
+					    </div>
+	               </td>
+	            </tr>
+	            
+	            <tr>
+	               <td>
+		                <div>
+					       资源简介:
+				        <input class="easyui-validatebox" type="text" name="po.resourceIntro"
+				        required="true" />
+					    </div>
+	               </td>
+	            </tr>
+	             <tr>
+	               <td>
+	               <!-- required="true" --> 
+		                <div>
+				        <input class="photoUrl easyui-textbox" name="po.pictureUrl" 
+					    editable="false" style="width:90%" 
+					    data-options="validType:['maxLength[200]'],labelPosition:'left',label:'图片路径:',buttonText:'选择',onClickButton:function(){$('#uploadImg').dialog('open');}"/>
+					    </div>
+	               </td>
+	            </tr>
+	            <tr>
+	               <td>
+		                <div style="width:100%;">
+					       资源拥有者:
+                           <!--  <option name="po.accountId" value="03b5d0fd-e7e0-4397-9e35-0843e74ce803">po.accountCode</option> -->
+                          <select data-placeholder="请选择资源"  id="resouces" name="po.accountId" required="true" >
+						        <option   value="">请选择</option>	      
+						        <option   th:each="resouce:${session.resouces}" 
+						        th:value="${resouce.id}"  
+						        th:text="${resouce.accountCode}" 
+						        th:selected=${resouce.id}></option>
+					    	</select>
+					    </div>
+	               </td>
+	            </tr>
+	           
+	            
+	        </table>
+		</form>
+	</div>
+</body>
+</html>

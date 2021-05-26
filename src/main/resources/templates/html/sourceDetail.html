@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <base href="../"/>
+	<meta charset="utf-8" />
+	<title>erp-资源管理平台</title>
+	<!-- start: Favicon -->
+	<link rel="shortcut icon" href="img/logo.png">
+	<!-- end: Favicon -->
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap-theme.min.css"/>
+	<link rel="stylesheet" href="css/common.css"/>
+	<link rel="stylesheet" href="css/sourceDetail.css"/>
+
+<!-- 	<link rel="stylesheet" href="css/raty/jquery.raty.css"/> -->
+	<!--script start-->
+	<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+	<script type="text/javascript" src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/raty/jquery.raty.js"></script>
+	<!--script end-->
+
+    <script>
+     $(function(){
+    	 /* console.log($('#id').val()); */
+    	$.ajax({
+        	url:"/resourcesRest/findById",//请求路径
+        	type:"get",//请求方式
+        	data:{
+        		"po.id":$('#id').val()
+        	},
+        	
+        	async: false,
+        	dataType:"json",//返回的数据类型
+        	success:function(data){
+        		/* console.log(data);  */
+        		var po = data.po;
+        		/* console.log($('#id').val()); */
+        		accountId=po.accountId;
+        		
+        		$("#sourceIntro").append(
+        				
+    					'<p>'+po.resourceIntro+'</p>'+
+    				    
+    				    '<img src="img/weixin.png"/>'+
+    					'<p>想手机上随时阅读？请扫上方二维码</p>'
+        				
+        				
+            		); 
+        		$("#detail").append(
+        				'<p>'+po.resourceDetail+'</p>'
+            		);
+        		 $("#detailTitle").append(
+        				 
+        				 
+        				'<p>'+po.resourceTitle+'</p>'
+            		); 
+         		$("#souname").append(
+						'<p class="title-left-source">'+po.resourceTitle+'</p><span>发布时间：<span>'+ po.resourceDate+'</span></span>'
+            		);
+         		$("#pt").append(
+						'<li><span class="glyphicon glyphicon-save"></span>'+po.downloadCount+'人</li><li>|</li><li><span class="glyphicon glyphicon-eye-open"></span>'+po.viewCount+'次</li><li>|</li><li><span class="glyphicon glyphicon-phone-alt"></span>举报</li><li>|</li><li><span class="glyphicon glyphicon-share-alt"></span>分享</li>'
+            		);
+        	}
+        });
+    	
+    	/* alert(accountId);  */
+    	
+    	
+    	/* setTimeout(5000); */
+    	
+    	
+    	$.ajax({
+        	url:"/accountcodeRest/findById",//请求路径
+        	type:"get",//请求方式
+        	
+        	data:{
+        		
+        		"po.id":accountId    //3bb939b8-fd93-42d2-9ddc-7e02f26a4846
+        	},
+        /* async: false, */ 
+        	dataType:"json",//返回的数据类型
+        	success:function(data){
+        		/* console.log(data); */
+        		var po = data.po;
+        		/* console.log(po); */
+        		
+        		/* console.log(accountId); */
+        		/*  alert(accountId);  */
+        		
+        		
+        		$("#hotAnchor").append(
+        				'<dt><img src="img/open1.jpg"/></dt><dd>'+po.accountCode +'</dd>'
+            		);
+        		
+        		$("#resourcet").append(
+        				'<dt><span class="glyphicon glyphicon-signal"></span></dt><dt>'+po.resourceTotal +'</dt><dd>发布资源</dd>'
+            		);
+        		$("#funt").append(
+        				'<dt><span class="glyphicon glyphicon-heart"></span></dt><dt>'+po.funsTotal +'</dt></dt><dd>粉丝总数</dd>'
+						
+            		);
+        		$("#downt").append(
+        				'<dt><span class="glyphicon glyphicon-save"></span></dt><dt>'+po.downloadTotal +'</dt><dd>下载次数</dd>'
+            		);
+        		$("#userid").append(
+        				'<p>'+ po.userIntro+'</p>'
+            		);
+
+        		
+        		
+        	}
+        });
+    	
+    	
+    	
+    }); 
+      
+    
+	    $(function(){
+	    	$.ajax({
+            	url:"/resourcecommentRest/getAll",//请求路径
+            	type:"get",//请求方式
+            	data:{
+            		
+            	},
+            	async: false,
+            	dataType:"json",//返回的数据类型
+            	success:function(data){
+            		var pos = data.pos;
+            		
+
+            		
+            		
+            		var j =0;
+            		for( var i=0;i<pos.length;i++){
+            			var po = pos[i];
+            			
+            			if(po.resourceId==$('#id').val()){
+            				j=j+1;
+            				/* alert($('#id').val()); */
+           				   $("#accountDl").append(
+           						   
+           						'<div class="commentListClass container-fluid">'+
+            					 '<div class="row">'+
+            						  '<div class="col-xs-12 col-sm-4 col-md-2">'+
+            								'<dl class="userDlClass">'+
+            								'	<dt><img src="img/open1.jpg"/></dt>'+
+            									'<dd>'+po.accountId+'</dd>'+
+            								'</dl>'+
+            						  '</div>'+
+            						  '<div class="col-xs-12 col-sm-8 col-md-10">'+
+            								'<dl class="commentDlClass">'+
+            								'<dd><div class="starDiv'+i+'"></div></dd>'+
+            									'<dd><span>发布时间：<span>'+po.commentDate+'</span></span></dd>'+
+            								'<dd><p>'+po.content+'</p></dd>'+
+            								'</dl>'+
+            						  '</div>'+
+            					 '</div>'+
+            					'</div>'
+           						   
+           						
+                   			);
+            			}
+            			
+            		
+           				$(".starDiv"+i).raty({ readOnly: true, score: po.commentScore });
+            		}
+            		
+            		$("#pagesize").append(
+            				'<span class="glyphicon glyphicon-comment"></span>'+j+'个评论'
+                		);
+            	}
+            });
+	    });   
+	</script>
+
+</head>
+<body>
+    
+	<div th:replace="commonComponent::Navbar"></div>
+
+	
+	<div class="mainClass">
+		<div class="mainClass-leftClass">
+			<div id="sourceDetialList">
+				<div class="detailContent">
+					<div class="container-fluid">
+					  <div class="row">
+					    <div id="souname" class="title-left col-xs-12 col-sm-6 col-md-6">
+
+						</div>
+						<div class="title-right col-xs-12 col-sm-6 col-md-6">
+							<button class="blueBtnClass">我要免费</button>
+							<button class="blueBtnClass">立即下载</button>
+							<ul id="pt" class="title-right-source">
+
+							</ul>
+						</div>
+					  </div>
+					</div>
+				</div>
+				<div  class="detailTitle">
+					<span class="glyphicon glyphicon-edit"></span>资源概述
+				</div>
+				<div id="detailTitle" class="detailContent">
+					
+				</div>
+				<div class="detailTitle">
+					<span class="glyphicon glyphicon-edit"></span>资源详细介绍
+				</div>
+				<div  id="detail" class="detailContent">
+					
+				</div>
+				<div  class="detailTitle">
+					<span class="glyphicon glyphicon-volume-up"></span>资源说明
+				</div>
+				<div id="sourceIntro" class="sourceIntro detailContent">
+
+				</div>
+				<div class="detailTitle">
+					<span class="glyphicon glyphicon-ok"></span>相似资源推荐
+				</div>
+				<div class="recommendDiv detailContent">
+					<div class="container-fluid">
+					  <div class="row">
+					    <div class="col-xs-12 col-sm-6 col-md-6">
+							<a><span class="glyphicon glyphicon-star"></span>基于springboot跟shiro的后台权限管理系统</a>
+							<a><span class="glyphicon glyphicon-star"></span>基于Python-Flask实现的网站例子</a>
+							<a><span class="glyphicon glyphicon-star"></span>基于springboot的activiti 工作流后台管理系统</a>
+							<a><span class="glyphicon glyphicon-star"></span>基于SpringBoot的项目管理后台</a>
+						</div>
+						<div class="col-xs-12 col-sm-6 col-md-6">
+							<a><span class="glyphicon glyphicon-star"></span>基于springboot跟shiro的后台权限管理系统</a>
+							<a><span class="glyphicon glyphicon-star"></span>基于Python-Flask实现的网站例子</a>
+							<a><span class="glyphicon glyphicon-star"></span>基于springboot的activiti 工作流后台管理系统</a>
+							<a><span class="glyphicon glyphicon-star"></span>基于SpringBoot的项目管理后台</a>
+						</div>
+					  </div>
+					</div>
+				</div>
+				<div id="pagesize" class="detailTitle">
+					
+				</div>
+				<div id="accountDl" class="detailContent">
+				</div>
+					<div id="loadMore">
+						<button class="blueBtnClass">加载更多</button>
+					</div>
+			</div>
+		</div>
+		<div class="mainClass-rightClass">
+			
+			<div class="addClass">
+				<a><img src="img/5.jpg"/></a>
+			</div>
+			
+			<div  class="quickShow">
+				<div class="quickShow-title">
+					<h5>主播</h5>
+				</div>
+				<div class="quickShow-content">
+					<dl id="hotAnchor" class="userDlClass">
+						
+					</dl>
+					<table class="hotAnchorTable">
+						<tr>
+							<td>
+								<dl id="resourcet">
+
+								</dl>
+							</td>
+							<td>
+								<dl id="funt">
+
+								</dl>
+							</td>
+							<td>
+								<dl id="downt">
+
+								</dl>
+							</td>
+						</tr>
+					</table>
+					<div class="mainClass-rightClass-Title">
+						<span class="glyphicon glyphicon-flag"></span>主播简介
+					</div>
+					<div id="userid" class="mainClass-rightClass-Content">
+						
+					</div>
+					<div class="mainClass-rightClass-Title">
+						<span class="glyphicon glyphicon-saved"></span>主播推荐资源
+					</div>
+					<div class="mainClass-rightClass-Content">
+						<ul>
+							<li><span class="glyphicon glyphicon-star"></span>Java用freemarker导出word</li>
+							<li><span class="glyphicon glyphicon-star"></span>基于贪心算法求解TSP问题（JAVA）</li>
+							<li><span class="glyphicon glyphicon-star"></span>Java使用RSA加密解密签名及校验</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		
+		</div>
+	</div>	
+		
+	<footer>
+		<div class="footer-top">
+			<div class="container-fluid">
+			  <div class="row">
+				  <div class="col-xs-12 col-sm-12 col-md-4">
+					  <div class="footerDiv leftFooterDiv">
+						  <P>客服QQ:<span>2075114043</span></P>
+						  <P>客服微信:<span>xiaoai521173</span></P>
+						  <P>广告联系:<span>503184054@qq.com</span></P>
+					  </div>
+				  </div>
+				  <div class="col-xs-12 col-sm-12 col-md-4">
+					  <div class="footerDiv">
+						  <img src="img/weixin.png"/>
+					  </div>
+				  </div>
+				  <div class="col-xs-12 col-sm-12 col-md-4">
+					  <div class="footerDiv">
+						  <P>《用户协议》</P>
+						  <P>《创作者协议》</P>
+						  <P>《关于我们》</P>
+					  </div>
+				  </div>
+			  </div>
+			</div>
+		</div>
+		<input type="hidden" id="id" th:value="${id}"></input>
+		<div class="footer-bottom">
+			<span>粤ICP备17055197号-1</span>
+		</div>
+	</footer>
+	
+</body>
+</html>
